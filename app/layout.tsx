@@ -52,6 +52,7 @@ export default function RootLayout({
               <a href={`https://github.com/${REPO}`}>Source</a>
               <a href={RELEASES_URL}>Releases</a>
               <a href={`https://github.com/${REPO}/blob/main/LICENSE`}>Licence</a>
+              <a href={SITE.repo}>This site</a>
             </div>
           </footer>
         </div>
