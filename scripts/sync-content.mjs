@@ -8,6 +8,7 @@
 // Run `npm run sync` after a release, then commit what changed.
 
 import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -38,10 +39,68 @@ if (!existsSync(join(appRepo, "CHANGELOG.md"))) {
   process.exit(1);
 }
 
-const changelog = await readFile(join(appRepo, "CHANGELOG.md"), "utf8");
+/** Numeric-segment compare; -1, 0 or 1 for a < b, a == b, a > b. */
+function compareVersions(a, b) {
+  const pa = a.split(".").map(Number);
+  const pb = b.split(".").map(Number);
+  for (let i = 0; i < Math.max(pa.length, pb.length); i += 1) {
+    const x = pa[i] ?? 0;
+    const y = pb[i] ?? 0;
+    if (x !== y) return x < y ? -1 : 1;
+  }
+  return 0;
+}
+
+// CHANGELOG.md is written ahead of the release — the section for the version
+// being prepared is added as the work lands, and `scripts/publish-release.sh`
+// reads it when that version actually ships. Copying the file wholesale
+// therefore published unreleased notes: the site would describe a version
+// nobody could download yet.
+//
+// The tags are the release record, and they are already in this checkout, so
+// this needs no network. Note the filter is "newer than the newest tag", not
+// "has a tag": the first 21 sections predate the public repository and have no
+// tag, and dropping those would throw away most of the history.
+function latestReleasedVersion() {
+  const out = execFileSync("git", ["-C", appRepo, "tag", "--sort=-v:refname"], {
+    encoding: "utf8",
+  });
+  const newest = out.split("\n").map((l) => l.trim()).filter(Boolean)[0];
+  if (!newest) {
+    console.error(`✗ no tags in ${appRepo} — cannot tell which versions shipped.`);
+    console.error("  Run `git fetch --tags` there, then try again.");
+    process.exit(1);
+  }
+  return newest.replace(/^v/, "");
+}
+
+const released = latestReleasedVersion();
+const changelogSource = await readFile(join(appRepo, "CHANGELOG.md"), "utf8");
+
+const SECTION = /^## +(\S+) *$/gm;
+const starts = [...changelogSource.matchAll(SECTION)].map((m) => ({
+  version: m[1],
+  at: m.index,
+}));
+
+// Sections run newest-first, so anything unreleased sits at the top. Keep the
+// preamble, then resume at the first section that has actually shipped —
+// slicing at the unreleased section instead would keep the preamble and throw
+// away every release below it.
+const unreleased = starts.filter((s) => compareVersions(s.version, released) > 0);
+const firstReleased = starts.find((s) => compareVersions(s.version, released) <= 0);
+const changelog = unreleased.length && firstReleased
+  ? changelogSource.slice(0, starts[0].at) + changelogSource.slice(firstReleased.at)
+  : changelogSource;
+
 await mkdir(join(siteRoot, "content"), { recursive: true });
 await writeFile(join(siteRoot, "content", "changelog.md"), changelog);
-console.log(`→ content/changelog.md (${changelog.length} bytes)`);
+console.log(`→ content/changelog.md (${changelog.length} bytes, through ${released})`);
+if (unreleased.length) {
+  console.log(
+    `  held back ${unreleased.length} unreleased: ${unreleased.map((u) => u.version).join(", ")}`,
+  );
+}
 
 await mkdir(join(siteRoot, "public", "screenshots"), { recursive: true });
 for (const name of SCREENSHOTS) {
