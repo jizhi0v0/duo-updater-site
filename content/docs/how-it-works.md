@@ -1,18 +1,35 @@
 <!-- title: How it works | summary: Where each version number comes from, and why the install route differs per app. | order: 1 -->
 
 Duo Updater scans `/Applications`, `/Applications/Utilities` and `~/Applications`,
-then checks what it found against several update sources, in priority order:
+then checks what it found against several update sources, in priority order. The
+first source that recognises an app answers for it; the rest are not consulted.
 
 1. **Mac App Store** — Apple's iTunes lookup API, with storefront and region
    awareness. Only native `mac-software` results are trusted; iOS-on-Mac apps are
    skipped, because their version numbers move independently and would otherwise
    show up as updates that can never be installed.
-2. **Sparkle** — the app's own `SUFeedURL` appcast, which is the same feed the
+2. **Xcode Releases** — the Xcode builds that do not come from the App Store:
+   every beta and release candidate, matched to the channel you actually have
+   installed. A store-installed Xcode is already answered above.
+3. **Sparkle** — the app's own `SUFeedURL` appcast, which is the same feed the
    app's built-in updater reads.
-3. **Homebrew Cask** — matched by `.app` filename, falling back to bundle id, so
+4. **Homebrew Cask** — matched by `.app` filename, falling back to bundle id, so
    casks that install a `pkg` rather than an app bundle are still found.
-4. **Per-app recipes** — for vendors that publish neither a feed nor a store
-   listing, a hand-written rule against that vendor's own endpoint.
+5. **GitHub Releases** — channel-aware matching for apps distributed that way.
+   Detection only, unless a per-app rule has named and vetted an installable Mac
+   asset for that app.
+6. **Alcove** — its authenticated update endpoint, and only if you have entered a
+   licence. Without one this source is absent entirely, and Alcove falls through
+   to the public vendor probe below.
+7. **Vendor probes** — hand-written rules against a vendor's own endpoint, for
+   everything that publishes neither a feed nor a store listing.
+
+## Two kinds of app skip that list entirely
+
+An app managed by **JetBrains Toolbox**, and an app installed from
+**TestFlight**, are answered before any of the seven above is consulted. Toolbox
+and TestFlight each own the update for those apps, and there is no useful second
+opinion to be had, so the list never runs for them.
 
 ## It updates each app the way that app expects
 
@@ -22,8 +39,8 @@ different depending on the row:
 
 | Channel | What happens when you press Update |
 | --- | --- |
-| Sparkle | Download, verify (EdDSA signature, Developer ID, Team ID), swap the bundle, relaunch |
-| Mac App Store | Install through the store, or open its page when that is the only route available |
+| Sparkle | Download, run the checks below, swap the bundle — then quit and reopen the app, unless you have turned that off |
+| Mac App Store | A full download through the store. Where that is not possible — the background helper is not approved, or the app is locked to another region — the row hands off to the App Store app instead |
 | Self-updating (Electron, Squirrel) | Open the app and let its own updater do the work |
 | Homebrew app cask | `brew install --cask --force` |
 | Homebrew `pkg` cask | Download the official package and open the system installer |

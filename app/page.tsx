@@ -54,9 +54,9 @@ export default function HomePage() {
         <div className="point">
           <h3>It checks who signed the download</h3>
           <p>
-            EdDSA where a feed provides it, then a Developer ID signature, Team ID
-            and bundle id that must match the app being replaced — plus a backup
-            you can roll back to.
+            EdDSA where the app publishes a key, then a Developer ID signature,
+            Team ID, bundle id and architecture that all have to match the app
+            being replaced — plus a backup you can roll back to.
           </p>
         </div>
         <div className="point">

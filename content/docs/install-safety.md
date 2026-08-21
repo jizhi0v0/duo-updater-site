@@ -5,22 +5,42 @@ thing that can go wrong when software replaces other software on your Mac.
 
 ## It never force-quits a running app
 
-When an update needs the app restarted to take effect, the quit is a plain
-`terminate()` — the app runs its own save prompts and can refuse. An app that
-refuses is left running and keeps a **Restart** button, so unsaved work is never
-at risk from a forced exit.
+The installer never quits anything. Restarting an updated app is a separate
+step, on by default and switchable off in Settings — and when it runs, the quit
+is a plain `terminate()`. The app runs its own save prompts and can refuse. One
+that refuses is left running and keeps a **Restart** button, so unsaved work is
+never at risk from a forced exit.
 
 Worth knowing: the restart happens *after* the new version is already on disk. So
 if you decline the quit, you have an updated bundle sitting beside a process
 still running the old code, until you relaunch it yourself. That is what the
 Restart button on the row means.
 
-## Signatures are checked against the app being replaced
+## Five checks before anything is replaced
 
-Where a feed provides an EdDSA signature, it is verified. Then, regardless of
-source, the downloaded bundle's Developer ID signature, Team ID and bundle
-identifier all have to match the app it is about to replace. A download that
-resolves to a different developer is refused, not installed.
+**EdDSA**, when the app itself supplies a public key. Some vendors ship an
+unsigned feed; those are not refused outright, they simply have to clear the
+remaining checks on their own. An app that *does* publish a key must produce a
+valid signature — with one deliberate exception, below.
+
+Then, regardless of source, four checks on the downloaded bundle:
+
+- **Developer ID signature**, validated strictly and all the way down — every
+  architecture, and nested code included, not just the outer bundle.
+- **Team ID**, which has to match the app being replaced.
+- **Bundle identifier**, taken from the *signature* rather than from the
+  `Info.plist`, so a rewritten plist cannot talk its way past this.
+- **Runnable architecture**, read from the real Mach-O slices. A build this Mac
+  cannot launch is refused rather than installed and left broken.
+
+A download that resolves to a different developer is refused, not installed.
+
+The exception: when a vendor rotates its signing key without shipping a
+transition build, the old key can no longer validate anything they publish. Rather
+than stranding the app forever, an invalid EdDSA signature is held rather than
+thrown, and the install may still proceed **if the other four checks pass** and
+the downloaded bundle carries a new key that validates the feed. The Developer ID
+and Team ID gates are what carry the trust in that case.
 
 ## Major version upgrades are gated
 
