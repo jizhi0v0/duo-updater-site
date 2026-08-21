@@ -198,7 +198,10 @@ pre code {
   margin: 0 auto;
   color: var(--text-muted);
   font-size: 1.0625rem;
-  text-wrap: pretty;
+  /* `balance`, not `pretty`: this is centred display text. `pretty` only rescues
+     a last line of one word, and a ragged three-word tail under a centred block
+     still reads as an accident. */
+  text-wrap: balance;
 }
 
 .cta {
@@ -282,6 +285,7 @@ pre code {
   margin: 0;
   color: var(--text-muted);
   font-size: 0.9375rem;
+  text-wrap: pretty;
 }
 
 /* ---------- prose ---------- */
@@ -302,6 +306,7 @@ pre code {
   margin: 0;
   color: var(--text-muted);
   max-width: var(--measure);
+  text-wrap: pretty;
 }
 
 .prose {
@@ -400,6 +405,7 @@ pre code {
 .doc-list span {
   color: var(--text-muted);
   font-size: 0.9375rem;
+  text-wrap: pretty;
 }
 
 .back-link {
