@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Docs",
   description:
     "How Duo Updater decides what has an update, what it checks before replacing an app, and what macOS will ask you for.",
+  alternates: { canonical: "/docs" },
 };
 
 export default async function DocsIndexPage() {

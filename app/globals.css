@@ -248,6 +248,19 @@ pre code {
   border-radius: 12px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  /* The intrinsic width/height come from the file; capping the width here and
+     letting the height follow keeps the reserved box at the true aspect ratio,
+     so nothing shifts when the image arrives. */
+  height: auto;
+  max-width: 100%;
+}
+
+.shot-narrow {
+  width: 420px;
+}
+
+.shot-wide {
+  width: 760px;
 }
 
 .shot figcaption {

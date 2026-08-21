@@ -1,8 +1,55 @@
-import DownloadButton from "@/components/DownloadButton";
+import Image from "next/image";
 
-export default function HomePage() {
+import type { Metadata } from "next";
+
+import DownloadButton from "@/components/DownloadButton";
+import { fetchLatestRelease, REPO } from "@/lib/release";
+import { SITE } from "@/lib/site";
+
+// Static imports so the intrinsic size comes from the file rather than from a
+// number typed by hand. The hand-typed ones were wrong — every figure claimed a
+// height of 520 against four different aspect ratios, so the browser reserved the
+// wrong box and the page jumped when each image landed.
+import changelogShot from "@/public/screenshots/changelog.png";
+import menuBarShot from "@/public/screenshots/menu-bar.png";
+import releaseLogShot from "@/public/screenshots/release-log-timeline.png";
+import settingsShot from "@/public/screenshots/settings.png";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+export default async function HomePage() {
+  const release = await fetchLatestRelease();
+
+  // Structured data for the one thing this page is about: a downloadable macOS
+  // application. Version and download URL are read from the same release fetch
+  // the button uses, so the two cannot describe different builds.
+  const jsonLD = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: SITE.name,
+    description: SITE.tagline,
+    url: SITE.url,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "macOS 14 or later, Apple Silicon",
+    downloadUrl: release.downloadURL,
+    releaseNotes: `${SITE.url}/changelog`,
+    isAccessibleForFree: true,
+    license: `https://github.com/${REPO}/blob/main/LICENSE`,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    ...(release.version ? { softwareVersion: release.version } : {}),
+    ...(release.publishedAt ? { datePublished: release.publishedAt } : {}),
+  };
+
   return (
     <div className="wrap">
+      <script
+        type="application/ld+json"
+        // The value is built above from our own constants and the GitHub API's
+        // release fields, never from user input.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD) }}
+      />
       <section className="hero">
         <h1>
           Update your Mac apps the way
@@ -19,11 +66,12 @@ export default function HomePage() {
       </section>
 
       <figure className="shot">
-        <img
-          src="/screenshots/menu-bar.png"
+        <Image
+          src={menuBarShot}
           alt="The Duo Updater menu bar popover, listing apps with an update available: each row shows the installed version, the new version, and either an Update or a Relaunch button."
-          width={420}
-          height={520}
+          className="shot-narrow"
+          sizes="(max-width: 52rem) 100vw, 420px"
+          priority
         />
         <figcaption>
           Each row says what you are going from and to, and the button says what
@@ -69,11 +117,11 @@ export default function HomePage() {
       </div>
 
       <figure className="shot">
-        <img
-          src="/screenshots/changelog.png"
+        <Image
+          src={changelogShot}
           alt="The workbench window: a sidebar listing every scanned app, and the release notes for the selected one rendered as native text — version heading, date, and one bullet per change."
-          width={760}
-          height={520}
+          className="shot-wide"
+          sizes="(max-width: 52rem) 100vw, 760px"
         />
         <figcaption>
           Opening the window gives you everything it scanned, and the release
@@ -84,11 +132,11 @@ export default function HomePage() {
       </figure>
 
       <figure className="shot">
-        <img
-          src="/screenshots/release-log-timeline.png"
+        <Image
+          src={releaseLogShot}
           alt="The Release Log timeline: releases grouped by day, each showing the app, version, source, and either an exact publish time or an approximate window."
-          width={420}
-          height={520}
+          className="shot-narrow"
+          sizes="(max-width: 52rem) 100vw, 420px"
         />
         <figcaption>
           Every version it sees gets recorded, so over time you get a log of when
@@ -99,11 +147,11 @@ export default function HomePage() {
       </figure>
 
       <figure className="shot">
-        <img
-          src="/screenshots/settings.png"
+        <Image
+          src={settingsShot}
           alt="Duo Updater's General settings: check interval, post-update behaviour including automatic restart and rollback backups, concurrency, and install routing for App Store and self-updating apps."
-          width={760}
-          height={520}
+          className="shot-wide"
+          sizes="(max-width: 52rem) 100vw, 760px"
         />
         <figcaption>
           Most of the settings are about how much autonomy you want to give it —

@@ -6,6 +6,7 @@ import { RELEASES_URL } from "@/lib/release";
 export const metadata: Metadata = {
   title: "Changelog",
   description: "Every release of Duo Updater, and what changed in it.",
+  alternates: { canonical: "/changelog" },
 };
 
 export default async function ChangelogPage() {

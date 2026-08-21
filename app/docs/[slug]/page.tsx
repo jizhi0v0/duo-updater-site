@@ -13,7 +13,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   try {
     const { doc } = await readDoc(slug);
-    return { title: doc.title, description: doc.summary };
+    return {
+      title: doc.title,
+      description: doc.summary,
+      alternates: { canonical: `/docs/${slug}` },
+    };
   } catch {
     return {};
   }

@@ -23,6 +23,15 @@ const SCREENSHOTS = [
   "release-log-timeline.png",
 ];
 
+// The app's own icon, used as this site's favicon and as the face of the
+// Open Graph card. Copied for the same reason as everything else here: a deploy
+// must not depend on a sibling checkout being present.
+const ICONS = [
+  { from: "App/Resources/Assets.xcassets/AppIcon.appiconset/icon_256.png", to: "app/icon.png" },
+  { from: "App/Resources/Assets.xcassets/AppIcon.appiconset/icon_1024.png", to: "app/apple-icon.png" },
+  { from: "App/Resources/Assets.xcassets/AppIcon.appiconset/icon_512.png", to: "assets/icon.png" },
+];
+
 if (!existsSync(join(appRepo, "CHANGELOG.md"))) {
   console.error(`✗ no CHANGELOG.md under ${appRepo}`);
   console.error("  Set APP_REPO to the duo-updater checkout if it lives elsewhere.");
@@ -43,4 +52,15 @@ for (const name of SCREENSHOTS) {
   }
   await cp(from, join(siteRoot, "public", "screenshots", name));
   console.log(`→ public/screenshots/${name}`);
+}
+
+for (const { from, to } of ICONS) {
+  const source = join(appRepo, from);
+  if (!existsSync(source)) {
+    console.error(`✗ missing icon: ${source}`);
+    process.exit(1);
+  }
+  await mkdir(dirname(join(siteRoot, to)), { recursive: true });
+  await cp(source, join(siteRoot, to));
+  console.log(`→ ${to}`);
 }
