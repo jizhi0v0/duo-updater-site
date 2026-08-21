@@ -94,7 +94,7 @@ export default function HomePage() {
           Every version it sees gets recorded, so over time you get a log of when
           the software you use actually ships. A release time is only called exact
           when the vendor&rsquo;s own feed timestamps it; everything else is shown
-          as a window with a <code>≈</code>, because that is all we honestly know.
+          as a window with a ≈, because that is all we honestly know.
         </figcaption>
       </figure>
 

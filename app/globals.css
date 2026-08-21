@@ -190,6 +190,7 @@ pre code {
   line-height: 1.15;
   letter-spacing: -0.03em;
   margin: 0 0 1rem;
+  text-wrap: balance;
 }
 
 .hero p {
@@ -197,6 +198,7 @@ pre code {
   margin: 0 auto;
   color: var(--text-muted);
   font-size: 1.0625rem;
+  text-wrap: pretty;
 }
 
 .cta {
@@ -251,6 +253,11 @@ pre code {
   color: var(--text-muted);
   font-size: 0.9375rem;
   text-align: center;
+  /* Centred prose with no break control strands the last word on its own line,
+     which reads as a mistake rather than a line break. `balance` evens the lines
+     out instead; these captions are 3-5 lines, inside the ~6-line ceiling
+     browsers impose on it. */
+  text-wrap: balance;
 }
 
 .section-title {
@@ -316,6 +323,7 @@ pre code {
 .prose p,
 .prose li {
   color: var(--text-muted);
+  text-wrap: pretty;
 }
 
 .prose strong {
@@ -433,6 +441,7 @@ pre code {
 .release-body p {
   margin: 0 0 1rem;
   color: var(--text-muted);
+  text-wrap: pretty;
 }
 
 .release-body p:last-child {
