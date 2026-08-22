@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 
 import { RELEASES_URL, REPO } from "@/lib/release";
@@ -61,6 +62,10 @@ export default function RootLayout({
             </div>
           </footer>
         </div>
+        {/* Aggregate page counts only — see /docs/privacy for what it records.
+            Kept out of the footer's claim on purpose: that sentence is scoped to
+            the app, which still talks to no server of ours. */}
+        <Analytics />
       </body>
     </html>
   );

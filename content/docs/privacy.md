@@ -35,3 +35,27 @@ written to a plist.
 Release notes that can only be shown as the vendor's own web page are rendered in
 a `WKWebView` with a non-persistent data store, so vendor cookies do not survive
 a relaunch.
+
+## This website
+
+Everything above is about the app. This page you are reading is a separate thing,
+and it does collect something, so it is worth stating plainly rather than leaving
+you to infer it from the app's behaviour.
+
+The site runs **Vercel Web Analytics**, which counts page views. Per Vercel's own
+documentation it records, for each view: the time, the URL and its route pattern,
+the referrer, filtered query parameters, an approximate location (country, region,
+city), the browser and operating system with versions, and the device type.
+
+What it does not do: there are no third-party cookies. A visitor is identified by
+a hash derived from the incoming request rather than by anything stored on your
+machine, and that identity is discarded after 24 hours — so it cannot follow you
+across sites, and it cannot reconstruct what you did here a week ago. Vercel
+states the data points are not tied to an IP address.
+
+There is nothing else. No advertising network, no session recording, no
+third-party scripts of any kind. The download button links straight to GitHub,
+and the release notes come from a file in this site's own repository.
+
+If you would rather not be counted, any content blocker will drop the script, and
+the site works exactly the same without it.
