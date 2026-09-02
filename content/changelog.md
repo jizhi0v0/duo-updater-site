@@ -5,6 +5,58 @@ reads the section matching the version being shipped and embeds it in the GitHub
 release and the Sparkle appcast, so this file is the single source of truth for
 "what's new" — keep each version's prose written for users, not commit-speak.
 
+**Write what the reader gets, not how it was found.** One bold sentence naming the
+benefit, and at most one more saying what used to happen instead. Nobody reading a
+release note is debugging our code:
+
+- No investigation narrative — what was measured, which comment was wrong, how many
+  call sites there were, what a reviewer caught.
+- No numbers from a developer's machine, no file or symbol names, no issue numbers.
+- Changes a user cannot perceive (refactors, internal hardening, most performance
+  work) go in a single closing "Under the hood:" line, or nowhere. A speed-up
+  belongs on its own only if someone would actually feel it.
+- Ordered by how much the reader cares, not by when it was merged.
+
+Versions before 0.3.80 are the old long-form style; leave them as shipped.
+
+## 0.3.80
+
+**Failed checks are visible in the window now.** The window drew nothing for a row whose check had failed — or one you ignored, one you skipped, or one the App Store, Toolbox or TestFlight manages — which looked exactly like "up to date". The two windows now say the same thing about the same app, and the retry button is in both.
+
+**"Check Again" on any row asks about just that app.** It also re-reads which apps are running, so it is the quick way to correct a green dot that looks wrong.
+
+**Skipping and ignoring now work from the window's right-click menu.** Both rows told you to right-click to undo, in a window whose menu had no such thing.
+
+**The background check no longer takes away release notes you are reading.** The hourly check threw away every note it had already loaded, so an open Release Notes pane blinked back to a spinner. Only a refresh you asked for starts them over now.
+
+**Interrupted downloads are checked before they are called complete.** A server that resent the whole file, or stopped short, was taken on trust, and the trouble surfaced one step later as an install that failed on a broken archive. Downloads behind a proxy that used to fail permanently work now.
+
+**Updating one app no longer rescans every app on your disk.** Each click did two full sweeps of all your applications to look at the one you asked about.
+
+**Chrome's release notes cannot freeze any more.** A routine restyle of Google's blog was enough to stall them for minutes; they now load promptly whatever the page looks like.
+
+**A downloaded installer is no longer discarded and fetched again.** When a vendor spelled the same release two ways (`v1.2.3` and `1.2.3`), the waiting package went unrecognised and Relaunch could keep waiting on a swap that had already happened.
+
+**A failed administrator install is no longer mistaken for you pressing Cancel.** There was no error shown, and that app quietly stopped offering one-click updates until you asked for administrator access again from its row menu.
+
+**The green "running" dot notices every app now.** macOS never announces some apps opening or closing, and their dot stayed wrong until something unrelated refreshed it.
+
+**"Update All" no longer flashes in and out during a refresh**, and an app you update mid-refresh is not reset to offering the update it already installed.
+
+**A check that fails as you press Update says so**, instead of being filed as "nothing to do".
+
+Under the hood: release dates written in unusual formats are read correctly, the address check on release-notes pages covers every equivalent spelling, and routine bookkeeping no longer touches the disk each time any app on your Mac opens or quits.
+
+## 0.3.79
+
+**Docker's mark now describes Docker's interface instead of its daemon.** The row said "native"; Docker Desktop is an Electron app. The mark is read from the app's bundle, and Docker's bundle is a wrapper: the program it names is a background service written in Go, it carries no framework of its own, and the actual window-drawing app sits one level inside it. Everything was being read correctly out of the wrong file. Duo Updater now looks in the nested app when — and only when — the outer one brings nothing itself and contains exactly one such app that proves what it is built with, so a helper process shipped alongside a real interface still cannot lend its identity to its host. Docker reads as Electron 42.5.0, and of the hundred and forty-six apps in the list on the machine this was written on, it is the only row that changes.
+
+**CleanShot X's release notes are readable again — including 5.0's.** CleanShot shipped its biggest release in years and rebuilt its changelog page along with it: the date moved above the version number, two new layers appeared around it, and a feature release now puts an introduction and two video links between the version and its list of changes. The reader Duo Updater used stopped matching any of it. What made this worse than an empty pane is that it did not look empty: the notes it had already saved for the previous release stayed on screen under the new version's heading, so the pane said "5.0" over 4.8.10's changes and nothing anywhere said otherwise.
+
+**Notes saved before a release was published are now re-read instead of trusted forever.** That is the other half of the same story. Duo Updater knew 5.0 existed six minutes before CleanShot published what was in it, saved the page as it stood, and filed it under 5.0 — and from then on every check found something already saved and never looked again. Saved notes are now confirmed against the vendor once per session before they are treated as final, so a version whose notes arrive late fills itself in on the next visit rather than staying wrong.
+
+**Anything you open from the menu bar now opens on the first click.** Choosing Changelog on a row — or Settings, or the release log — did nothing at all the first time, and worked from the second click on. Reopening the menu made every attempt the first one again, so for people who open the menu, click once, and expect a window, it never worked at all. The first click inside the menu was being spent bringing Duo Updater to the front rather than doing what it was aimed at. The window it opens is also held in front now: it was being ordered up and pushed back down again in the same moment, which is the other way this looked like a click that did nothing.
+
 ## 0.3.78
 
 **An app that leaves its own name blank now gets one anyway.** Eudic (欧路词典) sat in the list with an icon, a version, and nothing at all where the name goes. Its bundle does declare a display name — and leaves it empty, because the real names live in the app's translations — and Duo Updater treated that empty answer as the answer instead of asking the next question. It now falls through to the app's other name, and to the name of the app file after that, so a row is never nameless. One app in a hundred and fifty here was affected; the point is that the information was already there and was being skipped.
