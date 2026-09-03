@@ -68,18 +68,31 @@ export default async function HomePage() {
       <figure className="shot">
         <Image
           src={menuBarShot}
-          alt="The Duo Updater menu bar popover, listing apps with an update available: each row shows the installed version, the new version, and either an Update or a Relaunch button."
+          alt="The Duo Updater menu bar popover, listing apps with an update available: each row shows the installed version, the new version, a small badge for what the app is built with, and either an Update or a Relaunch button. A hover card over one row reads: Electron 42.10.0 — built with Electron, it bundles its own copy of Chromium."
           className="shot-narrow"
           sizes="(max-width: 52rem) 100vw, 420px"
           priority
         />
+        {/* Two paragraphs rather than one long caption: `text-wrap: balance`
+            stops applying past a browser-imposed line ceiling (see the rule in
+            globals.css), and a merged caption would sail past it. */}
         <figcaption>
-          Each row says what you are going from and to, and the button says what
-          will actually happen: <strong>Update</strong> installs;{" "}
-          <strong>Relaunch</strong> means it is already updated on disk and only
-          the running copy is stale. A green dot marks an app that is running, so
-          you know before you click whether something is about to be quit and
-          reopened.
+          <p>
+            Each row says what you are going from and to, and the button says what
+            will actually happen: <strong>Update</strong> installs;{" "}
+            <strong>Relaunch</strong> means it is already updated on disk and only
+            the running copy is stale. A green dot marks an app that is running, so
+            you know before you click whether something is about to be quit and
+            reopened.
+          </p>
+          <p>
+            The badge beside a name says what the app is built with — Electron, Qt,
+            Chromium, a bundled JVM, Flutter, Tauri, Catalyst, or an iPhone app
+            running on Apple Silicon — and hovering it names the runtime and its
+            version. Each one is read from something the packager actually shipped,
+            never from the app&rsquo;s name or its vendor, so a bundle that does not
+            say stays unlabelled rather than guessed at.
+          </p>
         </figcaption>
       </figure>
 
@@ -105,6 +118,13 @@ export default async function HomePage() {
             EdDSA where the app publishes a key, then a Developer ID signature,
             Team ID, bundle id and architecture that all have to match the app
             being replaced — plus a backup you can roll back to.
+          </p>
+        </div>
+        <div className="point">
+          <h3>It speaks your language</h3>
+          <p>
+            English, 简体中文, 日本語, Deutsch, Español, Français and Русский. There
+            is no language setting — it follows whatever macOS is already set to.
           </p>
         </div>
         <div className="point">
@@ -149,7 +169,7 @@ export default async function HomePage() {
       <figure className="shot">
         <Image
           src={settingsShot}
-          alt="Duo Updater's General settings: check interval, post-update behaviour including automatic restart and rollback backups, concurrency, and install routing for App Store and self-updating apps."
+          alt="Duo Updater's General settings: launch at login, check interval, whether to show what each app is built with, post-update behaviour including automatic relaunch and rollback backups, how many apps to check at once, and install routing for App Store and self-updating apps."
           className="shot-wide"
           sizes="(max-width: 52rem) 100vw, 760px"
         />

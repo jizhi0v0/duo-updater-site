@@ -14,10 +14,10 @@
   --measure: 34rem;
   --page: 64rem;
 
-  /* Where the changelog's sticky version rail parks, and — deliberately the
-     same number — where an anchor jump drops the release it targets. See
-     .release-version. */
-  --rail-top: 5rem;
+  /* Where an #anchor jump drops its target: far enough down that the sticky
+     header does not cover it. The changelog's version rail parks at the same
+     offset on purpose — see .release-version. */
+  --anchor-top: 5rem;
 
   --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
     "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
@@ -281,6 +281,24 @@ pre code {
   text-wrap: balance;
 }
 
+/* A caption long enough to need two paragraphs is also long enough to blow past
+   the balance ceiling above, so it is split rather than merged. Balance is
+   inherited, so each paragraph gets it separately. */
+.shot figcaption p {
+  margin: 0 0 0.75rem;
+}
+
+.shot figcaption p:last-child {
+  margin-bottom: 0;
+}
+
+/* rehype-slug puts an id on every heading it renders, so any of them can be
+   linked to — and without this the sticky header sits on top of whichever one
+   was jumped to, exactly as it did for changelog releases above. */
+.prose :is(h2, h3, h4)[id] {
+  scroll-margin-top: var(--anchor-top);
+}
+
 .section-title {
   font-size: 1.375rem;
   letter-spacing: -0.02em;
@@ -444,12 +462,12 @@ pre code {
   border-top: 1px solid var(--border);
   /* Without this an #anchor jump puts the article's top edge at y=0, which
      leaves the first line of the notes under the sticky header, and leaves the
-     version rail pinned at --rail-top while its notes start 2.5rem higher — the
-     two columns land on different lines. Matching --rail-top fixes both at
+     version rail pinned at --anchor-top while its notes start 2.5rem higher —
+     the two columns land on different lines. Matching --anchor-top fixes both at
      once, and does so independently of padding-block: the rail's natural
-     position becomes --rail-top + padding, so it is never pinned on arrival and
+     position becomes --anchor-top + padding, so it is never pinned on arrival and
      always sits on the first line of its own notes. */
-  scroll-margin-top: var(--rail-top);
+  scroll-margin-top: var(--anchor-top);
 }
 
 .release:first-child {
@@ -462,7 +480,7 @@ pre code {
   font-weight: 600;
   font-size: 0.9375rem;
   position: sticky;
-  top: var(--rail-top);
+  top: var(--anchor-top);
   align-self: start;
 }
 
