@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 
 import { RELEASES_URL, REPO } from "@/lib/release";
@@ -66,6 +67,9 @@ export default function RootLayout({
             Kept out of the footer's claim on purpose: that sentence is scoped to
             the app, which still talks to no server of ours. */}
         <Analytics />
+        {/* Core Web Vitals from real loads. Same disclosure rule as Analytics
+            above: it is a script we ship, so /docs/privacy names it. */}
+        <SpeedInsights />
       </body>
     </html>
   );

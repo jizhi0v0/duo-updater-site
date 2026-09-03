@@ -42,20 +42,32 @@ Everything above is about the app. This page you are reading is a separate thing
 and it does collect something, so it is worth stating plainly rather than leaving
 you to infer it from the app's behaviour.
 
-The site runs **Vercel Web Analytics**, which counts page views. Per Vercel's own
-documentation it records, for each view: the time, the URL and its route pattern,
-the referrer, filtered query parameters, an approximate location (country, region,
-city), the browser and operating system with versions, and the device type.
+The site runs two scripts, both from Vercel, both first-party.
 
-What it does not do: there are no third-party cookies. A visitor is identified by
-a hash derived from the incoming request rather than by anything stored on your
-machine, and that identity is discarded after 24 hours — so it cannot follow you
-across sites, and it cannot reconstruct what you did here a week ago. Vercel
-states the data points are not tied to an IP address.
+**Vercel Web Analytics** counts page views. Per Vercel's own documentation it
+records, for each view: the time, the URL and its route pattern, the referrer,
+filtered query parameters, an approximate location (country, region, city), the
+browser and operating system with versions, and the device type.
+
+**Vercel Speed Insights** measures how fast the page actually loaded for you.
+Per Vercel's own documentation each measurement carries: the URL and its route
+pattern, the Web Vital being reported and the element it was attributed to (a CSS
+selector such as `html>body img.header`), the connection class (`4g`, `3g`, …),
+the browser, device type and device OS, the country as a two-letter code, the
+version of the measuring package, and the time the event was received. Note the
+narrower location: country only, where Analytics goes down to city.
+
+What neither does: there are no third-party cookies. Analytics identifies a
+visitor by a hash derived from the incoming request rather than by anything
+stored on your machine, and discards that identity after 24 hours — so it cannot
+follow you across sites, and it cannot reconstruct what you did here a week ago.
+Speed Insights has no visitor identity at all; Vercel states it does not collect
+or store anything that would let a browsing session be reconstructed across
+pages, and that neither feature ties its data points to an IP address.
 
 There is nothing else. No advertising network, no session recording, no
 third-party scripts of any kind. The download button links straight to GitHub,
 and the release notes come from a file in this site's own repository.
 
-If you would rather not be counted, any content blocker will drop the script, and
-the site works exactly the same without it.
+If you would rather not be measured, any content blocker will drop both scripts,
+and the site works exactly the same without them.
