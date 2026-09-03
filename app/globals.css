@@ -14,6 +14,11 @@
   --measure: 34rem;
   --page: 64rem;
 
+  /* Where the changelog's sticky version rail parks, and — deliberately the
+     same number — where an anchor jump drops the release it targets. See
+     .release-version. */
+  --rail-top: 5rem;
+
   --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
     "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", sans-serif;
@@ -437,6 +442,14 @@ pre code {
   gap: 2rem;
   padding-block: 2.5rem;
   border-top: 1px solid var(--border);
+  /* Without this an #anchor jump puts the article's top edge at y=0, which
+     leaves the first line of the notes under the sticky header, and leaves the
+     version rail pinned at --rail-top while its notes start 2.5rem higher — the
+     two columns land on different lines. Matching --rail-top fixes both at
+     once, and does so independently of padding-block: the rail's natural
+     position becomes --rail-top + padding, so it is never pinned on arrival and
+     always sits on the first line of its own notes. */
+  scroll-margin-top: var(--rail-top);
 }
 
 .release:first-child {
@@ -449,7 +462,7 @@ pre code {
   font-weight: 600;
   font-size: 0.9375rem;
   position: sticky;
-  top: 5rem;
+  top: var(--rail-top);
   align-self: start;
 }
 
