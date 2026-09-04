@@ -19,6 +19,28 @@ release note is debugging our code:
 
 Versions before 0.3.80 are the old long-form style; leave them as shipped.
 
+## 0.3.84
+
+**Request logs you export no longer carry your account name.** Every row for an app installed in your home folder used to spell out the full path; it now shows `~` instead, whichever way you take the log out.
+
+**The Requests tab now says what it does and does not cover.** It records the fetches Duo Updater makes itself. A release-notes page loads its own images and fonts, and App Store and Homebrew updates are carried out by separate tools — none of that appears there, and the window now says so instead of leaving you to assume.
+
+**Copy URL now escapes the address it gives you.** Paths containing a space — Firefox, Thunderbird and Bartender downloads among them — were copied raw, which a browser forgives and a command line does not.
+
+**Under the hood.** A credential carried inside a web address's path is now removed before the request is recorded, as one in a query string always has been.
+
+## 0.3.83
+
+**The Download Traffic window is now Network, and it has a second tab.** Downloads is the ledger you already had — what each update cost as a file. Requests is new: every fetch Duo Updater makes on your behalf, what it was for, which app it belonged to, and what it cost, with a filter field for asking the log questions rather than scrolling it. The figures at the top answer whatever you have filtered to, not the lifetime total.
+
+**Checking Spotify for updates barely uses the network now.** Spotify publishes no version file anywhere, so the check reads the version out of a two-megabyte installer stub — and was fetching the whole thing every time, around the clock. It now asks whether that file has changed and skips the download when it has not.
+
+**PDF Expert now finds its updates, and shows what changed.** It was reading a release list its maker stopped adding to in 2022, so it called itself up to date whatever version you had. It now follows the list the app's own updater uses, and it now carries the release notes for past versions too, not only the newest.
+
+**UTM preview builds now get their own updates, install with one click, and show the matching release notes.** A preview copy used to be measured against the final track and silently told it was up to date; it now follows its own line, and once it takes that line's final release it moves back to the final track.
+
+**Under the hood.** The recorded requests moved into the same store as the download ledger, so the two accounts of one download can no longer drift apart. Your existing ledger carries across untouched.
+
 ## 0.3.82
 
 **Fifteen more apps are watched for updates, and all but one install in a single click.** AgentsView, AnythingLLM, Chatbox, ChatGPT Classic, DSH Desktop, FluidVoice, GitHub Copilot, Kun, Meetily, Microsoft 365 Copilot, OpenLogi, OpenSuperWhisper, Paseo, T3 Code — on both its alpha and nightly tracks — and Vorssaint. ChatGPT Classic is the exception: it is checked for you, but it ships an installer that updates the app itself, so that one stays yours to run.
