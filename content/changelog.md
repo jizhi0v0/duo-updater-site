@@ -19,6 +19,20 @@ release note is debugging our code:
 
 Versions before 0.3.80 are the old long-form style; leave them as shipped.
 
+## 0.3.85
+
+**Checking your App Store apps uses a fraction of the network it did.** Each check used to fetch every App Store app's product page again; the pages are now kept for an hour and the store is asked about all your apps in a few requests instead of one per app. On a five-minute check interval that is roughly a third less traffic overall; on the default six-hour interval the pages still expire between checks, so the saving there is smaller.
+
+**Checking one app again no longer re-fetches every App Store app.** A single "Check Again" used to throw away every cached product page, so the next scheduled check paid for all of them; it now refreshes only the app you asked about.
+
+**Checking apps that ship through GitHub costs a fraction of the network it did.** Each check used to download every release's full description again even when nothing had been published; it now asks GitHub whether the release has changed since last time and downloads nothing when it has not. Once a day it re-reads each release in full, so a release that is withdrawn is noticed within a day.
+
+**Apps followed on a GitHub beta or nightly track now ask for one release instead of a page of them.** The newest release is the answer almost every time, and the full page is only fetched on the rounds where it is not.
+
+**Vorssaint's update check no longer rides a redirect.** Its repository was renamed, and following the old name silently dropped the request onto GitHub's anonymous rate limit; the check now goes to the new name directly.
+
+**Under the hood.** The release artifact is now built, signed and notarized on a GitHub-hosted Mac with build provenance anyone can verify, and the recorded request log distinguishes a cached answer from a network one.
+
 ## 0.3.84
 
 **Request logs you export no longer carry your account name.** Every row for an app installed in your home folder used to spell out the full path; it now shows `~` instead, whichever way you take the log out.
@@ -26,6 +40,14 @@ Versions before 0.3.80 are the old long-form style; leave them as shipped.
 **The Requests tab now says what it does and does not cover.** It records the fetches Duo Updater makes itself. A release-notes page loads its own images and fonts, and App Store and Homebrew updates are carried out by separate tools — none of that appears there, and the window now says so instead of leaving you to assume.
 
 **Copy URL now escapes the address it gives you.** Paths containing a space — Firefox, Thunderbird and Bartender downloads among them — were copied raw, which a browser forgives and a command line does not.
+
+**CapCut's beta row no longer reports a check that failed.** Between betas — after one graduates and before the next opens — its maker publishes nothing on that track, which showed as a red row and a Retry that could not have worked. The row now simply has no answer from that source until the next beta appears.
+
+**Audacity now shows the mark saying what it is built with.** It starts through a small launcher that hands off to the real program beside it, and the mark was being read from the launcher, which links nothing at all.
+
+**App Store release notes now arrive in your language.** They were always fetched in the store's own default language, so a Mac running in Chinese or Japanese still read them in English.
+
+**Duo Updater's own updates now appear under its own name in the Network window.** Its release check, its release notes and its download were all filed with a blank app column.
 
 **Under the hood.** A credential carried inside a web address's path is now removed before the request is recorded, as one in a query string always has been.
 
