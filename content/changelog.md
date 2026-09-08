@@ -19,6 +19,16 @@ release note is debugging our code:
 
 Versions before 0.3.80 are the old long-form style; leave them as shipped.
 
+## 0.3.89
+
+**Telegram Desktop gets update checks again.** Telegram changed the name of the file it publishes, and the row could no longer read a version out of it — so it showed a check failure instead of the update waiting behind it.
+
+**A TestFlight build of an iPhone or iPad app is recognized as one.** Duo Updater read it as an App Store purchase instead, so the row named the wrong keeper while the store was asked about a listing that does not exist — on every check, for as long as the app stayed installed.
+
+**A TestFlight beta is marked with TestFlight's own icon.** Rows the App Store looks after already carried the store's icon; the ones TestFlight looks after spelled the name out instead, so the same kind of row was marked two different ways.
+
+**The Network window's header stays put when you switch tabs.** Its two tabs sat their headlines at slightly different heights, so moving between them made the window look like it twitched.
+
 ## 0.3.88
 
 **Scrolling through your whole app list is smooth again.** A fast scroll through the full list dropped frames; each row now reports its height without having to be built first.
