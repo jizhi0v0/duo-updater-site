@@ -22,7 +22,10 @@ Denying it degrades those specific answers **silently** — the app still lists
 everything and still installs updates, it is just wrong about those apps. Grant
 it once in **System Settings → Privacy & Security → Full Disk Access**. Because
 the app is signed with a stable identity, that grant survives every future
-update. Without it, the prompt returns on every launch.
+update. Without it, DuoUpdater does not try to read TestFlight's data at all —
+every attempt would be refused, and on macOS 27 announced with a "Data Access
+Blocked" notice — so TestFlight rows show a question mark instead. The welcome
+window and Settings → Diagnostics show whether it is granted.
 
 ## App Management — required to install anything
 
