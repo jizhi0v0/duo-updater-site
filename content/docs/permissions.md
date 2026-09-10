@@ -35,7 +35,8 @@ and once more only if another such app turns up. The welcome window and
 **Settings → Diagnostics** always show whether it's granted, with a button that
 opens the right place in System Settings. Tapping the question mark on a
 TestFlight row says why it's there, and offers the same button when a missing
-grant is the reason.
+grant is the reason. A stable CotEditor carries a small lock beside its name
+that does the same.
 
 ## App Management — required to install anything
 
