@@ -19,6 +19,50 @@ release note is debugging our code:
 
 Versions before 0.3.80 are the old long-form style; leave them as shipped.
 
+## 0.3.93
+
+**Release notes now show up in your own language when an app publishes them in several.** Some apps ship their notes translated alongside each release; Duo Updater used to take whichever translation the app happened to list first or last, so one app's notes read in German for everyone and another's changed language from one release to the next.
+
+**Apps that added a Mac version no longer show as "not supported on this Mac."** An iPhone or iPad app you run on Apple silicon was mistakenly flagged the moment its developer shipped a real Mac build — the one change that makes the update more available, not less.
+
+**An App Store app you also beta-test is no longer mistaken for a TestFlight build.** When a developer promoted a beta unchanged, the two carried the same build number and your purchased copy was handed to TestFlight — so the App Store could never offer it an update.
+
+**An App Store update that needs a newer macOS than you're running now says so.** Before, the row offered to install it anyway and the App Store refused at the last step, with nothing on screen explaining why.
+
+**The Requests window now shows how far back its log actually reaches, and marks date ranges it can't fully cover.** Before, picking "Last 30 days" on a log that only went back a few hours looked exactly like picking "Last 24 hours," with nothing on screen explaining why.
+
+**You choose how much Duo Updater does about TestFlight betas, in Settings → General.** *When I refresh* reads what TestFlight already knows and asks it for a fresh answer when you press Refresh; *Keep it fresh* also lets Duo Updater ask on its own, so a beta TestFlight installed in the background no longer sits as a question mark until you refresh, and a build waiting for you no longer goes unnoticed behind an "up to date"; *Off* reads nothing and says so on those rows instead of guessing. Macs that already had Full Disk Access start at *When I refresh*, everyone else at *Off*.
+
+**Opening TestFlight yourself is now enough for Duo Updater to notice what it installed.** A beta you installed through TestFlight used to sit as a question mark until the next refresh — and on macOS 27, where TestFlight's "Ready to Test" notice no longer arrives for apps you already have, that could be hours.
+
+**Cline now gets updates, on both its release and beta builds, and shows its release notes.** Until now it sat with a question mark instead of a version — it ships no update feed of the kind Duo Updater could read, and there is no Homebrew package for it. Duo Updater now asks the same address Cline's own updater asks, so the update offered is the one Cline would have installed itself, and the beta build stays on the beta track.
+
+**Release notes that group changes under headings like Added and Fixed now keep those headings.** Before, every group was merged into one flat list, so you couldn't tell which changes were new features and which were bug fixes.
+
+**Mac Mouse Fix now offers its beta releases if you've turned on "Get Beta Versions" in its own General settings.** Before, Duo Updater could only see Mac Mouse Fix's regular releases, so a beta build sat unnoticed until the next regular version shipped.
+
+**Apps whose build number is a plain counter no longer hide their own patch releases.** For an app reporting a version like 12.10 with build 282987, a 12.10.1 release used to read as "already up to date".
+
+**A new build of an app that keeps the same version name is announced again.** Once one build had been announced, every later build under that name arrived silently — the row lit up, the badge counted it, but no banner ever came.
+
+**"Update All" now counts only apps that were actually updated.** An app that opens Apple's Installer for you to finish used to be counted as done while its window was still open, so "2 apps were updated" could mean nothing had changed yet.
+
+**An update that landed but left a leftover behind is now reported as installed, not as "grant App Management."** The new version was already running while the row sent you to System Settings.
+
+**Stopping "Update All" now stops the download in progress.** Before, a multi-gigabyte transfer kept going to the end, retrying up to five times, and only then noticed it had been cancelled.
+
+**Release notes are no longer mixed up between two apps that share one changelog page, and stay current after an update for apps whose notes live on per-version pages.** Antigravity and Antigravity IDE could show each other's notes for a quarter of an hour; Thunderbird, WeChat, Opera and a few others kept showing the previous version's notes for a while after updating.
+
+**Searching the app list ignores accents, as the Settings search already did.** Typing "cafe" now finds "Café".
+
+**The Diagnostics page lists a health line per release channel.** A broken beta or preview rule used to be hidden behind its healthy stable sibling.
+
+**A GitHub "forbidden" answer is no longer reported as a rate limit.** A repository that went private or a token missing a scope used to nudge you toward adding a token that would not have helped.
+
+**Relaunch is no longer offered for a self-updating app whose waiting build is older than the one running.**
+
+**Under the hood.** Installs, backups and package checks no longer tie up the threads the rest of the app runs on, so the menu stays responsive while one is in progress; the menu also stays smooth while a large download is in progress; the Release Log counts every release a vendor ships under one version name; a rollback backup is refused rather than stored when it would be missing the app's own executable; the first launch on a fresh Mac no longer logs spurious database errors; `duo verify` and `duo reconcile` now report a changelog whose entries collapsed and an installer address that has been failing for days; a stalled `duo` command gives up on its scan after twenty seconds instead of hanging.
+
 ## 0.3.92
 
 **Some self-updating apps no longer look up to date while a newer version is out.** For apps whose update information sits behind a slow-to-refresh download server, Duo Updater could keep seeing an older version for days after a release.
