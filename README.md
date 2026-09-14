@@ -1,6 +1,6 @@
 # duo-updater-site
 
-The website for [Duo Updater](https://github.com/jizhi0v0/duo-updater). Next.js
+The website for [DuoUpdater](https://github.com/jizhi0v0/duo-updater). Next.js
 16, App Router, deployed on Vercel.
 
 ```sh

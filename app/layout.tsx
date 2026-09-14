@@ -35,7 +35,7 @@ export default function RootLayout({
           <header className="site-header">
             <div className="wrap">
               <a className="wordmark" href="/">
-                Duo Updater
+                {SITE.name}
               </a>
               <nav className="site-nav">
                 <a href="/docs">Docs</a>

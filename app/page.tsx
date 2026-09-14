@@ -42,6 +42,16 @@ export default async function HomePage() {
     ...(release.publishedAt ? { datePublished: release.publishedAt } : {}),
   };
 
+  // The site's own name, which Google reads from the home page only. The other
+  // spelling goes in alternateName rather than competing with it in the title.
+  const websiteLD = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.name,
+    alternateName: SITE.alternateName,
+    url: SITE.url,
+  };
+
   return (
     <div className="wrap">
       <script
@@ -50,6 +60,10 @@ export default async function HomePage() {
         // release fields, never from user input.
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLD) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLD) }}
+      />
       <section className="hero">
         <h1>
           Update your Mac apps the way
@@ -57,8 +71,8 @@ export default async function HomePage() {
           each one expects to be updated.
         </h1>
         <p>
-          Most updaters pick one mechanism and push every app through it. Duo
-          Updater reads each app&rsquo;s own release channel — its Sparkle
+          Most updaters pick one mechanism and push every app through it. DuoUpdater
+          reads each app&rsquo;s own release channel — its Sparkle
           appcast, its App Store listing, its Homebrew cask, its vendor&rsquo;s
           release feed — and uses that.
         </p>
@@ -68,7 +82,7 @@ export default async function HomePage() {
       <figure className="shot">
         <Image
           src={menuBarShot}
-          alt="The Duo Updater menu bar popover, listing apps with an update available: each row shows the installed version, the new version, a small badge for what the app is built with, and either an Update or a Relaunch button. A hover card over one row reads: Electron 42.10.0 — built with Electron, it bundles its own copy of Chromium."
+          alt="The DuoUpdater menu bar popover, listing apps with an update available: each row shows the installed version, the new version, a small badge for what the app is built with, and either an Update or a Relaunch button. A hover card over one row reads: Electron 42.10.0 — built with Electron, it bundles its own copy of Chromium."
           className="shot-narrow"
           sizes="(max-width: 52rem) 100vw, 420px"
           priority
@@ -169,7 +183,7 @@ export default async function HomePage() {
       <figure className="shot">
         <Image
           src={settingsShot}
-          alt="Duo Updater's General settings: launch at login, check interval, whether to show what each app is built with, post-update behaviour including automatic relaunch and rollback backups, how many apps to check at once, and install routing for App Store and self-updating apps."
+          alt="DuoUpdater's General settings: launch at login, check interval, whether to show what each app is built with, post-update behaviour including automatic relaunch and rollback backups, how many apps to check at once, and install routing for App Store and self-updating apps."
           className="shot-wide"
           sizes="(max-width: 52rem) 100vw, 760px"
         />

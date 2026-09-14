@@ -1,5 +1,8 @@
 export const SITE = {
-  name: "Duo Updater",
+  name: "DuoUpdater",
+  // The spelling people type when they read the name aloud. Only the home page's
+  // WebSite structured data carries it, as Google's site-name guidance asks.
+  alternateName: "Duo Updater",
   // This site's own source, as distinct from the app's. Both are public, and a
   // page that makes a point of the app being open source should not be a black
   // box itself.

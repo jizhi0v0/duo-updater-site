@@ -1,6 +1,6 @@
 <!-- title: How it works | summary: Where each version number comes from, and why the install route differs per app. | order: 1 -->
 
-Duo Updater scans `/Applications`, `/Applications/Utilities` and `~/Applications`,
+DuoUpdater scans `/Applications`, `/Applications/Utilities` and `~/Applications`,
 then checks what it found against several update sources, in priority order. The
 first source that recognises an app answers for it; the rest are not consulted.
 
@@ -45,7 +45,7 @@ different depending on the row:
 | Homebrew app cask | `brew install --cask --force` |
 | Homebrew `pkg` cask | Download the official package and open the system installer |
 
-When an app ships its own updater, Duo Updater hands over instead of fighting it.
+When an app ships its own updater, DuoUpdater hands over instead of fighting it.
 When it cannot do something safely, it says so on the row rather than guessing.
 
 ## Command-line tools and fonts

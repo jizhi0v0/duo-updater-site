@@ -5,7 +5,7 @@ import { listDocs } from "@/lib/docs";
 export const metadata: Metadata = {
   title: "Docs",
   description:
-    "How Duo Updater decides what has an update, what it checks before replacing an app, and what macOS will ask you for.",
+    "How DuoUpdater decides what has an update, what it checks before replacing an app, and what macOS will ask you for.",
   alternates: { canonical: "/docs" },
 };
 

@@ -46,7 +46,7 @@ and Team ID gates are what carry the trust in that case.
 
 A jump to a new major version is put behind a warning rather than a one-click
 button, because for a commercial app it may need a new licence. You decide;
-Duo Updater does not decide for you by making it easy.
+DuoUpdater does not decide for you by making it easy.
 
 ## Everything is re-checked immediately before installing
 
