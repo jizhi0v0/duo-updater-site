@@ -82,7 +82,7 @@ export default async function HomePage() {
       <figure className="shot">
         <Image
           src={menuBarShot}
-          alt="The DuoUpdater menu bar popover, listing apps with an update available: each row shows the installed version, the new version, a small badge for what the app is built with, and either an Update or a Relaunch button. A hover card over one row reads: Electron 42.10.0 — built with Electron, it bundles its own copy of Chromium."
+          alt="The DuoUpdater menu bar popover, listing apps with an update available: each row shows the installed version, the new version, a small badge for what the app is built with, and an Update button. A hover card over Microsoft Word reads: Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI."
           className="shot-narrow"
           sizes="(max-width: 52rem) 100vw, 420px"
           priority
