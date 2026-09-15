@@ -19,6 +19,30 @@ release note is debugging our code:
 
 Versions before 0.3.80 are the old long-form style; leave them as shipped.
 
+## 0.3.95
+
+**Aside is now supported.** DuoUpdater tells you when a new build of the Aside browser is out and shows its release notes.
+
+**Updates your macOS can't run are no longer offered, and the row now says why.** When a developer states which macOS versions a release supports, DuoUpdater follows it: after a macOS upgrade, Little Snitch no longer offers a build capped below your system; Xcode no longer offers a build that needs a newer macOS than yours; and an installer package whose app needs a newer macOS is refused instead of installing an app that won't open. Rows that used to show a blank dash now say "Not for this macOS yet" or "Needs a newer macOS", with the details a click away.
+
+**See which SDK each app was built with.** Click the mark beside an app's name and its details now say, for example, "Built with the macOS 27.0 SDK." — handy for telling which apps have been rebuilt for the latest macOS.
+
+**Homebrew apps that ship as two packages — one for older systems, one for the newest — are now read from the right one.** OnyX splits that way for macOS 27, and DuoUpdater looked only at the package meant for older systems: it either showed nothing for OnyX at all, or called it up to date against a version Homebrew refuses to install on 27. Whichever of the two you installed is now the one DuoUpdater follows.
+
+**TestFlight betas no longer lose their update when TestFlight starts.** A beta with a new build waiting could fall back to "up to date" and stay that way until you opened TestFlight again.
+
+**One-click updates for Dropbox and ToDesk fetch the right download.** On Apple silicon, Dropbox used to download the Intel-only build, which the safety check then refused; ToDesk was offered the early-access build it rolls out to only some users, instead of its general release.
+
+**Relaunch finishes Spotify's update right away.** When Spotify had already downloaded its own update, Relaunch used to spin for minutes before the update went through.
+
+**Beta builds move on to their releases.** An Xcode beta is offered its release candidate instead of showing as up to date, CotEditor betas see its release candidates, and a Carbon Copy Cloner beta whose testing cycle has ended is offered the release it became, instead of a failed check.
+
+**Release notes match the version you have.** Blender 5.2 used to show the notes for 5.1, and Raycast 1.x showed the notes for 2.x. Gemini's "Open page" now opens Google's current desktop page instead of an error.
+
+**Settings explain each option right next to it.** Long notes under whole sections are replaced by a short line under each control, and pickers describe only the option you've picked.
+
+**The app now spells its name DuoUpdater**, matching the website.
+
 ## 0.3.94
 
 **Homebrew packages from taps you haven't trusted show up again.** Since Homebrew 6, brew quietly skips packages from untrusted taps when it lists what's installed, so they disappeared from DuoUpdater with no explanation. They're now listed as "Not checked · tap not trusted", with the `brew trust` command ready to copy — and once you run it (or an upgrade) in Terminal, the window catches up as soon as you switch back.
