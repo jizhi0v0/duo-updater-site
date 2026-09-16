@@ -32,7 +32,7 @@ export default async function HomePage() {
     description: SITE.tagline,
     url: SITE.url,
     applicationCategory: "UtilitiesApplication",
-    operatingSystem: "macOS 14 or later, Apple Silicon",
+    operatingSystem: "macOS 15 or later, Apple Silicon",
     downloadUrl: release.downloadURL,
     releaseNotes: `${SITE.url}/changelog`,
     isAccessibleForFree: true,

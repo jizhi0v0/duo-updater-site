@@ -10,7 +10,7 @@ export default async function DownloadButton() {
         {release.version ? ` — ${release.version}` : ""}
       </a>
       <p className="cta-note">
-        Apple Silicon, macOS 14 or later. Free and open source.{" "}
+        Apple Silicon, macOS 15 or later. Free and open source.{" "}
         <a href={RELEASES_URL}>All releases</a>
       </p>
     </div>

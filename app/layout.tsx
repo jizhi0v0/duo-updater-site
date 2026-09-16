@@ -54,7 +54,7 @@ export default function RootLayout({
                     "no analytics" reads as a claim about the page you are on — which
                     would quietly become untrue the day this site gains any. */}
                 The app sends no telemetry and talks to no server of ours. Apple
-                Silicon, macOS 14+.
+                Silicon, macOS 15+.
               </span>
               <a href={`https://github.com/${REPO}`}>Source</a>
               <a href={RELEASES_URL}>Releases</a>
