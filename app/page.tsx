@@ -82,7 +82,7 @@ export default async function HomePage() {
       <figure className="shot">
         <Image
           src={menuBarShot}
-          alt="The DuoUpdater menu bar popover, listing apps with an update available: each row shows the installed version, the new version, a small badge for what the app is built with, and an Update button. A hover card over Microsoft Word reads: Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI."
+          alt="The DuoUpdater menu bar popover, headed 58 updates available with an Update All button and a search field. Each row shows the installed version, the new version, a small badge for what the app is built with, and an Update button; Amp's row reads 1.0 (374) to 1.0 (390). A hover card over AndroMeld's badge reads: Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK. A row at the bottom reports 3 Homebrew packages not checked."
           className="shot-narrow"
           sizes="(max-width: 52rem) 100vw, 420px"
           priority
@@ -183,7 +183,7 @@ export default async function HomePage() {
       <figure className="shot">
         <Image
           src={settingsShot}
-          alt="DuoUpdater's General settings: launch at login, check interval, whether to show what each app is built with, post-update behaviour including automatic relaunch and rollback backups, how many apps to check at once, and install routing for App Store and self-updating apps."
+          alt="DuoUpdater's General settings, beside a sidebar listing Folders, Updates, GitHub, Alcove, Ignored and Diagnostics: launch at login, check interval, hiding the Dock icon, whether to show what each app is built with, notifications, automatic relaunch, rollback backups and the space they use, how many apps to check at once, and install routing for App Store updates, self-updating apps and TestFlight betas."
           className="shot-wide"
           sizes="(max-width: 52rem) 100vw, 760px"
         />
