@@ -33,9 +33,22 @@ offered to you right now, and keeps the refresh button from starting TestFlight
 just to ask you to sign in. Nothing else is read from it — no Apple ID, no name,
 no identifier — and nothing read there leaves the Mac.
 
+## Your Apple Developer sign-in (Xcode)
+
+Xcode betas and release candidates download only from Apple's developer site,
+behind your Apple ID. If you choose to sign in under Settings → Xcode, the
+sign-in happens on Apple's own page inside the app: your password and
+two-factor code go to Apple, and the app does not read them. What the app keeps
+is the resulting session — the `apple.com` cookies Apple set — saved in the
+Keychain so a relaunch does not sign you out. They are sent only to
+`*.apple.com`, only to download Xcode, and never written to a log. Settings →
+Xcode → Sign Out and Clear deletes them, together with the "trusted device"
+cookie, so the next sign-in asks for a code again.
+
 ## Credentials stay in the Keychain
 
-Anything you enter yourself — a GitHub token, an Alcove licence — is stored in
+Anything you enter yourself — a GitHub token, an Alcove licence, the Apple
+Developer session above — is stored in
 the login Keychain as `AfterFirstUnlockThisDeviceOnly`. Not synced to iCloud, not
 written to a plist.
 
@@ -43,7 +56,8 @@ written to a plist.
 
 Release notes that can only be shown as the vendor's own web page are rendered in
 a `WKWebView` with a non-persistent data store, so vendor cookies do not survive
-a relaunch.
+a relaunch. The one exception is the Apple
+Developer sign-in window, which keeps its session on purpose, as described above.
 
 ## This website
 
