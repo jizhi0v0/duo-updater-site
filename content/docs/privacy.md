@@ -2,7 +2,9 @@
 
 There is no telemetry, no analytics SDK, and no server of ours. Every network
 request goes straight to the vendor whose app is being checked — or to
-`api.github.com` and `formulae.brew.sh` — and carries nothing about you beyond
+`api.github.com`, `formulae.brew.sh`, and `xcodereleases.com` (the
+community-maintained index Xcode versions are read from) — and carries nothing
+about you beyond
 what that request needs: the app's own version, so that a vendor's feed can
 answer for the right channel.
 
