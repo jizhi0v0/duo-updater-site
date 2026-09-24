@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "title": "DuoUpdater — aggiorna le app del Mac come si aspettano",
+    "description": "Un’app per la barra dei menu di macOS che trova gli aggiornamenti delle app che hai già e li installa nel modo in cui ciascuna si aspetta."
+  },
+  "nav": {
+    "docs": "Documentazione",
+    "changelog": "Novità",
+    "github": "GitHub"
+  },
+  "footer": {
+    "appClaim": "L’app non invia dati di telemetria e non comunica con alcun nostro server. Apple Silicon, macOS 15+.",
+    "source": "Codice sorgente",
+    "releases": "Versioni",
+    "licence": "Licenza",
+    "thisSite": "Questo sito"
+  },
+  "hero": {
+    "titleLine1": "Aggiorna le app del tuo Mac",
+    "titleLine2": "come ciascuna si aspetta.",
+    "body": "La maggior parte dei programmi di aggiornamento sceglie un solo meccanismo e ci fa passare tutte le app. DuoUpdater legge il canale di rilascio proprio di ciascuna app — l’appcast Sparkle, la pagina nell’App Store, il cask Homebrew, il feed delle versioni dello sviluppatore — e usa quello."
+  },
+  "download": {
+    "button": "Scarica per Mac",
+    "note": "Apple Silicon, macOS 15 o versione successiva. Gratuita e open source.",
+    "allReleases": "Tutte le versioni"
+  },
+  "menuBar": {
+    "alt": "Il popover di DuoUpdater nella barra dei menu, con l’intestazione «58 updates available» (58 aggiornamenti disponibili), un pulsante «Update All» e un campo di ricerca. Ogni riga mostra la versione installata, la nuova versione, un piccolo badge che indica con cosa è realizzata l’app e un pulsante «Update»; la riga di Amp va da 1.0 (374) a 1.0 (390). Una scheda che compare passando sopra il badge di AndroMeld dice: «Native — a native Mac app, built straight on Apple’s frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK.» Una riga in fondo segnala «3 Homebrew packages not checked» (3 pacchetti Homebrew non controllati).",
+    "caption1": "Ogni riga indica da quale versione a quale si passa, e il pulsante dice cosa succederà davvero: <strong>Update</strong> installa l’aggiornamento; <strong>Relaunch</strong> significa che l’app è già aggiornata sul disco e che è rimasta indietro solo la copia in esecuzione. Un pallino verde contrassegna le app aperte, così sai prima di fare clic se qualcosa sta per essere chiuso e riaperto.",
+    "caption2": "Il badge accanto al nome indica con cosa è realizzata l’app — Electron, Qt, Chromium, una JVM inclusa, Flutter, Tauri, Catalyst o un’app per iPhone eseguita su Apple Silicon — e passandoci sopra il puntatore compaiono il runtime e la sua versione. Ogni indicazione è ricavata da qualcosa che chi ha creato il pacchetto ha effettivamente incluso, mai dal nome dell’app o dal suo sviluppatore: un bundle che non lo dichiara resta senza etichetta, invece di riceverne una tirata a indovinare."
+  },
+  "differently": {
+    "title": "Cosa fa di diverso",
+    "handsOver": {
+      "title": "Passa la mano invece di mettersi contro",
+      "body": "Se un’app ha un proprio programma di aggiornamento, è quello a fare il lavoro. Se qualcosa non si può fare in modo sicuro, la riga lo dice invece di tirare a indovinare."
+    },
+    "neverForceQuits": {
+      "title": "Non forza mai l’uscita",
+      "body": "L’uscita è una normale richiesta di chiusura: l’app mostra le proprie richieste di salvataggio e può rifiutarsi. Se si rifiuta, la sua riga conserva il pulsante «Relaunch»."
+    },
+    "checksSigner": {
+      "title": "Verifica chi ha firmato il download",
+      "body": "EdDSA dove l’app pubblica una chiave, poi la firma Developer ID, il Team ID, il bundle id e l’architettura, che devono corrispondere tutti all’app da sostituire — più un backup con cui tornare alla versione precedente."
+    },
+    "language": {
+      "title": "Segue la lingua del sistema",
+      "body": "{languages}. Non c’è un’impostazione per la lingua: segue quella già impostata in macOS."
+    },
+    "noServer": {
+      "title": "Non ha un server",
+      "body": "Niente telemetria e nessun SDK di analisi. Ogni richiesta va direttamente allo sviluppatore dell’app che si sta controllando, senza portare alcuna informazione su di te."
+    }
+  },
+  "workbench": {
+    "alt": "La finestra di lavoro: una barra laterale che elenca tutte le app analizzate e, a fianco, le note di rilascio di quella selezionata, mostrate come testo nativo — intestazione con la versione, data e un punto elenco per ogni modifica.",
+    "caption": "Aprendo la finestra trovi tutto ciò che è stato analizzato e le note di rilascio di ciò che selezioni. Quando uno sviluppatore pubblica le note in una forma che vale la pena analizzare, queste vengono scomposte e mostrate come testo nativo anziché come pagina web incorporata."
+  },
+  "releaseLog": {
+    "alt": "La cronologia del Release Log: versioni raggruppate per giorno, ciascuna con app, versione, fonte e un orario di pubblicazione esatto oppure un intervallo approssimativo.",
+    "caption": "Ogni versione rilevata viene registrata, così col tempo ottieni un registro di quando il software che usi viene davvero pubblicato. Un orario di rilascio è indicato come esatto solo quando è il feed dello sviluppatore stesso a riportarlo; tutto il resto è mostrato come un intervallo con ≈, perché onestamente è tutto ciò che sappiamo."
+  },
+  "settings": {
+    "alt": "Le impostazioni «General» (Generali) di DuoUpdater, accanto a una barra laterale con Folders, Updates, GitHub, Alcove, Ignored e Diagnostics: apertura al login, intervallo di controllo, icona nel Dock nascosta, se mostrare con cosa è realizzata ogni app, notifiche, riapertura automatica, backup per il ripristino e lo spazio che occupano, quante app controllare contemporaneamente e come instradare l’installazione degli aggiornamenti dell’App Store, delle app che si aggiornano da sole e delle beta di TestFlight.",
+    "caption": "Gran parte delle impostazioni riguarda quanta autonomia vuoi concedere a DuoUpdater: se riavviare le app al posto tuo, se conservare un backup per il ripristino e come instradare i due casi scomodi, cioè le app del Mac App Store e quelle che hanno un proprio programma di aggiornamento."
+  },
+  "notFound": {
+    "title": "Pagina non trovata",
+    "body": "Questa pagina non è stata trovata."
+  }
+}

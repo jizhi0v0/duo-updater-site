@@ -1,8 +1,9 @@
 import Image from "next/image";
 
+import { getTranslations } from "next-intl/server";
+
 import DownloadButton from "@/components/DownloadButton";
-import type { Messages, Rich } from "@/lib/i18n";
-import { ENGLISH, type Locale } from "@/lib/i18n/locales";
+import { localeInfo, localizedPath, type LocaleID } from "@/i18n/locales";
 import { fetchLatestRelease, REPO } from "@/lib/release";
 import { SITE } from "@/lib/site";
 
@@ -20,34 +21,12 @@ import settingsShot from "@/public/screenshots/settings.png";
 // so the sentence stays true on every translation of the page.
 const APP_LANGUAGES = ["English", "简体中文", "日本語", "Deutsch", "Español", "Français", "Русский"];
 
-function renderRich(parts: Rich) {
-  return parts.map((part, index) =>
-    typeof part === "string" ? part : <strong key={index}>{part.strong}</strong>,
-  );
-}
-
-// The list's position and the punctuation around it belong to the translation
-// (a full stop is "。" in Japanese), so the string carries a placeholder rather
-// than the code gluing a sentence on.
-function withAppLanguages(body: string, list: string) {
-  if (!body.includes("{languages}")) {
-    throw new Error(`differently.language.body is missing {languages}: ${body}`);
-  }
-  return body.replace("{languages}", list);
-}
-
-export default async function HomePage({
-  locale,
-  t,
-}: {
-  locale: Locale | typeof ENGLISH;
-  t: Messages;
-}) {
-  const release = await fetchLatestRelease();
-  const isEnglish = locale === ENGLISH;
-  const pageURL = isEnglish ? SITE.url : `${SITE.url}/${locale.segment}`;
+export default async function HomePage({ locale }: { locale: LocaleID }) {
+  const [release, t] = await Promise.all([fetchLatestRelease(), getTranslations({ locale })]);
+  const isEnglish = locale === "en";
+  const pageURL = isEnglish ? SITE.url : `${SITE.url}${localizedPath(locale, "/")}`;
   // en-GB for English: the page's own copy has no serial comma.
-  const appLanguages = new Intl.ListFormat(isEnglish ? "en-GB" : locale.tag, {
+  const appLanguages = new Intl.ListFormat(isEnglish ? "en-GB" : localeInfo(locale).tag, {
     type: "conjunction",
   }).format(APP_LANGUAGES);
 
@@ -58,9 +37,9 @@ export default async function HomePage({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: SITE.name,
-    description: t.meta.description,
+    description: t("meta.description"),
     url: pageURL,
-    ...(isEnglish ? {} : { inLanguage: locale.tag }),
+    ...(isEnglish ? {} : { inLanguage: localeInfo(locale).tag }),
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "macOS 15 or later, Apple Silicon",
     downloadUrl: release.downloadURL,
@@ -99,18 +78,18 @@ export default async function HomePage({
       )}
       <section className="hero">
         <h1>
-          {t.hero.title[0]}
+          {t("hero.titleLine1")}
           <br />
-          {t.hero.title[1]}
+          {t("hero.titleLine2")}
         </h1>
-        <p>{t.hero.body}</p>
-        <DownloadButton t={t.download} />
+        <p>{t("hero.body")}</p>
+        <DownloadButton locale={locale} />
       </section>
 
       <figure className="shot">
         <Image
           src={menuBarShot}
-          alt={t.menuBar.alt}
+          alt={t("menuBar.alt")}
           className="shot-narrow"
           sizes="(max-width: 52rem) 100vw, 420px"
           priority
@@ -119,22 +98,25 @@ export default async function HomePage({
             stops applying past a browser-imposed line ceiling (see the rule in
             globals.css), and a merged caption would sail past it. */}
         <figcaption>
-          <p>{renderRich(t.menuBar.caption[0])}</p>
-          <p>{t.menuBar.caption[1]}</p>
+          <p>{t.rich("menuBar.caption1", { strong: (chunks) => <strong>{chunks}</strong> })}</p>
+          <p>{t("menuBar.caption2")}</p>
         </figcaption>
       </figure>
 
-      <h2 className="section-title">{t.differently.title}</h2>
+      <h2 className="section-title">{t("differently.title")}</h2>
       <div className="points">
         {[
-          t.differently.handsOver,
-          t.differently.neverForceQuits,
-          t.differently.checksSigner,
+          { title: t("differently.handsOver.title"), body: t("differently.handsOver.body") },
           {
-            ...t.differently.language,
-            body: withAppLanguages(t.differently.language.body, appLanguages),
+            title: t("differently.neverForceQuits.title"),
+            body: t("differently.neverForceQuits.body"),
           },
-          t.differently.noServer,
+          { title: t("differently.checksSigner.title"), body: t("differently.checksSigner.body") },
+          {
+            title: t("differently.language.title"),
+            body: t("differently.language.body", { languages: appLanguages }),
+          },
+          { title: t("differently.noServer.title"), body: t("differently.noServer.body") },
         ].map((point) => (
           <div className="point" key={point.title}>
             <h3>{point.title}</h3>
@@ -146,31 +128,31 @@ export default async function HomePage({
       <figure className="shot">
         <Image
           src={changelogShot}
-          alt={t.workbench.alt}
+          alt={t("workbench.alt")}
           className="shot-wide"
           sizes="(max-width: 52rem) 100vw, 760px"
         />
-        <figcaption>{t.workbench.caption}</figcaption>
+        <figcaption>{t("workbench.caption")}</figcaption>
       </figure>
 
       <figure className="shot">
         <Image
           src={releaseLogShot}
-          alt={t.releaseLog.alt}
+          alt={t("releaseLog.alt")}
           className="shot-narrow"
           sizes="(max-width: 52rem) 100vw, 420px"
         />
-        <figcaption>{t.releaseLog.caption}</figcaption>
+        <figcaption>{t("releaseLog.caption")}</figcaption>
       </figure>
 
       <figure className="shot">
         <Image
           src={settingsShot}
-          alt={t.settings.alt}
+          alt={t("settings.alt")}
           className="shot-wide"
           sizes="(max-width: 52rem) 100vw, 760px"
         />
-        <figcaption>{t.settings.caption}</figcaption>
+        <figcaption>{t("settings.caption")}</figcaption>
       </figure>
     </div>
   );

@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "title": "DuoUpdater — Mac uygulamalarınızı kendi usulüyle güncelleyin",
+    "description": "Mac’inizde zaten olan uygulamaların güncellemelerini bulan ve her birini o uygulamanın beklediği şekilde yükleyen bir macOS menü çubuğu uygulaması."
+  },
+  "nav": {
+    "docs": "Belgeler",
+    "changelog": "Değişiklik günlüğü",
+    "github": "GitHub"
+  },
+  "footer": {
+    "appClaim": "Uygulama hiçbir telemetri verisi göndermez ve bize ait hiçbir sunucuyla iletişim kurmaz. Apple Silicon, macOS 15+.",
+    "source": "Kaynak kodu",
+    "releases": "Sürümler",
+    "licence": "Lisans",
+    "thisSite": "Bu site"
+  },
+  "hero": {
+    "titleLine1": "Mac uygulamalarınızı",
+    "titleLine2": "her birinin beklediği gibi güncelleyin.",
+    "body": "Çoğu güncelleyici tek bir yöntem seçer ve her uygulamayı bu yöntemden geçirir. DuoUpdater ise her uygulamanın kendi sürüm kanalını okur — Sparkle appcast’ini, App Store sayfasını, Homebrew cask’ini, üreticisinin sürüm akışını — ve onu kullanır."
+  },
+  "download": {
+    "button": "Mac için indir",
+    "note": "Apple Silicon, macOS 15 veya üstü. Ücretsiz ve açık kaynak.",
+    "allReleases": "Tüm sürümler"
+  },
+  "menuBar": {
+    "alt": "DuoUpdater’ın menü çubuğu açılır penceresi. Başlıkta “58 updates available” (58 güncelleme mevcut) yazıyor; altında bir “Update All” düğmesi ve bir arama alanı var. Her satırda yüklü sürüm, yeni sürüm, uygulamanın neyle yapıldığını gösteren küçük bir rozet ve bir “Update” düğmesi bulunuyor; Amp’in satırı 1.0 (374) sürümünden 1.0 (390) sürümüne geçişi gösteriyor. AndroMeld’in rozeti üzerindeki açıklama kartında şu yazıyor: “Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK.” (doğrudan Apple’ın çerçeveleri üzerine kurulmuş yerel bir Mac uygulaması). En alttaki satırda “3 Homebrew packages not checked” (3 Homebrew paketi denetlenmedi) yazıyor.",
+    "caption1": "Her satır hangi sürümden hangisine geçeceğinizi gösterir; düğme de gerçekte ne olacağını söyler: <strong>Update</strong> güncellemeyi yükler; <strong>Relaunch</strong> ise uygulamanın diskte zaten güncellendiği, yalnızca çalışan kopyanın eski kaldığı anlamına gelir. Yeşil nokta, uygulamanın çalışmakta olduğunu gösterir; böylece bir şeyin kapatılıp yeniden açılmak üzere olduğunu tıklamadan önce bilirsiniz.",
+    "caption2": "Adın yanındaki rozet, uygulamanın neyle yapıldığını söyler — Electron, Qt, Chromium, pakete gömülü bir JVM, Flutter, Tauri, Catalyst ya da Apple Silicon’da çalışan bir iPhone uygulaması — üzerine gelindiğinde de çalışma ortamının adını ve sürümünü gösterir. Her biri, paketi hazırlayanın gerçekten pakete koyduğu bir şeyden okunur; asla uygulamanın adından ya da üreticisinden çıkarılmaz. Bu yüzden bunu belirtmeyen bir paket, tahmin edilmek yerine etiketsiz kalır."
+  },
+  "differently": {
+    "title": "Neyi farklı yapıyor",
+    "handsOver": {
+      "title": "Çatışmak yerine işi devreder",
+      "body": "Bir uygulama kendi güncelleyicisiyle geliyorsa işi o güncelleyici yapar. Bir şey güvenle yapılamıyorsa satır, tahmin yürütmek yerine bunu açıkça söyler."
+    },
+    "neverForceQuits": {
+      "title": "Uygulamalardan asla zorla çıkmaz",
+      "body": "Çıkış, sıradan bir sonlandırma isteğidir — uygulamanız kendi kaydetme uyarılarını gösterir ve çıkmayı reddedebilir. Reddeden uygulamanın satırında “Relaunch” düğmesi kalır."
+    },
+    "checksSigner": {
+      "title": "İndirilen dosyayı kimin imzaladığını denetler",
+      "body": "Uygulama bir anahtar yayımlıyorsa EdDSA; ardından Developer ID imzası, Team ID, bundle id ve mimari — bunların hepsi yerine geçeceği uygulamayla eşleşmek zorundadır. Üstüne de geri dönebileceğiniz bir yedek."
+    },
+    "language": {
+      "title": "Dilini macOS’tan alır",
+      "body": "Arayüz dilleri: {languages}. Ayrı bir dil ayarı yoktur — macOS zaten hangi dile ayarlıysa onu kullanır."
+    },
+    "noServer": {
+      "title": "Sunucusu yok",
+      "body": "Telemetri yok, analiz SDK’sı yok. Her istek doğrudan, uygulaması denetlenen üreticiye gider ve sizinle ilgili hiçbir şey taşımaz."
+    }
+  },
+  "workbench": {
+    "alt": "Çalışma masası penceresi: taranan tüm uygulamaları listeleyen bir kenar çubuğu ve seçili uygulamanın yerel metin olarak gösterilen sürüm notları — sürüm başlığı, tarih ve her değişiklik için bir madde.",
+    "caption": "Pencereyi açtığınızda taradığı her şeyi ve seçtiğiniz uygulamanın sürüm notlarını görürsünüz. Üretici notlarını ayrıştırmaya değer bir biçimde yayımlıyorsa notlar parçalarına ayrılır ve gömülü bir web sayfası yerine yerel metin olarak gösterilir."
+  },
+  "releaseLog": {
+    "alt": "“Release Log” (sürüm günlüğü) zaman çizelgesi: güne göre gruplanmış sürümler; her biri uygulamayı, sürümü, kaynağı ve ya kesin bir yayımlanma zamanını ya da yaklaşık bir zaman aralığını gösteriyor.",
+    "caption": "Gördüğü her sürüm kaydedilir; böylece zamanla, kullandığınız yazılımların gerçekte ne zaman yayımlandığını gösteren bir günlük oluşur. Bir yayımlanma zamanına yalnızca üreticinin kendi akışı zaman damgası veriyorsa kesin denir; geri kalan her şey ≈ işaretiyle bir aralık olarak gösterilir, çünkü dürüstçe bilebildiğimiz yalnızca budur."
+  },
+  "settings": {
+    "alt": "DuoUpdater’ın “General” ayarları; yanında Folders, Updates, GitHub, Alcove, Ignored ve Diagnostics bölümlerini listeleyen bir kenar çubuğu var. Ayarlar: oturum açıldığında başlatma, denetleme aralığı, Dock simgesini gizleme, her uygulamanın neyle yapıldığının gösterilip gösterilmeyeceği, bildirimler, otomatik yeniden açma, geri dönüş yedekleri ve kapladıkları alan, aynı anda kaç uygulamanın denetleneceği ve App Store güncellemeleri, kendini güncelleyen uygulamalar ile TestFlight betaları için yükleme yönlendirmesi.",
+    "caption": "Ayarların çoğu, ona ne kadar özerklik tanımak istediğinizle ilgilidir — uygulamaları sizin yerinize yeniden başlatıp başlatmayacağı, geri dönüş yedeği tutup tutmayacağı ve iki zahmetli durumun nasıl yönlendirileceği: Mac App Store uygulamaları ve kendi güncelleyicisiyle gelen uygulamalar."
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "body": "Bu sayfa bulunamadı."
+  }
+}

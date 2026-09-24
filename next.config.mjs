@@ -1,8 +1,11 @@
+import createNextIntlPlugin from "next-intl/plugin";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    // Two root layouts (English, and the translated home pages) leave no single
-    // layout for an unmatched URL; app/global-not-found.tsx fills that role.
+    // The root layout is app/[locale]/layout.tsx, so a request the i18n proxy
+    // does not match has no layout to render a 404 in; app/global-not-found.tsx
+    // is that page.
     globalNotFound: true,
   },
   async headers() {
@@ -25,4 +28,7 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+// Finds i18n/request.ts, where each request's locale and messages come from.
+const withNextIntl = createNextIntlPlugin();
+
+export default withNextIntl(nextConfig);

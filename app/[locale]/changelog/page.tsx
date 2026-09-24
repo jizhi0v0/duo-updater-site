@@ -13,7 +13,7 @@ export default async function ChangelogPage() {
   const releases = await readReleases();
 
   return (
-    <div className="wrap">
+    <div className="wrap" lang="en">
       <div className="page-head">
         <h1>Changelog</h1>
         <p>
