@@ -2,9 +2,9 @@
 
 import { useLocale } from "next-intl";
 import NextLink from "next/link";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
-import { closeOtherMenus } from "@/components/closeOtherMenus";
+import { useHeaderMenu } from "@/components/useHeaderMenu";
 import { LOCALES, localizedPath } from "@/i18n/locales";
 import { usePathname } from "@/i18n/navigation";
 
@@ -18,11 +18,8 @@ export default function LanguageMenu({ variant = "menu" }: { variant?: "menu" | 
   const pathname = usePathname();
   const menu = useRef<HTMLDetailsElement>(null);
 
-  // A client-side navigation keeps this component, and a <details> keeps its
-  // `open` attribute across renders — so close it once the new page is in.
-  useEffect(() => {
-    if (menu.current) menu.current.open = false;
-  }, [pathname, current]);
+  // The footer's list variant renders no <details>; the hook then does nothing.
+  useHeaderMenu(menu, `${current}${pathname}`);
 
   const items = LOCALES.map((locale) =>
     locale.id === current ? (
@@ -49,7 +46,7 @@ export default function LanguageMenu({ variant = "menu" }: { variant?: "menu" | 
   return (
     // The footer lists the languages too, but a visitor who arrived on the
     // wrong one should not have to scroll past the whole page to find that out.
-    <details className="header-menu lang-menu" ref={menu} onToggle={closeOtherMenus}>
+    <details className="header-menu lang-menu" ref={menu}>
       <summary>
         <svg aria-hidden="true" viewBox="0 0 16 16" width="15" height="15">
           <circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.2" />

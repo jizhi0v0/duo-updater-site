@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
 import type { LocaleID } from "@/i18n/locales";
+import { typeset } from "@/lib/typeset";
 import { fetchLatestRelease, RELEASES_URL } from "@/lib/release";
 
 export default async function DownloadButton({ locale }: { locale: LocaleID }) {
@@ -18,7 +19,7 @@ export default async function DownloadButton({ locale }: { locale: LocaleID }) {
         {release.version ? ` — ${release.version}` : ""}
       </a>
       <p className="cta-note">
-        {t("note")} <a href={RELEASES_URL}>{t("allReleases")}</a>
+        {typeset(locale, t("note"))} <a href={RELEASES_URL}>{t("allReleases")}</a>
       </p>
     </div>
   );

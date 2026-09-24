@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 
 import DownloadButton from "@/components/DownloadButton";
 import { localeInfo, localizedPath, type LocaleID } from "@/i18n/locales";
+import { typeset } from "@/lib/typeset";
 import { fetchLatestRelease, REPO } from "@/lib/release";
 import { SITE } from "@/lib/site";
 
@@ -35,7 +36,16 @@ const APP_LANGUAGES = [
 ];
 
 export default async function HomePage({ locale }: { locale: LocaleID }) {
-  const [release, t] = await Promise.all([fetchLatestRelease(), getTranslations({ locale })]);
+  const [release, translate] = await Promise.all([
+    fetchLatestRelease(),
+    getTranslations({ locale }),
+  ]);
+  // Every string on the page goes through the CJK line-break fixes.
+  const t = Object.assign(
+    (key: Parameters<typeof translate>[0], values?: Parameters<typeof translate>[1]) =>
+      typeset(locale, translate(key, values)),
+    { rich: translate.rich },
+  );
   const isEnglish = locale === "en";
   const pageURL = isEnglish ? SITE.url : `${SITE.url}${localizedPath(locale, "/")}`;
   // en-GB for English: the page's own copy has no serial comma.
