@@ -28,7 +28,13 @@ export default async function HomePage({ locale }: { locale: LocaleID }) {
   // en-GB for English: the page's own copy has no serial comma.
   const appLanguages = new Intl.ListFormat(isEnglish ? "en-GB" : localeInfo(locale).tag, {
     type: "conjunction",
-  }).format(APP_LANGUAGES);
+  })
+    .formatToParts(APP_LANGUAGES)
+    // Chinese joins the last two with 和 and no spaces, which runs it into the
+    // Latin names on either side ("Français和Русский"). Chinese text puts a
+    // space between CJK and Latin words, so the page does here too.
+    .map((part) => (part.type === "literal" && part.value === "和" ? " 和 " : part.value))
+    .join("");
 
   // Structured data for the one thing this page is about: a downloadable macOS
   // application. Version and download URL are read from the same release fetch

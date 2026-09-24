@@ -39,6 +39,23 @@
     "Meiryo", sans-serif;
 }
 
+/* Chinese and Japanese set every character in a full square with no spaces
+   between words, so the Latin-tuned 1.65 leading reads as a solid block —
+   worst in the centred captions. Headings keep their own tight leading; this
+   is body text. (Not tracking as well: it splits the two halves of a "——"
+   dash apart.) */
+:root:lang(zh-Hans),
+:root:lang(zh-Hant),
+:root:lang(ja) {
+  --cjk-leading: 1.85;
+}
+
+:lang(zh-Hans) body,
+:lang(zh-Hant) body,
+:lang(ja) body {
+  line-height: var(--cjk-leading);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #131312;
