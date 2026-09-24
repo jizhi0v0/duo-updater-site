@@ -28,7 +28,7 @@
   },
   "menuBar": {
     "alt": "O popover da barra de menus do DuoUpdater, com o título “58 updates available” (58 atualizações disponíveis), um botão “Update All” e um campo de busca. Cada linha mostra a versão instalada, a nova versão, um pequeno selo indicando com o que o app foi feito e um botão “Update”; a linha do Amp mostra de 1.0 (374) para 1.0 (390). Um cartão que aparece ao passar o cursor sobre o selo do AndroMeld diz: “Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK.” (app nativo de Mac, feito com AppKit e SwiftUI e o SDK do macOS 26.5). Uma linha na parte inferior informa “3 Homebrew packages not checked” (3 pacotes do Homebrew não verificados).",
-    "caption1": "Cada linha mostra de qual versão para qual você vai, e o botão diz o que de fato vai acontecer: <strong>Update</strong> instala; <strong>Relaunch</strong> significa que o app já está atualizado no disco e só a cópia em execução está desatualizada. Um ponto verde marca um app que está aberto, para você saber antes de clicar se algo está prestes a ser encerrado e reaberto.",
+    "caption1": "Cada linha mostra de qual versão para qual você vai, e o botão diz o que de fato vai acontecer: <strong>Atualizar</strong> instala; <strong>Reabrir</strong> significa que o app já está atualizado no disco e só a cópia em execução está desatualizada. Um ponto verde marca um app que está aberto, para você saber antes de clicar se algo está prestes a ser encerrado e reaberto.",
     "caption2": "O selo ao lado de um nome diz com o que o app foi feito — Electron, Qt, Chromium, uma JVM embutida, Flutter, Tauri, Catalyst ou um app de iPhone rodando em Apple Silicon — e, ao passar o cursor sobre ele, aparecem o nome do runtime e a sua versão. Cada informação é lida de algo que o empacotador de fato incluiu, nunca do nome do app ou do fabricante; por isso, um pacote que não informa fica sem selo em vez de receber um palpite."
   },
   "differently": {
@@ -39,14 +39,14 @@
     },
     "neverForceQuits": {
       "title": "Ele nunca força o encerramento",
-      "body": "O encerramento é um pedido comum para terminar — o app mostra os próprios avisos para salvar e pode recusar. Um app que recusa continua com o botão Relaunch."
+      "body": "O encerramento é um pedido comum para terminar — o app mostra os próprios avisos para salvar e pode recusar. Um app que recusa continua com o botão Reabrir."
     },
     "checksSigner": {
       "title": "Ele confere quem assinou o download",
       "body": "EdDSA quando o app publica uma chave; depois, assinatura Developer ID, Team ID, bundle id e arquitetura, que precisam todos corresponder ao app que está sendo substituído — além de um backup para o qual você pode reverter."
     },
     "language": {
-      "title": "Ele fala vários idiomas",
+      "title": "Ele fala o seu idioma",
       "body": "{languages}. Não há ajuste de idioma — ele usa o idioma que já estiver definido no macOS."
     },
     "noServer": {

@@ -16,10 +16,23 @@ import menuBarShot from "@/public/screenshots/menu-bar.png";
 import releaseLogShot from "@/public/screenshots/release-log-timeline.png";
 import settingsShot from "@/public/screenshots/settings.png";
 
-// The languages the app itself ships in, which is not the same list as the
-// languages this page is translated into. Each is written in its own language,
-// so the sentence stays true on every translation of the page.
-const APP_LANGUAGES = ["English", "简体中文", "日本語", "Deutsch", "Español", "Français", "Русский"];
+// The languages the app itself ships in. It follows the app's releases, not
+// this site's translations: until the release that added it, pt-BR, tr and
+// zh-Hant, the app had seven and this page said so. Each is written in its own
+// language, so the sentence stays true on every page.
+const APP_LANGUAGES = [
+  "English",
+  "简体中文",
+  "繁體中文",
+  "日本語",
+  "Deutsch",
+  "Español",
+  "Français",
+  "Italiano",
+  "Português (Brasil)",
+  "Русский",
+  "Türkçe",
+];
 
 export default async function HomePage({ locale }: { locale: LocaleID }) {
   const [release, t] = await Promise.all([fetchLatestRelease(), getTranslations({ locale })]);
