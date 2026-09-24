@@ -14,6 +14,7 @@ export const LOCALES = [
   { id: "pt-br", tag: "pt-BR", name: "Português (Brasil)" },
   { id: "tr", tag: "tr", name: "Türkçe" },
   { id: "ja", tag: "ja", name: "日本語" },
+  { id: "zh-hans", tag: "zh-Hans", name: "简体中文" },
   { id: "zh-hant", tag: "zh-Hant", name: "繁體中文" },
 ] as const;
 
