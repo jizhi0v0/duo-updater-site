@@ -11,10 +11,13 @@ first source that recognises an app answers for it; the rest are not consulted.
 2. **Xcode Releases** — the Xcode builds that do not come from the App Store:
    every beta and release candidate, matched to the channel you actually have
    installed. A store-installed Xcode is already answered above.
-3. **Sparkle** — the app's own `SUFeedURL` appcast, which is the same feed the
+3. **Homebrew Cask** — matched by `.app` filename, falling back to bundle id, so
+   casks that install a `pkg` rather than an app bundle are still found. It only
+   answers for apps Homebrew installed and keeps up to date (not casks marked
+   `auto_updates`), so updating one leaves Homebrew's record current and
+   `brew upgrade` does not install the same release again.
+4. **Sparkle** — the app's own `SUFeedURL` appcast, which is the same feed the
    app's built-in updater reads.
-4. **Homebrew Cask** — matched by `.app` filename, falling back to bundle id, so
-   casks that install a `pkg` rather than an app bundle are still found.
 5. **GitHub Releases** — channel-aware matching for apps distributed that way.
    Detection only, unless a per-app rule has named and vetted an installable Mac
    asset for that app.
