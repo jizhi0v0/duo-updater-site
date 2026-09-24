@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "title": "DuoUpdater — chaque app Mac mise à jour comme elle l’attend",
+    "description": "Une app de barre des menus pour macOS qui trouve les mises à jour des apps que vous avez déjà et les installe comme chacune s’attend à être mise à jour."
+  },
+  "nav": {
+    "docs": "Docs",
+    "changelog": "Nouveautés",
+    "github": "GitHub",
+    "menu": "Menu"
+  },
+  "footer": {
+    "appClaim": "L’app n’envoie aucune télémétrie et ne communique avec aucun serveur qui nous appartienne. Apple Silicon, macOS 15+.",
+    "source": "Code source",
+    "releases": "Versions",
+    "licence": "Licence",
+    "thisSite": "Ce site"
+  },
+  "hero": {
+    "titleLine1": "Mettez à jour vos apps Mac",
+    "titleLine2": "comme chacune s’attend à l’être.",
+    "body": "La plupart des outils de mise à jour choisissent un seul mécanisme et y font passer toutes les apps. DuoUpdater lit le canal de publication propre à chaque app — son appcast Sparkle, sa fiche sur l’App Store, son cask Homebrew, le flux de versions de son éditeur — et s’en sert."
+  },
+  "download": {
+    "button": "Télécharger pour Mac",
+    "note": "Apple Silicon, macOS 15 ou ultérieur. Gratuit et open source.",
+    "allReleases": "Toutes les versions"
+  },
+  "menuBar": {
+    "alt": "Le panneau de DuoUpdater ouvert depuis la barre des menus, avec l’en-tête « 58 updates available » (58 mises à jour disponibles), un bouton « Update All » et un champ de recherche. Chaque ligne indique la version installée, la nouvelle version, un petit badge précisant avec quoi l’app est conçue, et un bouton « Update » ; la ligne d’Amp va de 1.0 (374) à 1.0 (390). Au survol du badge d’AndroMeld, une fiche indique : « Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK. » (une app Mac native, conçue directement sur les frameworks d’Apple et non sur un environnement multiplateforme, liée à AppKit et SwiftUI, compilée avec le SDK macOS 26.5). Une ligne en bas signale « 3 Homebrew packages not checked » (3 paquets Homebrew non vérifiés).",
+    "caption1": "Chaque ligne indique la version de départ et la version d’arrivée, et le bouton dit ce qui va réellement se passer : <strong>Mettre à jour</strong> installe ; <strong>Relancer</strong> signifie que l’app est déjà à jour sur le disque et que seule la copie en cours d’exécution est obsolète. Un point vert signale une app ouverte : vous savez avant de cliquer si une app va être quittée puis rouverte.",
+    "caption2": "Le badge à côté d’un nom indique avec quoi l’app est conçue — Electron, Qt, Chromium, une JVM intégrée, Flutter, Tauri, Catalyst, ou une app iPhone exécutée sur Apple Silicon — et, au survol, il précise l’environnement d’exécution et sa version. Chaque indication provient d’un élément réellement livré dans le paquet, jamais du nom de l’app ni de son éditeur : un bundle qui ne dit rien reste donc sans badge plutôt que de faire l’objet d’une supposition."
+  },
+  "differently": {
+    "title": "Ce que DuoUpdater fait autrement",
+    "handsOver": {
+      "title": "Il passe la main au lieu de lutter",
+      "body": "Quand une app fournit son propre outil de mise à jour, c’est cet outil qui fait le travail. Quand une opération ne peut pas être effectuée sans risque, la ligne le dit au lieu de deviner."
+    },
+    "neverForceQuits": {
+      "title": "Il ne force jamais une app à quitter",
+      "body": "Il se contente de demander à l’app de quitter — elle affiche ses propres invites d’enregistrement et peut refuser. Une app qui refuse conserve son bouton « Relancer »."
+    },
+    "checksSigner": {
+      "title": "Il vérifie qui a signé le téléchargement",
+      "body": "EdDSA lorsque l’app publie une clé, puis une signature Developer ID, un Team ID, un bundle id et une architecture qui doivent tous correspondre à l’app remplacée — et une sauvegarde à partir de laquelle vous pouvez revenir en arrière."
+    },
+    "language": {
+      "title": "Il parle votre langue",
+      "body": "{languages}. Il n’y a aucun réglage de langue : l’app suit simplement la langue déjà choisie dans macOS."
+    },
+    "noServer": {
+      "title": "Il n’a pas de serveur",
+      "body": "Aucune télémétrie, aucun SDK d’analyse. Chaque requête va directement à l’éditeur de l’app vérifiée et ne transmet rien à votre sujet."
+    }
+  },
+  "workbench": {
+    "alt": "La fenêtre de travail : une barre latérale listant toutes les apps analysées, et les notes de version de l’app sélectionnée affichées en texte natif — titre de version, date et une puce par modification.",
+    "caption": "En ouvrant la fenêtre, vous retrouvez tout ce qui a été analysé, ainsi que les notes de version de l’élément sélectionné. Lorsqu’un éditeur publie ses notes sous une forme qui se prête à l’extraction, elles sont décomposées et affichées en texte natif plutôt que dans une page web intégrée."
+  },
+  "releaseLog": {
+    "alt": "La chronologie du Journal des versions : les versions regroupées par jour, chacune avec l’app, la version, la source, et soit une heure de publication exacte, soit une plage approximative.",
+    "caption": "Chaque version repérée est enregistrée : avec le temps, vous obtenez un journal indiquant quand les logiciels que vous utilisez sont réellement publiés. Une heure de publication n’est dite exacte que si le flux de l’éditeur lui-même l’horodate ; dans tous les autres cas, elle est présentée comme une plage précédée d’un ≈, car c’est tout ce que nous savons honnêtement."
+  },
+  "settings": {
+    "alt": "Les réglages « General » de DuoUpdater, à côté d’une barre latérale listant Folders, Updates, GitHub, Alcove, Ignored et Diagnostics : lancement à l’ouverture de session, intervalle de vérification, masquage de l’icône du Dock, affichage ou non de ce avec quoi chaque app est conçue, notifications, relance automatique, sauvegardes de restauration et l’espace qu’elles occupent, nombre d’apps à vérifier simultanément, et routage d’installation pour les mises à jour de l’App Store, les apps qui se mettent à jour elles-mêmes et les bêtas TestFlight.",
+    "caption": "La plupart des réglages portent sur le degré d’autonomie que vous voulez lui accorder : relancer ou non les apps à votre place, conserver ou non une sauvegarde de restauration, et comment traiter les deux cas délicats — les apps du Mac App Store et celles qui intègrent leur propre outil de mise à jour."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "body": "Cette page est introuvable."
+  },
+  "changelog": {
+    "title": "Nouveautés",
+    "description": "Toutes les versions de DuoUpdater, et ce qui a changé dans chacune.",
+    "intro": "Chaque version, de la plus récente à la plus ancienne — les mêmes notes que l’app affiche quand elle se met à jour. Les téléchargements se trouvent sur la <link>page des versions</link>.",
+    "olderInEnglish": "Les versions plus anciennes sont affichées en anglais."
+  }
+}

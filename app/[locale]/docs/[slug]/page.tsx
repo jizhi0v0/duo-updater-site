@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { Link } from "@/i18n/navigation";
 import { listDocs, readDoc } from "@/lib/docs";
 
-type Params = { params: Promise<{ slug: string }> };
+type Params = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateStaticParams() {
   return (await listDocs()).map((doc) => ({ slug: doc.slug }));
@@ -34,16 +35,18 @@ export default async function DocPage({ params }: Params) {
   }
 
   return (
-    <div className="wrap">
+    // English under every locale prefix; `lang` says so to screen readers and
+    // to the browser's translate offer, since <html lang> is the chrome's.
+    <div className="wrap" lang="en">
       <div className="page-head">
         <h1>{doc.title}</h1>
         <p>{doc.summary}</p>
       </div>
 
       <div className="prose">
-        <a className="back-link" href="/docs">
+        <Link className="back-link" href="/docs">
           ← All docs
-        </a>
+        </Link>
         <div
           className="table-scroll"
           dangerouslySetInnerHTML={{ __html: html }}

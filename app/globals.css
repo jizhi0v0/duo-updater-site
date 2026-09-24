@@ -25,6 +25,46 @@
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
+/* The stack above names Simplified Chinese faces, which draw some shared
+   characters with the wrong regional glyph for Traditional Chinese and Japanese
+   readers. Those pages get their own faces ahead of the fallbacks. */
+:root:lang(zh-Hant) {
+  --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+:root:lang(ja) {
+  --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    "Meiryo", sans-serif;
+}
+
+/* Chinese and Japanese set every character in a full square with no spaces
+   between words, so the Latin-tuned 1.65 leading reads as a solid block —
+   worst in the centred captions. Headings keep their own tight leading; this
+   is body text. (Not tracking as well: it splits the two halves of a "——"
+   dash apart.) */
+:root:lang(zh-Hans),
+:root:lang(zh-Hant),
+:root:lang(ja) {
+  --cjk-leading: 1.85;
+}
+
+:lang(zh-Hans) body,
+:lang(zh-Hant) body,
+:lang(ja) body {
+  line-height: var(--cjk-leading);
+}
+
+/* English text inside those pages (the docs, untranslated changelog entries)
+   keeps the English leading, so a page does not change height when only its
+   header and footer changed language. */
+:lang(zh-Hans) body [lang="en"],
+:lang(zh-Hant) body [lang="en"],
+:lang(ja) body [lang="en"] {
+  line-height: 1.65;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #131312;
@@ -156,6 +196,67 @@ pre code {
   color: var(--text);
 }
 
+/* The two header dropdowns: languages, and on phones the nav. */
+.header-menu {
+  position: relative;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.header-menu summary {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.header-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.header-menu summary:hover,
+.header-menu[open] summary {
+  color: var(--text);
+}
+
+.header-menu ul {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.6rem);
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  min-width: 11rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.header-menu li > * {
+  display: block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header-menu li > a:hover {
+  background: var(--bg-sunken);
+  color: var(--text);
+}
+
+.header-menu [aria-current] {
+  color: var(--text);
+  font-weight: 550;
+}
+
+.nav-menu {
+  display: none;
+}
+
 .site-footer {
   margin-top: auto;
   border-top: 1px solid var(--border);
@@ -181,6 +282,15 @@ pre code {
 
 .spacer {
   margin-right: auto;
+}
+
+.site-footer .languages {
+  margin-top: 0.75rem;
+  gap: 0.25rem 1rem;
+}
+
+.site-footer .languages [aria-current] {
+  color: var(--text-muted);
 }
 
 /* ---------- landing ---------- */
@@ -511,5 +621,37 @@ pre code {
 
   .release-version {
     position: static;
+  }
+}
+
+/* On a phone the header has room for the icon, not for "Português (Brasil)".
+   The name is hidden visually only, so the control still has one for a screen
+   reader. */
+@media (max-width: 36rem) {
+  /* Nav links fold into the ≡ menu (components/NavMenu.tsx); the header is
+     then the wordmark and two icons, one row at any phone width. */
+  .site-nav {
+    display: none;
+  }
+
+  .nav-menu {
+    display: block;
+  }
+
+  .site-header .wrap {
+    gap: 1.25rem;
+  }
+
+  .header-menu summary {
+    padding: 0.25rem;
+  }
+
+  .lang-menu summary span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }

@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "title": "DuoUpdater — 依每個 App 預期的方式更新",
+    "description": "一款 macOS 選單列 App：找出你已安裝的 App 有哪些更新，並用每個 App 預期的更新方式來安裝。"
+  },
+  "nav": {
+    "docs": "文件",
+    "changelog": "更新日誌",
+    "github": "GitHub",
+    "menu": "選單"
+  },
+  "footer": {
+    "appClaim": "此 App 不傳送任何遙測資料，也不與我們的任何伺服器連線。Apple Silicon，macOS 15 以上。",
+    "source": "原始碼",
+    "releases": "發行版本",
+    "licence": "授權條款",
+    "thisSite": "本網站"
+  },
+  "hero": {
+    "titleLine1": "用每個 App 預期的方式，",
+    "titleLine2": "更新你的 Mac App。",
+    "body": "大多數更新工具只挑一種機制，再把所有 App 都套進去。DuoUpdater 則會讀取每個 App 自己的發行管道——Sparkle appcast、App Store 上的頁面、Homebrew cask、廠商的發行資訊來源——然後就照那個管道來更新。"
+  },
+  "download": {
+    "button": "下載 Mac 版",
+    "note": "Apple Silicon，macOS 15 或以上版本。免費且開放原始碼。",
+    "allReleases": "所有發行版本"
+  },
+  "menuBar": {
+    "alt": "DuoUpdater 的選單列彈出式視窗，標題為「58 updates available」（有 58 項可用更新），附有「Update All」按鈕與搜尋欄位。每一列顯示已安裝的版本、新版本、一個標示 App 以什麼技術打造的小徽章，以及「Update」按鈕；Amp 那一列顯示 1.0 (374) 到 1.0 (390)。指標停在 AndroMeld 的徽章上時出現的資訊卡寫著：「Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK.」（原生：直接以 Apple 框架打造的原生 Mac App，而非跨平台執行環境；連結 AppKit 與 SwiftUI；以 macOS 26.5 SDK 建置。）底部一列顯示「3 Homebrew packages not checked」（有 3 個 Homebrew 套件未檢查）。",
+    "caption1": "每一列都寫明從哪個版本更新到哪個版本，按鈕則說明實際會發生什麼事：<strong>Update</strong> 會進行安裝；<strong>Relaunch</strong> 表示磁碟上的 App 已經更新好了，只是正在執行的那一份還是舊的。正在執行的 App 會以綠點標示，讓你在按下去之前就知道有沒有 App 即將被結束再重新開啟。",
+    "caption2": "名稱旁的徽章標示 App 是用什麼打造的——Electron、Qt、Chromium、內建的 JVM、Flutter、Tauri、Catalyst，或是在 Apple Silicon 上執行的 iPhone App——指標停在上面時，會顯示執行環境的名稱與版本。每一項都是從打包者實際附帶的內容讀出來的，絕不依據 App 的名稱或廠商來判斷；因此 bundle 本身沒有透露的，就維持不標示，而不是用猜的。"
+  },
+  "differently": {
+    "title": "它有哪些不同",
+    "handsOver": {
+      "title": "它交棒，而不是硬搶",
+      "body": "App 如果附帶自己的更新程式，就交給那個更新程式來做。遇到無法安全完成的情況，那一列會直接說明，而不是用猜的。"
+    },
+    "neverForceQuits": {
+      "title": "它從不強制結束",
+      "body": "結束 App 時送出的是一般的 terminate 請求——你的 App 會照常跳出自己的儲存提示，也可以拒絕結束。拒絕結束的 App，那一列會保留它的 Relaunch 按鈕。"
+    },
+    "checksSigner": {
+      "title": "它會檢查下載檔是誰簽署的",
+      "body": "若 App 有發布金鑰，就先驗證 EdDSA；接著 Developer ID 簽署、Team ID、bundle id 與架構，全都必須與要被取代的 App 相符——另外還會留一份可供回復的備份。"
+    },
+    "language": {
+      "title": "它的介面有多種語言",
+      "body": "{languages}。沒有語言設定——它直接沿用 macOS 目前設定的語言。"
+    },
+    "noServer": {
+      "title": "它沒有伺服器",
+      "body": "沒有遙測，也沒有分析 SDK。每個請求都直接送往被檢查的那個 App 的廠商，不帶任何關於你的資訊。"
+    }
+  },
+  "workbench": {
+    "alt": "工作台視窗：側邊欄列出所有掃描到的 App，所選 App 的版本說明以原生文字呈現——版本標題、日期，每項變更一個項目符號。",
+    "caption": "打開這個視窗，就能看到它掃描到的所有 App，以及你所選 App 的版本說明。如果廠商發布的版本說明格式值得解析，就會拆解開來，以原生文字呈現，而不是嵌入一個網頁。"
+  },
+  "releaseLog": {
+    "alt": "「Release Log」時間軸：發行版本依日期分組，每一筆顯示 App、版本、來源，以及精確的發布時間或大約的時間範圍。",
+    "caption": "它看到的每個版本都會被記錄下來，久而久之，你就有一份紀錄，知道你用的軟體實際上都在什麼時候發布。只有當廠商自己的發行資訊來源標有時間戳記時，發布時間才會標為精確；其餘一律以帶 ≈ 的時間範圍顯示，因為我們能誠實確定的就只有這麼多。"
+  },
+  "settings": {
+    "alt": "DuoUpdater 的「General」設定，旁邊的側邊欄列出 Folders、Updates、GitHub、Alcove、Ignored 與 Diagnostics：登入時啟動、檢查間隔、隱藏 Dock 圖像、是否顯示每個 App 以什麼打造、通知、自動重新開啟、回復用備份及其占用的空間、一次檢查幾個 App，以及 App Store 更新、會自行更新的 App 與 TestFlight 測試版各自要走哪條安裝路徑。",
+    "caption": "大部分設定都關乎你想給它多少自主權——要不要替你重新啟動 App、要不要保留回復用備份，以及兩種棘手的情況要交給哪條路徑處理：Mac App Store 的 App，以及附帶自己更新程式的 App。"
+  },
+  "notFound": {
+    "title": "找不到頁面",
+    "body": "找不到這個頁面。"
+  },
+  "changelog": {
+    "title": "更新日誌",
+    "description": "DuoUpdater 的每一個版本，以及每個版本改了什麼。",
+    "intro": "所有版本，最新的在前——和 App 自我更新時顯示的說明是同一份。下載請至<link>發行頁面</link>。",
+    "olderInEnglish": "較早的版本以英文顯示。"
+  }
+}

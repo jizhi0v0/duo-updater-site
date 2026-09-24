@@ -1,5 +1,6 @@
-// Copies the two things this site does not own — the changelog and the
-// screenshots — out of the app repository and into version control here.
+// Copies the things this site does not own — the changelog and its
+// translations, and the screenshots — out of the app repository and into
+// version control here.
 //
 // Deliberately a copy rather than a build-time fetch: CHANGELOG.md is the single
 // source of truth for release notes (the app repo's publish script reads the
@@ -75,31 +76,46 @@ function latestReleasedVersion() {
 }
 
 const released = latestReleasedVersion();
-const changelogSource = await readFile(join(appRepo, "CHANGELOG.md"), "utf8");
-
 const SECTION = /^## +(\S+) *$/gm;
-const starts = [...changelogSource.matchAll(SECTION)].map((m) => ({
-  version: m[1],
-  at: m.index,
-}));
 
 // Sections run newest-first, so anything unreleased sits at the top. Keep the
 // preamble, then resume at the first section that has actually shipped —
 // slicing at the unreleased section instead would keep the preamble and throw
 // away every release below it.
-const unreleased = starts.filter((s) => compareVersions(s.version, released) > 0);
-const firstReleased = starts.find((s) => compareVersions(s.version, released) <= 0);
-const changelog = unreleased.length && firstReleased
-  ? changelogSource.slice(0, starts[0].at) + changelogSource.slice(firstReleased.at)
-  : changelogSource;
+function withoutUnreleased(source) {
+  const starts = [...source.matchAll(SECTION)].map((m) => ({ version: m[1], at: m.index }));
+  const unreleased = starts.filter((s) => compareVersions(s.version, released) > 0);
+  const firstReleased = starts.find((s) => compareVersions(s.version, released) <= 0);
+  const text = unreleased.length && firstReleased
+    ? source.slice(0, starts[0].at) + source.slice(firstReleased.at)
+    : source;
+  return { text, unreleased: unreleased.map((u) => u.version) };
+}
 
-await mkdir(join(siteRoot, "content"), { recursive: true });
-await writeFile(join(siteRoot, "content", "changelog.md"), changelog);
-console.log(`→ content/changelog.md (${changelog.length} bytes, through ${released})`);
-if (unreleased.length) {
-  console.log(
-    `  held back ${unreleased.length} unreleased: ${unreleased.map((u) => u.version).join(", ")}`,
-  );
+async function syncChangelog(from, to) {
+  const { text, unreleased } = withoutUnreleased(await readFile(join(appRepo, from), "utf8"));
+  await mkdir(dirname(join(siteRoot, to)), { recursive: true });
+  await writeFile(join(siteRoot, to), text);
+  const count = [...text.matchAll(SECTION)].length;
+  console.log(`→ ${to} (${count} sections, through ${released})`);
+  if (unreleased.length) {
+    console.log(`  held back ${unreleased.length} unreleased: ${unreleased.join(", ")}`);
+  }
+}
+
+await syncChangelog("CHANGELOG.md", "content/changelog.md");
+
+// The translations the app's own What's New window reads: each covers the
+// recent versions, and older ones fall back to English — on this site too
+// (lib/changelog.ts). File names are the app's language codes (`zh-Hans.md`,
+// `pt-BR.md`); here they are stored under the site's lowercase locale ids.
+for (const locale of ["de", "es", "fr", "it", "ja", "pt-BR", "ru", "tr", "zh-Hans", "zh-Hant"]) {
+  const from = join("changelog", `${locale}.md`);
+  if (!existsSync(join(appRepo, from))) {
+    console.error(`✗ missing translated changelog: ${join(appRepo, from)}`);
+    process.exit(1);
+  }
+  await syncChangelog(from, join("content", "changelog", `${locale.toLowerCase()}.md`));
 }
 
 await mkdir(join(siteRoot, "public", "screenshots"), { recursive: true });
