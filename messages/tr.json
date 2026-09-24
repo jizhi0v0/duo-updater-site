@@ -6,7 +6,8 @@
   "nav": {
     "docs": "Belgeler",
     "changelog": "Değişiklik günlüğü",
-    "github": "GitHub"
+    "github": "GitHub",
+    "menu": "Menü"
   },
   "footer": {
     "appClaim": "Uygulama hiçbir telemetri verisi göndermez ve bize ait hiçbir sunucuyla iletişim kurmaz. Apple Silicon, macOS 15+.",

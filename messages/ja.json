@@ -6,7 +6,8 @@
   "nav": {
     "docs": "ドキュメント",
     "changelog": "変更履歴",
-    "github": "GitHub"
+    "github": "GitHub",
+    "menu": "メニュー"
   },
   "footer": {
     "appClaim": "アプリはテレメトリを送信せず、私たちのサーバとも通信しません。Apple Silicon、macOS 15以降。",

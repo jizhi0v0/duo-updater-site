@@ -6,7 +6,8 @@
   "nav": {
     "docs": "文件",
     "changelog": "更新日誌",
-    "github": "GitHub"
+    "github": "GitHub",
+    "menu": "選單"
   },
   "footer": {
     "appClaim": "此 App 不傳送任何遙測資料，也不與我們的任何伺服器連線。Apple Silicon，macOS 15 以上。",

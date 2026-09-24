@@ -3,6 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getTranslations } from "next-intl/server";
 
 import LanguageMenu from "@/components/LanguageMenu";
+import NavMenu from "@/components/NavMenu";
 import type { LocaleID } from "@/i18n/locales";
 import { Link } from "@/i18n/navigation";
 import { RELEASES_URL, REPO } from "@/lib/release";
@@ -33,6 +34,14 @@ export default async function SiteChrome({
               <Link href="/changelog">{t("nav.changelog")}</Link>
               <a href={`https://github.com/${REPO}`}>{t("nav.github")}</a>
             </nav>
+            <NavMenu
+              label={t("nav.menu")}
+              items={[
+                { href: "/docs", label: t("nav.docs") },
+                { href: "/changelog", label: t("nav.changelog") },
+                { href: `https://github.com/${REPO}`, label: t("nav.github"), external: true },
+              ]}
+            />
             <LanguageMenu />
           </div>
         </header>

@@ -4,6 +4,7 @@ import { useLocale } from "next-intl";
 import NextLink from "next/link";
 import { useEffect, useRef } from "react";
 
+import { closeOtherMenus } from "@/components/closeOtherMenus";
 import { LOCALES, localizedPath } from "@/i18n/locales";
 import { usePathname } from "@/i18n/navigation";
 
@@ -48,7 +49,7 @@ export default function LanguageMenu({ variant = "menu" }: { variant?: "menu" | 
   return (
     // The footer lists the languages too, but a visitor who arrived on the
     // wrong one should not have to scroll past the whole page to find that out.
-    <details className="lang-menu" ref={menu}>
+    <details className="header-menu lang-menu" ref={menu} onToggle={closeOtherMenus}>
       <summary>
         <svg aria-hidden="true" viewBox="0 0 16 16" width="15" height="15">
           <circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.2" />

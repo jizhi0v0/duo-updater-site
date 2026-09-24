@@ -196,13 +196,14 @@ pre code {
   color: var(--text);
 }
 
-.lang-menu {
+/* The two header dropdowns: languages, and on phones the nav. */
+.header-menu {
   position: relative;
   font-size: 0.9375rem;
   color: var(--text-muted);
 }
 
-.lang-menu summary {
+.header-menu summary {
   display: flex;
   align-items: center;
   gap: 0.35rem;
@@ -211,16 +212,16 @@ pre code {
   white-space: nowrap;
 }
 
-.lang-menu summary::-webkit-details-marker {
+.header-menu summary::-webkit-details-marker {
   display: none;
 }
 
-.lang-menu summary:hover,
-.lang-menu[open] summary {
+.header-menu summary:hover,
+.header-menu[open] summary {
   color: var(--text);
 }
 
-.lang-menu ul {
+.header-menu ul {
   position: absolute;
   right: 0;
   top: calc(100% + 0.6rem);
@@ -234,7 +235,7 @@ pre code {
   box-shadow: var(--shadow);
 }
 
-.lang-menu li > * {
+.header-menu li > * {
   display: block;
   padding: 0.3rem 0.65rem;
   border-radius: 6px;
@@ -242,14 +243,18 @@ pre code {
   white-space: nowrap;
 }
 
-.lang-menu li > a:hover {
+.header-menu li > a:hover {
   background: var(--bg-sunken);
   color: var(--text);
 }
 
-.lang-menu [aria-current] {
+.header-menu [aria-current] {
   color: var(--text);
   font-weight: 550;
+}
+
+.nav-menu {
+  display: none;
 }
 
 .site-footer {
@@ -623,30 +628,22 @@ pre code {
    The name is hidden visually only, so the control still has one for a screen
    reader. */
 @media (max-width: 36rem) {
-  /* The language menu took the room the nav had. GitHub stays reachable from
-     the footer's Source link. */
-  /* Wraps to a second row rather than pushing the page sideways, should a
-     translation's labels still not fit on a narrow phone. */
-  .site-header .wrap {
-    gap: 0.35rem 1rem;
-    flex-wrap: wrap;
-    height: auto;
-    min-height: 3.5rem;
-    padding-block: 0.5rem;
-  }
-
+  /* Nav links fold into the ≡ menu (components/NavMenu.tsx); the header is
+     then the wordmark and two icons, one row at any phone width. */
   .site-nav {
-    gap: 0.9rem;
-  }
-
-  .site-nav a[href^="https://github.com"] {
     display: none;
   }
 
-  /* If it does wrap, the globe goes to the right edge of the second row, under
-     where it would have been, not under the wordmark. */
-  .lang-menu {
-    margin-left: auto;
+  .nav-menu {
+    display: block;
+  }
+
+  .site-header .wrap {
+    gap: 1.25rem;
+  }
+
+  .header-menu summary {
+    padding: 0.25rem;
   }
 
   .lang-menu summary span {

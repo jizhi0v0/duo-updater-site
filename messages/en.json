@@ -6,7 +6,8 @@
   "nav": {
     "docs": "Docs",
     "changelog": "Changelog",
-    "github": "GitHub"
+    "github": "GitHub",
+    "menu": "Menu"
   },
   "footer": {
     "appClaim": "The app sends no telemetry and talks to no server of ours. Apple Silicon, macOS 15+.",

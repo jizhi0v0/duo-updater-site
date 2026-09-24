@@ -42,7 +42,13 @@ export default async function ChangelogPage({ params }: PageProps<"/[locale]/cha
         <p>
           {/* External: GitHub's releases page, so a plain anchor. */}
           {t.rich("intro", { link: (chunks) => <a href={RELEASES_URL}>{chunks}</a> })}
-          {hasEnglishFallback && <> {t("olderInEnglish")}</>}
+          {/* Chinese and Japanese run sentences together after 。 with no space. */}
+          {hasEnglishFallback && (
+            <>
+              {/^(ja|zh)/.test(locale) ? "" : " "}
+              {t("olderInEnglish")}
+            </>
+          )}
         </p>
       </div>
 

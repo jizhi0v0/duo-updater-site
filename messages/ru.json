@@ -6,7 +6,8 @@
   "nav": {
     "docs": "Документация",
     "changelog": "Изменения",
-    "github": "GitHub"
+    "github": "GitHub",
+    "menu": "Меню"
   },
   "footer": {
     "appClaim": "Приложение не отправляет телеметрию и не обращается ни к каким нашим серверам. Apple Silicon, macOS 15+.",

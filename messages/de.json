@@ -6,7 +6,8 @@
   "nav": {
     "docs": "Doku",
     "changelog": "Änderungen",
-    "github": "GitHub"
+    "github": "GitHub",
+    "menu": "Menü"
   },
   "footer": {
     "appClaim": "Die App sendet keine Telemetriedaten und kommuniziert mit keinem Server von uns. Apple Silicon, macOS 15+.",
