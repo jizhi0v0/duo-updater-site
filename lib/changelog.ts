@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { renderMarkdown } from "./markdown";
+import { typeset } from "./typeset";
 
 export type ReleaseEntry = {
   version: string;
@@ -48,7 +49,7 @@ export async function readReleases(locale: string): Promise<ReleaseEntry[]> {
     [...english].map(async ([version, markdown]) => {
       const localized = translated?.get(version);
       return localized
-        ? { version, html: await renderMarkdown(localized) }
+        ? { version, html: typeset(locale, await renderMarkdown(localized)) }
         : { version, html: await renderMarkdown(markdown), ...(translated ? { lang: "en" as const } : {}) };
     }),
   );

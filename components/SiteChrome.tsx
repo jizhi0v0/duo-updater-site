@@ -8,6 +8,7 @@ import type { LocaleID } from "@/i18n/locales";
 import { Link } from "@/i18n/navigation";
 import { RELEASES_URL, REPO } from "@/lib/release";
 import { SITE } from "@/lib/site";
+import { typeset } from "@/lib/typeset";
 
 // Header and footer. Links to this site's own pages are next-intl <Link>s —
 // prefetched, client-side, and kept in the current language. Links that leave
@@ -54,7 +55,7 @@ export default async function SiteChrome({
               {/* Scoped to the app on purpose. Sitting in a footer, an unqualified
                   "no analytics" reads as a claim about the page you are on — which
                   would quietly become untrue the day this site gains any. */}
-              {t("footer.appClaim")}
+              {typeset(locale, t("footer.appClaim"))}
             </span>
             <a href={`https://github.com/${REPO}`}>{t("footer.source")}</a>
             <a href={RELEASES_URL}>{t("footer.releases")}</a>

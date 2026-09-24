@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
-import { closeOtherMenus } from "@/components/closeOtherMenus";
+import { useHeaderMenu } from "@/components/useHeaderMenu";
 import { Link, usePathname } from "@/i18n/navigation";
 
 type Item = { href: string; label: string; external?: boolean };
@@ -15,14 +15,10 @@ export default function NavMenu({ label, items }: { label: string; items: Item[]
   const pathname = usePathname();
   const menu = useRef<HTMLDetailsElement>(null);
 
-  // A <details> keeps `open` across a client-side navigation; close it once
-  // the new page is in, as the language menu does.
-  useEffect(() => {
-    if (menu.current) menu.current.open = false;
-  }, [pathname]);
+  useHeaderMenu(menu, pathname);
 
   return (
-    <details className="header-menu nav-menu" ref={menu} onToggle={closeOtherMenus}>
+    <details className="header-menu nav-menu" ref={menu}>
       <summary aria-label={label}>
         <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16">
           <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
