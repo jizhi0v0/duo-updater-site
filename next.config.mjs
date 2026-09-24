@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    // Two root layouts (English, and the translated home pages) leave no single
+    // layout for an unmatched URL; app/global-not-found.tsx fills that role.
+    globalNotFound: true,
+  },
   async headers() {
     return [
       {

@@ -1,17 +1,17 @@
+import type { Messages } from "@/lib/i18n";
 import { fetchLatestRelease, RELEASES_URL } from "@/lib/release";
 
-export default async function DownloadButton() {
+export default async function DownloadButton({ t }: { t: Messages["download"] }) {
   const release = await fetchLatestRelease();
 
   return (
     <div className="cta">
       <a className="button" href={release.downloadURL}>
-        Download for Mac
+        {t.button}
         {release.version ? ` — ${release.version}` : ""}
       </a>
       <p className="cta-note">
-        Apple Silicon, macOS 15 or later. Free and open source.{" "}
-        <a href={RELEASES_URL}>All releases</a>
+        {t.note} <a href={RELEASES_URL}>{t.allReleases}</a>
       </p>
     </div>
   );

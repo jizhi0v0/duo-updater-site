@@ -1,0 +1,126 @@
+// The English home page and site chrome, as data. Every other language file in
+// this folder has exactly this shape (enforced by `satisfies Messages`), so a
+// string added here fails the build until each translation has it too.
+
+/** A run of text where some parts are bold. Order is free, so a translation can
+ *  put the bold word wherever its grammar wants it. */
+export type Rich = (string | { strong: string })[];
+
+export type Messages = {
+  meta: {
+    /** <title> and og:title of the home page. */
+    title: string;
+    /** Meta description, og:description and the structured data's description. */
+    description: string;
+  };
+  nav: { docs: string; changelog: string; github: string };
+  footer: {
+    /** Scoped to the app on purpose — see the comment in SiteChrome. */
+    appClaim: string;
+    source: string;
+    releases: string;
+    licence: string;
+    thisSite: string;
+  };
+  hero: {
+    /** Two lines; the break between them is kept on wide screens. */
+    title: [string, string];
+    body: string;
+  };
+  download: {
+    /** The version number is appended after an em dash. */
+    button: string;
+    note: string;
+    allReleases: string;
+  };
+  menuBar: { alt: string; caption: [Rich, string] };
+  differently: {
+    title: string;
+    handsOver: { title: string; body: string };
+    neverForceQuits: { title: string; body: string };
+    checksSigner: { title: string; body: string };
+    /** `{languages}` is replaced by the list of the app's own languages. */
+    language: { title: string; body: string };
+    noServer: { title: string; body: string };
+  };
+  workbench: { alt: string; caption: string };
+  releaseLog: { alt: string; caption: string };
+  settings: { alt: string; caption: string };
+};
+
+export const en: Messages = {
+  meta: {
+    title: "DuoUpdater — update your Mac apps the way they expect",
+    description:
+      "A macOS menu-bar app that finds updates for the apps you already have, and installs them the way each app expects to be updated.",
+  },
+  nav: { docs: "Docs", changelog: "Changelog", github: "GitHub" },
+  footer: {
+    appClaim:
+      "The app sends no telemetry and talks to no server of ours. Apple Silicon, macOS 15+.",
+    source: "Source",
+    releases: "Releases",
+    licence: "Licence",
+    thisSite: "This site",
+  },
+  hero: {
+    title: ["Update your Mac apps the way", "each one expects to be updated."],
+    body: "Most updaters pick one mechanism and push every app through it. DuoUpdater reads each app’s own release channel — its Sparkle appcast, its App Store listing, its Homebrew cask, its vendor’s release feed — and uses that.",
+  },
+  download: {
+    button: "Download for Mac",
+    note: "Apple Silicon, macOS 15 or later. Free and open source.",
+    allReleases: "All releases",
+  },
+  menuBar: {
+    alt: "The DuoUpdater menu bar popover, headed 58 updates available with an Update All button and a search field. Each row shows the installed version, the new version, a small badge for what the app is built with, and an Update button; Amp's row reads 1.0 (374) to 1.0 (390). A hover card over AndroMeld's badge reads: Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK. A row at the bottom reports 3 Homebrew packages not checked.",
+    caption: [
+      [
+        "Each row says what you are going from and to, and the button says what will actually happen: ",
+        { strong: "Update" },
+        " installs; ",
+        { strong: "Relaunch" },
+        " means it is already updated on disk and only the running copy is stale. A green dot marks an app that is running, so you know before you click whether something is about to be quit and reopened.",
+      ],
+      "The badge beside a name says what the app is built with — Electron, Qt, Chromium, a bundled JVM, Flutter, Tauri, Catalyst, or an iPhone app running on Apple Silicon — and hovering it names the runtime and its version. Each one is read from something the packager actually shipped, never from the app’s name or its vendor, so a bundle that does not say stays unlabelled rather than guessed at.",
+    ],
+  },
+  differently: {
+    title: "What it does differently",
+    handsOver: {
+      title: "It hands over rather than fighting",
+      body: "When an app ships its own updater, that updater does the work. When something cannot be done safely, the row says so instead of guessing.",
+    },
+    neverForceQuits: {
+      title: "It never force-quits",
+      body: "The quit is a plain terminate — your app runs its own save prompts and can refuse. One that refuses keeps a Restart button instead.",
+    },
+    checksSigner: {
+      title: "It checks who signed the download",
+      body: "EdDSA where the app publishes a key, then a Developer ID signature, Team ID, bundle id and architecture that all have to match the app being replaced — plus a backup you can roll back to.",
+    },
+    language: {
+      title: "It speaks your language",
+      body: "{languages}. There is no language setting — it follows whatever macOS is already set to.",
+    },
+    noServer: {
+      title: "It has no server",
+      body: "No telemetry and no analytics SDK. Every request goes straight to the vendor whose app is being checked, carrying nothing about you.",
+    },
+  },
+  workbench: {
+    alt: "The workbench window: a sidebar listing every scanned app, and the release notes for the selected one rendered as native text — version heading, date, and one bullet per change.",
+    caption:
+      "Opening the window gives you everything it scanned, and the release notes for whatever you select. Where a vendor publishes notes in a form worth parsing, they are pulled apart and rendered as native text instead of an embedded web page.",
+  },
+  releaseLog: {
+    alt: "The Release Log timeline: releases grouped by day, each showing the app, version, source, and either an exact publish time or an approximate window.",
+    caption:
+      "Every version it sees gets recorded, so over time you get a log of when the software you use actually ships. A release time is only called exact when the vendor’s own feed timestamps it; everything else is shown as a window with a ≈, because that is all we honestly know.",
+  },
+  settings: {
+    alt: "DuoUpdater's General settings, beside a sidebar listing Folders, Updates, GitHub, Alcove, Ignored and Diagnostics: launch at login, check interval, hiding the Dock icon, whether to show what each app is built with, notifications, automatic relaunch, rollback backups and the space they use, how many apps to check at once, and install routing for App Store updates, self-updating apps and TestFlight betas.",
+    caption:
+      "Most of the settings are about how much autonomy you want to give it — whether to restart apps for you, whether to keep a rollback backup, and how to route the two awkward cases: Mac App Store apps, and apps that ship their own updater.",
+  },
+};

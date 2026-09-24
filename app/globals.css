@@ -25,6 +25,20 @@
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
+/* The stack above names Simplified Chinese faces, which draw some shared
+   characters with the wrong regional glyph for Traditional Chinese and Japanese
+   readers. Those pages get their own faces ahead of the fallbacks. */
+:root:lang(zh-Hant) {
+  --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+:root:lang(ja) {
+  --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    "Meiryo", sans-serif;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #131312;
@@ -181,6 +195,15 @@ pre code {
 
 .spacer {
   margin-right: auto;
+}
+
+.site-footer .languages {
+  margin-top: 0.75rem;
+  gap: 0.25rem 1rem;
+}
+
+.site-footer .languages [aria-current] {
+  color: var(--text-muted);
 }
 
 /* ---------- landing ---------- */

@@ -1,8 +1,14 @@
 import type { MetadataRoute } from "next";
 
 import { listDocs } from "@/lib/docs";
+import { homeAlternates, homePath, LOCALES } from "@/lib/i18n/locales";
 import { fetchLatestRelease } from "@/lib/release";
 import { SITE } from "@/lib/site";
+
+// The root stays bare ("https://duoupdater.app", no trailing slash), as before.
+function absolute(path: string) {
+  return path === "/" ? SITE.url : `${SITE.url}${path}`;
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [docs, release] = await Promise.all([listDocs(), fetchLatestRelease()]);
@@ -17,9 +23,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // `lastmod` in the first place; an absent value is read as "unknown", which is
   // true, rather than as a claim that turns out to be wrong.
   const released = release.publishedAt ? new Date(release.publishedAt) : undefined;
+  const homeLanguages = Object.fromEntries(
+    Object.entries(homeAlternates()).map(([tag, path]) => [tag, absolute(path)]),
+  );
 
   return [
-    { url: SITE.url, priority: 1, lastModified: released },
+    // Every language's home page lists all of them, itself included, as the
+    // sitemap form of hreflang.
+    ...[{ segment: "" as const }, ...LOCALES].map(({ segment }) => ({
+      url: absolute(homePath(segment)),
+      priority: segment ? undefined : 1,
+      lastModified: released,
+      alternates: { languages: homeLanguages },
+    })),
     { url: `${SITE.url}/changelog`, lastModified: released },
     { url: `${SITE.url}/docs` },
     ...docs.map((doc) => ({ url: `${SITE.url}/docs/${doc.slug}` })),
