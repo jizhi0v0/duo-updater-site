@@ -28,7 +28,7 @@
   },
   "menuBar": {
     "alt": "DuoUpdater’ın menü çubuğu açılır penceresi. Başlıkta “58 updates available” (58 güncelleme mevcut) yazıyor; altında bir “Update All” düğmesi ve bir arama alanı var. Her satırda yüklü sürüm, yeni sürüm, uygulamanın neyle yapıldığını gösteren küçük bir rozet ve bir “Update” düğmesi bulunuyor; Amp’in satırı 1.0 (374) sürümünden 1.0 (390) sürümüne geçişi gösteriyor. AndroMeld’in rozeti üzerindeki açıklama kartında şu yazıyor: “Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK.” (doğrudan Apple’ın çerçeveleri üzerine kurulmuş yerel bir Mac uygulaması). En alttaki satırda “3 Homebrew packages not checked” (3 Homebrew paketi denetlenmedi) yazıyor.",
-    "caption1": "Her satır hangi sürümden hangisine geçeceğinizi gösterir; düğme de gerçekte ne olacağını söyler: <strong>Update</strong> güncellemeyi yükler; <strong>Relaunch</strong> ise uygulamanın diskte zaten güncellendiği, yalnızca çalışan kopyanın eski kaldığı anlamına gelir. Yeşil nokta, uygulamanın çalışmakta olduğunu gösterir; böylece bir şeyin kapatılıp yeniden açılmak üzere olduğunu tıklamadan önce bilirsiniz.",
+    "caption1": "Her satır hangi sürümden hangisine geçeceğinizi gösterir; düğme de gerçekte ne olacağını söyler: <strong>Güncelle</strong> güncellemeyi yükler; <strong>Yeniden Başlat</strong> ise uygulamanın diskte zaten güncellendiği, yalnızca çalışan kopyanın eski kaldığı anlamına gelir. Yeşil nokta, uygulamanın çalışmakta olduğunu gösterir; böylece bir şeyin kapatılıp yeniden açılmak üzere olduğunu tıklamadan önce bilirsiniz.",
     "caption2": "Adın yanındaki rozet, uygulamanın neyle yapıldığını söyler — Electron, Qt, Chromium, pakete gömülü bir JVM, Flutter, Tauri, Catalyst ya da Apple Silicon’da çalışan bir iPhone uygulaması — üzerine gelindiğinde de çalışma ortamının adını ve sürümünü gösterir. Her biri, paketi hazırlayanın gerçekten pakete koyduğu bir şeyden okunur; asla uygulamanın adından ya da üreticisinden çıkarılmaz. Bu yüzden bunu belirtmeyen bir paket, tahmin edilmek yerine etiketsiz kalır."
   },
   "differently": {
@@ -39,14 +39,14 @@
     },
     "neverForceQuits": {
       "title": "Uygulamalardan asla zorla çıkmaz",
-      "body": "Çıkış, sıradan bir sonlandırma isteğidir — uygulamanız kendi kaydetme uyarılarını gösterir ve çıkmayı reddedebilir. Reddeden uygulamanın satırında “Relaunch” düğmesi kalır."
+      "body": "Çıkış, sıradan bir sonlandırma isteğidir — uygulamanız kendi kaydetme uyarılarını gösterir ve çıkmayı reddedebilir. Reddeden uygulamanın satırında “Yeniden Başlat” düğmesi kalır."
     },
     "checksSigner": {
       "title": "İndirilen dosyayı kimin imzaladığını denetler",
       "body": "Uygulama bir anahtar yayımlıyorsa EdDSA; ardından Developer ID imzası, Team ID, bundle id ve mimari — bunların hepsi yerine geçeceği uygulamayla eşleşmek zorundadır. Üstüne de geri dönebileceğiniz bir yedek."
     },
     "language": {
-      "title": "Dilini macOS’tan alır",
+      "title": "Sizin dilinizi konuşur",
       "body": "Arayüz dilleri: {languages}. Ayrı bir dil ayarı yoktur — macOS zaten hangi dile ayarlıysa onu kullanır."
     },
     "noServer": {

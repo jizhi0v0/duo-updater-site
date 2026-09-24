@@ -28,7 +28,7 @@
   },
   "menuBar": {
     "alt": "DuoUpdater 的選單列彈出式視窗，標題為「58 updates available」（有 58 項可用更新），附有「Update All」按鈕與搜尋欄位。每一列顯示已安裝的版本、新版本、一個標示 App 以什麼技術打造的小徽章，以及「Update」按鈕；Amp 那一列顯示 1.0 (374) 到 1.0 (390)。指標停在 AndroMeld 的徽章上時出現的資訊卡寫著：「Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK.」（原生：直接以 Apple 框架打造的原生 Mac App，而非跨平台執行環境；連結 AppKit 與 SwiftUI；以 macOS 26.5 SDK 建置。）底部一列顯示「3 Homebrew packages not checked」（有 3 個 Homebrew 套件未檢查）。",
-    "caption1": "每一列都寫明從哪個版本更新到哪個版本，按鈕則說明實際會發生什麼事：<strong>Update</strong> 會進行安裝；<strong>Relaunch</strong> 表示磁碟上的 App 已經更新好了，只是正在執行的那一份還是舊的。正在執行的 App 會以綠點標示，讓你在按下去之前就知道有沒有 App 即將被結束再重新開啟。",
+    "caption1": "每一列都寫明從哪個版本更新到哪個版本，按鈕則說明實際會發生什麼事：<strong>更新</strong>會進行安裝；<strong>重新開啟</strong>表示磁碟上的 App 已經更新好了，只是正在執行的那一份還是舊的。正在執行的 App 會以綠點標示，讓你在按下去之前就知道有沒有 App 即將被結束再重新開啟。",
     "caption2": "名稱旁的徽章標示 App 是用什麼打造的——Electron、Qt、Chromium、內建的 JVM、Flutter、Tauri、Catalyst，或是在 Apple Silicon 上執行的 iPhone App——指標停在上面時，會顯示執行環境的名稱與版本。每一項都是從打包者實際附帶的內容讀出來的，絕不依據 App 的名稱或廠商來判斷；因此 bundle 本身沒有透露的，就維持不標示，而不是用猜的。"
   },
   "differently": {
@@ -39,14 +39,14 @@
     },
     "neverForceQuits": {
       "title": "它從不強制結束",
-      "body": "結束 App 時送出的是一般的 terminate 請求——你的 App 會照常跳出自己的儲存提示，也可以拒絕結束。拒絕結束的 App，那一列會保留它的 Relaunch 按鈕。"
+      "body": "結束 App 時送出的只是一般的結束請求——你的 App 會照常跳出自己的儲存提示，也可以拒絕結束。拒絕結束的 App，那一列會保留它的「重新開啟」按鈕。"
     },
     "checksSigner": {
       "title": "它會檢查下載檔是誰簽署的",
       "body": "若 App 有發布金鑰，就先驗證 EdDSA；接著 Developer ID 簽署、Team ID、bundle id 與架構，全都必須與要被取代的 App 相符——另外還會留一份可供回復的備份。"
     },
     "language": {
-      "title": "它的介面有多種語言",
+      "title": "它用你的語言",
       "body": "{languages}。沒有語言設定——它直接沿用 macOS 目前設定的語言。"
     },
     "noServer": {
