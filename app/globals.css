@@ -170,6 +170,62 @@ pre code {
   color: var(--text);
 }
 
+.lang-menu {
+  position: relative;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.lang-menu summary {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.lang-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.lang-menu summary:hover,
+.lang-menu[open] summary {
+  color: var(--text);
+}
+
+.lang-menu ul {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.6rem);
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  min-width: 11rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.lang-menu li > * {
+  display: block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lang-menu li > a:hover {
+  background: var(--bg-sunken);
+  color: var(--text);
+}
+
+.lang-menu [aria-current] {
+  color: var(--text);
+  font-weight: 550;
+}
+
 .site-footer {
   margin-top: auto;
   border-top: 1px solid var(--border);
@@ -534,5 +590,45 @@ pre code {
 
   .release-version {
     position: static;
+  }
+}
+
+/* On a phone the header has room for the icon, not for "Português (Brasil)".
+   The name is hidden visually only, so the control still has one for a screen
+   reader. */
+@media (max-width: 36rem) {
+  /* The language menu took the room the nav had. GitHub stays reachable from
+     the footer's Source link. */
+  /* Wraps to a second row rather than pushing the page sideways, should a
+     translation's labels still not fit on a narrow phone. */
+  .site-header .wrap {
+    gap: 0.35rem 1rem;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 3.5rem;
+    padding-block: 0.5rem;
+  }
+
+  .site-nav {
+    gap: 0.9rem;
+  }
+
+  .site-nav a[href^="https://github.com"] {
+    display: none;
+  }
+
+  /* If it does wrap, the globe goes to the right edge of the second row, under
+     where it would have been, not under the wordmark. */
+  .lang-menu {
+    margin-left: auto;
+  }
+
+  .lang-menu summary span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }

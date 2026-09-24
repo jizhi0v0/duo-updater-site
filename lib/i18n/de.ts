@@ -1,4 +1,78 @@
-import { en, type Messages } from "./en";
+import type { Messages } from "./en";
 
-// Placeholder until the translation lands.
-export const de = en satisfies Messages;
+export const de = {
+  meta: {
+    title: "DuoUpdater — Mac-Apps so aktualisieren, wie sie es erwarten",
+    description:
+      "Eine Menüleisten-App für macOS, die Updates für Ihre vorhandenen Apps findet und jede so installiert, wie diese App aktualisiert werden will.",
+  },
+  nav: { docs: "Doku", changelog: "Änderungen", github: "GitHub" },
+  footer: {
+    appClaim:
+      "Die App sendet keine Telemetriedaten und kommuniziert mit keinem Server von uns. Apple Silicon, macOS 15+.",
+    source: "Quellcode",
+    releases: "Releases",
+    licence: "Lizenz",
+    thisSite: "Diese Website",
+  },
+  hero: {
+    title: ["Aktualisieren Sie Ihre Mac-Apps so,", "wie jede einzelne es erwartet."],
+    body: "Die meisten Updater setzen auf einen einzigen Mechanismus und schicken jede App dort hindurch. DuoUpdater liest den eigenen Update-Kanal jeder App – ihren Sparkle-Appcast, ihren Eintrag im App Store, ihren Homebrew-Cask, den Release-Feed ihres Anbieters – und nutzt genau diesen.",
+  },
+  download: {
+    button: "Für Mac herunterladen",
+    note: "Apple Silicon, macOS 15 oder neuer. Kostenlos und Open Source.",
+    allReleases: "Alle Versionen",
+  },
+  menuBar: {
+    alt: "Das Menüleisten-Popover von DuoUpdater mit der Überschrift „58 updates available“ (58 Updates verfügbar), einer Taste „Update All“ und einem Suchfeld. Jede Zeile zeigt die installierte Version, die neue Version, ein kleines Abzeichen dafür, womit die App gebaut ist, und eine Taste „Update“; in der Zeile von Amp geht es von 1.0 (374) auf 1.0 (390). Eine Infokarte über dem Abzeichen von AndroMeld lautet: „Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK.“ (eine native Mac-App, direkt auf Apples Frameworks gebaut, mit AppKit und SwiftUI, gebaut mit dem macOS 26.5 SDK). Eine Zeile ganz unten meldet „3 Homebrew packages not checked“ (3 Homebrew-Pakete nicht geprüft).",
+    caption: [
+      [
+        "Jede Zeile zeigt, von welcher auf welche Version es geht, und die Taste sagt, was tatsächlich passiert: ",
+        { strong: "Aktualisieren" },
+        " installiert; ",
+        { strong: "Neu starten" },
+        " heißt, die App ist auf der Festplatte bereits aktualisiert und nur die laufende Instanz ist veraltet. Ein grüner Punkt markiert eine App, die gerade läuft – so wissen Sie schon vor dem Klicken, ob gleich etwas beendet und wieder geöffnet wird.",
+      ],
+      "Das Abzeichen neben einem Namen zeigt, womit die App gebaut ist – Electron, Qt, Chromium, eine mitgelieferte JVM, Flutter, Tauri, Catalyst oder eine iPhone-App, die auf Apple Silicon läuft –, und wenn Sie den Zeiger darauf bewegen, nennt es die Laufzeitumgebung und ihre Version. Jede Angabe stammt aus etwas, das der Paketierer tatsächlich mitgeliefert hat, nie aus dem Namen der App oder ihrem Anbieter; ein Bundle, das es nicht verrät, bleibt deshalb ohne Abzeichen, statt dass geraten wird.",
+    ],
+  },
+  differently: {
+    title: "Was DuoUpdater anders macht",
+    handsOver: {
+      title: "Es überlässt die Arbeit, statt dagegenzuhalten",
+      body: "Bringt eine App ihren eigenen Updater mit, erledigt dieser die Arbeit. Lässt sich etwas nicht sicher durchführen, sagt die Zeile das, statt zu raten.",
+    },
+    neverForceQuits: {
+      title: "Es nutzt nie „Sofort beenden“",
+      body: "Beendet wird ganz regulär – Ihre App zeigt ihre eigenen Abfragen zum Sichern und kann das Beenden ablehnen. Eine App, die ablehnt, behält stattdessen die Taste „Neu starten“.",
+    },
+    checksSigner: {
+      title: "Es prüft, wer den Download signiert hat",
+      body: "EdDSA, wo die App einen Schlüssel veröffentlicht, dann Developer-ID-Signatur, Team ID, Bundle-ID und Architektur, die alle zu der App passen müssen, die ersetzt wird – dazu ein Backup, auf das Sie zurücksetzen können.",
+    },
+    language: {
+      title: "Es spricht Ihre Sprache",
+      body: "{languages}. Eine Spracheinstellung gibt es nicht – die App übernimmt, was in macOS bereits eingestellt ist.",
+    },
+    noServer: {
+      title: "Es hat keinen Server",
+      body: "Keine Telemetrie und kein Analyse-SDK. Jede Anfrage geht direkt an den Anbieter, dessen App geprüft wird, und enthält nichts über Sie.",
+    },
+  },
+  workbench: {
+    alt: "Das Arbeitsfenster: eine Seitenleiste mit allen gescannten Apps und die Versionshinweise der ausgewählten App als nativer Text – Versionsüberschrift, Datum und ein Aufzählungspunkt pro Änderung.",
+    caption:
+      "Im Fenster sehen Sie alles, was gescannt wurde, und die Versionshinweise zur jeweiligen Auswahl. Wo ein Anbieter seine Hinweise in einer Form veröffentlicht, die sich auszuwerten lohnt, werden sie aufgeschlüsselt und als nativer Text dargestellt statt als eingebettete Webseite.",
+  },
+  releaseLog: {
+    alt: "Die Zeitleiste „Release Log“ (Release-Protokoll): Releases nach Tag gruppiert, jeweils mit App, Version, Quelle und entweder einer genauen Veröffentlichungszeit oder einem ungefähren Zeitfenster.",
+    caption:
+      "Jede Version, die DuoUpdater sieht, wird festgehalten – so entsteht mit der Zeit ein Protokoll darüber, wann die Software, die Sie nutzen, tatsächlich erscheint. Eine Veröffentlichungszeit gilt nur dann als exakt, wenn der eigene Feed des Anbieters sie mit Zeitstempel angibt; alles andere wird als Zeitfenster mit ≈ angezeigt, denn mehr wissen wir ehrlicherweise nicht.",
+  },
+  settings: {
+    alt: "Die allgemeinen Einstellungen von DuoUpdater („General“), daneben eine Seitenleiste mit „Folders“, „Updates“, „GitHub“, „Alcove“, „Ignored“ und „Diagnostics“: beim Anmelden starten, Prüfintervall, Dock-Symbol ausblenden, anzeigen, womit jede App gebaut ist, Benachrichtigungen, automatischer Neustart, Backups zum Zurücksetzen und ihr Speicherbedarf, wie viele Apps gleichzeitig geprüft werden, sowie der Installationsweg für Updates aus dem App Store, selbstaktualisierende Apps und TestFlight-Betas.",
+    caption:
+      "Bei den meisten Einstellungen geht es darum, wie viel Eigenständigkeit Sie DuoUpdater lassen – ob es Apps für Sie neu startet, ob es ein Backup zum Zurücksetzen aufbewahrt und welchen Weg es für die beiden heiklen Fälle wählt: Apps aus dem Mac App Store und Apps, die ihren eigenen Updater mitbringen.",
+  },
+} satisfies Messages;

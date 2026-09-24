@@ -93,7 +93,7 @@ export const en: Messages = {
     },
     neverForceQuits: {
       title: "It never force-quits",
-      body: "The quit is a plain terminate — your app runs its own save prompts and can refuse. One that refuses keeps a Restart button instead.",
+      body: "The quit is a plain terminate — your app runs its own save prompts and can refuse. One that refuses keeps its Relaunch button.",
     },
     checksSigner: {
       title: "It checks who signed the download",

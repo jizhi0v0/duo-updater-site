@@ -59,6 +59,38 @@ export default function SiteChrome({
                 <a href="/changelog">{t.nav.changelog}</a>
                 <a href={`https://github.com/${REPO}`}>{t.nav.github}</a>
               </nav>
+              {/* The footer lists the languages too, but a visitor who arrived on
+                  the wrong one should not have to scroll past the whole page to
+                  find that out. <details> opens without any script. */}
+              <details className="lang-menu">
+                <summary>
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="15" height="15">
+                    <circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.2" />
+                    <path
+                      d="M1.5 8h13M8 1.5c-2 2-2.8 4-2.8 6.5S6 12.5 8 14.5M8 1.5c2 2 2.8 4 2.8 6.5S10 12.5 8 14.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                    />
+                  </svg>
+                  <span lang={locale.tag}>{locale.name}</span>
+                </summary>
+                <ul>
+                  {languages.map((language) => (
+                    <li key={language.tag}>
+                      {language === locale ? (
+                        <span lang={language.tag} aria-current="page">
+                          {language.name}
+                        </span>
+                      ) : (
+                        <a href={homePath(language.segment)} lang={language.tag} hrefLang={language.tag}>
+                          {language.name}
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </details>
             </div>
           </header>
 
