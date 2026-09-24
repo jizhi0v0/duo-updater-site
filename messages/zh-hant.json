@@ -68,5 +68,11 @@
   "notFound": {
     "title": "找不到頁面",
     "body": "找不到這個頁面。"
+  },
+  "changelog": {
+    "title": "更新日誌",
+    "description": "DuoUpdater 的每一個版本，以及每個版本改了什麼。",
+    "intro": "所有版本，最新的在前——和 App 自我更新時顯示的說明是同一份。下載請至<link>發行頁面</link>。",
+    "olderInEnglish": "較早的版本以英文顯示。"
   }
 }

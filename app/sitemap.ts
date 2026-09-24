@@ -23,6 +23,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // `lastmod` in the first place; an absent value is read as "unknown", which is
   // true, rather than as a claim that turns out to be wrong.
   const released = release.publishedAt ? new Date(release.publishedAt) : undefined;
+  const changelogLanguages = {
+    ...Object.fromEntries(
+      LOCALES.map((l) => [l.tag, absolute(localizedPath(l.id, "/changelog"))]),
+    ),
+    "x-default": absolute("/changelog"),
+  };
   const homeLanguages = Object.fromEntries(
     Object.entries(homeAlternates()).map(([tag, path]) => [tag, absolute(path)]),
   );
@@ -30,15 +36,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     // Every language's home page lists all of them, itself included, as the
     // sitemap form of hreflang.
-    // The docs and changelog under other prefixes are left out: they are the
-    // English pages again, and canonicalise to them.
+    // The docs under other prefixes are left out: they are the English pages
+    // again, and canonicalise to them.
     ...LOCALES.map(({ id }) => ({
       url: absolute(localizedPath(id, "/")),
       priority: id === "en" ? 1 : undefined,
       lastModified: released,
       alternates: { languages: homeLanguages },
     })),
-    { url: `${SITE.url}/changelog`, lastModified: released },
+    // Each language's changelog is its own text (the app's translated release
+    // notes), so all of them are listed and cross-linked.
+    ...LOCALES.map(({ id }) => ({
+      url: absolute(localizedPath(id, "/changelog")),
+      lastModified: released,
+      alternates: { languages: changelogLanguages },
+    })),
     { url: `${SITE.url}/docs` },
     ...docs.map((doc) => ({ url: `${SITE.url}/docs/${doc.slug}` })),
   ];

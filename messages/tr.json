@@ -68,5 +68,11 @@
   "notFound": {
     "title": "Sayfa bulunamadı",
     "body": "Bu sayfa bulunamadı."
+  },
+  "changelog": {
+    "title": "Değişiklik günlüğü",
+    "description": "DuoUpdater’ın tüm sürümleri ve her birinde nelerin değiştiği.",
+    "intro": "Tüm sürümler, en yenisi en üstte — uygulamanın kendini güncellediğinde gösterdiği notların aynısı. İndirmeler <link>sürümler sayfasında</link>.",
+    "olderInEnglish": "Daha eski sürümler İngilizce gösterilir."
   }
 }

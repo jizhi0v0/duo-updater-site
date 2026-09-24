@@ -68,5 +68,11 @@
   "notFound": {
     "title": "Página no encontrada",
     "body": "No se ha encontrado esta página."
+  },
+  "changelog": {
+    "title": "Cambios",
+    "description": "Todas las versiones de DuoUpdater y lo que cambió en cada una.",
+    "intro": "Todas las versiones, de la más reciente a la más antigua: las mismas notas que muestra la app cuando se actualiza a sí misma. Las descargas están en la <link>página de versiones</link>.",
+    "olderInEnglish": "Las versiones más antiguas se muestran en inglés."
   }
 }

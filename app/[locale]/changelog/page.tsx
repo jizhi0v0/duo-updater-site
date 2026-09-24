@@ -1,31 +1,59 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
+import { localizedPath, LOCALES, type LocaleID } from "@/i18n/locales";
 import { readReleases } from "@/lib/changelog";
 import { RELEASES_URL } from "@/lib/release";
 
-export const metadata: Metadata = {
-  title: "Changelog",
-  description: "Every release of DuoUpdater, and what changed in it.",
-  alternates: { canonical: "/changelog" },
-};
+export async function generateMetadata({
+  params,
+}: PageProps<"/[locale]/changelog">): Promise<Metadata> {
+  const locale = (await params).locale as LocaleID;
+  const t = await getTranslations({ locale, namespace: "changelog" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    // Unlike the docs, each language's changelog is its own text (the app's
+    // translated release notes), so each is canonical and they cross-link.
+    alternates: {
+      canonical: localizedPath(locale, "/changelog"),
+      languages: {
+        ...Object.fromEntries(
+          LOCALES.map((l) => [l.tag, localizedPath(l.id, "/changelog")]),
+        ),
+        "x-default": "/changelog",
+      },
+    },
+  };
+}
 
-export default async function ChangelogPage() {
-  const releases = await readReleases();
+export default async function ChangelogPage({ params }: PageProps<"/[locale]/changelog">) {
+  const locale = (await params).locale as LocaleID;
+  const [releases, t] = await Promise.all([
+    readReleases(locale),
+    getTranslations({ locale, namespace: "changelog" }),
+  ]);
+  const hasEnglishFallback = releases.some((release) => release.lang === "en");
 
   return (
-    <div className="wrap" lang="en">
+    <div className="wrap">
       <div className="page-head">
-        <h1>Changelog</h1>
+        <h1>{t("title")}</h1>
         <p>
-          Every release, newest first — the same notes the app shows you when it
-          updates itself. Downloads are on{" "}
-          <a href={RELEASES_URL}>the releases page</a>.
+          {/* External: GitHub's releases page, so a plain anchor. */}
+          {t.rich("intro", { link: (chunks) => <a href={RELEASES_URL}>{chunks}</a> })}
+          {hasEnglishFallback && <> {t("olderInEnglish")}</>}
         </p>
       </div>
 
       <div className="prose">
         {releases.map((release) => (
-          <article className="release" key={release.version} id={release.version}>
+          <article
+            className="release"
+            key={release.version}
+            id={release.version}
+            lang={release.lang}
+          >
             <div className="release-version">
               <a href={`#${release.version}`}>{release.version}</a>
             </div>

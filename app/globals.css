@@ -56,6 +56,15 @@
   line-height: var(--cjk-leading);
 }
 
+/* English text inside those pages (the docs, untranslated changelog entries)
+   keeps the English leading, so a page does not change height when only its
+   header and footer changed language. */
+:lang(zh-Hans) body [lang="en"],
+:lang(zh-Hant) body [lang="en"],
+:lang(ja) body [lang="en"] {
+  line-height: 1.65;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #131312;
