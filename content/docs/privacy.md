@@ -39,11 +39,23 @@ Xcode betas and release candidates download only from Apple's developer site,
 behind your Apple ID. If you choose to sign in under Settings → Xcode, the
 sign-in happens on Apple's own page inside the app: your password and
 two-factor code go to Apple, and the app does not read them. What the app keeps
-is the resulting session — the `apple.com` cookies Apple set — saved in the
-Keychain so a relaunch does not sign you out. They are sent only to
-`*.apple.com`, only to download Xcode, and never written to a log. Settings →
-Xcode → Sign Out and Clear deletes them, together with the "trusted device"
-cookie, so the next sign-in asks for a code again.
+is the resulting session — the `apple.com` cookies Apple set — in the Keychain
+and in the app's own web data store, so a relaunch does not sign you out. They
+are sent only to `*.apple.com`: to download Xcode, to read Apple's list of Xcode
+downloads when you open or refresh it in Settings → Xcode, and once an hour to ask Apple whether
+the session still holds. Their values are never written to a log; the log
+records only the names of the cookies Apple sends back. Settings → Xcode → Sign
+Out and Clear deletes them, together with the "trusted device" cookie, so the
+next sign-in asks for a code again.
+
+Apple ends the session on its side after some hours — about eight in our tests.
+When the app finds it has ended (at the hourly check, or when you start an Xcode
+download), it loads Apple's sign-in page once, hidden, in that same web data
+store. If Apple still recognises this Mac's sign-in, it hands back a new session
+without your password. No window appears and nothing is typed; if Apple wants
+your password, the page is dropped after 30 seconds and the Xcode row asks you
+to sign in again. This happens at most once each time the session ends, and you
+can turn it off under Settings → Xcode → Renew the session in the background.
 
 ## Credentials stay in the Keychain
 
@@ -56,8 +68,8 @@ written to a plist.
 
 Release notes that can only be shown as the vendor's own web page are rendered in
 a `WKWebView` with a non-persistent data store, so vendor cookies do not survive
-a relaunch. The one exception is the Apple
-Developer sign-in window, which keeps its session on purpose, as described above.
+a relaunch. The one exception is the Apple Developer sign-in — its window and
+its hidden renewal page — which keeps its session on purpose, as described above.
 
 ## This website
 
