@@ -36,10 +36,17 @@ const ICON_SOURCE = "App/Resources/AppIcon.icon";
 const ICTOOL =
   process.env.ICTOOL ??
   "/Applications/Xcode.app/Contents/Applications/Icon Composer.app/Contents/Executables/ictool";
+// At favicon and header sizes the full icon stops reading as a cat: the ears
+// merge into the refresh arrow above them. Those sizes use the head alone,
+// rendered from the same document with the arrow-and-body group left out and
+// the rest scaled up. The home-screen icon and the Open Graph card keep the
+// whole design.
+const ICON_RING_GROUP = "Ring";
+const ICON_HEAD_POSITION = { scale: 1.55, "translation-in-points": [0, 20] };
 const ICONS = [
-  { size: 256, to: "app/icon.png" },
-  { size: 1024, to: "app/apple-icon.png" },
-  { size: 512, to: "assets/icon.png" },
+  { size: 256, head: true, to: "app/icon.png" },
+  { size: 1024, head: false, to: "app/apple-icon.png" },
+  { size: 512, head: false, to: "assets/icon.png" },
 ];
 const SVG_ICON = "app/icon.svg";
 const SVG_ICON_SIZE = 64;
@@ -149,31 +156,46 @@ if (!existsSync(ICTOOL)) {
   console.error("  Install Xcode, or set ICTOOL to Icon Composer's ictool.");
   process.exit(1);
 }
-function renderIcon(rendition, size, out) {
+const scratch = await mkdtemp(join(tmpdir(), "duo-icon-"));
+const headSource = join(scratch, "Head.icon");
+await cp(iconSource, headSource, { recursive: true });
+{
+  const manifest = join(headSource, "icon.json");
+  const doc = JSON.parse(await readFile(manifest, "utf8"));
+  const kept = doc.groups.filter((group) => group.name !== ICON_RING_GROUP);
+  if (kept.length === doc.groups.length) {
+    console.error(`✗ ${ICON_SOURCE} has no "${ICON_RING_GROUP}" group to leave out of the small icon`);
+    process.exit(1);
+  }
+  doc.groups = kept.map((group) => ({ ...group, position: ICON_HEAD_POSITION }));
+  await writeFile(manifest, JSON.stringify(doc, null, 2));
+}
+
+function renderIcon(source, rendition, size, out) {
   const shape = String(Math.round((size * 824) / 1024));
   execFileSync(ICTOOL, [
-    iconSource, "--export-image", "--output-file", out,
+    source, "--export-image", "--output-file", out,
     "--platform", "macOS", "--rendition", rendition,
     "--width", shape, "--height", shape, "--scale", "1",
   ], { stdio: ["ignore", "ignore", "inherit"] });
   execFileSync("sips", ["-p", String(size), String(size), out], { stdio: "ignore" });
 }
 
-for (const { size, to } of ICONS) {
+for (const { size, head, to } of ICONS) {
   const out = join(siteRoot, to);
   await mkdir(dirname(out), { recursive: true });
-  renderIcon("Default", size, out);
+  renderIcon(head ? headSource : iconSource, "Default", size, out);
   console.log(`→ ${to}`);
 }
 
-// The tab icon follows the reader's light or dark appearance, as the app's
-// icon does in the Dock: an SVG holding both renditions, switched by
-// prefers-color-scheme. icon.png stays for browsers and crawlers without SVG.
-const scratch = await mkdtemp(join(tmpdir(), "duo-icon-"));
+// The tab and header icon follows the reader's light or dark appearance, as
+// the app's icon does in the Dock: an SVG holding both renditions of the head,
+// switched by prefers-color-scheme. icon.png stays for browsers and crawlers
+// without SVG.
 const [light, dark] = await Promise.all(
   ["Default", "Dark"].map(async (rendition) => {
     const out = join(scratch, `${rendition}.png`);
-    renderIcon(rendition, SVG_ICON_SIZE, out);
+    renderIcon(headSource, rendition, SVG_ICON_SIZE, out);
     return (await readFile(out)).toString("base64");
   }),
 );

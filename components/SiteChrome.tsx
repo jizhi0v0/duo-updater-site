@@ -28,6 +28,8 @@ export default async function SiteChrome({
         <header className="site-header">
           <div className="wrap">
             <Link className="wordmark" href="/">
+              {/* Plain <img>: the SVG switches light/dark itself. */}
+              <img src="/icon.svg" alt="" width={28} height={28} />
               {SITE.name}
             </Link>
             <nav className="site-nav">
