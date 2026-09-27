@@ -8,9 +8,10 @@
 // different prose, because GitHub's raw CDN was lagging or rate-limiting.
 // Run `npm run sync` after a release, then commit what changed.
 
-import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -40,6 +41,8 @@ const ICONS = [
   { size: 1024, to: "app/apple-icon.png" },
   { size: 512, to: "assets/icon.png" },
 ];
+const SVG_ICON = "app/icon.svg";
+const SVG_ICON_SIZE = 64;
 
 if (!existsSync(join(appRepo, "CHANGELOG.md"))) {
   console.error(`✗ no CHANGELOG.md under ${appRepo}`);
@@ -146,15 +149,42 @@ if (!existsSync(ICTOOL)) {
   console.error("  Install Xcode, or set ICTOOL to Icon Composer's ictool.");
   process.exit(1);
 }
-for (const { size, to } of ICONS) {
-  const out = join(siteRoot, to);
+function renderIcon(rendition, size, out) {
   const shape = String(Math.round((size * 824) / 1024));
-  await mkdir(dirname(out), { recursive: true });
   execFileSync(ICTOOL, [
     iconSource, "--export-image", "--output-file", out,
-    "--platform", "macOS", "--rendition", "Default",
+    "--platform", "macOS", "--rendition", rendition,
     "--width", shape, "--height", shape, "--scale", "1",
   ], { stdio: ["ignore", "ignore", "inherit"] });
   execFileSync("sips", ["-p", String(size), String(size), out], { stdio: "ignore" });
+}
+
+for (const { size, to } of ICONS) {
+  const out = join(siteRoot, to);
+  await mkdir(dirname(out), { recursive: true });
+  renderIcon("Default", size, out);
   console.log(`→ ${to}`);
 }
+
+// The tab icon follows the reader's light or dark appearance, as the app's
+// icon does in the Dock: an SVG holding both renditions, switched by
+// prefers-color-scheme. icon.png stays for browsers and crawlers without SVG.
+const scratch = await mkdtemp(join(tmpdir(), "duo-icon-"));
+const [light, dark] = await Promise.all(
+  ["Default", "Dark"].map(async (rendition) => {
+    const out = join(scratch, `${rendition}.png`);
+    renderIcon(rendition, SVG_ICON_SIZE, out);
+    return (await readFile(out)).toString("base64");
+  }),
+);
+await rm(scratch, { recursive: true, force: true });
+const n = SVG_ICON_SIZE;
+await writeFile(
+  join(siteRoot, SVG_ICON),
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${n} ${n}">` +
+    `<style>.d{display:none}@media (prefers-color-scheme:dark){.l{display:none}.d{display:inline}}</style>` +
+    `<image class="l" width="${n}" height="${n}" href="data:image/png;base64,${light}"/>` +
+    `<image class="d" width="${n}" height="${n}" href="data:image/png;base64,${dark}"/>` +
+    `</svg>\n`,
+);
+console.log(`→ ${SVG_ICON}`);
