@@ -28,10 +28,17 @@ const SCREENSHOTS = [
 // The app's own icon, used as this site's favicon and as the face of the
 // Open Graph card. Copied for the same reason as everything else here: a deploy
 // must not depend on a sibling checkout being present.
+// The app's source is an Icon Composer document, so each size is rendered with
+// Xcode's ictool (macOS, Default appearance) and padded to the macOS icon grid:
+// the shape fills 824 of every 1024 pixels, as the flat PNGs used to.
+const ICON_SOURCE = "App/Resources/AppIcon.icon";
+const ICTOOL =
+  process.env.ICTOOL ??
+  "/Applications/Xcode.app/Contents/Applications/Icon Composer.app/Contents/Executables/ictool";
 const ICONS = [
-  { from: "App/Resources/Assets.xcassets/AppIcon.appiconset/icon_256.png", to: "app/icon.png" },
-  { from: "App/Resources/Assets.xcassets/AppIcon.appiconset/icon_1024.png", to: "app/apple-icon.png" },
-  { from: "App/Resources/Assets.xcassets/AppIcon.appiconset/icon_512.png", to: "assets/icon.png" },
+  { size: 256, to: "app/icon.png" },
+  { size: 1024, to: "app/apple-icon.png" },
+  { size: 512, to: "assets/icon.png" },
 ];
 
 if (!existsSync(join(appRepo, "CHANGELOG.md"))) {
@@ -129,13 +136,25 @@ for (const name of SCREENSHOTS) {
   console.log(`→ public/screenshots/${name}`);
 }
 
-for (const { from, to } of ICONS) {
-  const source = join(appRepo, from);
-  if (!existsSync(source)) {
-    console.error(`✗ missing icon: ${source}`);
-    process.exit(1);
-  }
-  await mkdir(dirname(join(siteRoot, to)), { recursive: true });
-  await cp(source, join(siteRoot, to));
+const iconSource = join(appRepo, ICON_SOURCE);
+if (!existsSync(iconSource)) {
+  console.error(`✗ missing icon: ${iconSource}`);
+  process.exit(1);
+}
+if (!existsSync(ICTOOL)) {
+  console.error(`✗ no ictool at ${ICTOOL}`);
+  console.error("  Install Xcode, or set ICTOOL to Icon Composer's ictool.");
+  process.exit(1);
+}
+for (const { size, to } of ICONS) {
+  const out = join(siteRoot, to);
+  const shape = String(Math.round((size * 824) / 1024));
+  await mkdir(dirname(out), { recursive: true });
+  execFileSync(ICTOOL, [
+    iconSource, "--export-image", "--output-file", out,
+    "--platform", "macOS", "--rendition", "Default",
+    "--width", shape, "--height", shape, "--scale", "1",
+  ], { stdio: ["ignore", "ignore", "inherit"] });
+  execFileSync("sips", ["-p", String(size), String(size), out], { stdio: "ignore" });
   console.log(`→ ${to}`);
 }
