@@ -75,5 +75,12 @@
     "description": "DuoUpdater 的每一个版本，以及每个版本改了什么。",
     "intro": "所有版本，最新的在前——和应用自我更新时显示的说明是同一份。下载请到<link>发布页面</link>。",
     "olderInEnglish": "较早的版本以英文显示。"
+  },
+  "docs": {
+    "title": "文档",
+    "description": "DuoUpdater 如何判断哪些应用有更新、替换应用之前会检查什么，以及 macOS 会向你请求哪些权限。",
+    "intro": "如何判断哪些应用有更新、替换应用之前会检查什么，以及 macOS 会向你请求哪些权限。",
+    "allDocs": "全部文档",
+    "inEnglish": "此页面尚未翻译，以英文显示。"
   }
 }

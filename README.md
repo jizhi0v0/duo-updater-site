@@ -23,7 +23,11 @@ commit what changed.** The copies are deliberate: a deploy should never fail, or
 silently ship different prose, because GitHub's raw CDN was lagging.
 
 `content/docs/*.md` are written for this site and have no upstream — each one
-opens with an HTML comment carrying its title, summary and sort order.
+opens with an HTML comment carrying its title, summary and sort order. The
+English files decide which docs exist; `content/docs/<locale>/<slug>.md` is a
+translation, and a missing one falls back to the English text. **When you
+change an English doc, update its translations too** — nothing checks that they
+still say the same thing.
 
 The download button reads the latest release from the GitHub API at build time
 and revalidates hourly; if that call fails it falls back to the releases page, so

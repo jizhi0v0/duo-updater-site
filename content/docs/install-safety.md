@@ -8,13 +8,13 @@ thing that can go wrong when software replaces other software on your Mac.
 The installer never quits anything. Restarting an updated app is a separate
 step, on by default and switchable off in Settings — and when it runs, the quit
 is a plain `terminate()`. The app runs its own save prompts and can refuse. One
-that refuses is left running and keeps a **Restart** button, so unsaved work is
+that refuses is left running and keeps a **Relaunch** button, so unsaved work is
 never at risk from a forced exit.
 
 Worth knowing: the restart happens *after* the new version is already on disk. So
 if you decline the quit, you have an updated bundle sitting beside a process
 still running the old code, until you relaunch it yourself. That is what the
-Restart button on the row means.
+Relaunch button on the row means.
 
 ## Five checks before anything is replaced
 
@@ -62,6 +62,6 @@ rollback points from the command line; the app exposes the same thing.
 ## Restart detection
 
 If an app was updated on disk but is still running an older build — compared via
-LaunchServices, not guessed — it is surfaced with a **Restart** action rather
+LaunchServices, not guessed — it is surfaced with a **Relaunch** action rather
 than being reported as up to date. The version on disk and the version running
 are two different facts, and the row tells you which one is stale.

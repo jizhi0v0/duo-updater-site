@@ -4,8 +4,8 @@
 // from `id` only in case. `name` is the language's name for itself, which is
 // what a switcher shows — a German reader looks for "Deutsch", not "German".
 //
-// Only the home page is translated. Docs and changelog render their English
-// text under every prefix, inside the translated header and footer.
+// The home page, docs and changelog are all translated; a doc or release note
+// not yet translated falls back to its English text, marked `lang="en"`.
 export const LOCALES = [
   { id: "en", tag: "en", name: "English" },
   { id: "de", tag: "de", name: "Deutsch" },

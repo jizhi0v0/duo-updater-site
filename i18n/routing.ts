@@ -15,8 +15,8 @@ export const routing = defineRouting({
   // Without detection the cookie has nothing to do, and the privacy page says
   // what this site stores — which is nothing.
   localeCookie: false,
-  // The middleware would advertise `/de/docs` as the German version of
-  // `/docs`, but the docs are English under every prefix. hreflang is declared
-  // in the pages that really are translated (the home pages) instead.
+  // The middleware would advertise every path in every language, including a
+  // doc that is still the English fallback under `/de/docs/…`. The pages
+  // declare hreflang themselves, listing only the languages they really have.
   alternateLinks: false,
 });

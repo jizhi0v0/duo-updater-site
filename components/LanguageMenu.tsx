@@ -13,12 +13,11 @@ import { usePathname } from "@/i18n/navigation";
 // `/docs`) and turns prefetching off — both to keep a locale cookie current,
 // which this site does not set (see i18n/routing.ts). So the href is built
 // here, and plain next/link carries it: prefetched, no redirect.
-export default function LanguageMenu({ variant = "menu" }: { variant?: "menu" | "list" }) {
+export default function LanguageMenu() {
   const current = useLocale();
   const pathname = usePathname();
   const menu = useRef<HTMLDetailsElement>(null);
 
-  // The footer's list variant renders no <details>; the hook then does nothing.
   useHeaderMenu(menu, `${current}${pathname}`);
 
   const items = LOCALES.map((locale) =>
@@ -38,14 +37,8 @@ export default function LanguageMenu({ variant = "menu" }: { variant?: "menu" | 
     ),
   );
 
-  if (variant === "list") {
-    return <div className="wrap languages">{items}</div>;
-  }
-
   const currentLocale = LOCALES.find((locale) => locale.id === current);
   return (
-    // The footer lists the languages too, but a visitor who arrived on the
-    // wrong one should not have to scroll past the whole page to find that out.
     <details className="header-menu lang-menu" ref={menu}>
       <summary>
         <svg aria-hidden="true" viewBox="0 0 16 16" width="15" height="15">
