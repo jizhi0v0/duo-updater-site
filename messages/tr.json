@@ -75,5 +75,12 @@
     "description": "DuoUpdater’ın tüm sürümleri ve her birinde nelerin değiştiği.",
     "intro": "Tüm sürümler, en yenisi en üstte — uygulamanın kendini güncellediğinde gösterdiği notların aynısı. İndirmeler <link>sürümler sayfasında</link>.",
     "olderInEnglish": "Daha eski sürümler İngilizce gösterilir."
+  },
+  "docs": {
+    "title": "Belgeler",
+    "description": "DuoUpdater neyin güncellemesi olduğuna nasıl karar verir, bir uygulamayı değiştirmeden önce neleri denetler ve macOS sizden neler ister.",
+    "intro": "Neyin güncellemesi olduğuna nasıl karar verir, bir uygulamayı değiştirmeden önce neleri denetler ve macOS sizden neler ister.",
+    "allDocs": "Tüm belgeler",
+    "inEnglish": "Bu sayfa henüz çevrilmedi ve İngilizce gösteriliyor."
   }
 }

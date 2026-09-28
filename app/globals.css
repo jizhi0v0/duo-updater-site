@@ -556,6 +556,11 @@ pre code {
   margin-bottom: 2rem;
 }
 
+.doc-fallback {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
 /* ---------- changelog ---------- */
 
 .release {

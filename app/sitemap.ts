@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { listDocs } from "@/lib/docs";
+import { docsAlternates, listDocs } from "@/lib/docs";
 import { homeAlternates, localizedPath, LOCALES } from "@/i18n/locales";
 import { fetchLatestRelease } from "@/lib/release";
 import { SITE } from "@/lib/site";
@@ -12,6 +12,14 @@ function absolute(path: string) {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [docs, release] = await Promise.all([listDocs(), fetchLatestRelease()]);
+  const docPaths = [undefined, ...docs.map((doc) => doc.slug)];
+  const docLanguages = await Promise.all(
+    docPaths.map(async (slug) =>
+      Object.fromEntries(
+        Object.entries(await docsAlternates(slug)).map(([tag, path]) => [tag, absolute(path)]),
+      ),
+    ),
+  );
 
   // `lastModified` only where the date is a fact. The home page and the
   // changelog both change when a release ships — the download button, the
@@ -36,8 +44,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     // Every language's home page lists all of them, itself included, as the
     // sitemap form of hreflang.
-    // The docs under other prefixes are left out: they are the English pages
-    // again, and canonicalise to them.
     ...LOCALES.map(({ id }) => ({
       url: absolute(localizedPath(id, "/")),
       priority: id === "en" ? 1 : undefined,
@@ -51,7 +57,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: released,
       alternates: { languages: changelogLanguages },
     })),
-    { url: `${SITE.url}/docs` },
-    ...docs.map((doc) => ({ url: `${SITE.url}/docs/${doc.slug}` })),
+    // The docs: every language that has its own text for a page, cross-linked.
+    // One still showing the English fallback is left out; it canonicalises to
+    // the English page.
+    ...docLanguages.flatMap((languages) =>
+      Object.entries(languages)
+        .filter(([tag]) => tag !== "x-default")
+        .map(([, url]) => ({ url, alternates: { languages } })),
+    ),
   ];
 }

@@ -75,5 +75,12 @@
     "description": "Every release of DuoUpdater, and what changed in it.",
     "intro": "Every release, newest first — the same notes the app shows you when it updates itself. Downloads are on <link>the releases page</link>.",
     "olderInEnglish": "Older releases are shown in English."
+  },
+  "docs": {
+    "title": "Docs",
+    "description": "How DuoUpdater decides what has an update, what it checks before replacing an app, and what macOS will ask you for.",
+    "intro": "How it decides what has an update, what it checks before replacing an app, and what macOS will ask you for.",
+    "allDocs": "All docs",
+    "inEnglish": "This page has not been translated yet and is shown in English."
   }
 }
