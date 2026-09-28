@@ -287,15 +287,6 @@ pre code {
   margin-right: auto;
 }
 
-.site-footer .languages {
-  margin-top: 0.75rem;
-  gap: 0.25rem 1rem;
-}
-
-.site-footer .languages [aria-current] {
-  color: var(--text-muted);
-}
-
 /* ---------- landing ---------- */
 
 .hero {

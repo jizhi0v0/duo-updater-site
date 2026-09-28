@@ -64,7 +64,6 @@ export default async function SiteChrome({
             <a href={`https://github.com/${REPO}/blob/main/LICENSE`}>{t("footer.licence")}</a>
             <a href={SITE.repo}>{t("footer.thisSite")}</a>
           </div>
-          <LanguageMenu variant="list" />
         </footer>
       </div>
       {/* Aggregate page counts only — see /docs/privacy for what it records.
