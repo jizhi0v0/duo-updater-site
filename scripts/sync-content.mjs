@@ -24,6 +24,7 @@ const SCREENSHOTS = [
   "changelog.png",
   "settings.png",
   "release-log-timeline.png",
+  "xcode.png",
 ];
 
 // The app's own icon, used as this site's favicon and as the face of the

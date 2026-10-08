@@ -27,7 +27,7 @@
     "allReleases": "すべてのリリース"
   },
   "menuBar": {
-    "alt": "DuoUpdaterのメニューバーのポップオーバー。見出しは「58 updates available」（58件のアップデート）で、「Update All」ボタンと検索フィールドがあります。各行には、インストール済みのバージョン、新しいバージョン、アプリの実装技術を示す小さなバッジ、「Update」ボタンが並びます。Ampの行は「1.0 (374)」から「1.0 (390)」です。AndroMeldのバッジに重ねたホバーカードには「Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK.」とあります（クロスプラットフォームのランタイムではなく、Appleのフレームワーク上に直接作られたネイティブのMacアプリで、AppKitとSwiftUIをリンクし、macOS 26.5 SDKでビルドされている、という意味）。下部の行には「3 Homebrew packages not checked」（チェックしていないHomebrewパッケージが3件）と表示されています。",
+    "alt": "DuoUpdaterのメニューバーのポップオーバー。見出しは「89 updates available」（89件のアップデート）で、「Update All」ボタンと検索フィールドがあります。各行には、インストール済みのバージョン、新しいバージョン、アプリの実装技術を示す小さなバッジ、「Update」ボタンが並びます。Ankiの行は「26.9.2」から「26.09.3」です。BetterDisplayのバッジに重ねたホバーカードには「Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.」とあります（クロスプラットフォームのランタイムではなく、Appleのフレームワーク上に直接作られたネイティブのMacアプリで、AppKitとSwiftUIをリンクし、macOS 27.0 SDKでビルドされている、という意味）。下部には2つの行があり、「Homebrew」には「9 updates · 3 not checked」（アップデート9件、未チェック3件）、「Other tools」（その他のツール）には「1 update · 1 held back」（アップデート1件、保留1件）と表示されています。",
     "caption1": "各行にはどのバージョンからどのバージョンへ上がるのかが示され、ボタンには実際に何が起きるのかが示されます。「<strong>更新</strong>」はインストールを行います。「<strong>再起動</strong>」は、ディスク上ではすでに更新済みで、実行中のコピーだけが古いことを表します。緑の点は実行中のアプリの印なので、クリックする前に、どれかが終了して再び開かれるのかどうかがわかります。",
     "caption2": "名前の横のバッジは、そのアプリが何で作られているか（Electron、Qt、Chromium、同梱のJVM、Flutter、Tauri、Catalyst、またはApple Silicon上で動作するiPhoneアプリ）を示し、ポインタを重ねるとランタイムとそのバージョンが表示されます。いずれも、パッケージした側が実際に同梱したものから読み取っており、アプリ名や提供元から判断することはありません。そのため、手がかりのないバンドルは推測でラベルを付けず、ラベルなしのままにします。"
   },
@@ -63,8 +63,12 @@
     "caption": "検出したバージョンはすべて記録されるので、使っているソフトウェアが実際にいつリリースされているのかが、時間とともにログとして蓄積されます。リリース時刻を正確とするのは、提供元自身のフィードにタイムスタンプがある場合だけです。それ以外は≈付きの時間幅で示します。正直なところ、わかっているのはそこまでだからです。"
   },
   "settings": {
-    "alt": "DuoUpdaterの「General」設定。横のサイドバーには「Folders」「Updates」「GitHub」「Alcove」「Ignored」「Diagnostics」が並んでいます。項目は、ログイン時に起動、チェックの間隔、Dockアイコンの非表示、各アプリの実装技術を表示するかどうか、通知、自動再起動、ロールバック用のバックアップとその使用容量、同時にチェックするアプリの数、そしてApp Storeのアップデート、自己更新するアプリ、TestFlightベータのインストール経路です。",
+    "alt": "DuoUpdaterの「General」設定。横のサイドバーには「Backups」「Folders」「Updates」「GitHub」「Alcove」「Xcode」「Ignored」「Diagnostics」が並んでいます。項目は、ログイン時に起動、チェックの間隔、Dockアイコンの非表示、各アプリの実装技術を表示するかどうか、通知、自動再起動、同時にチェックするアプリの数、そしてApp Storeのアップデート、自己更新するアプリ、デベロッパ署名のないアプリ、TestFlightベータのインストール経路です。",
     "caption": "設定の多くは、どこまで任せるかを決めるものです。アプリの再起動を任せるかどうか、ロールバック用のバックアップを残すかどうか、そして扱いにくい2つのケース、つまりMac App Storeのアプリと独自のアップデータを備えたアプリをどう振り分けるか、といった項目です。"
+  },
+  "xcode": {
+    "alt": "DuoUpdaterの「Xcode」設定ページ。Apple Developerに「Signed in」（サインイン済み）で、バックグラウンドでセッションを更新するオプションがオンになっています。その下は「Download Xcode」（Xcodeをダウンロード）のリストで、「Betas & RCs」と「Releases」のタブがあり、出典はAppleとxcodereleases.comです。27.2 beta 2から27.0 beta 4までのXcode 27の各ビルドが、日付と必要なmacOSのバージョンとともに並んでいます。ほとんどに「Install」（インストール）ボタンがあり、インストール済みの2つ（Xcode-beta.appとXcode.app）には「Open」（開く）と「Download Only (.xip)」（ダウンロードのみ）が表示されています。",
+    "caption": "Xcodeのベータ版やリリース候補版はApp Storeにはなく、Appleはサインインしたデベロッパアカウントにしか配布しません。「設定」→「Xcode」で一度サインインすれば、新しいベータ版もほかの行と同じようにワンクリックでアップデートできます。同じページには、Appleとxcodereleases.comが把握しているすべてのビルドが並びます。「インストール」は選んだバージョンを独立したコピーとして「アプリケーション」フォルダに置き、既存のXcodeと並べて共存させます。インストール済みのものが置き換えられることはありません。「ダウンロードのみ」は.xipを保存するだけです。"
   },
   "notFound": {
     "title": "ページが見つかりません",
