@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: "Page not found",
 };
 
+// A second root (it renders its own <html>), so the root layout's ensureStatic
+// does not cover it.
+export const ensureStatic = "navigation";
+
 export default function GlobalNotFound() {
   return (
     <html lang="en">

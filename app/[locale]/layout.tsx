@@ -10,10 +10,7 @@ import { SITE } from "@/lib/site";
 
 import "../globals.css";
 
-// Only the listed languages exist. Anything else in the first segment — which
-// is what a path the proxy skipped, like /missing.txt, arrives as — is a 404
-// rather than a page rendered on demand for a locale called "missing.txt".
-export const dynamicParams = false;
+export const ensureStatic = "navigation";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

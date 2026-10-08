@@ -1,6 +1,8 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
+import { cacheLife } from "next/cache";
+
 import { renderMarkdown } from "./markdown";
 import { typeset } from "./typeset";
 
@@ -42,6 +44,8 @@ async function readSections(file: string): Promise<Map<string, string>> {
  * The English file decides which versions exist and their order.
  */
 export async function readReleases(locale: string): Promise<ReleaseEntry[]> {
+  "use cache";
+  cacheLife("deploy");
   const english = await readSections("changelog.md");
   const translated = locale === "en" ? null : await readSections(`changelog/${locale}.md`);
 
