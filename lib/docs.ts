@@ -1,6 +1,8 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 
+import { cacheLife } from "next/cache";
+
 import { LOCALES, localizedPath } from "@/i18n/locales";
 
 import { renderMarkdown } from "./markdown";
@@ -59,6 +61,8 @@ async function englishSlugs(): Promise<string[]> {
 }
 
 export async function listDocs(locale = "en"): Promise<Doc[]> {
+  "use cache";
+  cacheLife("deploy");
   const slugs = await englishSlugs();
   const docs = await Promise.all(slugs.map(async (slug) => (await read(slug, locale)).meta));
   return docs.sort((a, b) => a.order - b.order);
@@ -68,9 +72,23 @@ export async function readDoc(
   slug: string,
   locale = "en",
 ): Promise<{ doc: Doc; html: string }> {
+  const found = await readKnownDoc(slug, locale);
+  if (!found) throw new Error(`No doc named ${slug}`);
+  return found;
+}
+
+// Returns null rather than throwing for an unknown slug. Observed on Next 16.4.0:
+// throwing inside this "use cache" function turned /de/docs/nope into a 500,
+// although DocPage catches the error and calls notFound().
+async function readKnownDoc(
+  slug: string,
+  locale: string,
+): Promise<{ doc: Doc; html: string } | null> {
+  "use cache";
+  cacheLife("deploy");
   // Only an English slug is a doc; this also keeps `slug` from reaching the
   // filesystem as anything but a known name.
-  if (!(await englishSlugs()).includes(slug)) throw new Error(`No doc named ${slug}`);
+  if (!(await englishSlugs()).includes(slug)) return null;
   const { meta, body } = await read(slug, locale);
   const html = await renderMarkdown(body);
   return { doc: meta, html: meta.lang ? html : typeset(locale, html) };
@@ -82,6 +100,8 @@ export async function readDoc(
  * showing the English fallback is left out — it is not a version of the page.
  */
 export async function docsAlternates(slug?: string): Promise<Record<string, string>> {
+  "use cache";
+  cacheLife("deploy");
   const path = slug ? `/docs/${slug}` : "/docs";
   const translated = await Promise.all(
     LOCALES.map(async (locale) => {
