@@ -2,6 +2,14 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    // AVIF first, WebP for browsers without it. Measured 2026-10-08 on the
+    // home page screenshots: AVIF 30–37% smaller than WebP at every width
+    // served (menu bar at w=1080: 67 KB → 42 KB) with no visible difference.
+    // Costs: the first encode of each size is slower, and each format is a
+    // separate transformation and cache entry.
+    formats: ["image/avif", "image/webp"],
+  },
   experimental: {
     // The root layout is app/[locale]/layout.tsx, so a request the i18n proxy
     // does not match has no layout to render a 404 in; app/global-not-found.tsx
