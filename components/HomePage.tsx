@@ -16,6 +16,7 @@ import changelogShot from "@/public/screenshots/changelog.png";
 import menuBarShot from "@/public/screenshots/menu-bar.png";
 import releaseLogShot from "@/public/screenshots/release-log-timeline.png";
 import settingsShot from "@/public/screenshots/settings.png";
+import xcodeShot from "@/public/screenshots/xcode.png";
 
 // The languages the app itself ships in. It follows the app's releases, not
 // this site's translations: until the release that added it, pt-BR, tr and
@@ -182,6 +183,16 @@ export default async function HomePage({ locale }: { locale: LocaleID }) {
           sizes="(max-width: 52rem) 100vw, 760px"
         />
         <figcaption>{t("settings.caption")}</figcaption>
+      </figure>
+
+      <figure className="shot">
+        <Image
+          src={xcodeShot}
+          alt={t("xcode.alt")}
+          className="shot-wide"
+          sizes="(max-width: 52rem) 100vw, 760px"
+        />
+        <figcaption>{t("xcode.caption")}</figcaption>
       </figure>
     </div>
   );

@@ -27,7 +27,7 @@
     "allReleases": "所有發行版本"
   },
   "menuBar": {
-    "alt": "DuoUpdater 的選單列彈出式視窗，標題為「58 updates available」（有 58 項可用更新），附有「Update All」按鈕與搜尋欄位。每一列顯示已安裝的版本、新版本、一個標示 App 以什麼技術打造的小徽章，以及「Update」按鈕；Amp 那一列顯示 1.0 (374) 到 1.0 (390)。指標停在 AndroMeld 的徽章上時出現的資訊卡寫著：「Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 26.5 SDK.」（原生：直接以 Apple 框架打造的原生 Mac App，而非跨平台執行環境；連結 AppKit 與 SwiftUI；以 macOS 26.5 SDK 建置。）底部一列顯示「3 Homebrew packages not checked」（有 3 個 Homebrew 套件未檢查）。",
+    "alt": "DuoUpdater 的選單列彈出式視窗，標題為「89 updates available」（有 89 項可用更新），附有「Update All」按鈕與搜尋欄位。每一列顯示已安裝的版本、新版本、一個標示 App 以什麼技術打造的小徽章，以及「Update」按鈕；Anki 那一列顯示 26.9.2 到 26.09.3。指標停在 BetterDisplay 的徽章上時出現的資訊卡寫著：「Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.」（原生：直接以 Apple 框架打造的原生 Mac App，而非跨平台執行環境；連結 AppKit 與 SwiftUI；以 macOS 27.0 SDK 建置。）底部有兩列：「Homebrew」顯示「9 updates · 3 not checked」（9 項更新，3 個未檢查）；「Other tools」（其他工具）顯示「1 update · 1 held back」（1 項更新，1 個暫緩）。",
     "caption1": "每一列都寫明從哪個版本更新到哪個版本，按鈕則說明實際會發生什麼事：<strong>更新</strong>會進行安裝；<strong>重新開啟</strong>表示磁碟上的 App 已經更新好了，只是正在執行的那一份還是舊的。正在執行的 App 會以綠點標示，讓你在按下去之前就知道有沒有 App 即將被結束再重新開啟。",
     "caption2": "名稱旁的徽章標示 App 是用什麼打造的——Electron、Qt、Chromium、內建的 JVM、Flutter、Tauri、Catalyst，或是在 Apple Silicon 上執行的 iPhone App——指標停在上面時，會顯示執行環境的名稱與版本。每一項都是從打包者實際附帶的內容讀出來的，絕不依據 App 的名稱或廠商來判斷；因此 bundle 本身沒有透露的，就維持不標示，而不是用猜的。"
   },
@@ -63,8 +63,12 @@
     "caption": "它看到的每個版本都會被記錄下來，久而久之，你就有一份紀錄，知道你用的軟體實際上都在什麼時候發布。只有當廠商自己的發行資訊來源標有時間戳記時，發布時間才會標為精確；其餘一律以帶 ≈ 的時間範圍顯示，因為我們能誠實確定的就只有這麼多。"
   },
   "settings": {
-    "alt": "DuoUpdater 的「General」設定，旁邊的側邊欄列出 Folders、Updates、GitHub、Alcove、Ignored 與 Diagnostics：登入時啟動、檢查間隔、隱藏 Dock 圖像、是否顯示每個 App 以什麼打造、通知、自動重新開啟、回復用備份及其占用的空間、一次檢查幾個 App，以及 App Store 更新、會自行更新的 App 與 TestFlight 測試版各自要走哪條安裝路徑。",
+    "alt": "DuoUpdater 的「General」設定，旁邊的側邊欄列出 Backups、Folders、Updates、GitHub、Alcove、Xcode、Ignored 與 Diagnostics：登入時啟動、檢查間隔、隱藏 Dock 圖像、是否顯示每個 App 以什麼打造、通知、自動重新開啟、一次檢查幾個 App，以及 App Store 更新、會自行更新的 App、沒有開發者簽名的 App 與 TestFlight 測試版各自要走哪條安裝路徑。",
     "caption": "大部分設定都關乎你想給它多少自主權——要不要替你重新啟動 App、要不要保留回復用備份，以及兩種棘手的情況要交給哪條路徑處理：Mac App Store 的 App，以及附帶自己更新程式的 App。"
+  },
+  "xcode": {
+    "alt": "DuoUpdater 的「Xcode」設定頁：顯示「Signed in」（已登入）Apple Developer，並勾選了在背景續期工作階段。下方是「Download Xcode」（下載 Xcode）列表，分為「Betas & RCs」與「Releases」兩個標籤，資料來自 Apple 與 xcodereleases.com，列出從 27.2 beta 2 到 27.0 beta 4 的各個 Xcode 27 版本，每個都標明日期與所需的 macOS 版本。多數版本旁有「Install」（安裝）按鈕；已經裝好的兩個（Xcode-beta.app 與 Xcode.app）則顯示「Open」（打開）與「Download Only (.xip)」（僅下載 .xip）。",
+    "caption": "Xcode 的 Beta 版和候選版不在 App Store 上，Apple 只提供給已登入的開發者帳號。在「設定 → Xcode」登入一次，新的 Beta 版就和其他列一樣，一鍵即可更新。同一頁還列出 Apple 與 xcodereleases.com 已知的每一個版本：「安裝」會把你選的那個當成獨立的拷貝放進「應用程式」檔案夾，與現有的 Xcode 並存，不會取代任何已安裝的版本；「僅下載」則只儲存 .xip 檔。"
   },
   "notFound": {
     "title": "找不到頁面",
