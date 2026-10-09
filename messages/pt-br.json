@@ -58,6 +58,10 @@
     "alt": "A janela de trabalho: uma barra lateral com todos os apps verificados e as notas de versão do app selecionado exibidas como texto nativo — título da versão, data e um item por alteração.",
     "caption": "Ao abrir a janela, você vê tudo o que ele verificou e as notas de versão do que selecionar. Quando um fabricante publica notas num formato que vale a pena interpretar, elas são decompostas e exibidas como texto nativo em vez de uma página web embutida."
   },
+  "cli": {
+    "alt": "A aba CLI da bancada: uma barra lateral que agrupa as ferramentas de linha de comando pela forma como foram instaladas — Homebrew, npm sob nvm e fnm, Claude Code, bub, fx, uv, Junie, Rust e Codex —, cada uma com seu caminho e sua versão. O Claude Code está selecionado: instalado pelo instalador nativo, versão 2.1.295 conferindo com o manifesto de versões da Anthropic, assinado pela Anthropic, no canal latest e atualizado, com as notas de versão listadas por versão ao lado.",
+    "caption": "A aba CLI faz o mesmo com as ferramentas de linha de comando: onde cada uma está instalada, o que a instalou, quem a assinou, que canal ela segue e suas notas de versão."
+  },
   "releaseLog": {
     "alt": "A linha do tempo do “Release Log” (registro de versões): versões agrupadas por dia, cada uma mostrando o app, a versão, a origem e um horário exato de publicação ou uma janela aproximada.",
     "caption": "Toda versão que ele vê é registrada, então, com o tempo, você tem um histórico de quando o software que você usa realmente é lançado. Um horário de lançamento só é chamado de exato quando o próprio feed do fabricante traz a data e a hora; todo o resto aparece como uma janela com ≈, porque é tudo o que sabemos com honestidade."

@@ -58,6 +58,10 @@
     "alt": "Das Arbeitsfenster: eine Seitenleiste mit allen gescannten Apps und die Versionshinweise der ausgewählten App als nativer Text – Versionsüberschrift, Datum und ein Aufzählungspunkt pro Änderung.",
     "caption": "Im Fenster siehst du alles, was gescannt wurde, und die Versionshinweise zur jeweiligen Auswahl. Wo ein Anbieter seine Hinweise in einer Form veröffentlicht, die sich auszuwerten lohnt, werden sie aufgeschlüsselt und als nativer Text dargestellt statt als eingebettete Webseite."
   },
+  "cli": {
+    "alt": "Der Tab CLI der Werkbank: eine Seitenleiste, die Kommandozeilen-Tools danach gruppiert, wie sie installiert wurden — Homebrew, npm unter nvm und fnm, Claude Code, bub, fx, uv, Junie, Rust und Codex —, jeweils mit Pfad und Version. Ausgewählt ist Claude Code: installiert vom nativen Installer, Version 2.1.295 passend zum Release-Manifest von Anthropic, signiert von Anthropic, auf dem Kanal latest und aktuell, daneben seine Release Notes nach Version.",
+    "caption": "Der Tab CLI macht dasselbe für Kommandozeilen-Tools: wo jedes installiert ist, was es installiert hat, wer es signiert hat, welchem Kanal es folgt und seine Release Notes."
+  },
   "releaseLog": {
     "alt": "Die Zeitleiste „Release Log“ (Release-Protokoll): Releases nach Tag gruppiert, jeweils mit App, Version, Quelle und entweder einer genauen Veröffentlichungszeit oder einem ungefähren Zeitfenster.",
     "caption": "Jede Version, die DuoUpdater sieht, wird festgehalten – so entsteht mit der Zeit ein Protokoll darüber, wann die Software, die du nutzt, tatsächlich erscheint. Eine Veröffentlichungszeit gilt nur dann als exakt, wenn der eigene Feed des Anbieters sie mit Zeitstempel angibt; alles andere wird als Zeitfenster mit ≈ angezeigt, denn mehr wissen wir ehrlicherweise nicht."

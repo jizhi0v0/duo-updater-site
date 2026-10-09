@@ -22,6 +22,7 @@ const appRepo = resolve(process.env.APP_REPO ?? join(siteRoot, "..", "duo-update
 const SCREENSHOTS = [
   "menu-bar.png",
   "changelog.png",
+  "cli.png",
   "settings.png",
   "release-log-timeline.png",
   "xcode.png",

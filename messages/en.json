@@ -58,6 +58,10 @@
     "alt": "The workbench window: a sidebar listing every scanned app, and the release notes for the selected one rendered as native text — version heading, date, and one bullet per change.",
     "caption": "Opening the window gives you everything it scanned, and the release notes for whatever you select. Where a vendor publishes notes in a form worth parsing, they are pulled apart and rendered as native text instead of an embedded web page."
   },
+  "cli": {
+    "alt": "The workbench's CLI tab: a sidebar grouping command-line tools by how they were installed — Homebrew, npm under nvm and fnm, Claude Code, bub, fx, uv, Junie, Rust and Codex — each with its path and version. Claude Code is selected: installed by the native installer, version 2.1.295 matching Anthropic's release manifest, signed by Anthropic, on the latest channel and up to date, with its release notes listed by version beside it.",
+    "caption": "The CLI tab does the same for command-line tools: where each one is installed, what installed it, who signed it, which channel it follows, and its release notes."
+  },
   "releaseLog": {
     "alt": "The Release Log timeline: releases grouped by day, each showing the app, version, source, and either an exact publish time or an approximate window.",
     "caption": "Every version it sees gets recorded, so over time you get a log of when the software you use actually ships. A release time is only called exact when the vendor’s own feed timestamps it; everything else is shown as a window with a ≈, because that is all we honestly know."

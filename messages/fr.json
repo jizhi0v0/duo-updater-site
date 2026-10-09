@@ -58,6 +58,10 @@
     "alt": "La fenêtre de travail : une barre latérale listant toutes les apps analysées, et les notes de version de l’app sélectionnée affichées en texte natif — titre de version, date et une puce par modification.",
     "caption": "En ouvrant la fenêtre, vous retrouvez tout ce qui a été analysé, ainsi que les notes de version de l’élément sélectionné. Lorsqu’un éditeur publie ses notes sous une forme qui se prête à l’extraction, elles sont décomposées et affichées en texte natif plutôt que dans une page web intégrée."
   },
+  "cli": {
+    "alt": "L’onglet CLI de l’établi : une barre latérale qui regroupe les outils en ligne de commande selon leur mode d’installation — Homebrew, npm sous nvm et fnm, Claude Code, bub, fx, uv, Junie, Rust et Codex —, chacun avec son chemin et sa version. Claude Code est sélectionné : installé par l’installateur natif, version 2.1.295 conforme au manifeste de versions d’Anthropic, signé par Anthropic, sur le canal latest et à jour, avec ses notes de version classées par version à côté.",
+    "caption": "L’onglet CLI fait de même pour les outils en ligne de commande : où chacun est installé, ce qui l’a installé, qui l’a signé, quel canal il suit, et ses notes de version."
+  },
   "releaseLog": {
     "alt": "La chronologie du Journal des versions : les versions regroupées par jour, chacune avec l’app, la version, la source, et soit une heure de publication exacte, soit une plage approximative.",
     "caption": "Chaque version repérée est enregistrée : avec le temps, vous obtenez un journal indiquant quand les logiciels que vous utilisez sont réellement publiés. Une heure de publication n’est dite exacte que si le flux de l’éditeur lui-même l’horodate ; dans tous les autres cas, elle est présentée comme une plage précédée d’un ≈, car c’est tout ce que nous savons honnêtement."

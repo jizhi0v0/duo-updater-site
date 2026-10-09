@@ -58,6 +58,10 @@
     "alt": "Çalışma masası penceresi: taranan tüm uygulamaları listeleyen bir kenar çubuğu ve seçili uygulamanın yerel metin olarak gösterilen sürüm notları — sürüm başlığı, tarih ve her değişiklik için bir madde.",
     "caption": "Pencereyi açtığınızda taradığı her şeyi ve seçtiğiniz uygulamanın sürüm notlarını görürsünüz. Üretici notlarını ayrıştırmaya değer bir biçimde yayımlıyorsa notlar parçalarına ayrılır ve gömülü bir web sayfası yerine yerel metin olarak gösterilir."
   },
+  "cli": {
+    "alt": "Çalışma alanının CLI sekmesi: komut satırı araçlarını nasıl kurulduklarına göre gruplayan bir kenar çubuğu — Homebrew, nvm ve fnm altında npm, Claude Code, bub, fx, uv, Junie, Rust ve Codex —, her biri yolu ve sürümüyle. Claude Code seçili: yerel yükleyiciyle kurulmuş, 2.1.295 sürümü Anthropic’in sürüm manifestosuyla eşleşiyor, Anthropic tarafından imzalanmış, latest kanalında ve güncel; yanında sürüm sürüm sürüm notları listeleniyor.",
+    "caption": "CLI sekmesi aynısını komut satırı araçları için yapıyor: her birinin nereye kurulduğu, neyin kurduğu, kimin imzaladığı, hangi kanalı izlediği ve sürüm notları."
+  },
   "releaseLog": {
     "alt": "“Release Log” (sürüm günlüğü) zaman çizelgesi: güne göre gruplanmış sürümler; her biri uygulamayı, sürümü, kaynağı ve ya kesin bir yayımlanma zamanını ya da yaklaşık bir zaman aralığını gösteriyor.",
     "caption": "Gördüğü her sürüm kaydedilir; böylece zamanla, kullandığınız yazılımların gerçekte ne zaman yayımlandığını gösteren bir günlük oluşur. Bir yayımlanma zamanına yalnızca üreticinin kendi akışı zaman damgası veriyorsa kesin denir; geri kalan her şey ≈ işaretiyle bir aralık olarak gösterilir, çünkü dürüstçe bilebildiğimiz yalnızca budur."

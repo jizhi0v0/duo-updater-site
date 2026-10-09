@@ -13,6 +13,7 @@ import { SITE } from "@/lib/site";
 // height of 520 against four different aspect ratios, so the browser reserved the
 // wrong box and the page jumped when each image landed.
 import changelogShot from "@/public/screenshots/changelog.png";
+import cliShot from "@/public/screenshots/cli.png";
 import menuBarShot from "@/public/screenshots/menu-bar.png";
 import releaseLogShot from "@/public/screenshots/release-log-timeline.png";
 import settingsShot from "@/public/screenshots/settings.png";
@@ -163,6 +164,16 @@ export default async function HomePage({ locale }: { locale: LocaleID }) {
           sizes="(max-width: 52rem) 100vw, 760px"
         />
         <figcaption>{t("workbench.caption")}</figcaption>
+      </figure>
+
+      <figure className="shot">
+        <Image
+          src={cliShot}
+          alt={t("cli.alt")}
+          className="shot-wide"
+          sizes="(max-width: 52rem) 100vw, 760px"
+        />
+        <figcaption>{t("cli.caption")}</figcaption>
       </figure>
 
       <figure className="shot">
