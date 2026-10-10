@@ -10,19 +10,20 @@ ce dont la requête a besoin : le numéro de version de l'app elle-même, pour
 que le flux d'un éditeur puisse répondre pour le bon canal.
 
 **Icônes des formules Homebrew.** Pour une formule dont l'app n'embarque pas
-de logo, la liste Homebrew affiche l'icône propre à la formule, récupérée la
-première fois que sa ligne apparaît. Elle n'est demandée que là où le projet
-en publie lui-même une : la page d'accueil de la formule (les liens d'icône de
-la page, puis `/favicon.ico`, et seulement ceux situés sur l'hôte même de la
-page d'accueil ou sur ses sous-domaines : un lien vers un CDN ou un autre hôte
-est ignoré, et une redirection ailleurs n'est pas suivie) ou, pour un projet
-sur GitHub, `api.github.com/users/<owner>` et, lorsque le propriétaire est une
-organisation, son avatar sur `avatars.githubusercontent.com`. L'avatar d'une
-personne n'est jamais récupéré, et les sites d'hébergement de code
-(SourceForge, GitLab et autres) ne sont pas interrogés. Chacun de ces sites,
-ainsi que GitHub, peut donc savoir qu'une de ses formules est installée sur
-votre Mac. Les icônes sont mises en cache sur le disque ; pour une formule
-sans icône, la demande n'est pas renouvelée avant une semaine.
+de logo, le groupe Homebrew de l'onglet CLI affiche l'icône propre à la
+formule, récupérée la première fois que sa ligne apparaît. Elle n'est demandée
+que là où le projet en publie lui-même une : la page d'accueil de la formule
+(les liens d'icône de la page, puis `/favicon.ico`, et seulement ceux situés
+sur l'hôte même de la page d'accueil ou sur ses sous-domaines : un lien vers
+un CDN ou un autre hôte est ignoré, et une redirection ailleurs n'est pas
+suivie) ou, pour un projet sur GitHub, `api.github.com/users/<owner>` et,
+lorsque le propriétaire est une organisation, son avatar sur
+`avatars.githubusercontent.com`. L'avatar d'une personne n'est jamais
+récupéré, et les sites d'hébergement de code (SourceForge, GitLab et autres)
+ne sont pas interrogés. Chacun de ces sites, ainsi que GitHub, peut donc
+savoir qu'une de ses formules est installée sur votre Mac. Les icônes sont
+mises en cache sur le disque ; pour une formule sans icône, la demande n'est
+pas renouvelée avant une semaine.
 
 Quatre choses méritent d'être mentionnées explicitement, parce qu'elles
 impliquent une lecture hors de notre propre conteneur.

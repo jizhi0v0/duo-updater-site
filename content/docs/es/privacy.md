@@ -10,19 +10,19 @@ propia app, para que el feed de un proveedor pueda responder con el canal
 correcto.
 
 **Iconos de fórmulas de Homebrew.** Para una fórmula de la que la app no
-incluye un logotipo propio, la lista de Homebrew muestra el icono de la propia
-fórmula, que se descarga cuando su fila aparece por primera vez. Solo se pide
-donde el propio proyecto publica uno: la página de inicio de la fórmula (los
-enlaces de icono de la página y después `/favicon.ico`, y solo los que están
-en el propio host de la página de inicio o en sus subdominios: un enlace a una
-CDN o a otro host se omite, y no se sigue una redirección a otro sitio) o,
-para un proyecto en GitHub, `api.github.com/users/<owner>` y, cuando el
-propietario es una organización, su avatar en `avatars.githubusercontent.com`.
-Nunca se descarga el avatar de una persona, y no se consulta a los sitios de
-alojamiento de código (SourceForge, GitLab y similares). Por tanto, cada uno
-de esos sitios, y GitHub, puede saber que una de sus fórmulas está instalada
-en tu Mac. Los iconos se guardan en caché en el disco; si una fórmula no tiene
-icono, no se vuelve a pedir durante una semana.
+incluye un logotipo propio, el grupo Homebrew de la pestaña CLI muestra el
+icono de la propia fórmula, que se descarga cuando su fila aparece por primera
+vez. Solo se pide donde el propio proyecto publica uno: la página de inicio de
+la fórmula (los enlaces de icono de la página y después `/favicon.ico`, y solo
+los que están en el propio host de la página de inicio o en sus subdominios:
+un enlace a una CDN o a otro host se omite, y no se sigue una redirección a
+otro sitio) o, para un proyecto en GitHub, `api.github.com/users/<owner>` y,
+cuando el propietario es una organización, su avatar en
+`avatars.githubusercontent.com`. Nunca se descarga el avatar de una persona, y
+no se consulta a los sitios de alojamiento de código (SourceForge, GitLab y
+similares). Por tanto, cada uno de esos sitios, y GitHub, puede saber que una
+de sus fórmulas está instalada en tu Mac. Los iconos se guardan en caché en el
+disco; si una fórmula no tiene icono, no se vuelve a pedir durante una semana.
 
 Hay cuatro cosas que merece la pena destacar explícitamente, porque implican
 leer fuera de nuestro propio contenedor.

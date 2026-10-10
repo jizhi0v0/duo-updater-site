@@ -10,9 +10,9 @@ precisa: a versão do próprio app, para que o feed de um fabricante possa
 responder pelo canal certo.
 
 **Ícones de fórmulas do Homebrew.** Para uma fórmula para a qual o app não
-traz um logotipo próprio, a lista do Homebrew mostra o ícone da própria
-fórmula, baixado quando a linha dela aparece pela primeira vez. Ele só é
-pedido onde o próprio projeto publica um: a página inicial da fórmula (os
+traz um logotipo próprio, o grupo Homebrew da aba CLI mostra o ícone da
+própria fórmula, baixado quando a linha dela aparece pela primeira vez. Ele só
+é pedido onde o próprio projeto publica um: a página inicial da fórmula (os
 links de ícone da página, depois `/favicon.ico`, e somente os que estão no
 próprio host da página inicial ou em seus subdomínios: um link para uma CDN ou
 outro host é ignorado, e um redirecionamento para outro lugar não é seguido)

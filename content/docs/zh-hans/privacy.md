@@ -2,7 +2,7 @@
 
 没有遥测，没有数据分析 SDK，也没有属于我们自己的服务器。每一次网络请求都直接发给被检查应用的厂商——或者发给 `api.github.com`、`formulae.brew.sh` 和 `xcodereleases.com`（Xcode 版本信息读取自这个由社区维护的索引站点），获取 Homebrew formula 图标的请求则发给下文列出的那些网站——而且除了请求本身需要的信息之外，不携带任何关于你的内容：唯一携带的是应用自身的版本号，好让厂商的订阅源能针对正确的渠道作答。
 
-**Homebrew formula 图标。** 对于应用没有自带标志的 formula，Homebrew 列表会显示该 formula 自己的图标，在它那一行第一次出现时获取。只会向项目自己发布了图标的地方请求：formula 的主页（先找页面里的图标链接，再找 `/favicon.ico`，而且只限主页自身所在的主机或其子域名：指向 CDN 或其他主机的链接会被跳过，重定向到别处也不会跟随），或者，对于托管在 GitHub 上的项目，请求 `api.github.com/users/<owner>`，并在所有者是组织时请求它在 `avatars.githubusercontent.com` 上的头像。个人的头像绝不会被获取，也不会向代码托管网站（SourceForge、GitLab 之类）发出请求。因此，上述每个网站以及 GitHub 都能知道它们的某个 formula 安装在你的 Mac 上。图标缓存在磁盘上；对于没有图标的 formula，一周内不会再次请求。
+**Homebrew formula 图标。** 对于应用没有自带标志的 formula，“命令行”标签页中的 Homebrew 分组会显示该 formula 自己的图标，在它那一行第一次出现时获取。只会向项目自己发布了图标的地方请求：formula 的主页（先找页面里的图标链接，再找 `/favicon.ico`，而且只限主页自身所在的主机或其子域名：指向 CDN 或其他主机的链接会被跳过，重定向到别处也不会跟随），或者，对于托管在 GitHub 上的项目，请求 `api.github.com/users/<owner>`，并在所有者是组织时请求它在 `avatars.githubusercontent.com` 上的头像。个人的头像绝不会被获取，也不会向代码托管网站（SourceForge、GitLab 之类）发出请求。因此，上述每个网站以及 GitHub 都能知道它们的某个 formula 安装在你的 Mac 上。图标缓存在磁盘上；对于没有图标的 formula，一周内不会再次请求。
 
 有四件事值得明确说一说，因为它们涉及读取我们自身容器之外的内容。
 

@@ -10,19 +10,20 @@ necessita: la versione dell'app stessa, così che il feed di un fornitore possa
 rispondere per il canale giusto.
 
 **Icone delle formule Homebrew.** Per una formula di cui l'app non include un
-logo proprio, l'elenco Homebrew mostra l'icona della formula stessa, scaricata
-quando la sua riga compare per la prima volta. Viene richiesta solo dove il
-progetto stesso ne pubblica una: la homepage della formula (i link alle icone
-della pagina, poi `/favicon.ico`, e solo quelli sull'host stesso della
-homepage o sui suoi sottodomini: un link a una CDN o a un altro host viene
-saltato, e un reindirizzamento altrove non viene seguito) oppure, per un
-progetto su GitHub, `api.github.com/users/<owner>` e, quando il proprietario è
-un'organizzazione, il suo avatar su `avatars.githubusercontent.com`. L'avatar
-di una persona non viene mai scaricato, e i siti di hosting di codice
-(SourceForge, GitLab e simili) non vengono interpellati. Ciascuno di questi
-siti, e GitHub, può quindi sapere che una sua formula è installata sul tuo
-Mac. Le icone vengono memorizzate nella cache su disco; per una formula senza
-icona la richiesta non viene ripetuta per una settimana.
+logo proprio, il gruppo Homebrew della scheda CLI mostra l'icona della formula
+stessa, scaricata quando la sua riga compare per la prima volta. Viene
+richiesta solo dove il progetto stesso ne pubblica una: la homepage della
+formula (i link alle icone della pagina, poi `/favicon.ico`, e solo quelli
+sull'host stesso della homepage o sui suoi sottodomini: un link a una CDN o a
+un altro host viene saltato, e un reindirizzamento altrove non viene seguito)
+oppure, per un progetto su GitHub, `api.github.com/users/<owner>` e, quando il
+proprietario è un'organizzazione, il suo avatar su
+`avatars.githubusercontent.com`. L'avatar di una persona non viene mai
+scaricato, e i siti di hosting di codice (SourceForge, GitLab e simili) non
+vengono interpellati. Ciascuno di questi siti, e GitHub, può quindi sapere che
+una sua formula è installata sul tuo Mac. Le icone vengono memorizzate nella
+cache su disco; per una formula senza icona la richiesta non viene ripetuta
+per una settimana.
 
 Quattro cose vale la pena segnalare esplicitamente, perché comportano una
 lettura al di fuori del nostro container.
