@@ -10,7 +10,8 @@ what that request needs: the app's own version, so that a vendor's feed can
 answer for the right channel.
 
 **Homebrew formula icons.** For a formula the app bundles no logo for, the
-Brew list shows the formula's own icon, fetched when its row first appears. It is
+Homebrew group in the CLI tab shows the formula's own icon, fetched when its row
+first appears. It is
 asked for only where the project itself publishes one: the formula's homepage
 (the page's icon links, then `/favicon.ico`, and only those on the homepage's
 own host or its subdomains: a link to a CDN or another host is skipped, and a
