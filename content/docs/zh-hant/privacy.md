@@ -2,7 +2,7 @@
 
 沒有遙測、沒有分析 SDK，也沒有我們自己的伺服器。每一個網路請求都直接送往被檢查的那個 App 的廠商——或是送往 `api.github.com`、`formulae.brew.sh` 和 `xcodereleases.com`（讀取 Xcode 版本資訊的社群維護索引），取得 Homebrew formula 圖示的請求則送往下方列出的那些網站——而且除了請求本身所需要的內容之外，不會夾帶任何關於你的資訊：只有 App 自己的版本號，好讓廠商的 feed 能針對正確的通道作答。
 
-**Homebrew formula 圖示。** 對於 App 沒有內建標誌的 formula，「命令列」分頁中的 Homebrew 群組會顯示該 formula 自己的圖示，在它那一列第一次出現時抓取。只會向專案本身公開了圖示的地方索取：formula 的首頁（先找頁面裡的圖示連結，再找 `/favicon.ico`，而且只限首頁本身的主機或其子網域：指向 CDN 或其他主機的連結會被略過，重新導向到別處也不會跟過去），或者，對於在 GitHub 上的專案，則是 `api.github.com/users/<owner>`，以及在擁有者是組織時，它在 `avatars.githubusercontent.com` 上的頭像。個人的頭像絕不會被抓取，程式碼託管網站（SourceForge、GitLab 之類）也不會被詢問。因此，上述每個網站以及 GitHub 都能得知它們的某個 formula 裝在你的 Mac 上。圖示會快取在磁碟上；對於沒有圖示的 formula，一週內不會再去問。
+**Homebrew formula 圖示。** 對於 App 沒有內建標誌的 formula，「CLI」分頁中的 Homebrew 群組會顯示該 formula 自己的圖示，在它那一列第一次出現時抓取。只會向專案本身公開了圖示的地方索取：formula 的首頁（先找頁面裡的圖示連結，再找 `/favicon.ico`，而且只限首頁本身的主機或其子網域：指向 CDN 或其他主機的連結會被略過，重新導向到別處也不會跟過去），或者，對於在 GitHub 上的專案，則是 `api.github.com/users/<owner>`，以及在擁有者是組織時，它在 `avatars.githubusercontent.com` 上的頭像。個人的頭像絕不會被抓取，程式碼託管網站（SourceForge、GitLab 之類）也不會被詢問。因此，上述每個網站以及 GitHub 都能得知它們的某個 formula 裝在你的 Mac 上。圖示會快取在磁碟上；對於沒有圖示的 formula，一週內不會再去問。
 
 有四件事值得明確說出來，因為它們牽涉到讀取我們自己容器之外的資料。
 
