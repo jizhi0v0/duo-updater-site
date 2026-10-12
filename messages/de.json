@@ -10,7 +10,7 @@
     "menu": "Menü"
   },
   "footer": {
-    "appClaim": "Die App sendet keine Telemetriedaten und kommuniziert mit keinem Server von uns. Apple Silicon, macOS 15+.",
+    "appClaim": "Die App sendet keine Telemetriedaten, und ihr einziger Server von uns zählt nur Installationen, anonym. Apple Silicon, macOS 15+.",
     "source": "Quellcode",
     "releases": "Releases",
     "licence": "Lizenz",
@@ -24,7 +24,8 @@
   "download": {
     "button": "Für Mac herunterladen",
     "note": "Apple Silicon, macOS 15 oder neuer. Kostenlos und Open Source.",
-    "allReleases": "Alle Versionen"
+    "allReleases": "Alle Versionen",
+    "brew": "Oder mit Homebrew:"
   },
   "menuBar": {
     "alt": "Das Menüleisten-Popover von DuoUpdater mit der Überschrift „89 updates available“ (89 Updates verfügbar), einer Taste „Update All“ und einem Suchfeld. Jede Zeile zeigt die installierte Version, die neue Version, ein kleines Abzeichen dafür, womit die App gebaut ist, und eine Taste „Update“; in der Zeile von Anki geht es von 26.9.2 auf 26.09.3. Eine Infokarte über dem Abzeichen von BetterDisplay lautet: „Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.“ (eine native Mac-App, direkt auf Apples Frameworks gebaut, mit AppKit und SwiftUI, gebaut mit dem macOS 27.0 SDK). Ganz unten stehen zwei Zeilen: „Homebrew“ mit „9 updates · 3 not checked“ (9 Updates, 3 nicht geprüft) und „Other tools“ (Andere Tools) mit „1 update · 1 held back“ (1 Update, 1 zurückgehalten).",
@@ -50,8 +51,8 @@
       "body": "{languages}. Eine Spracheinstellung gibt es nicht – die App übernimmt, was in macOS bereits eingestellt ist."
     },
     "noServer": {
-      "title": "Es hat keinen Server",
-      "body": "Keine Telemetrie und kein Analyse-SDK. Jede Anfrage geht direkt an den Anbieter, dessen App geprüft wird, und enthält nichts über dich."
+      "title": "Es weiß nicht, wer du bist",
+      "body": "Keine Telemetrie und kein Analyse-SDK. Prüfungen für deine Apps gehen direkt an den jeweiligen Anbieter. DuoUpdaters eigener Update-Feed zählt grob, wie viele Installationen pro Tag nachfragen, und speichert nichts, was dich identifiziert."
     }
   },
   "workbench": {

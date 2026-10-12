@@ -10,7 +10,7 @@
     "menu": "Menú"
   },
   "footer": {
-    "appClaim": "La app no envía telemetría ni se comunica con ningún servidor nuestro. Apple Silicon, macOS 15 o posterior.",
+    "appClaim": "La app no envía telemetría, y su único servidor nuestro solo cuenta instalaciones, de forma anónima. Apple Silicon, macOS 15 o posterior.",
     "source": "Código fuente",
     "releases": "Versiones",
     "licence": "Licencia",
@@ -24,7 +24,8 @@
   "download": {
     "button": "Descargar para Mac",
     "note": "Apple Silicon, macOS 15 o posterior. Gratis y de código abierto.",
-    "allReleases": "Todas las versiones"
+    "allReleases": "Todas las versiones",
+    "brew": "O con Homebrew:"
   },
   "menuBar": {
     "alt": "La ventana emergente de DuoUpdater en la barra de menús, con el encabezado «89 updates available» (89 actualizaciones disponibles), un botón «Update All» y un campo de búsqueda. Cada fila muestra la versión instalada, la nueva, una pequeña insignia que indica con qué está hecha la app y un botón «Update»; la fila de Anki va de 26.9.2 a 26.09.3. Una tarjeta que aparece al pasar el puntero sobre la insignia de BetterDisplay dice: «Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.» Al final hay dos filas: «Homebrew», con «9 updates · 3 not checked» (9 actualizaciones, 3 sin comprobar), y «Other tools» (Otras herramientas), con «1 update · 1 held back» (1 actualización, 1 retenida).",
@@ -50,8 +51,8 @@
       "body": "{languages}. No hay ningún ajuste de idioma: usa el que ya tenga configurado macOS."
     },
     "noServer": {
-      "title": "No tiene servidor",
-      "body": "Ni telemetría ni SDK de analítica. Cada solicitud va directamente al proveedor cuya app se está comprobando, sin llevar ningún dato sobre ti."
+      "title": "No sabe quién eres",
+      "body": "Ni telemetría ni SDK de analítica. Las comprobaciones de tus apps van directamente a cada proveedor. El canal de actualizaciones propio de DuoUpdater cuenta aproximadamente cuántas instalaciones consultan cada día y no guarda nada que te identifique."
     }
   },
   "workbench": {

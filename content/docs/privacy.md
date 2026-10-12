@@ -1,6 +1,6 @@
-<!-- title: Privacy | summary: No telemetry, no analytics, no server — and the four cases that read outside our own container. | order: 4 -->
+<!-- title: Privacy | summary: No telemetry, no analytics, one anonymous update server — and the four cases that read outside our own container. | order: 4 -->
 
-There is no telemetry, no analytics SDK, and no server of ours. Every network
+There is no telemetry and no analytics SDK, and one server of ours: the one that serves DuoUpdater’s own updates, described just below. Every other network
 request goes straight to the vendor whose app is being checked — or to
 `api.github.com`, `formulae.brew.sh`, and `xcodereleases.com` (the
 community-maintained index Xcode versions are read from), and for Homebrew
@@ -8,6 +8,8 @@ formula icons the sites named just below — and carries nothing
 about you beyond
 what that request needs: the app's own version, so that a vendor's feed can
 answer for the right channel.
+
+**DuoUpdater’s own update check.** That server is `updates.duoupdater.app`, a Cloudflare Worker whose [entire source is public](https://github.com/jizhi0v0/duo-updater/blob/main/workers/appcast/src/index.ts). It counts roughly how many installs check for updates each day, and is built so that it cannot learn who. The request is the one Sparkle always sends, with no account, device ID or list of your apps. Your IP address is never stored or logged by it: it is used once, in memory, to pick one of 65,536 buckets that tens of thousands of addresses share, and the bucket changes every day. Each night the buckets become one number per DuoUpdater version and are deleted. No country, no location, no logs of ours. Cloudflare, like GitHub before it, sees the request’s IP while delivering it, and keeps its own request log for the domain, which cannot be switched off on our plan; we do not export or query it.
 
 **Homebrew formula icons.** For a formula the app bundles no logo for, the
 Homebrew group in the CLI tab shows the formula's own icon, fetched when its row

@@ -1,6 +1,6 @@
-<!-- title: Confidentialité | summary: Aucune télémétrie, aucune analyse, aucun serveur — et les quatre cas qui lisent hors de notre propre conteneur. | order: 4 -->
+<!-- title: Confidentialité | summary: Aucune télémétrie, aucune analyse, un serveur de mises à jour anonyme — et les quatre cas qui lisent hors de notre propre conteneur. | order: 4 -->
 
-Il n'y a ni télémétrie, ni SDK d'analyse, ni serveur qui nous appartienne.
+Il n’y a ni télémétrie ni SDK d’analyse, et un seul serveur qui nous appartienne : celui qui sert les mises à jour de DuoUpdater lui-même, décrit juste en dessous.
 Chaque requête réseau va directement vers l'éditeur de l'app en cours de
 vérification — ou vers `api.github.com`, `formulae.brew.sh` et
 `xcodereleases.com` (l'index communautaire à partir duquel les versions de
@@ -8,6 +8,8 @@ Xcode sont lues), et, pour les icônes des formules Homebrew, vers les sites
 indiqués juste en dessous — et ne transporte rien vous concernant au-delà de
 ce dont la requête a besoin : le numéro de version de l'app elle-même, pour
 que le flux d'un éditeur puisse répondre pour le bon canal.
+
+**La vérification des mises à jour de DuoUpdater lui-même.** Ce serveur est `updates.duoupdater.app`, un Cloudflare Worker dont [l’intégralité du code source est publique](https://github.com/jizhi0v0/duo-updater/blob/main/workers/appcast/src/index.ts). Il compte approximativement combien d’installations cherchent des mises à jour chaque jour, et il est conçu pour ne pas pouvoir savoir qui. La requête est celle que Sparkle envoie toujours, sans compte, identifiant d’appareil ni liste de vos apps. Votre adresse IP n’est jamais conservée ni journalisée : elle sert une fois, en mémoire, à choisir l’un de 65 536 compartiments partagés par des dizaines de milliers d’adresses, et le compartiment change chaque jour. Chaque nuit, les compartiments deviennent un nombre par version de DuoUpdater et sont supprimés. Ni pays, ni localisation, ni journaux de notre part. Cloudflare, comme GitHub avant lui, voit l’IP de la requête en la livrant et tient son propre journal des requêtes du domaine, qui ne peut pas être désactivé avec notre offre ; nous ne l’exportons ni ne l’interrogeons.
 
 **Icônes des formules Homebrew.** Pour une formule dont l'app n'embarque pas
 de logo, le groupe Homebrew de l'onglet CLI affiche l'icône propre à la

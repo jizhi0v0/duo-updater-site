@@ -10,7 +10,7 @@
     "menu": "Menu"
   },
   "footer": {
-    "appClaim": "The app sends no telemetry and talks to no server of ours. Apple Silicon, macOS 15+.",
+    "appClaim": "The app sends no telemetry, and its one server of ours only counts installs, anonymously. Apple Silicon, macOS 15+.",
     "source": "Source",
     "releases": "Releases",
     "licence": "Licence",
@@ -24,7 +24,8 @@
   "download": {
     "button": "Download for Mac",
     "note": "Apple Silicon, macOS 15 or later. Free and open source.",
-    "allReleases": "All releases"
+    "allReleases": "All releases",
+    "brew": "Or with Homebrew:"
   },
   "menuBar": {
     "alt": "The DuoUpdater menu bar popover, headed 89 updates available with an Update All button and a search field. Each row shows the installed version, the new version, a small badge for what the app is built with, and an Update button; Anki's row reads 26.9.2 to 26.09.3. A hover card over BetterDisplay's badge reads: Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK. Two rows at the bottom: Homebrew, 9 updates and 3 not checked; Other tools, 1 update and 1 held back.",
@@ -50,8 +51,8 @@
       "body": "{languages}. There is no language setting — it follows whatever macOS is already set to."
     },
     "noServer": {
-      "title": "It has no server",
-      "body": "No telemetry and no analytics SDK. Every request goes straight to the vendor whose app is being checked, carrying nothing about you."
+      "title": "It doesn’t know who you are",
+      "body": "No telemetry and no analytics SDK. Checks for your apps go straight to each vendor. DuoUpdater’s own update feed counts roughly how many installs check each day, and stores nothing that identifies you."
     }
   },
   "workbench": {

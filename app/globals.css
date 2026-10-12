@@ -347,6 +347,26 @@ pre code {
   color: inherit;
 }
 
+/* One click selects the whole command, ready to copy, and it never breaks
+   inside `--cask`; the label wraps above it instead. On a phone the command is
+   wider than the column, so it scrolls inside its own box rather than making
+   the whole page scroll sideways. */
+.hero .cta-brew {
+  /* A flex item will not shrink below its content by default, and the
+     command is the content. */
+  max-width: 100%;
+  min-width: 0;
+}
+
+.cta-brew code {
+  user-select: all;
+  white-space: nowrap;
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  vertical-align: bottom;
+}
+
 .shot {
   margin: 0 0 4.5rem;
 }

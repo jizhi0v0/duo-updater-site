@@ -10,7 +10,7 @@
     "menu": "菜单"
   },
   "footer": {
-    "appClaim": "这个应用不发送任何遥测数据，也不连接我们的任何服务器。Apple Silicon，macOS 15 及以上。",
+    "appClaim": "这个应用不发送任何遥测数据，我们自己的服务器只有一台，只做匿名的安装计数。Apple Silicon，macOS 15 及以上。",
     "source": "源代码",
     "releases": "发布版本",
     "licence": "许可证",
@@ -24,7 +24,8 @@
   "download": {
     "button": "下载 Mac 版",
     "note": "Apple Silicon，macOS 15 或更高版本。免费、开源。",
-    "allReleases": "所有版本"
+    "allReleases": "所有版本",
+    "brew": "也可以用 Homebrew 安装："
   },
   "menuBar": {
     "alt": "DuoUpdater 的菜单栏弹出窗口，标题为“89 updates available”（有 89 个可用更新），带一个“Update All”（全部更新）按钮和一个搜索框。每一行显示已安装版本、新版本、一个标明应用用什么技术构建的小徽章，以及一个“Update”（更新）按钮；Anki 那一行是从 26.9.2 到 26.09.3。指针悬停在 BetterDisplay 的徽章上时弹出的卡片写着：“Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.”（原生：直接基于 Apple 框架构建的原生 Mac 应用，不是跨平台运行时；链接了 AppKit 和 SwiftUI；用 macOS 27.0 SDK 构建。）底部有两行：“Homebrew”显示“9 updates · 3 not checked”（9 个更新，3 个未检查）；“Other tools”（其他工具）显示“1 update · 1 held back”（1 个更新，1 个暂缓）。",
@@ -50,8 +51,8 @@
       "body": "支持 {languages}。没有语言设置——macOS 设成什么语言，它就用什么语言。"
     },
     "noServer": {
-      "title": "它没有服务器",
-      "body": "没有遥测，也没有统计分析 SDK。每个请求都直接发给被检查的应用的厂商，不带任何关于你的信息。"
+      "title": "它不知道你是谁",
+      "body": "没有遥测，也没有统计分析 SDK。检查你的应用时，请求都直接发给各个厂商。DuoUpdater 自己的更新源只粗略统计每天大约有多少台安装在检查更新，不保存任何能识别你的信息。"
     }
   },
   "workbench": {

@@ -1,6 +1,6 @@
-<!-- title: Privacidade | summary: Sem telemetria, sem análise, sem servidor — e os quatro casos que leem além do nosso próprio contêiner. | order: 4 -->
+<!-- title: Privacidade | summary: Sem telemetria, sem análise, um servidor de atualizações anônimo — e os quatro casos que leem além do nosso próprio contêiner. | order: 4 -->
 
-Não há telemetria, não há SDK de análise, e não há servidor nosso. Toda
+Não há telemetria nem SDK de análise, e há um único servidor nosso: o que entrega as atualizações do próprio DuoUpdater, descrito logo abaixo. Toda
 requisição de rede vai direto para o fabricante do app que está sendo
 verificado — ou para `api.github.com`, `formulae.brew.sh` e
 `xcodereleases.com` (o índice mantido pela comunidade de onde as versões do
@@ -8,6 +8,8 @@ Xcode são lidas) e, para os ícones de fórmulas do Homebrew, para os sites
 indicados logo abaixo — e não leva nada sobre você além do que a requisição
 precisa: a versão do próprio app, para que o feed de um fabricante possa
 responder pelo canal certo.
+
+**A verificação de atualizações do próprio DuoUpdater.** Esse servidor é `updates.duoupdater.app`, um Cloudflare Worker cujo [código-fonte é todo público](https://github.com/jizhi0v0/duo-updater/blob/main/workers/appcast/src/index.ts). Ele conta aproximadamente quantas instalações procuram atualizações por dia e foi feito para não ter como saber quem. A requisição é a que o Sparkle sempre envia, sem conta, ID de dispositivo nem lista dos seus apps. Seu endereço IP nunca é guardado nem registrado: é usado uma vez, na memória, para escolher um entre 65.536 grupos compartilhados por dezenas de milhares de endereços, e o grupo muda todo dia. Toda noite os grupos viram um número por versão do DuoUpdater e são apagados. Nada de país, localização ou logs nossos. O Cloudflare, assim como o GitHub antes dele, vê o IP da requisição ao entregá-la e mantém o próprio registro de requisições do domínio, que não pode ser desativado no nosso plano; nós não o exportamos nem o consultamos.
 
 **Ícones de fórmulas do Homebrew.** Para uma fórmula para a qual o app não
 traz um logotipo próprio, o grupo Homebrew da aba CLI mostra o ícone da

@@ -1,6 +1,8 @@
-<!-- title: 隐私 | summary: 没有遥测、没有数据分析，也没有服务器——以及四种会读取自身容器之外内容的情况。 | order: 4 -->
+<!-- title: 隐私 | summary: 没有遥测、没有数据分析，只有一台匿名的更新服务器——以及四种会读取自身容器之外内容的情况。 | order: 4 -->
 
-没有遥测，没有数据分析 SDK，也没有属于我们自己的服务器。每一次网络请求都直接发给被检查应用的厂商——或者发给 `api.github.com`、`formulae.brew.sh` 和 `xcodereleases.com`（Xcode 版本信息读取自这个由社区维护的索引站点），获取 Homebrew formula 图标的请求则发给下文列出的那些网站——而且除了请求本身需要的信息之外，不携带任何关于你的内容：唯一携带的是应用自身的版本号，好让厂商的订阅源能针对正确的渠道作答。
+没有遥测，没有数据分析 SDK，属于我们自己的服务器只有一台：为 DuoUpdater 自身提供更新的那台，下文紧接着说明。每一次网络请求都直接发给被检查应用的厂商——或者发给 `api.github.com`、`formulae.brew.sh` 和 `xcodereleases.com`（Xcode 版本信息读取自这个由社区维护的索引站点），获取 Homebrew formula 图标的请求则发给下文列出的那些网站——而且除了请求本身需要的信息之外，不携带任何关于你的内容：唯一携带的是应用自身的版本号，好让厂商的订阅源能针对正确的渠道作答。
+
+**DuoUpdater 自身的更新检查。** 这台服务器是 `updates.duoupdater.app`，一个 [源代码完全公开](https://github.com/jizhi0v0/duo-updater/blob/main/workers/appcast/src/index.ts) 的 Cloudflare Worker。它粗略统计每天大约有多少台安装在检查更新，并且从设计上就无法知道是谁。请求就是 Sparkle 一直发送的那个，不带账号、设备 ID，也不带你的应用列表。它从不保存或记录你的 IP 地址：IP 只在内存里用一次，用来从 65,536 个桶里选出一个，每个桶由数万个地址共享，而且桶每天都会变。每天夜里，这些桶会被汇总成每个 DuoUpdater 版本的一个数字，然后删除。不记录国家，不记录位置，也没有我们自己的日志。和此前的 GitHub 一样，Cloudflare 在传送请求时能看到它的 IP，并会为这个域名保留自己的请求日志，在我们的套餐下无法关闭；我们不会导出或查询它。
 
 **Homebrew formula 图标。** 对于应用没有自带标志的 formula，“CLI”标签页中的 Homebrew 分组会显示该 formula 自己的图标，在它那一行第一次出现时获取。只会向项目自己发布了图标的地方请求：formula 的主页（先找页面里的图标链接，再找 `/favicon.ico`，而且只限主页自身所在的主机或其子域名：指向 CDN 或其他主机的链接会被跳过，重定向到别处也不会跟随），或者，对于托管在 GitHub 上的项目，请求 `api.github.com/users/<owner>`，并在所有者是组织时请求它在 `avatars.githubusercontent.com` 上的头像。个人的头像绝不会被获取，也不会向代码托管网站（SourceForge、GitLab 之类）发出请求。因此，上述每个网站以及 GitHub 都能知道它们的某个 formula 安装在你的 Mac 上。图标缓存在磁盘上；对于没有图标的 formula，一周内不会再次请求。
 
