@@ -10,7 +10,7 @@
     "menu": "Menu"
   },
   "footer": {
-    "appClaim": "L’app n’envoie aucune télémétrie et ne communique avec aucun serveur qui nous appartienne. Apple Silicon, macOS 15+.",
+    "appClaim": "L’app n’envoie aucune télémétrie, et son seul serveur qui nous appartienne ne fait que compter les installations, anonymement. Apple Silicon, macOS 15+.",
     "source": "Code source",
     "releases": "Versions",
     "licence": "Licence",
@@ -24,7 +24,10 @@
   "download": {
     "button": "Télécharger pour Mac",
     "note": "Apple Silicon, macOS 15 ou ultérieur. Gratuit et open source.",
-    "allReleases": "Toutes les versions"
+    "allReleases": "Toutes les versions",
+    "brew": "Ou avec Homebrew :",
+    "copy": "Copier la commande",
+    "copied": "Copié"
   },
   "menuBar": {
     "alt": "Le panneau de DuoUpdater ouvert depuis la barre des menus, avec l’en-tête « 89 updates available » (89 mises à jour disponibles), un bouton « Update All » et un champ de recherche. Chaque ligne indique la version installée, la nouvelle version, un petit badge précisant avec quoi l’app est conçue, et un bouton « Update » ; la ligne d’Anki va de 26.9.2 à 26.09.3. Au survol du badge de BetterDisplay, une fiche indique : « Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK. » (une app Mac native, conçue directement sur les frameworks d’Apple et non sur un environnement multiplateforme, liée à AppKit et SwiftUI, compilée avec le SDK macOS 27.0). En bas, deux lignes : « Homebrew », avec « 9 updates · 3 not checked » (9 mises à jour, 3 non vérifiés), et « Other tools » (Autres outils), avec « 1 update · 1 held back » (1 mise à jour, 1 retenue).",
@@ -50,8 +53,8 @@
       "body": "{languages}. Il n’y a aucun réglage de langue : l’app suit simplement la langue déjà choisie dans macOS."
     },
     "noServer": {
-      "title": "Il n’a pas de serveur",
-      "body": "Aucune télémétrie, aucun SDK d’analyse. Chaque requête va directement à l’éditeur de l’app vérifiée et ne transmet rien à votre sujet."
+      "title": "Il ne sait pas qui vous êtes",
+      "body": "Aucune télémétrie, aucun SDK d’analyse. Les vérifications de vos apps vont directement à chaque éditeur. Le flux de mises à jour de DuoUpdater compte approximativement combien d’installations vérifient chaque jour, et ne conserve rien qui vous identifie."
     }
   },
   "workbench": {

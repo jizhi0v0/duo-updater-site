@@ -10,7 +10,7 @@
     "menu": "Menu"
   },
   "footer": {
-    "appClaim": "O app não envia telemetria nem se comunica com nenhum servidor nosso. Apple Silicon, macOS 15+.",
+    "appClaim": "O app não envia telemetria, e o único servidor nosso apenas conta instalações, de forma anônima. Apple Silicon, macOS 15+.",
     "source": "Código-fonte",
     "releases": "Versões",
     "licence": "Licença",
@@ -24,7 +24,10 @@
   "download": {
     "button": "Baixar para Mac",
     "note": "Apple Silicon, macOS 15 ou posterior. Gratuito e de código aberto.",
-    "allReleases": "Todas as versões"
+    "allReleases": "Todas as versões",
+    "brew": "Ou com o Homebrew:",
+    "copy": "Copiar o comando",
+    "copied": "Copiado"
   },
   "menuBar": {
     "alt": "O popover da barra de menus do DuoUpdater, com o título “89 updates available” (89 atualizações disponíveis), um botão “Update All” e um campo de busca. Cada linha mostra a versão instalada, a nova versão, um pequeno selo indicando com o que o app foi feito e um botão “Update”; a linha do Anki mostra de 26.9.2 para 26.09.3. Um cartão que aparece ao passar o cursor sobre o selo do BetterDisplay diz: “Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.” (app nativo de Mac, feito com AppKit e SwiftUI e o SDK do macOS 27.0). Na parte inferior há duas linhas: “Homebrew”, com “9 updates · 3 not checked” (9 atualizações, 3 não verificados), e “Other tools” (Outras ferramentas), com “1 update · 1 held back” (1 atualização, 1 retida).",
@@ -50,8 +53,8 @@
       "body": "{languages}. Não há ajuste de idioma — ele usa o idioma que já estiver definido no macOS."
     },
     "noServer": {
-      "title": "Ele não tem servidor",
-      "body": "Sem telemetria e sem SDK de análise. Cada requisição vai direto ao fabricante do app que está sendo verificado, sem levar nada sobre você."
+      "title": "Ele não sabe quem você é",
+      "body": "Sem telemetria e sem SDK de análise. As verificações dos seus apps vão direto a cada fabricante. O canal de atualizações do próprio DuoUpdater conta aproximadamente quantas instalações verificam por dia e não guarda nada que identifique você."
     }
   },
   "workbench": {

@@ -10,7 +10,7 @@
     "menu": "Menü"
   },
   "footer": {
-    "appClaim": "Uygulama hiçbir telemetri verisi göndermez ve bize ait hiçbir sunucuyla iletişim kurmaz. Apple Silicon, macOS 15+.",
+    "appClaim": "Uygulama hiçbir telemetri verisi göndermez; bize ait tek sunucusu yalnızca kurulumları anonim olarak sayar. Apple Silicon, macOS 15+.",
     "source": "Kaynak kodu",
     "releases": "Sürümler",
     "licence": "Lisans",
@@ -24,7 +24,10 @@
   "download": {
     "button": "Mac için indir",
     "note": "Apple Silicon, macOS 15 veya üstü. Ücretsiz ve açık kaynak.",
-    "allReleases": "Tüm sürümler"
+    "allReleases": "Tüm sürümler",
+    "brew": "Ya da Homebrew ile:",
+    "copy": "Komutu kopyala",
+    "copied": "Kopyalandı"
   },
   "menuBar": {
     "alt": "DuoUpdater’ın menü çubuğu açılır penceresi. Başlıkta “89 updates available” (89 güncelleme mevcut) yazıyor; altında bir “Update All” düğmesi ve bir arama alanı var. Her satırda yüklü sürüm, yeni sürüm, uygulamanın neyle yapıldığını gösteren küçük bir rozet ve bir “Update” düğmesi bulunuyor; Anki’nin satırı 26.9.2 sürümünden 26.09.3 sürümüne geçişi gösteriyor. BetterDisplay’in rozeti üzerindeki açıklama kartında şu yazıyor: “Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.” (doğrudan Apple’ın çerçeveleri üzerine kurulmuş yerel bir Mac uygulaması). En altta iki satır var: “Homebrew” satırında “9 updates · 3 not checked” (9 güncelleme, 3 denetlenmedi), “Other tools” (Diğer araçlar) satırında “1 update · 1 held back” (1 güncelleme, 1 bekletiliyor) yazıyor.",
@@ -50,8 +53,8 @@
       "body": "Arayüz dilleri: {languages}. Ayrı bir dil ayarı yoktur — macOS zaten hangi dile ayarlıysa onu kullanır."
     },
     "noServer": {
-      "title": "Sunucusu yok",
-      "body": "Telemetri yok, analiz SDK’sı yok. Her istek doğrudan, uygulaması denetlenen üreticiye gider ve sizinle ilgili hiçbir şey taşımaz."
+      "title": "Kim olduğunuzu bilmez",
+      "body": "Telemetri yok, analiz SDK’sı yok. Uygulamalarınız için yapılan denetimler doğrudan her üreticiye gider. DuoUpdater’ın kendi güncelleme akışı her gün kabaca kaç kurulumun denetim yaptığını sayar ve sizi tanımlayan hiçbir şey saklamaz."
     }
   },
   "workbench": {

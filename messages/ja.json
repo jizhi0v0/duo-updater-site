@@ -10,7 +10,7 @@
     "menu": "メニュー"
   },
   "footer": {
-    "appClaim": "アプリはテレメトリを送信せず、私たちのサーバとも通信しません。Apple Silicon、macOS 15以降。",
+    "appClaim": "アプリはテレメトリを送信せず、私たちのサーバは匿名でインストール数を数えるひとつだけです。Apple Silicon、macOS 15以降。",
     "source": "ソースコード",
     "releases": "リリース",
     "licence": "ライセンス",
@@ -24,7 +24,10 @@
   "download": {
     "button": "Mac版をダウンロード",
     "note": "Apple Silicon、macOS 15以降。無料のオープンソースです。",
-    "allReleases": "すべてのリリース"
+    "allReleases": "すべてのリリース",
+    "brew": "Homebrewでもインストールできます：",
+    "copy": "コマンドをコピー",
+    "copied": "コピーしました"
   },
   "menuBar": {
     "alt": "DuoUpdaterのメニューバーのポップオーバー。見出しは「89 updates available」（89件のアップデート）で、「Update All」ボタンと検索フィールドがあります。各行には、インストール済みのバージョン、新しいバージョン、アプリの実装技術を示す小さなバッジ、「Update」ボタンが並びます。Ankiの行は「26.9.2」から「26.09.3」です。BetterDisplayのバッジに重ねたホバーカードには「Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.」とあります（クロスプラットフォームのランタイムではなく、Appleのフレームワーク上に直接作られたネイティブのMacアプリで、AppKitとSwiftUIをリンクし、macOS 27.0 SDKでビルドされている、という意味）。下部には2つの行があり、「Homebrew」には「9 updates · 3 not checked」（アップデート9件、未チェック3件）、「Other tools」（その他のツール）には「1 update · 1 held back」（アップデート1件、保留1件）と表示されています。",
@@ -50,8 +53,8 @@
       "body": "{languages}に対応しています。言語の設定項目はなく、macOSで設定されている言語にそのまま従います。"
     },
     "noServer": {
-      "title": "サーバを持たない",
-      "body": "テレメトリも解析用のSDKもありません。すべてのリクエストはチェック対象のアプリの提供元に直接送られ、あなたに関する情報は何も含みません。"
+      "title": "あなたが誰かを知らない",
+      "body": "テレメトリも解析用のSDKもありません。アプリの確認は各提供元に直接送られます。DuoUpdater自身のアップデートフィードは、毎日おおよそ何台のインストールが確認しに来たかを数えるだけで、あなたを特定できる情報は何も保存しません。"
     }
   },
   "workbench": {

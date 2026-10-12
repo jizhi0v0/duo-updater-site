@@ -1,6 +1,6 @@
-<!-- title: Privacy | summary: Nessuna telemetria, nessuna analisi, nessun server — e i quattro casi in cui si legge fuori dal nostro container. | order: 4 -->
+<!-- title: Privacy | summary: Nessuna telemetria, nessuna analisi, un server di aggiornamento anonimo — e i quattro casi in cui si legge fuori dal nostro container. | order: 4 -->
 
-Non c'è telemetria, non c'è alcun SDK di analisi, e non c'è un server nostro.
+Non c’è telemetria né alcun SDK di analisi, e c’è un solo server nostro: quello che distribuisce gli aggiornamenti di DuoUpdater stesso, descritto qui sotto.
 Ogni richiesta di rete va direttamente al fornitore dell'app che si sta
 controllando — oppure a `api.github.com`, `formulae.brew.sh` e
 `xcodereleases.com` (l'indice mantenuto dalla community da cui vengono lette
@@ -8,6 +8,8 @@ le versioni di Xcode) e, per le icone delle formule Homebrew, ai siti indicati
 qui sotto — e non porta nulla su di te oltre a ciò che quella richiesta
 necessita: la versione dell'app stessa, così che il feed di un fornitore possa
 rispondere per il canale giusto.
+
+**Il controllo degli aggiornamenti di DuoUpdater stesso.** Quel server è `updates.duoupdater.app`, un Cloudflare Worker il cui [codice sorgente è interamente pubblico](https://github.com/jizhi0v0/duo-updater/blob/main/workers/appcast/src/index.ts). Conta approssimativamente quante installazioni cercano aggiornamenti ogni giorno, ed è costruito in modo da non poter sapere chi. La richiesta è quella che Sparkle invia sempre, senza account, ID del dispositivo né elenco delle tue app. Il tuo indirizzo IP non viene mai conservato né registrato: è usato una volta, in memoria, per scegliere uno di 65.536 gruppi condivisi da decine di migliaia di indirizzi, e il gruppo cambia ogni giorno. Ogni notte i gruppi diventano un numero per versione di DuoUpdater e vengono cancellati. Nessun paese, nessuna posizione, nessun log nostro. Cloudflare, come prima GitHub, vede l’IP della richiesta mentre la consegna e tiene un proprio registro delle richieste per il dominio, che con il nostro piano non si può disattivare; non lo esportiamo né lo interroghiamo.
 
 **Icone delle formule Homebrew.** Per una formula di cui l'app non include un
 logo proprio, il gruppo Homebrew della scheda CLI mostra l'icona della formula
