@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "DuoUpdater — aggiorna le app del Mac come si aspettano",
-    "description": "Un’app per la barra dei menu di macOS che trova gli aggiornamenti delle app che hai già e li installa nel modo in cui ciascuna si aspetta."
+    "title": "DuoUpdater — ogni app del Mac aggiornata a modo suo",
+    "description": "Trova gli aggiornamenti per le app del tuo Mac e installa ognuna a modo suo."
   },
   "nav": {
     "docs": "Documentazione",
@@ -10,20 +10,20 @@
     "menu": "Menu"
   },
   "footer": {
-    "appClaim": "L’app non invia dati di telemetria, e il suo unico server nostro si limita a contare le installazioni, in modo anonimo. Apple Silicon, macOS 15+.",
+    "appClaim": "Nessun tracciamento. Le installazioni sono contate in forma anonima.",
     "source": "Codice sorgente",
     "releases": "Versioni",
     "licence": "Licenza",
-    "thisSite": "Questo sito"
+    "thisSite": "Codice del sito"
   },
   "hero": {
-    "titleLine1": "Aggiorna le app del tuo Mac",
-    "titleLine2": "come ciascuna si aspetta.",
-    "body": "La maggior parte dei programmi di aggiornamento sceglie un solo meccanismo e ci fa passare tutte le app. DuoUpdater legge il canale di rilascio proprio di ciascuna app — l’appcast Sparkle, la pagina nell’App Store, il cask Homebrew, il feed delle versioni dello sviluppatore — e usa quello."
+    "titleLine1": "Ogni app,",
+    "titleLine2": "aggiornata a modo suo.",
+    "body": "Trova gli aggiornamenti per le app del tuo Mac e li installa con un clic."
   },
   "download": {
     "button": "Scarica per Mac",
-    "note": "Apple Silicon, macOS 15 o versione successiva. Gratuita e open source.",
+    "note": "Gratis e open source · Apple Silicon · macOS 15+",
     "allReleases": "Tutte le versioni",
     "brew": "Oppure con Homebrew:",
     "copy": "Copia il comando",
@@ -31,66 +31,71 @@
   },
   "menuBar": {
     "alt": "Il popover di DuoUpdater nella barra dei menu, con l’intestazione «89 updates available» (89 aggiornamenti disponibili), un pulsante «Update All» e un campo di ricerca. Ogni riga mostra la versione installata, la nuova versione, un piccolo badge che indica con cosa è realizzata l’app e un pulsante «Update»; la riga di Anki va da 26.9.2 a 26.09.3. Una scheda che compare passando sopra il badge di BetterDisplay dice: «Native — a native Mac app, built straight on Apple’s frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.» In fondo ci sono due righe: «Homebrew», con «9 updates · 3 not checked» (9 aggiornamenti, 3 non controllati), e «Other tools» (Altri strumenti), con «1 update · 1 held back» (1 aggiornamento, 1 trattenuto).",
-    "caption1": "Ogni riga indica da quale versione a quale si passa, e il pulsante dice cosa succederà davvero: <strong>Aggiorna</strong> installa l’aggiornamento; <strong>Riapri</strong> significa che l’app è già aggiornata sul disco e che è rimasta indietro solo la copia in esecuzione. Un pallino verde contrassegna le app aperte, così sai prima di fare clic se qualcosa sta per essere chiuso e riaperto.",
-    "caption2": "Il badge accanto al nome indica con cosa è realizzata l’app — Electron, Qt, Chromium, una JVM inclusa, Flutter, Tauri, Catalyst o un’app per iPhone eseguita su Apple Silicon — e passandoci sopra il puntatore compaiono il runtime e la sua versione. Ogni indicazione è ricavata da qualcosa che chi ha creato il pacchetto ha effettivamente incluso, mai dal nome dell’app o dal suo sviluppatore: un bundle che non lo dichiara resta senza etichetta, invece di riceverne una tirata a indovinare."
+    "title": "A colpo d’occhio",
+    "body": "Cosa c’è di nuovo e cosa è aperto."
   },
   "differently": {
-    "title": "Cosa fa di diverso",
+    "title": "Cosa cambia",
     "handsOver": {
-      "title": "Passa la mano invece di mettersi contro",
-      "body": "Se un’app ha un proprio programma di aggiornamento, è quello a fare il lavoro. Se qualcosa non si può fare in modo sicuro, la riga lo dice invece di tirare a indovinare."
+      "title": "Lascia fare all’app",
+      "body": "Se l’app ha il suo aggiornatore, usa quello."
     },
     "neverForceQuits": {
-      "title": "Non forza mai l’uscita",
-      "body": "L’uscita è una normale richiesta di chiusura: l’app mostra le proprie richieste di salvataggio e può rifiutarsi. Se si rifiuta, la sua riga conserva il pulsante «Riapri»."
+      "title": "Mai chiusure forzate",
+      "body": "Chiude come faresti tu, così puoi salvare."
     },
     "checksSigner": {
-      "title": "Verifica chi ha firmato il download",
-      "body": "EdDSA dove l’app pubblica una chiave, poi la firma Developer ID, il Team ID, il bundle id e l’architettura, che devono corrispondere tutti all’app da sostituire — più un backup con cui tornare alla versione precedente."
+      "title": "Verifica l’origine",
+      "body": "Controlla la firma di ogni download."
     },
     "language": {
-      "title": "Parla la tua lingua",
-      "body": "{languages}. Non c’è un’impostazione per la lingua: segue quella già impostata in macOS."
+      "title": "La tua lingua",
+      "body": "{count} lingue, come il tuo Mac."
     },
     "noServer": {
       "title": "Non sa chi sei",
-      "body": "Niente telemetria e nessun SDK di analisi. I controlli per le tue app vanno direttamente a ciascuno sviluppatore. Il canale di aggiornamento di DuoUpdater conta approssimativamente quante installazioni controllano ogni giorno, e non conserva nulla che ti identifichi."
+      "body": "Nessun tracciamento. Installazioni contate in forma anonima."
     }
   },
   "workbench": {
     "alt": "La finestra di lavoro: una barra laterale che elenca tutte le app analizzate e, a fianco, le note di rilascio di quella selezionata, mostrate come testo nativo — intestazione con la versione, data e un punto elenco per ogni modifica.",
-    "caption": "Aprendo la finestra trovi tutto ciò che è stato analizzato e le note di rilascio di ciò che selezioni. Quando uno sviluppatore pubblica le note in una forma che vale la pena analizzare, queste vengono scomposte e mostrate come testo nativo anziché come pagina web incorporata."
+    "title": "Note di rilascio",
+    "body": "Leggi cosa è cambiato, direttamente nell’app."
   },
   "cli": {
     "alt": "La scheda CLI del banco di lavoro: una barra laterale che raggruppa gli strumenti da riga di comando in base a come sono stati installati — Homebrew, npm con nvm e fnm, Claude Code, bub, fx, uv, Junie, Rust e Codex —, ciascuno con percorso e versione. È selezionato Claude Code: installato dal programma di installazione nativo, versione 2.1.295 corrispondente al manifesto dei rilasci di Anthropic, firmato da Anthropic, sul canale latest e aggiornato, con le note di rilascio elencate per versione accanto.",
-    "caption": "La scheda CLI fa lo stesso per gli strumenti da riga di comando: dove è installato ciascuno, cosa lo ha installato, chi lo ha firmato, quale canale segue e le sue note di rilascio."
+    "title": "Riga di comando",
+    "body": "Anche gli strumenti da riga di comando, aggiornati."
   },
   "releaseLog": {
     "alt": "La cronologia del Release Log: versioni raggruppate per giorno, ciascuna con app, versione, fonte e un orario di pubblicazione esatto oppure un intervallo approssimativo.",
-    "caption": "Ogni versione rilevata viene registrata, così col tempo ottieni un registro di quando il software che usi viene davvero pubblicato. Un orario di rilascio è indicato come esatto solo quando è il feed dello sviluppatore stesso a riportarlo; tutto il resto è mostrato come un intervallo con ≈, perché onestamente è tutto ciò che sappiamo."
+    "title": "Registro",
+    "body": "Quando le tue app pubblicano nuove versioni."
   },
   "settings": {
     "alt": "Le impostazioni «General» (Generali) di DuoUpdater, accanto a una barra laterale con Backups, Folders, Updates, GitHub, Alcove, Xcode, Ignored e Diagnostics: apertura al login, intervallo di controllo, icona nel Dock nascosta, se mostrare con cosa è realizzata ogni app, notifiche, riapertura automatica, quante app controllare contemporaneamente e come instradare l’installazione degli aggiornamenti dell’App Store, delle app che si aggiornano da sole, delle app senza firma dello sviluppatore e delle beta di TestFlight.",
-    "caption": "Gran parte delle impostazioni riguarda quanta autonomia vuoi concedere a DuoUpdater: se riavviare le app al posto tuo, se conservare un backup per il ripristino e come instradare i due casi scomodi, cioè le app del Mac App Store e quelle che hanno un proprio programma di aggiornamento."
+    "title": "Decidi tu",
+    "body": "Scegli tu quanto fa al posto tuo."
   },
   "xcode": {
     "alt": "La pagina Xcode delle impostazioni di DuoUpdater: «Signed in» (accesso eseguito) ad Apple Developer, con l’opzione per rinnovare la sessione in background. Sotto, l’elenco «Download Xcode» (Scarica Xcode) con le schede «Betas & RCs» e «Releases», con dati da Apple e xcodereleases.com, che mostra le build di Xcode 27 da 27.2 beta 2 a 27.0 beta 4, ognuna con la data e la versione di macOS richiesta. Quasi tutte hanno un pulsante «Install» (Installa); le due già installate, come Xcode-beta.app e Xcode.app, offrono «Open» (Apri) e «Download Only (.xip)» (Solo download).",
-    "caption": "Le beta e le release candidate di Xcode non sono sull’App Store, e Apple le distribuisce solo a un account sviluppatore con l’accesso eseguito. Accedi una volta in Impostazioni → Xcode e una nuova beta si aggiorna con un clic come qualsiasi altra riga. La stessa pagina elenca ogni build che Apple e xcodereleases.com conoscono: «Installa» mette quella che scegli in Applicazioni come copia separata, accanto a qualsiasi Xcode già presente, senza sostituire nulla di installato; «Solo download» salva semplicemente il .xip."
+    "title": "Xcode",
+    "body": "Le beta di Xcode, a un clic."
   },
   "notFound": {
     "title": "Pagina non trovata",
-    "body": "Questa pagina non è stata trovata."
+    "body": "Questa pagina non esiste."
   },
   "changelog": {
     "title": "Novità",
-    "description": "Tutte le versioni di DuoUpdater e cosa è cambiato in ciascuna.",
-    "intro": "Tutte le versioni, dalla più recente — le stesse note che l’app mostra quando si aggiorna da sola. I download sono nella <link>pagina delle versioni</link>.",
+    "description": "Cosa è cambiato in ogni versione.",
+    "intro": "Le più recenti per prime, come nell’app. I download sono nella <link>pagina delle release</link>.",
     "olderInEnglish": "Le versioni meno recenti sono mostrate in inglese."
   },
   "docs": {
     "title": "Documentazione",
-    "description": "Come DuoUpdater decide cosa ha un aggiornamento, cosa controlla prima di sostituire un’app e cosa ti chiederà macOS.",
-    "intro": "Come decide cosa ha un aggiornamento, cosa controlla prima di sostituire un’app e cosa ti chiederà macOS.",
+    "description": "Come trova gli aggiornamenti, cosa controlla e cosa ti chiede.",
+    "intro": "Come trova gli aggiornamenti, cosa controlla e cosa ti chiede.",
     "allDocs": "Tutta la documentazione",
     "inEnglish": "Questa pagina non è ancora tradotta ed è mostrata in inglese."
   }

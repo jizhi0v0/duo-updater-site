@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "DuoUpdater — Mac uygulamalarınızı kendi usulüyle güncelleyin",
-    "description": "Mac’inizde zaten olan uygulamaların güncellemelerini bulan ve her birini o uygulamanın beklediği şekilde yükleyen bir macOS menü çubuğu uygulaması."
+    "title": "DuoUpdater — her Mac uygulaması kendi yöntemiyle güncellenir",
+    "description": "Mac uygulamalarınız için güncellemeleri bulur ve her birini kendi yöntemiyle yükler."
   },
   "nav": {
     "docs": "Belgeler",
@@ -10,20 +10,20 @@
     "menu": "Menü"
   },
   "footer": {
-    "appClaim": "Uygulama hiçbir telemetri verisi göndermez; bize ait tek sunucusu yalnızca kurulumları anonim olarak sayar. Apple Silicon, macOS 15+.",
+    "appClaim": "İzleme yok. Yüklemeler anonim olarak sayılır.",
     "source": "Kaynak kodu",
     "releases": "Sürümler",
     "licence": "Lisans",
-    "thisSite": "Bu site"
+    "thisSite": "Sitenin kaynağı"
   },
   "hero": {
-    "titleLine1": "Mac uygulamalarınızı",
-    "titleLine2": "her birinin beklediği gibi güncelleyin.",
-    "body": "Çoğu güncelleyici tek bir yöntem seçer ve her uygulamayı bu yöntemden geçirir. DuoUpdater ise her uygulamanın kendi sürüm kanalını okur — Sparkle appcast’ini, App Store sayfasını, Homebrew cask’ini, üreticisinin sürüm akışını — ve onu kullanır."
+    "titleLine1": "Her uygulama,",
+    "titleLine2": "kendi yöntemiyle güncellenir.",
+    "body": "Mac uygulamalarınızın güncellemelerini bulur, tek tıkla yükler."
   },
   "download": {
     "button": "Mac için indir",
-    "note": "Apple Silicon, macOS 15 veya üstü. Ücretsiz ve açık kaynak.",
+    "note": "Ücretsiz ve açık kaynak · Apple Silicon · macOS 15+",
     "allReleases": "Tüm sürümler",
     "brew": "Ya da Homebrew ile:",
     "copy": "Komutu kopyala",
@@ -31,66 +31,71 @@
   },
   "menuBar": {
     "alt": "DuoUpdater’ın menü çubuğu açılır penceresi. Başlıkta “89 updates available” (89 güncelleme mevcut) yazıyor; altında bir “Update All” düğmesi ve bir arama alanı var. Her satırda yüklü sürüm, yeni sürüm, uygulamanın neyle yapıldığını gösteren küçük bir rozet ve bir “Update” düğmesi bulunuyor; Anki’nin satırı 26.9.2 sürümünden 26.09.3 sürümüne geçişi gösteriyor. BetterDisplay’in rozeti üzerindeki açıklama kartında şu yazıyor: “Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.” (doğrudan Apple’ın çerçeveleri üzerine kurulmuş yerel bir Mac uygulaması). En altta iki satır var: “Homebrew” satırında “9 updates · 3 not checked” (9 güncelleme, 3 denetlenmedi), “Other tools” (Diğer araçlar) satırında “1 update · 1 held back” (1 güncelleme, 1 bekletiliyor) yazıyor.",
-    "caption1": "Her satır hangi sürümden hangisine geçeceğinizi gösterir; düğme de gerçekte ne olacağını söyler: <strong>Güncelle</strong> güncellemeyi yükler; <strong>Yeniden Başlat</strong> ise uygulamanın diskte zaten güncellendiği, yalnızca çalışan kopyanın eski kaldığı anlamına gelir. Yeşil nokta, uygulamanın çalışmakta olduğunu gösterir; böylece bir şeyin kapatılıp yeniden açılmak üzere olduğunu tıklamadan önce bilirsiniz.",
-    "caption2": "Adın yanındaki rozet, uygulamanın neyle yapıldığını söyler — Electron, Qt, Chromium, pakete gömülü bir JVM, Flutter, Tauri, Catalyst ya da Apple Silicon’da çalışan bir iPhone uygulaması — üzerine gelindiğinde de çalışma ortamının adını ve sürümünü gösterir. Her biri, paketi hazırlayanın gerçekten pakete koyduğu bir şeyden okunur; asla uygulamanın adından ya da üreticisinden çıkarılmaz. Bu yüzden bunu belirtmeyen bir paket, tahmin edilmek yerine etiketsiz kalır."
+    "title": "Bir bakışta",
+    "body": "Neyin yeni, neyin açık olduğu tek bakışta."
   },
   "differently": {
-    "title": "Neyi farklı yapıyor",
+    "title": "Farkı ne",
     "handsOver": {
-      "title": "Çatışmak yerine işi devreder",
-      "body": "Bir uygulama kendi güncelleyicisiyle geliyorsa işi o güncelleyici yapar. Bir şey güvenle yapılamıyorsa satır, tahmin yürütmek yerine bunu açıkça söyler."
+      "title": "İşi uygulamaya bırakır",
+      "body": "Uygulamanın kendi güncelleyicisi varsa onu kullanır."
     },
     "neverForceQuits": {
-      "title": "Uygulamalardan asla zorla çıkmaz",
-      "body": "Çıkış, sıradan bir sonlandırma isteğidir — uygulamanız kendi kaydetme uyarılarını gösterir ve çıkmayı reddedebilir. Reddeden uygulamanın satırında “Yeniden Başlat” düğmesi kalır."
+      "title": "Zorla kapatmaz",
+      "body": "Sizin gibi kapatır, kaydetme fırsatı verir."
     },
     "checksSigner": {
-      "title": "İndirilen dosyayı kimin imzaladığını denetler",
-      "body": "Uygulama bir anahtar yayımlıyorsa EdDSA; ardından Developer ID imzası, Team ID, bundle id ve mimari — bunların hepsi yerine geçeceği uygulamayla eşleşmek zorundadır. Üstüne de geri dönebileceğiniz bir yedek."
+      "title": "Kaynağı doğrular",
+      "body": "Her indirmenin imzasını kontrol eder."
     },
     "language": {
-      "title": "Sizin dilinizi konuşur",
-      "body": "Arayüz dilleri: {languages}. Ayrı bir dil ayarı yoktur — macOS zaten hangi dile ayarlıysa onu kullanır."
+      "title": "Sizin dilinizde",
+      "body": "{count} dil, Mac'inizin ayarına göre."
     },
     "noServer": {
-      "title": "Kim olduğunuzu bilmez",
-      "body": "Telemetri yok, analiz SDK’sı yok. Uygulamalarınız için yapılan denetimler doğrudan her üreticiye gider. DuoUpdater’ın kendi güncelleme akışı her gün kabaca kaç kurulumun denetim yaptığını sayar ve sizi tanımlayan hiçbir şey saklamaz."
+      "title": "Sizi tanımaz",
+      "body": "İzleme yok. Yüklemeler anonim sayılır."
     }
   },
   "workbench": {
     "alt": "Çalışma masası penceresi: taranan tüm uygulamaları listeleyen bir kenar çubuğu ve seçili uygulamanın yerel metin olarak gösterilen sürüm notları — sürüm başlığı, tarih ve her değişiklik için bir madde.",
-    "caption": "Pencereyi açtığınızda taradığı her şeyi ve seçtiğiniz uygulamanın sürüm notlarını görürsünüz. Üretici notlarını ayrıştırmaya değer bir biçimde yayımlıyorsa notlar parçalarına ayrılır ve gömülü bir web sayfası yerine yerel metin olarak gösterilir."
+    "title": "Sürüm notları",
+    "body": "Nelerin değiştiğini uygulamanın içinde okuyun."
   },
   "cli": {
     "alt": "Çalışma alanının CLI sekmesi: komut satırı araçlarını nasıl kurulduklarına göre gruplayan bir kenar çubuğu — Homebrew, nvm ve fnm altında npm, Claude Code, bub, fx, uv, Junie, Rust ve Codex —, her biri yolu ve sürümüyle. Claude Code seçili: yerel yükleyiciyle kurulmuş, 2.1.295 sürümü Anthropic’in sürüm manifestosuyla eşleşiyor, Anthropic tarafından imzalanmış, latest kanalında ve güncel; yanında sürüm sürüm sürüm notları listeleniyor.",
-    "caption": "CLI sekmesi aynısını komut satırı araçları için yapıyor: her birinin nereye kurulduğu, neyin kurduğu, kimin imzaladığı, hangi kanalı izlediği ve sürüm notları."
+    "title": "Komut satırı",
+    "body": "Komut satırı araçları da güncel kalır."
   },
   "releaseLog": {
     "alt": "“Release Log” (sürüm günlüğü) zaman çizelgesi: güne göre gruplanmış sürümler; her biri uygulamayı, sürümü, kaynağı ve ya kesin bir yayımlanma zamanını ya da yaklaşık bir zaman aralığını gösteriyor.",
-    "caption": "Gördüğü her sürüm kaydedilir; böylece zamanla, kullandığınız yazılımların gerçekte ne zaman yayımlandığını gösteren bir günlük oluşur. Bir yayımlanma zamanına yalnızca üreticinin kendi akışı zaman damgası veriyorsa kesin denir; geri kalan her şey ≈ işaretiyle bir aralık olarak gösterilir, çünkü dürüstçe bilebildiğimiz yalnızca budur."
+    "title": "Sürüm günlüğü",
+    "body": "Uygulamalarınızın ne zaman yeni sürüm çıkardığı."
   },
   "settings": {
     "alt": "DuoUpdater’ın “General” ayarları; yanında Backups, Folders, Updates, GitHub, Alcove, Xcode, Ignored ve Diagnostics bölümlerini listeleyen bir kenar çubuğu var. Ayarlar: oturum açıldığında başlatma, denetleme aralığı, Dock simgesini gizleme, her uygulamanın neyle yapıldığının gösterilip gösterilmeyeceği, bildirimler, otomatik yeniden açma, aynı anda kaç uygulamanın denetleneceği ve App Store güncellemeleri, kendini güncelleyen uygulamalar, geliştirici imzası olmayan uygulamalar ve TestFlight betaları için yükleme yönlendirmesi.",
-    "caption": "Ayarların çoğu, ona ne kadar özerklik tanımak istediğinizle ilgilidir — uygulamaları sizin yerinize yeniden başlatıp başlatmayacağı, geri dönüş yedeği tutup tutmayacağı ve iki zahmetli durumun nasıl yönlendirileceği: Mac App Store uygulamaları ve kendi güncelleyicisiyle gelen uygulamalar."
+    "title": "Karar sizin",
+    "body": "Sizin yerinize ne kadar iş yapacağına siz karar verirsiniz."
   },
   "xcode": {
     "alt": "DuoUpdater ayarlarındaki Xcode sayfası: Apple Developer’da “Signed in” (oturum açık), oturumu arka planda yenileme seçeneği açık. Altında “Betas & RCs” ve “Releases” sekmeli “Download Xcode” (Xcode’u indir) listesi var; veriler Apple’dan ve xcodereleases.com’dan geliyor. Listede 27.2 beta 2’den 27.0 beta 4’e kadar Xcode 27 derlemeleri, her birinin tarihi ve gerektirdiği macOS sürümüyle sıralanıyor. Çoğunda bir “Install” (Yükle) düğmesi var; Xcode-beta.app ve Xcode.app olarak zaten yüklü olan ikisinde “Open” (Aç) ve “Download Only (.xip)” (Yalnızca İndir) görünüyor.",
-    "caption": "Xcode’un beta ve sürüm adayı derlemeleri App Store’da yok; Apple bunları yalnızca oturum açmış bir geliştirici hesabına veriyor. Ayarlar → Xcode’da bir kez oturum açtığınızda yeni bir beta da diğer satırlar gibi tek tıkla güncellenir. Aynı sayfa Apple’ın ve xcodereleases.com’un bildiği her derlemeyi listeler: “Yükle”, seçtiğiniz sürümü Uygulamalar klasörüne ayrı bir kopya olarak, mevcut Xcode’ların yanına koyar ve yüklü hiçbir sürümün yerine geçmez; “Yalnızca İndir” ise yalnızca .xip dosyasını kaydeder."
+    "title": "Xcode",
+    "body": "Xcode betaları tek tıkla."
   },
   "notFound": {
     "title": "Sayfa bulunamadı",
-    "body": "Bu sayfa bulunamadı."
+    "body": "Bu sayfa yok."
   },
   "changelog": {
     "title": "Değişiklik günlüğü",
-    "description": "DuoUpdater’ın tüm sürümleri ve her birinde nelerin değiştiği.",
-    "intro": "Tüm sürümler, en yenisi en üstte — uygulamanın kendini güncellediğinde gösterdiği notların aynısı. İndirmeler <link>sürümler sayfasında</link>.",
+    "description": "Her sürümde neler değişti.",
+    "intro": "En yeniler önce, uygulamada gördüğünüz gibi. İndirmeler <link>sürümler sayfasında</link>.",
     "olderInEnglish": "Daha eski sürümler İngilizce gösterilir."
   },
   "docs": {
     "title": "Belgeler",
-    "description": "DuoUpdater neyin güncellemesi olduğuna nasıl karar verir, bir uygulamayı değiştirmeden önce neleri denetler ve macOS sizden neler ister.",
-    "intro": "Neyin güncellemesi olduğuna nasıl karar verir, bir uygulamayı değiştirmeden önce neleri denetler ve macOS sizden neler ister.",
+    "description": "Güncellemeleri nasıl bulduğu, neyi kontrol ettiği ve ne istediği.",
+    "intro": "Güncellemeleri nasıl bulduğu, neyi kontrol ettiği ve ne istediği.",
     "allDocs": "Tüm belgeler",
     "inEnglish": "Bu sayfa henüz çevrilmedi ve İngilizce gösteriliyor."
   }

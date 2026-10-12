@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "DuoUpdater — chaque app Mac mise à jour comme elle l’attend",
-    "description": "Une app de barre des menus pour macOS qui trouve les mises à jour des apps que vous avez déjà et les installe comme chacune s’attend à être mise à jour."
+    "title": "DuoUpdater — chaque app Mac mise à jour à sa façon",
+    "description": "Trouve les mises à jour de vos apps Mac et installe chacune à sa façon."
   },
   "nav": {
     "docs": "Docs",
@@ -10,20 +10,20 @@
     "menu": "Menu"
   },
   "footer": {
-    "appClaim": "L’app n’envoie aucune télémétrie, et son seul serveur qui nous appartienne ne fait que compter les installations, anonymement. Apple Silicon, macOS 15+.",
+    "appClaim": "Aucun pistage. Les installations sont comptées anonymement.",
     "source": "Code source",
     "releases": "Versions",
     "licence": "Licence",
-    "thisSite": "Ce site"
+    "thisSite": "Code du site"
   },
   "hero": {
-    "titleLine1": "Mettez à jour vos apps Mac",
-    "titleLine2": "comme chacune s’attend à l’être.",
-    "body": "La plupart des outils de mise à jour choisissent un seul mécanisme et y font passer toutes les apps. DuoUpdater lit le canal de publication propre à chaque app — son appcast Sparkle, sa fiche sur l’App Store, son cask Homebrew, le flux de versions de son éditeur — et s’en sert."
+    "titleLine1": "Chaque app,",
+    "titleLine2": "mise à jour à sa façon.",
+    "body": "Trouve les mises à jour de vos apps Mac et les installe en un clic."
   },
   "download": {
     "button": "Télécharger pour Mac",
-    "note": "Apple Silicon, macOS 15 ou ultérieur. Gratuit et open source.",
+    "note": "Gratuit et open source · Apple Silicon · macOS 15+",
     "allReleases": "Toutes les versions",
     "brew": "Ou avec Homebrew :",
     "copy": "Copier la commande",
@@ -31,66 +31,71 @@
   },
   "menuBar": {
     "alt": "Le panneau de DuoUpdater ouvert depuis la barre des menus, avec l’en-tête « 89 updates available » (89 mises à jour disponibles), un bouton « Update All » et un champ de recherche. Chaque ligne indique la version installée, la nouvelle version, un petit badge précisant avec quoi l’app est conçue, et un bouton « Update » ; la ligne d’Anki va de 26.9.2 à 26.09.3. Au survol du badge de BetterDisplay, une fiche indique : « Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK. » (une app Mac native, conçue directement sur les frameworks d’Apple et non sur un environnement multiplateforme, liée à AppKit et SwiftUI, compilée avec le SDK macOS 27.0). En bas, deux lignes : « Homebrew », avec « 9 updates · 3 not checked » (9 mises à jour, 3 non vérifiés), et « Other tools » (Autres outils), avec « 1 update · 1 held back » (1 mise à jour, 1 retenue).",
-    "caption1": "Chaque ligne indique la version de départ et la version d’arrivée, et le bouton dit ce qui va réellement se passer : <strong>Mettre à jour</strong> installe ; <strong>Relancer</strong> signifie que l’app est déjà à jour sur le disque et que seule la copie en cours d’exécution est obsolète. Un point vert signale une app ouverte : vous savez avant de cliquer si une app va être quittée puis rouverte.",
-    "caption2": "Le badge à côté d’un nom indique avec quoi l’app est conçue — Electron, Qt, Chromium, une JVM intégrée, Flutter, Tauri, Catalyst, ou une app iPhone exécutée sur Apple Silicon — et, au survol, il précise l’environnement d’exécution et sa version. Chaque indication provient d’un élément réellement livré dans le paquet, jamais du nom de l’app ni de son éditeur : un bundle qui ne dit rien reste donc sans badge plutôt que de faire l’objet d’une supposition."
+    "title": "D’un coup d’œil",
+    "body": "Ce qui est nouveau, ce qui est ouvert."
   },
   "differently": {
-    "title": "Ce que DuoUpdater fait autrement",
+    "title": "Ce qui change",
     "handsOver": {
-      "title": "Il passe la main au lieu de lutter",
-      "body": "Quand une app fournit son propre outil de mise à jour, c’est cet outil qui fait le travail. Quand une opération ne peut pas être effectuée sans risque, la ligne le dit au lieu de deviner."
+      "title": "Laisse faire l’app",
+      "body": "Si l’app a son propre outil de mise à jour, il l’utilise."
     },
     "neverForceQuits": {
-      "title": "Il ne force jamais une app à quitter",
-      "body": "Il se contente de demander à l’app de quitter — elle affiche ses propres invites d’enregistrement et peut refuser. Une app qui refuse conserve son bouton « Relancer »."
+      "title": "Jamais de fermeture forcée",
+      "body": "Il quitte comme vous : vous pouvez enregistrer."
     },
     "checksSigner": {
-      "title": "Il vérifie qui a signé le téléchargement",
-      "body": "EdDSA lorsque l’app publie une clé, puis une signature Developer ID, un Team ID, un bundle id et une architecture qui doivent tous correspondre à l’app remplacée — et une sauvegarde à partir de laquelle vous pouvez revenir en arrière."
+      "title": "Vérifie l’origine",
+      "body": "Vérifie la signature de chaque téléchargement."
     },
     "language": {
-      "title": "Il parle votre langue",
-      "body": "{languages}. Il n’y a aucun réglage de langue : l’app suit simplement la langue déjà choisie dans macOS."
+      "title": "Votre langue",
+      "body": "{count} langues, selon votre Mac."
     },
     "noServer": {
-      "title": "Il ne sait pas qui vous êtes",
-      "body": "Aucune télémétrie, aucun SDK d’analyse. Les vérifications de vos apps vont directement à chaque éditeur. Le flux de mises à jour de DuoUpdater compte approximativement combien d’installations vérifient chaque jour, et ne conserve rien qui vous identifie."
+      "title": "Ne vous connaît pas",
+      "body": "Aucun pistage. Installations comptées anonymement."
     }
   },
   "workbench": {
     "alt": "La fenêtre de travail : une barre latérale listant toutes les apps analysées, et les notes de version de l’app sélectionnée affichées en texte natif — titre de version, date et une puce par modification.",
-    "caption": "En ouvrant la fenêtre, vous retrouvez tout ce qui a été analysé, ainsi que les notes de version de l’élément sélectionné. Lorsqu’un éditeur publie ses notes sous une forme qui se prête à l’extraction, elles sont décomposées et affichées en texte natif plutôt que dans une page web intégrée."
+    "title": "Notes de version",
+    "body": "Lisez ce qui a changé, dans l’app."
   },
   "cli": {
     "alt": "L’onglet CLI de l’établi : une barre latérale qui regroupe les outils en ligne de commande selon leur mode d’installation — Homebrew, npm sous nvm et fnm, Claude Code, bub, fx, uv, Junie, Rust et Codex —, chacun avec son chemin et sa version. Claude Code est sélectionné : installé par l’installateur natif, version 2.1.295 conforme au manifeste de versions d’Anthropic, signé par Anthropic, sur le canal latest et à jour, avec ses notes de version classées par version à côté.",
-    "caption": "L’onglet CLI fait de même pour les outils en ligne de commande : où chacun est installé, ce qui l’a installé, qui l’a signé, quel canal il suit, et ses notes de version."
+    "title": "Ligne de commande",
+    "body": "Vos outils en ligne de commande aussi."
   },
   "releaseLog": {
     "alt": "La chronologie du Journal des versions : les versions regroupées par jour, chacune avec l’app, la version, la source, et soit une heure de publication exacte, soit une plage approximative.",
-    "caption": "Chaque version repérée est enregistrée : avec le temps, vous obtenez un journal indiquant quand les logiciels que vous utilisez sont réellement publiés. Une heure de publication n’est dite exacte que si le flux de l’éditeur lui-même l’horodate ; dans tous les autres cas, elle est présentée comme une plage précédée d’un ≈, car c’est tout ce que nous savons honnêtement."
+    "title": "Journal",
+    "body": "Quand vos apps publient leurs versions."
   },
   "settings": {
     "alt": "Les réglages « General » de DuoUpdater, à côté d’une barre latérale listant Backups, Folders, Updates, GitHub, Alcove, Xcode, Ignored et Diagnostics : lancement à l’ouverture de session, intervalle de vérification, masquage de l’icône du Dock, affichage ou non de ce avec quoi chaque app est conçue, notifications, relance automatique, nombre d’apps à vérifier simultanément, et routage d’installation pour les mises à jour de l’App Store, les apps qui se mettent à jour elles-mêmes, les apps sans signature de développeur et les bêtas TestFlight.",
-    "caption": "La plupart des réglages portent sur le degré d’autonomie que vous voulez lui accorder : relancer ou non les apps à votre place, conserver ou non une sauvegarde de restauration, et comment traiter les deux cas délicats — les apps du Mac App Store et celles qui intègrent leur propre outil de mise à jour."
+    "title": "À vous de voir",
+    "body": "Vous décidez de ce qu’il fait pour vous."
   },
   "xcode": {
     "alt": "La page Xcode des réglages de DuoUpdater : « Signed in » (connecté) à Apple Developer, avec l’option de renouveler la session en arrière-plan. En dessous, la liste « Download Xcode » (Télécharger Xcode), avec les onglets « Betas & RCs » et « Releases », d’après Apple et xcodereleases.com, qui affiche les builds de Xcode 27 de 27.2 beta 2 à 27.0 beta 4, chacun avec sa date et la version de macOS requise. La plupart ont un bouton « Install » (Installer) ; les deux déjà installés, en tant que Xcode-beta.app et Xcode.app, proposent « Open » (Ouvrir) et « Download Only (.xip) » (Télécharger seulement).",
-    "caption": "Les bêtas et versions candidates de Xcode ne sont pas sur l’App Store, et Apple ne les fournit qu’à un compte développeur connecté. Connectez-vous une fois dans Réglages → Xcode, et une nouvelle bêta se met à jour en un clic comme n’importe quelle autre ligne. La même page liste tous les builds connus d’Apple et de xcodereleases.com : « Installer » place celui que vous choisissez dans Applications sous forme de copie distincte, à côté de tout Xcode déjà présent, sans rien remplacer de ce qui est installé ; « Télécharger seulement » enregistre simplement le .xip."
+    "title": "Xcode",
+    "body": "Les bêtas de Xcode, en un clic."
   },
   "notFound": {
     "title": "Page introuvable",
-    "body": "Cette page est introuvable."
+    "body": "Cette page n’existe pas."
   },
   "changelog": {
     "title": "Nouveautés",
-    "description": "Toutes les versions de DuoUpdater, et ce qui a changé dans chacune.",
-    "intro": "Chaque version, de la plus récente à la plus ancienne — les mêmes notes que l’app affiche quand elle se met à jour. Les téléchargements se trouvent sur la <link>page des versions</link>.",
+    "description": "Ce qui a changé dans chaque version.",
+    "intro": "Les plus récentes d’abord, comme dans l’app. Les téléchargements sont sur <link>la page des versions</link>.",
     "olderInEnglish": "Les versions plus anciennes sont affichées en anglais."
   },
   "docs": {
     "title": "Docs",
-    "description": "Comment DuoUpdater détermine ce qui a une mise à jour, ce qu’il vérifie avant de remplacer une app, et ce que macOS vous demandera.",
-    "intro": "Comment il détermine ce qui a une mise à jour, ce qu’il vérifie avant de remplacer une app, et ce que macOS vous demandera.",
+    "description": "Comment il trouve les mises à jour, ce qu’il vérifie et ce qu’il demande.",
+    "intro": "Comment il trouve les mises à jour, ce qu’il vérifie et ce qu’il demande.",
     "allDocs": "Toute la documentation",
     "inEnglish": "Cette page n’est pas encore traduite et s’affiche en anglais."
   }

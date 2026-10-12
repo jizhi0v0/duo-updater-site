@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "DuoUpdater — update your Mac apps the way they expect",
-    "description": "A macOS menu-bar app that finds updates for the apps you already have, and installs them the way each app expects to be updated."
+    "title": "DuoUpdater — update each Mac app its own way",
+    "description": "Finds updates for your Mac apps and installs each one its own way."
   },
   "nav": {
     "docs": "Docs",
@@ -10,20 +10,20 @@
     "menu": "Menu"
   },
   "footer": {
-    "appClaim": "The app sends no telemetry, and its one server of ours only counts installs, anonymously. Apple Silicon, macOS 15+.",
+    "appClaim": "No tracking. Installs are counted anonymously.",
     "source": "Source",
     "releases": "Releases",
     "licence": "Licence",
-    "thisSite": "This site"
+    "thisSite": "Site source"
   },
   "hero": {
-    "titleLine1": "Update your Mac apps the way",
-    "titleLine2": "each one expects to be updated.",
-    "body": "Most updaters pick one mechanism and push every app through it. DuoUpdater reads each app’s own release channel — its Sparkle appcast, its App Store listing, its Homebrew cask, its vendor’s release feed — and uses that."
+    "titleLine1": "Every app,",
+    "titleLine2": "updated its own way.",
+    "body": "Finds updates for your Mac apps and installs them in one click."
   },
   "download": {
     "button": "Download for Mac",
-    "note": "Apple Silicon, macOS 15 or later. Free and open source.",
+    "note": "Free and open source · Apple silicon · macOS 15+",
     "allReleases": "All releases",
     "brew": "Or with Homebrew:",
     "copy": "Copy command",
@@ -31,66 +31,71 @@
   },
   "menuBar": {
     "alt": "The DuoUpdater menu bar popover, headed 89 updates available with an Update All button and a search field. Each row shows the installed version, the new version, a small badge for what the app is built with, and an Update button; Anki's row reads 26.9.2 to 26.09.3. A hover card over BetterDisplay's badge reads: Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK. Two rows at the bottom: Homebrew, 9 updates and 3 not checked; Other tools, 1 update and 1 held back.",
-    "caption1": "Each row says what you are going from and to, and the button says what will actually happen: <strong>Update</strong> installs; <strong>Relaunch</strong> means it is already updated on disk and only the running copy is stale. A green dot marks an app that is running, so you know before you click whether something is about to be quit and reopened.",
-    "caption2": "The badge beside a name says what the app is built with — Electron, Qt, Chromium, a bundled JVM, Flutter, Tauri, Catalyst, or an iPhone app running on Apple Silicon — and hovering it names the runtime and its version. Each one is read from something the packager actually shipped, never from the app’s name or its vendor, so a bundle that does not say stays unlabelled rather than guessed at."
+    "title": "At a glance",
+    "body": "See what’s new and what’s running."
   },
   "differently": {
-    "title": "What it does differently",
+    "title": "What’s different",
     "handsOver": {
-      "title": "It hands over rather than fighting",
-      "body": "When an app ships its own updater, that updater does the work. When something cannot be done safely, the row says so instead of guessing."
+      "title": "Defers to the app",
+      "body": "Apps with their own updater use it."
     },
     "neverForceQuits": {
-      "title": "It never force-quits",
-      "body": "The quit is a plain terminate — your app runs its own save prompts and can refuse. One that refuses keeps its Relaunch button."
+      "title": "Never force-quits",
+      "body": "Quits like you would, so you can save."
     },
     "checksSigner": {
-      "title": "It checks who signed the download",
-      "body": "EdDSA where the app publishes a key, then a Developer ID signature, Team ID, bundle id and architecture that all have to match the app being replaced — plus a backup you can roll back to."
+      "title": "Checks the source",
+      "body": "Checks every download’s signature."
     },
     "language": {
-      "title": "It speaks your language",
-      "body": "{languages}. There is no language setting — it follows whatever macOS is already set to."
+      "title": "Your language",
+      "body": "{count} languages, following your Mac."
     },
     "noServer": {
-      "title": "It doesn’t know who you are",
-      "body": "No telemetry and no analytics SDK. Checks for your apps go straight to each vendor. DuoUpdater’s own update feed counts roughly how many installs check each day, and stores nothing that identifies you."
+      "title": "Doesn’t know you",
+      "body": "No tracking. Installs counted anonymously."
     }
   },
   "workbench": {
     "alt": "The workbench window: a sidebar listing every scanned app, and the release notes for the selected one rendered as native text — version heading, date, and one bullet per change.",
-    "caption": "Opening the window gives you everything it scanned, and the release notes for whatever you select. Where a vendor publishes notes in a form worth parsing, they are pulled apart and rendered as native text instead of an embedded web page."
+    "title": "Release notes",
+    "body": "Read what changed, right in the app."
   },
   "cli": {
     "alt": "The workbench's CLI tab: a sidebar grouping command-line tools by how they were installed — Homebrew, npm under nvm and fnm, Claude Code, bub, fx, uv, Junie, Rust and Codex — each with its path and version. Claude Code is selected: installed by the native installer, version 2.1.295 matching Anthropic's release manifest, signed by Anthropic, on the latest channel and up to date, with its release notes listed by version beside it.",
-    "caption": "The CLI tab does the same for command-line tools: where each one is installed, what installed it, who signed it, which channel it follows, and its release notes."
+    "title": "Command line",
+    "body": "Command-line tools, kept current too."
   },
   "releaseLog": {
     "alt": "The Release Log timeline: releases grouped by day, each showing the app, version, source, and either an exact publish time or an approximate window.",
-    "caption": "Every version it sees gets recorded, so over time you get a log of when the software you use actually ships. A release time is only called exact when the vendor’s own feed timestamps it; everything else is shown as a window with a ≈, because that is all we honestly know."
+    "title": "Release log",
+    "body": "A log of when your apps ship."
   },
   "settings": {
     "alt": "DuoUpdater's General settings, beside a sidebar listing Backups, Folders, Updates, GitHub, Alcove, Xcode, Ignored and Diagnostics: launch at login, check interval, hiding the Dock icon, whether to show what each app is built with, notifications, automatic relaunch, how many apps to check at once, and install routing for App Store updates, self-updating apps, apps without a developer signature and TestFlight betas.",
-    "caption": "Most of the settings are about how much autonomy you want to give it — whether to restart apps for you, whether to keep a rollback backup, and how to route the two awkward cases: Mac App Store apps, and apps that ship their own updater."
+    "title": "Your call",
+    "body": "You decide how much it does for you."
   },
   "xcode": {
     "alt": "The Xcode settings page: signed in to Apple Developer, with an option to renew the session in the background. Below, a Download Xcode list with Betas & RCs and Releases tabs, from Apple and xcodereleases.com, showing Xcode 27 builds from 27.2 beta 2 down to 27.0 beta 4, each with its date and the macOS it requires. Most have an Install button; the two already installed, as Xcode-beta.app and Xcode.app, offer Open and Download Only (.xip).",
-    "caption": "Xcode betas and release candidates aren’t on the App Store, and Apple only hands them out to a signed-in developer account. Sign in once under Settings → Xcode and a new beta becomes a one-click update like any other row. The same page lists every build Apple and xcodereleases.com know of: Install puts the one you pick in Applications as its own copy, beside any Xcode already there, and nothing installed is replaced; Download Only saves the .xip instead."
+    "title": "Xcode",
+    "body": "Xcode betas, one click away."
   },
   "notFound": {
     "title": "Page not found",
-    "body": "This page could not be found."
+    "body": "This page doesn’t exist."
   },
   "changelog": {
     "title": "Changelog",
-    "description": "Every release of DuoUpdater, and what changed in it.",
-    "intro": "Every release, newest first — the same notes the app shows you when it updates itself. Downloads are on <link>the releases page</link>.",
+    "description": "What changed in each release.",
+    "intro": "Newest first, as shown in the app. Downloads are on <link>the releases page</link>.",
     "olderInEnglish": "Older releases are shown in English."
   },
   "docs": {
     "title": "Docs",
-    "description": "How DuoUpdater decides what has an update, what it checks before replacing an app, and what macOS will ask you for.",
-    "intro": "How it decides what has an update, what it checks before replacing an app, and what macOS will ask you for.",
+    "description": "How it finds updates, what it checks, and what it asks for.",
+    "intro": "How it finds updates, what it checks, and what it asks for.",
     "allDocs": "All docs",
     "inEnglish": "This page has not been translated yet and is shown in English."
   }

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 
 import { getTranslations } from "next-intl/server";
 
@@ -19,10 +19,9 @@ import releaseLogShot from "@/public/screenshots/release-log-timeline.png";
 import settingsShot from "@/public/screenshots/settings.png";
 import xcodeShot from "@/public/screenshots/xcode.png";
 
-// The languages the app itself ships in. It follows the app's releases, not
-// this site's translations: until the release that added it, pt-BR, tr and
-// zh-Hant, the app had seven and this page said so. Each is written in its own
-// language, so the sentence stays true on every page.
+// The languages the app itself ships in; the page states how many. It follows
+// the app's releases, not this site's translations: until the release that
+// added pt-BR, tr and zh-Hant, the app had seven and this page said so.
 const APP_LANGUAGES = [
   "English",
   "简体中文",
@@ -43,23 +42,10 @@ export default async function HomePage({ locale }: { locale: LocaleID }) {
     getTranslations({ locale }),
   ]);
   // Every string on the page goes through the CJK line-break fixes.
-  const t = Object.assign(
-    (key: Parameters<typeof translate>[0], values?: Parameters<typeof translate>[1]) =>
-      typeset(locale, translate(key, values)),
-    { rich: translate.rich },
-  );
+  const t = (key: Parameters<typeof translate>[0], values?: Parameters<typeof translate>[1]) =>
+    typeset(locale, translate(key, values));
   const isEnglish = locale === "en";
   const pageURL = isEnglish ? SITE.url : `${SITE.url}${localizedPath(locale, "/")}`;
-  // en-GB for English: the page's own copy has no serial comma.
-  const appLanguages = new Intl.ListFormat(isEnglish ? "en-GB" : localeInfo(locale).tag, {
-    type: "conjunction",
-  })
-    .formatToParts(APP_LANGUAGES)
-    // Chinese joins the last two with 和 and no spaces, which runs it into the
-    // Latin names on either side ("Français和Русский"). Chinese text puts a
-    // space between CJK and Latin words, so the page does here too.
-    .map((part) => (part.type === "literal" && part.value === "和" ? " 和 " : part.value))
-    .join("");
 
   // Structured data for the one thing this page is about: a downloadable macOS
   // application. Version and download URL are read from the same release fetch
@@ -117,94 +103,97 @@ export default async function HomePage({ locale }: { locale: LocaleID }) {
         <DownloadButton locale={locale} />
       </section>
 
-      <figure className="shot">
-        <Image
-          src={menuBarShot}
-          alt={t("menuBar.alt")}
-          className="shot-narrow"
-          sizes="(max-width: 52rem) 100vw, 420px"
-          priority
-        />
-        {/* Two paragraphs rather than one long caption: `text-wrap: balance`
-            stops applying past a browser-imposed line ceiling (see the rule in
-            globals.css), and a merged caption would sail past it. */}
-        <figcaption>
-          <p>{t.rich("menuBar.caption1", { strong: (chunks) => <strong>{chunks}</strong> })}</p>
-          <p>{t("menuBar.caption2")}</p>
-        </figcaption>
-      </figure>
+      <Feature
+        title={t("menuBar.title")}
+        body={t("menuBar.body")}
+        shot={menuBarShot}
+        alt={t("menuBar.alt")}
+        narrow
+        priority
+      />
 
-      <h2 className="section-title">{t("differently.title")}</h2>
-      <div className="points">
-        {[
-          { title: t("differently.handsOver.title"), body: t("differently.handsOver.body") },
-          {
-            title: t("differently.neverForceQuits.title"),
-            body: t("differently.neverForceQuits.body"),
-          },
-          { title: t("differently.checksSigner.title"), body: t("differently.checksSigner.body") },
-          {
-            title: t("differently.language.title"),
-            body: t("differently.language.body", { languages: appLanguages }),
-          },
-          { title: t("differently.noServer.title"), body: t("differently.noServer.body") },
-        ].map((point) => (
-          <div className="point" key={point.title}>
-            <h3>{point.title}</h3>
-            <p>{point.body}</p>
-          </div>
-        ))}
-      </div>
+      <section className="points-section">
+        <h2 className="section-title reveal">{t("differently.title")}</h2>
+        <div className="points">
+          {(
+            [
+              "handsOver",
+              "neverForceQuits",
+              "checksSigner",
+              "language",
+              "noServer",
+            ] as const
+          ).map((key) => (
+            <div className="point reveal" key={key}>
+              <h3>{t(`differently.${key}.title`)}</h3>
+              <p>{t(`differently.${key}.body`, { count: APP_LANGUAGES.length })}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <figure className="shot">
-        <Image
-          src={changelogShot}
-          alt={t("workbench.alt")}
-          className="shot-wide"
-          sizes="(max-width: 52rem) 100vw, 760px"
-        />
-        <figcaption>{t("workbench.caption")}</figcaption>
-      </figure>
-
-      <figure className="shot">
-        <Image
-          src={cliShot}
-          alt={t("cli.alt")}
-          className="shot-wide"
-          sizes="(max-width: 52rem) 100vw, 760px"
-        />
-        <figcaption>{t("cli.caption")}</figcaption>
-      </figure>
-
-      <figure className="shot">
-        <Image
-          src={releaseLogShot}
-          alt={t("releaseLog.alt")}
-          className="shot-narrow"
-          sizes="(max-width: 52rem) 100vw, 420px"
-        />
-        <figcaption>{t("releaseLog.caption")}</figcaption>
-      </figure>
-
-      <figure className="shot">
-        <Image
-          src={settingsShot}
-          alt={t("settings.alt")}
-          className="shot-wide"
-          sizes="(max-width: 52rem) 100vw, 760px"
-        />
-        <figcaption>{t("settings.caption")}</figcaption>
-      </figure>
-
-      <figure className="shot">
-        <Image
-          src={xcodeShot}
-          alt={t("xcode.alt")}
-          className="shot-wide"
-          sizes="(max-width: 52rem) 100vw, 760px"
-        />
-        <figcaption>{t("xcode.caption")}</figcaption>
-      </figure>
+      <Feature
+        title={t("workbench.title")}
+        body={t("workbench.body")}
+        shot={changelogShot}
+        alt={t("workbench.alt")}
+      />
+      <Feature title={t("cli.title")} body={t("cli.body")} shot={cliShot} alt={t("cli.alt")} />
+      <Feature
+        title={t("releaseLog.title")}
+        body={t("releaseLog.body")}
+        shot={releaseLogShot}
+        alt={t("releaseLog.alt")}
+        narrow
+      />
+      <Feature
+        title={t("settings.title")}
+        body={t("settings.body")}
+        shot={settingsShot}
+        alt={t("settings.alt")}
+      />
+      <Feature
+        title={t("xcode.title")}
+        body={t("xcode.body")}
+        shot={xcodeShot}
+        alt={t("xcode.alt")}
+      />
     </div>
+  );
+}
+
+// One feature: a short name, one line saying what it does, and the screenshot
+// that shows it. The detail lives in the docs, not under the picture.
+function Feature({
+  title,
+  body,
+  shot,
+  alt,
+  narrow = false,
+  priority = false,
+}: {
+  title: string;
+  body: string;
+  shot: StaticImageData;
+  alt: string;
+  narrow?: boolean;
+  priority?: boolean;
+}) {
+  return (
+    <section className="feature">
+      <header className="feature-head reveal">
+        <h2>{title}</h2>
+        <p>{body}</p>
+      </header>
+      <figure className="shot reveal">
+        <Image
+          src={shot}
+          alt={alt}
+          className={narrow ? "shot-narrow" : "shot-wide"}
+          sizes={narrow ? "(max-width: 52rem) 100vw, 420px" : "(max-width: 52rem) 100vw, 760px"}
+          priority={priority}
+        />
+      </figure>
+    </section>
   );
 }

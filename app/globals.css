@@ -290,7 +290,7 @@ pre code {
 /* ---------- landing ---------- */
 
 .hero {
-  padding-block: 5rem 3.5rem;
+  padding-block: 5rem 0;
   text-align: center;
 }
 
@@ -410,7 +410,7 @@ pre code {
 }
 
 .shot {
-  margin: 0 0 4.5rem;
+  margin: 0;
 }
 
 .shot img {
@@ -434,30 +434,6 @@ pre code {
   width: 760px;
 }
 
-.shot figcaption {
-  max-width: var(--measure);
-  margin: 1.25rem auto 0;
-  color: var(--text-muted);
-  font-size: 0.9375rem;
-  text-align: center;
-  /* Centred prose with no break control strands the last word on its own line,
-     which reads as a mistake rather than a line break. `balance` evens the lines
-     out instead; these captions are 3-5 lines, inside the ~6-line ceiling
-     browsers impose on it. */
-  text-wrap: balance;
-}
-
-/* A caption long enough to need two paragraphs is also long enough to blow past
-   the balance ceiling above, so it is split rather than merged. Balance is
-   inherited, so each paragraph gets it separately. */
-.shot figcaption p {
-  margin: 0 0 0.75rem;
-}
-
-.shot figcaption p:last-child {
-  margin-bottom: 0;
-}
-
 /* rehype-slug puts an id on every heading it renders, so any of them can be
    linked to — and without this the sticky header sits on top of whichever one
    was jumped to, exactly as it did for changelog releases above. */
@@ -465,29 +441,108 @@ pre code {
   scroll-margin-top: var(--anchor-top);
 }
 
+/* ---------- features ---------- */
+
+/* One feature per section: a name, one line, the screenshot. Nothing else sits
+   under the picture; the detail lives in the docs. */
+.feature,
+.points-section {
+  padding-block: clamp(2.5rem, 6vw, 4.25rem);
+  text-align: center;
+}
+
+.feature-head h2,
 .section-title {
-  font-size: 1.375rem;
-  letter-spacing: -0.02em;
-  margin: 0 0 2rem;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.5rem;
+  text-wrap: balance;
+}
+
+.feature-head p {
+  max-width: var(--measure);
+  margin: 0 auto 2.25rem;
+  color: var(--text-muted);
+  font-size: 1.0625rem;
+  text-wrap: balance;
+}
+
+.section-title {
+  margin-bottom: 2rem;
 }
 
 .points {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  margin-bottom: 4.5rem;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  text-align: left;
+}
+
+.point {
+  padding: 1.1rem 1.15rem 1.2rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 12px;
 }
 
 .point h3 {
-  font-size: 1rem;
-  margin: 0 0 0.4rem;
+  font-size: 0.9375rem;
+  margin: 0 0 0.35rem;
 }
 
 .point p {
   margin: 0;
   color: var(--text-muted);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   text-wrap: pretty;
+}
+
+/* Two columns on a phone leave the fifth card alone on its row; let it take the
+   whole row instead of half of one. */
+@media (max-width: 36rem) {
+  .point:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Motion, kept quiet: the hero rises in once on load, and each heading, card
+   and screenshot fades up as it scrolls into view. Scroll-driven, so there is
+   no script; a browser without `animation-timeline` simply shows everything,
+   and so does anyone who has asked their system for reduced motion. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero > * {
+    animation: rise-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .hero > :nth-child(2) {
+    animation-delay: 0.08s;
+  }
+
+  .hero > :nth-child(3) {
+    animation-delay: 0.16s;
+  }
+
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise-in linear both;
+      animation-timeline: view();
+      /* A fixed distance, not a share of the element: a tall screenshot would
+         otherwise stay half-faded across most of a screen of scrolling. */
+      animation-range: entry 0 entry 10rem;
+    }
+  }
 }
 
 /* ---------- prose ---------- */
