@@ -25,7 +25,9 @@
     "button": "下載 Mac 版",
     "note": "Apple Silicon，macOS 15 或以上版本。免費且開放原始碼。",
     "allReleases": "所有發行版本",
-    "brew": "也可以用 Homebrew 安裝："
+    "brew": "也可以用 Homebrew 安裝：",
+    "copy": "複製指令",
+    "copied": "已複製"
   },
   "menuBar": {
     "alt": "DuoUpdater 的選單列彈出式視窗，標題為「89 updates available」（有 89 項可用更新），附有「Update All」按鈕與搜尋欄位。每一列顯示已安裝的版本、新版本、一個標示 App 以什麼技術打造的小徽章，以及「Update」按鈕；Anki 那一列顯示 26.9.2 到 26.09.3。指標停在 BetterDisplay 的徽章上時出現的資訊卡寫著：「Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.」（原生：直接以 Apple 框架打造的原生 Mac App，而非跨平台執行環境；連結 AppKit 與 SwiftUI；以 macOS 27.0 SDK 建置。）底部有兩列：「Homebrew」顯示「9 updates · 3 not checked」（9 項更新，3 個未檢查）；「Other tools」（其他工具）顯示「1 update · 1 held back」（1 項更新，1 個暫緩）。",

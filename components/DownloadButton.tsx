@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
+import CopyCommand from "@/components/CopyCommand";
 import type { LocaleID } from "@/i18n/locales";
 import { typeset } from "@/lib/typeset";
 import { fetchLatestRelease, RELEASES_URL } from "@/lib/release";
@@ -26,7 +27,8 @@ export default async function DownloadButton({ locale }: { locale: LocaleID }) {
         {typeset(locale, t("note"))} <a href={RELEASES_URL}>{t("allReleases")}</a>
       </p>
       <p className="cta-note cta-brew">
-        {typeset(locale, t("brew"))} <code>{BREW_INSTALL}</code>
+        {typeset(locale, t("brew"))}{" "}
+        <CopyCommand command={BREW_INSTALL} copyLabel={t("copy")} copiedLabel={t("copied")} />
       </p>
     </div>
   );

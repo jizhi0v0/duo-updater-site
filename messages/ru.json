@@ -25,7 +25,9 @@
     "button": "Скачать для Mac",
     "note": "Apple Silicon, macOS 15 или новее. Бесплатно и с открытым исходным кодом.",
     "allReleases": "Все релизы",
-    "brew": "Или через Homebrew:"
+    "brew": "Или через Homebrew:",
+    "copy": "Скопировать команду",
+    "copied": "Скопировано"
   },
   "menuBar": {
     "alt": "Всплывающее окно DuoUpdater в строке меню с заголовком «89 updates available» (доступно 89 обновлений), кнопкой «Update All» (обновить всё) и полем поиска. В каждой строке — установленная версия, новая версия, небольшая метка, показывающая, на чём сделано приложение, и кнопка «Update»; в строке Anki — переход с 26.9.2 на 26.09.3. Карточка при наведении на метку BetterDisplay гласит: «Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.» (нативное приложение для Mac, построенное прямо на фреймворках Apple, а не на кроссплатформенной среде; использует AppKit и SwiftUI; собрано с SDK macOS 27.0). Внизу две строки: «Homebrew» — «9 updates · 3 not checked» (9 обновлений, 3 не проверены) и «Other tools» (Другие инструменты) — «1 update · 1 held back» (1 обновление, 1 отложено).",

@@ -347,8 +347,8 @@ pre code {
   color: inherit;
 }
 
-/* One click selects the whole command, ready to copy, and it never breaks
-   inside `--cask`; the label wraps above it instead. On a phone the command is
+/* One click on the command selects all of it, and the button beside it copies
+   it; it never breaks inside `--cask`, the label wraps above it instead. On a phone the command is
    wider than the column, so it scrolls inside its own box rather than making
    the whole page scroll sideways. */
 .hero .cta-brew {
@@ -358,13 +358,53 @@ pre code {
   min-width: 0;
 }
 
-.cta-brew code {
+/* The command and its copy button share one box. The command scrolls inside
+   it; the button stays pinned at the end, so it is reachable at any width. */
+.copy-command {
+  display: inline-flex;
+  align-items: stretch;
+  max-width: 100%;
+  vertical-align: bottom;
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.copy-command code {
   user-select: all;
   white-space: nowrap;
-  display: inline-block;
-  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
-  vertical-align: bottom;
+  background: none;
+  border: 0;
+  padding: 0.1em 0.35em;
+}
+
+.copy-command button {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.45em;
+  border: 0;
+  border-left: 1px solid var(--border);
+  border-radius: 0 3px 3px 0;
+  background: none;
+  color: var(--text-faint);
+  cursor: pointer;
+}
+
+.copy-command button:hover,
+.copy-command button[data-copied] {
+  color: var(--text);
+}
+
+.copy-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .shot {

@@ -25,7 +25,9 @@
     "button": "Descargar para Mac",
     "note": "Apple Silicon, macOS 15 o posterior. Gratis y de código abierto.",
     "allReleases": "Todas las versiones",
-    "brew": "O con Homebrew:"
+    "brew": "O con Homebrew:",
+    "copy": "Copiar el comando",
+    "copied": "Copiado"
   },
   "menuBar": {
     "alt": "La ventana emergente de DuoUpdater en la barra de menús, con el encabezado «89 updates available» (89 actualizaciones disponibles), un botón «Update All» y un campo de búsqueda. Cada fila muestra la versión instalada, la nueva, una pequeña insignia que indica con qué está hecha la app y un botón «Update»; la fila de Anki va de 26.9.2 a 26.09.3. Una tarjeta que aparece al pasar el puntero sobre la insignia de BetterDisplay dice: «Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK.» Al final hay dos filas: «Homebrew», con «9 updates · 3 not checked» (9 actualizaciones, 3 sin comprobar), y «Other tools» (Otras herramientas), con «1 update · 1 held back» (1 actualización, 1 retenida).",

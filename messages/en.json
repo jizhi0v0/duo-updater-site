@@ -25,7 +25,9 @@
     "button": "Download for Mac",
     "note": "Apple Silicon, macOS 15 or later. Free and open source.",
     "allReleases": "All releases",
-    "brew": "Or with Homebrew:"
+    "brew": "Or with Homebrew:",
+    "copy": "Copy command",
+    "copied": "Copied"
   },
   "menuBar": {
     "alt": "The DuoUpdater menu bar popover, headed 89 updates available with an Update All button and a search field. Each row shows the installed version, the new version, a small badge for what the app is built with, and an Update button; Anki's row reads 26.9.2 to 26.09.3. A hover card over BetterDisplay's badge reads: Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK. Two rows at the bottom: Homebrew, 9 updates and 3 not checked; Other tools, 1 update and 1 held back.",
