@@ -1,0 +1,515 @@
+{
+  "en": {
+    "Update": "Update",
+    "Update All": "Update All",
+    "Updated": "Updated",
+    "Up to date": "Up to date",
+    "Show all": "Show all",
+    "Search apps": "Search apps",
+    "Queued": "Queued",
+    "Checking": "Checking",
+    "Verifying": "Verifying",
+    "Extracting": "Extracting",
+    "Installing": "Installing",
+    "just now": "just now",
+    "%lld updates available": {
+      "one": "{n} update available",
+      "other": "{n} updates available"
+    },
+    "%lld apps · up to date": {
+      "one": "{n} app · up to date",
+      "other": "{n} apps · up to date"
+    },
+    "Checking %lld apps…": {
+      "one": "Checking {n} app…",
+      "other": "Checking {n} apps…"
+    },
+    "%lld updates": {
+      "one": "{n} update",
+      "other": "{n} updates"
+    },
+    "Other tools": "Other tools",
+    "Running brew upgrade…": "Running brew upgrade…",
+    "Rescan and check for updates": "Rescan and check for updates",
+    "Settings": "Settings",
+    "Quit": "Quit",
+    "Release Log — when the apps you track shipped each version": "Release Log — when the apps you track shipped each version",
+    "Network — what keeping these apps updated has cost, and every request behind it": "Network — what keeping these apps updated has cost, and every request behind it",
+    "Open Window — release notes and settings": "Open Window — release notes and settings",
+    "What's New — DuoUpdater's own release notes": "What's New — DuoUpdater's own release notes",
+    "Native": "Native",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.",
+    "Built with Electron — it bundles its own copy of Chromium.": "Built with Electron — it bundles its own copy of Chromium.",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "Built with Tauri — a Rust app drawing into the system WebView.",
+    "Built with Flutter.": "Built with Flutter.",
+    "Built with Qt.": "Built with Qt.",
+    "noResults": "No Results for “{s}”",
+    "noResultsHint": "Check the spelling or try a new search."
+  },
+  "de": {
+    "Update": "Aktualisieren",
+    "Update All": "Alle aktualisieren",
+    "Updated": "Aktualisiert",
+    "Up to date": "Aktuell",
+    "Show all": "Alle anzeigen",
+    "Search apps": "Apps suchen",
+    "Queued": "Wartet",
+    "Checking": "Wird geprüft",
+    "Verifying": "Wird verifiziert",
+    "Extracting": "Wird entpackt",
+    "Installing": "Wird installiert",
+    "just now": "gerade eben",
+    "%lld updates available": {
+      "one": "{n} Update verfügbar",
+      "other": "{n} Updates verfügbar"
+    },
+    "%lld apps · up to date": {
+      "one": "{n} App · aktuell",
+      "other": "{n} Apps · aktuell"
+    },
+    "Checking %lld apps…": {
+      "one": "{n} App wird geprüft …",
+      "other": "{n} Apps werden geprüft …"
+    },
+    "%lld updates": {
+      "one": "{n} Update",
+      "other": "{n} Updates"
+    },
+    "Other tools": "Andere Tools",
+    "Running brew upgrade…": "brew upgrade wird ausgeführt …",
+    "Rescan and check for updates": "Erneut scannen und nach Updates suchen",
+    "Settings": "Einstellungen",
+    "Quit": "Beenden",
+    "Release Log — when the apps you track shipped each version": "Release-Protokoll – wann die verfolgten Apps welche Version veröffentlicht haben",
+    "Network — what keeping these apps updated has cost, and every request behind it": "Netzwerk – was das Aktuellhalten dieser Apps gekostet hat, und jede Anfrage dahinter",
+    "Open Window — release notes and settings": "Fenster öffnen — Release Notes und Einstellungen",
+    "What's New — DuoUpdater's own release notes": "Neuigkeiten – die eigenen Versionshinweise von DuoUpdater",
+    "Native": "Nativ",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "Eine native Mac-App – direkt auf Apples Frameworks gebaut, nicht auf einer plattformübergreifenden Laufzeitumgebung.",
+    "Built with Electron — it bundles its own copy of Chromium.": "Mit Electron gebaut – bringt eine eigene Chromium-Kopie mit.",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "Mit Tauri gebaut – eine Rust-App, die die System-WebView nutzt.",
+    "Built with Flutter.": "Mit Flutter gebaut.",
+    "Built with Qt.": "Mit Qt gebaut.",
+    "noResults": "Keine Ergebnisse für „{s}“",
+    "noResultsHint": "Überprüfe die Schreibweise oder starte eine neue Suche."
+  },
+  "es": {
+    "Update": "Actualizar",
+    "Update All": "Actualizar todo",
+    "Updated": "Actualizado",
+    "Up to date": "Actualizado",
+    "Show all": "Mostrar todo",
+    "Search apps": "Buscar apps",
+    "Queued": "En cola",
+    "Checking": "Comprobando",
+    "Verifying": "Verificando",
+    "Extracting": "Extrayendo",
+    "Installing": "Instalando",
+    "just now": "justo ahora",
+    "%lld updates available": {
+      "one": "{n} actualización disponible",
+      "other": "{n} actualizaciones disponibles"
+    },
+    "%lld apps · up to date": {
+      "one": "{n} app · actualizada",
+      "other": "{n} apps · actualizadas"
+    },
+    "Checking %lld apps…": {
+      "one": "Comprobando {n} app…",
+      "other": "Comprobando {n} apps…"
+    },
+    "%lld updates": {
+      "one": "{n} actualización",
+      "other": "{n} actualizaciones"
+    },
+    "Other tools": "Otras herramientas",
+    "Running brew upgrade…": "Ejecutando brew upgrade…",
+    "Rescan and check for updates": "Volver a escanear y buscar actualizaciones",
+    "Settings": "Ajustes",
+    "Quit": "Salir",
+    "Release Log — when the apps you track shipped each version": "Registro de versiones: cuándo publicó cada versión cada app que sigues",
+    "Network — what keeping these apps updated has cost, and every request behind it": "Red — lo que ha costado mantener estas apps al día, y cada solicitud detrás de ello",
+    "Open Window — release notes and settings": "Abrir ventana: notas de versión y ajustes",
+    "What's New — DuoUpdater's own release notes": "Novedades: notas de la versión del propio DuoUpdater",
+    "Native": "Nativa",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "Una app nativa de Mac: hecha directamente sobre los frameworks de Apple, no sobre un entorno multiplataforma.",
+    "Built with Electron — it bundles its own copy of Chromium.": "Hecha con Electron: incluye su propia copia de Chromium.",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "Hecha con Tauri: una app en Rust que dibuja en el WebView del sistema.",
+    "Built with Flutter.": "Hecha con Flutter.",
+    "Built with Qt.": "Hecha con Qt.",
+    "noResults": "No hay resultados para “{s}”",
+    "noResultsHint": "Comprueba la ortografía o prueba con una nueva búsqueda."
+  },
+  "fr": {
+    "Update": "Mettre à jour",
+    "Update All": "Tout mettre à jour",
+    "Updated": "Mis à jour",
+    "Up to date": "À jour",
+    "Show all": "Tout afficher",
+    "Search apps": "Rechercher des applications",
+    "Queued": "En attente",
+    "Checking": "Vérification",
+    "Verifying": "Vérification en cours",
+    "Extracting": "Extraction en cours",
+    "Installing": "Installation en cours",
+    "just now": "à l'instant",
+    "%lld updates available": {
+      "one": "{n} mise à jour disponible",
+      "other": "{n} mises à jour disponibles"
+    },
+    "%lld apps · up to date": {
+      "one": "{n} application · à jour",
+      "other": "{n} applications · à jour"
+    },
+    "Checking %lld apps…": {
+      "one": "Vérification de {n} application…",
+      "other": "Vérification de {n} applications…"
+    },
+    "%lld updates": {
+      "one": "{n} mise à jour",
+      "other": "{n} mises à jour"
+    },
+    "Other tools": "Autres outils",
+    "Running brew upgrade…": "Exécution de brew upgrade…",
+    "Rescan and check for updates": "Rebalayer et rechercher des mises à jour",
+    "Settings": "Réglages",
+    "Quit": "Quitter",
+    "Release Log — when the apps you track shipped each version": "Journal des versions — quand les applications suivies ont publié chaque version",
+    "Network — what keeping these apps updated has cost, and every request behind it": "Réseau — ce qu’a coûté la mise à jour de ces apps, et chaque requête derrière",
+    "Open Window — release notes and settings": "Ouvrir la fenêtre — notes de version et réglages",
+    "What's New — DuoUpdater's own release notes": "Nouveautés — notes de version de DuoUpdater lui-même",
+    "Native": "Natif",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "Une app Mac native — conçue directement sur les frameworks d’Apple, pas sur un environnement multiplateforme.",
+    "Built with Electron — it bundles its own copy of Chromium.": "Conçue avec Electron — elle embarque sa propre copie de Chromium.",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "Conçue avec Tauri — une app Rust qui dessine dans la WebView du système.",
+    "Built with Flutter.": "Conçue avec Flutter.",
+    "Built with Qt.": "Conçue avec Qt.",
+    "noResults": "Aucun résultat pour « {s} »",
+    "noResultsHint": "Vérifiez l’orthographe ou lancez une nouvelle recherche."
+  },
+  "it": {
+    "Update": "Aggiorna",
+    "Update All": "Aggiorna tutto",
+    "Updated": "Aggiornata",
+    "Up to date": "Aggiornato",
+    "Show all": "Mostra tutto",
+    "Search apps": "Cerca app",
+    "Queued": "In coda",
+    "Checking": "Controllo",
+    "Verifying": "Verifica",
+    "Extracting": "Estrazione",
+    "Installing": "Installazione",
+    "just now": "poco fa",
+    "%lld updates available": {
+      "one": "{n} aggiornamento disponibile",
+      "other": "{n} aggiornamenti disponibili"
+    },
+    "%lld apps · up to date": {
+      "one": "{n} app · aggiornata",
+      "other": "{n} app · aggiornate"
+    },
+    "Checking %lld apps…": {
+      "one": "Controllo di {n} app…",
+      "other": "Controllo di {n} app…"
+    },
+    "%lld updates": {
+      "one": "{n} aggiornamento",
+      "other": "{n} aggiornamenti"
+    },
+    "Other tools": "Altri strumenti",
+    "Running brew upgrade…": "Esecuzione di brew upgrade…",
+    "Rescan and check for updates": "Analizza di nuovo e controlla aggiornamenti",
+    "Settings": "Impostazioni",
+    "Quit": "Esci",
+    "Release Log — when the apps you track shipped each version": "Registro release — quando le app che segui hanno pubblicato ogni versione",
+    "Network — what keeping these apps updated has cost, and every request behind it": "Rete — quanto è costato tenere aggiornate queste app e ogni richiesta che c’è dietro",
+    "Open Window — release notes and settings": "Apri finestra — note di rilascio e impostazioni",
+    "What's New — DuoUpdater's own release notes": "Novità — le note di rilascio di DuoUpdater",
+    "Native": "Nativa",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "Un’app nativa per Mac, costruita direttamente sui framework di Apple, non su un runtime multipiattaforma.",
+    "Built with Electron — it bundles its own copy of Chromium.": "Creata con Electron: include una propria copia di Chromium.",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "Creata con Tauri: un’app Rust che disegna nella WebView di sistema.",
+    "Built with Flutter.": "Creata con Flutter.",
+    "Built with Qt.": "Creata con Qt.",
+    "noResults": "Nessun risultato per “{s}”",
+    "noResultsHint": "Verifica che non ci siano errori di battitura o esegui una nuova ricerca."
+  },
+  "pt-br": {
+    "Update": "Atualizar",
+    "Update All": "Atualizar Tudo",
+    "Updated": "Atualizado",
+    "Up to date": "Atualizado",
+    "Show all": "Mostrar tudo",
+    "Search apps": "Buscar apps",
+    "Queued": "Na fila",
+    "Checking": "Verificando",
+    "Verifying": "Validando",
+    "Extracting": "Extraindo",
+    "Installing": "Instalando",
+    "just now": "agora mesmo",
+    "%lld updates available": {
+      "one": "{n} atualização disponível",
+      "other": "{n} atualizações disponíveis"
+    },
+    "%lld apps · up to date": {
+      "one": "{n} app · atualizado",
+      "other": "{n} apps · atualizados"
+    },
+    "Checking %lld apps…": {
+      "one": "Verificando {n} app…",
+      "other": "Verificando {n} apps…"
+    },
+    "%lld updates": {
+      "one": "{n} atualização",
+      "other": "{n} atualizações"
+    },
+    "Other tools": "Outras ferramentas",
+    "Running brew upgrade…": "Executando brew upgrade…",
+    "Rescan and check for updates": "Examinar de novo e buscar atualizações",
+    "Settings": "Ajustes",
+    "Quit": "Encerrar",
+    "Release Log — when the apps you track shipped each version": "Registro de Versões — quando os apps que você acompanha lançaram cada versão",
+    "Network — what keeping these apps updated has cost, and every request behind it": "Rede — quanto custou manter estes apps atualizados, e cada requisição por trás disso",
+    "Open Window — release notes and settings": "Abrir Janela — notas de versão e ajustes",
+    "What's New — DuoUpdater's own release notes": "Novidades — notas de versão do próprio DuoUpdater",
+    "Native": "Nativo",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "Um app nativo para Mac — feito diretamente sobre os frameworks da Apple, não sobre um ambiente multiplataforma.",
+    "Built with Electron — it bundles its own copy of Chromium.": "Feito com Electron — inclui sua própria cópia do Chromium.",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "Feito com Tauri — um app em Rust que desenha na WebView do sistema.",
+    "Built with Flutter.": "Feito com Flutter.",
+    "Built with Qt.": "Feito com Qt.",
+    "noResults": "Nenhum Resultado para “{s}”",
+    "noResultsHint": "Verifique a ortografia ou tente uma nova busca."
+  },
+  "ru": {
+    "Update": "Обновить",
+    "Update All": "Обновить всё",
+    "Updated": "Обновлено",
+    "Up to date": "Актуально",
+    "Show all": "Показать все",
+    "Search apps": "Поиск приложений",
+    "Queued": "В очереди",
+    "Checking": "Проверка",
+    "Verifying": "Проверка целостности",
+    "Extracting": "Распаковка",
+    "Installing": "Установка",
+    "just now": "только что",
+    "%lld updates available": {
+      "few": "{n} обновления",
+      "many": "{n} обновлений",
+      "one": "{n} обновление",
+      "other": "{n} обновления"
+    },
+    "%lld apps · up to date": {
+      "few": "{n} приложения · актуально",
+      "many": "{n} приложений · актуально",
+      "one": "{n} приложение · актуально",
+      "other": "{n} приложения · актуально"
+    },
+    "Checking %lld apps…": {
+      "few": "Проверка {n} приложений…",
+      "many": "Проверка {n} приложений…",
+      "one": "Проверка {n} приложения…",
+      "other": "Проверка {n} приложения…"
+    },
+    "%lld updates": {
+      "one": "{n} обновление",
+      "few": "{n} обновления",
+      "many": "{n} обновлений",
+      "other": "{n} обновления"
+    },
+    "Other tools": "Другие инструменты",
+    "Running brew upgrade…": "Выполняется brew upgrade…",
+    "Rescan and check for updates": "Пересканировать и проверить обновления",
+    "Settings": "Настройки",
+    "Quit": "Выйти",
+    "Release Log — when the apps you track shipped each version": "Журнал релизов — когда отслеживаемые приложения выпускали каждую версию",
+    "Network — what keeping these apps updated has cost, and every request behind it": "Сеть — во что обошлось обновление этих приложений и все запросы за этим",
+    "Open Window — release notes and settings": "Открыть окно — заметки о выпуске и настройки",
+    "What's New — DuoUpdater's own release notes": "Что нового — заметки о выпуске самого DuoUpdater",
+    "Native": "Нативное",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "Нативное приложение для Mac — построено прямо на фреймворках Apple, а не на кроссплатформенной среде.",
+    "Built with Electron — it bundles its own copy of Chromium.": "Сделано на Electron — приложение несёт собственную копию Chromium.",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "Сделано на Tauri — приложение на Rust, рисующее в системном WebView.",
+    "Built with Flutter.": "Сделано на Flutter.",
+    "Built with Qt.": "Сделано на Qt.",
+    "noResults": "Нет результатов по запросу «{s}»",
+    "noResultsHint": "Проверьте написание или попробуйте изменить запрос."
+  },
+  "tr": {
+    "Update": "Güncelle",
+    "Update All": "Tümünü Güncelle",
+    "Updated": "Güncellendi",
+    "Up to date": "Güncel",
+    "Show all": "Tümünü göster",
+    "Search apps": "Uygulamalarda ara",
+    "Queued": "Sırada",
+    "Checking": "Denetleniyor",
+    "Verifying": "Doğrulanıyor",
+    "Extracting": "Açılıyor",
+    "Installing": "Yükleniyor",
+    "just now": "az önce",
+    "%lld updates available": {
+      "one": "{n} güncelleme var",
+      "other": "{n} güncelleme var"
+    },
+    "%lld apps · up to date": {
+      "one": "{n} uygulama · güncel",
+      "other": "{n} uygulama · güncel"
+    },
+    "Checking %lld apps…": {
+      "one": "{n} uygulama denetleniyor…",
+      "other": "{n} uygulama denetleniyor…"
+    },
+    "%lld updates": {
+      "one": "{n} güncelleme",
+      "other": "{n} güncelleme"
+    },
+    "Other tools": "Diğer araçlar",
+    "Running brew upgrade…": "brew upgrade çalıştırılıyor…",
+    "Rescan and check for updates": "Yeniden tara ve güncellemeleri denetle",
+    "Settings": "Ayarlar",
+    "Quit": "Çık",
+    "Release Log — when the apps you track shipped each version": "Sürüm Günlüğü — izlediğiniz uygulamaların her sürümü ne zaman yayımladığı",
+    "Network — what keeping these apps updated has cost, and every request behind it": "Ağ — bu uygulamaları güncel tutmanın maliyeti ve arkasındaki her istek",
+    "Open Window — release notes and settings": "Pencereyi Aç — sürüm notları ve ayarlar",
+    "What's New — DuoUpdater's own release notes": "Yenilikler — DuoUpdater’ın kendi sürüm notları",
+    "Native": "Yerel",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "Yerel bir Mac uygulaması — platformlar arası bir çalışma ortamıyla değil, doğrudan Apple’ın çerçeveleriyle geliştirilmiş.",
+    "Built with Electron — it bundles its own copy of Chromium.": "Electron ile geliştirildi — kendi Chromium kopyasını içerir.",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "Tauri ile geliştirildi — sistem WebView’una çizim yapan bir Rust uygulaması.",
+    "Built with Flutter.": "Flutter ile geliştirildi.",
+    "Built with Qt.": "Qt ile geliştirildi.",
+    "noResults": "“{s}” için sonuç yok",
+    "noResultsHint": "Yazım denetimi yapın veya yeni bir arama deneyin."
+  },
+  "ja": {
+    "Update": "更新",
+    "Update All": "すべて更新",
+    "Updated": "更新済み",
+    "Up to date": "最新",
+    "Show all": "すべて表示",
+    "Search apps": "アプリを検索",
+    "Queued": "待機中",
+    "Checking": "確認中",
+    "Verifying": "検証中",
+    "Extracting": "展開中",
+    "Installing": "インストール中",
+    "just now": "たった今",
+    "%lld updates available": {
+      "other": "{n} 件のアップデートが利用可能"
+    },
+    "%lld apps · up to date": {
+      "other": "{n} 個のアプリ · 最新"
+    },
+    "Checking %lld apps…": {
+      "other": "{n} 個のアプリを確認中…"
+    },
+    "%lld updates": {
+      "other": "アップデート {n} 件"
+    },
+    "Other tools": "その他のツール",
+    "Running brew upgrade…": "brew upgrade を実行中…",
+    "Rescan and check for updates": "再スキャンして更新を確認",
+    "Settings": "設定",
+    "Quit": "終了",
+    "Release Log — when the apps you track shipped each version": "リリースログ — 追跡中のアプリが各バージョンを公開した時期",
+    "Network — what keeping these apps updated has cost, and every request behind it": "ネットワーク — これらの App を最新に保つのにかかった通信量と、その裏側のすべてのリクエスト",
+    "Open Window — release notes and settings": "ウインドウを開く — リリースノートと設定",
+    "What's New — DuoUpdater's own release notes": "新機能について — DuoUpdater 自体のリリースノート",
+    "Native": "ネイティブ",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "ネイティブの Mac アプリ — クロスプラットフォームのランタイムではなく、Apple のフレームワーク上に直接作られています。",
+    "Built with Electron — it bundles its own copy of Chromium.": "Electron 製 — Chromium を丸ごと同梱しています。",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "Tauri 製 — システムの WebView に描画する Rust アプリです。",
+    "Built with Flutter.": "Flutter 製です。",
+    "Built with Qt.": "Qt 製です。",
+    "noResults": "“{s}”の検索結果なし",
+    "noResultsHint": "スペルをチェックするか、新規検索をしてみてください。"
+  },
+  "zh-hans": {
+    "Update": "更新",
+    "Update All": "全部更新",
+    "Updated": "已更新",
+    "Up to date": "已是最新",
+    "Show all": "显示全部",
+    "Search apps": "搜索应用",
+    "Queued": "排队中",
+    "Checking": "正在检查",
+    "Verifying": "正在校验",
+    "Extracting": "正在解压",
+    "Installing": "正在安装",
+    "just now": "刚刚",
+    "%lld updates available": {
+      "other": "{n} 个更新可用"
+    },
+    "%lld apps · up to date": {
+      "other": "{n} 个应用 · 均为最新"
+    },
+    "Checking %lld apps…": {
+      "other": "正在检查 {n} 个应用…"
+    },
+    "%lld updates": {
+      "other": "{n} 个更新"
+    },
+    "Other tools": "其他工具",
+    "Running brew upgrade…": "正在运行 brew upgrade…",
+    "Rescan and check for updates": "重新扫描并检查更新",
+    "Settings": "设置",
+    "Quit": "退出",
+    "Release Log — when the apps you track shipped each version": "发布日志 — 你关注的应用各版本的发布时间",
+    "Network — what keeping these apps updated has cost, and every request behind it": "网络 — 保持这些 App 更新花掉的流量，以及背后的每一次请求",
+    "Open Window — release notes and settings": "打开窗口 — 发布说明与设置",
+    "What's New — DuoUpdater's own release notes": "新功能 — DuoUpdater 自身的发行说明",
+    "Native": "原生",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "原生 Mac 应用 —— 直接构建在 Apple 的框架上，而不是跨平台运行时。",
+    "Built with Electron — it bundles its own copy of Chromium.": "用 Electron 构建 —— 自带一份 Chromium。",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "用 Tauri 构建 —— 把界面画在系统 WebView 里的 Rust 程序。",
+    "Built with Flutter.": "用 Flutter 构建。",
+    "Built with Qt.": "用 Qt 构建。",
+    "noResults": "未找到“{s}”的相关结果",
+    "noResultsHint": "检查拼写或尝试新搜索词。"
+  },
+  "zh-hant": {
+    "Update": "更新",
+    "Update All": "全部更新",
+    "Updated": "已更新",
+    "Up to date": "已是最新",
+    "Show all": "顯示全部",
+    "Search apps": "搜尋 App",
+    "Queued": "已排入佇列",
+    "Checking": "檢查中",
+    "Verifying": "驗證中",
+    "Extracting": "解壓縮中",
+    "Installing": "安裝中",
+    "just now": "剛剛",
+    "%lld updates available": {
+      "other": "{n} 個可用更新"
+    },
+    "%lld apps · up to date": {
+      "other": "{n} 個 App · 皆為最新"
+    },
+    "Checking %lld apps…": {
+      "other": "正在檢查 {n} 個 App…"
+    },
+    "%lld updates": {
+      "other": "{n} 個更新"
+    },
+    "Other tools": "其他工具",
+    "Running brew upgrade…": "正在執行 brew upgrade…",
+    "Rescan and check for updates": "重新掃描並檢查更新",
+    "Settings": "設定",
+    "Quit": "結束",
+    "Release Log — when the apps you track shipped each version": "發行記錄 — 你追蹤的 App 各版本的發行時間",
+    "Network — what keeping these apps updated has cost, and every request behind it": "網路 — 讓這些 App 保持最新耗費了多少流量，以及背後的每個請求",
+    "Open Window — release notes and settings": "打開視窗 — 版本說明與設定",
+    "What's New — DuoUpdater's own release notes": "新功能 — DuoUpdater 本身的版本說明",
+    "Native": "原生",
+    "A native Mac app — built straight on Apple's frameworks, not a cross-platform runtime.": "原生 Mac App——直接以 Apple 的框架建構，而非跨平台執行環境。",
+    "Built with Electron — it bundles its own copy of Chromium.": "以 Electron 建構——內含一份自己的 Chromium。",
+    "Built with Tauri — a Rust app drawing into the system WebView.": "以 Tauri 建構——在系統 WebView 中繪製介面的 Rust App。",
+    "Built with Flutter.": "以 Flutter 建構。",
+    "Built with Qt.": "以 Qt 建構。",
+    "noResults": "沒有「{s}」的結果",
+    "noResultsHint": "檢查拼字或嘗試新的搜尋項目。"
+  }
+}

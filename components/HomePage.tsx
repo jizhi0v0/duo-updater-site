@@ -3,7 +3,9 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 import DownloadButton from "@/components/DownloadButton";
+import PopoverDemo from "@/components/demo/PopoverDemo";
 import { localeInfo, localizedPath, type LocaleID } from "@/i18n/locales";
+import { demoData, demoStrings } from "@/lib/demo";
 import { typeset } from "@/lib/typeset";
 import { fetchLatestRelease, REPO } from "@/lib/release";
 import { SITE } from "@/lib/site";
@@ -14,7 +16,6 @@ import { SITE } from "@/lib/site";
 // wrong box and the page jumped when each image landed.
 import changelogShot from "@/public/screenshots/changelog.png";
 import cliShot from "@/public/screenshots/cli.png";
-import menuBarShot from "@/public/screenshots/menu-bar.png";
 import releaseLogShot from "@/public/screenshots/release-log-timeline.png";
 import settingsShot from "@/public/screenshots/settings.png";
 import xcodeShot from "@/public/screenshots/xcode.png";
@@ -117,13 +118,12 @@ export default async function HomePage({ locale }: { locale: LocaleID }) {
         <DownloadButton locale={locale} />
       </section>
 
+      {/* The popover itself, working, in place of a picture of it. */}
       <figure className="shot">
-        <Image
-          src={menuBarShot}
-          alt={t("menuBar.alt")}
-          className="shot-narrow"
-          sizes="(max-width: 52rem) 100vw, 420px"
-          priority
+        <PopoverDemo
+          data={demoData()}
+          strings={demoStrings(locale)}
+          languageTag={localeInfo(locale).tag}
         />
         {/* Two paragraphs rather than one long caption: `text-wrap: balance`
             stops applying past a browser-imposed line ceiling (see the rule in

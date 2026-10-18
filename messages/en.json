@@ -30,7 +30,6 @@
     "copied": "Copied"
   },
   "menuBar": {
-    "alt": "The DuoUpdater menu bar popover, headed 89 updates available with an Update All button and a search field. Each row shows the installed version, the new version, a small badge for what the app is built with, and an Update button; Anki's row reads 26.9.2 to 26.09.3. A hover card over BetterDisplay's badge reads: Native — a native Mac app, built straight on Apple's frameworks, not a cross-platform runtime. Links AppKit and SwiftUI. Built with the macOS 27.0 SDK. Two rows at the bottom: Homebrew, 9 updates and 3 not checked; Other tools, 1 update and 1 held back.",
     "caption1": "Each row says what you are going from and to, and the button says what will actually happen: <strong>Update</strong> installs; <strong>Relaunch</strong> means it is already updated on disk and only the running copy is stale. A green dot marks an app that is running, so you know before you click whether something is about to be quit and reopened.",
     "caption2": "The badge beside a name says what the app is built with — Electron, Qt, Chromium, a bundled JVM, Flutter, Tauri, Catalyst, or an iPhone app running on Apple Silicon — and hovering it names the runtime and its version. Each one is read from something the packager actually shipped, never from the app’s name or its vendor, so a bundle that does not say stays unlabelled rather than guessed at."
   },

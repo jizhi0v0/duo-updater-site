@@ -1,0 +1,218 @@
+{
+  "syncedAt": "2026-10-18",
+  "selfVersion": "0.5.10",
+  "apps": [
+    {
+      "bundleID": "com.google.antigravity",
+      "name": "Antigravity",
+      "runtime": "electron",
+      "source": "Vendor",
+      "installed": "2.15.1",
+      "latest": "2.24.0",
+      "hasUpdate": true,
+      "icon": "/demo/icons/com.google.antigravity.png"
+    },
+    {
+      "bundleID": "com.bitwarden.desktop",
+      "name": "Bitwarden",
+      "runtime": "electron",
+      "source": "GitHub",
+      "installed": "2026.9.0",
+      "latest": "2026.10.0",
+      "hasUpdate": true,
+      "icon": "/demo/icons/com.bitwarden.desktop.png"
+    },
+    {
+      "bundleID": "com.usebruno.app",
+      "name": "Bruno",
+      "runtime": "electron",
+      "source": "GitHub",
+      "installed": "4.1.0",
+      "latest": "4.2.1",
+      "hasUpdate": true,
+      "icon": "/demo/icons/com.usebruno.app.png"
+    },
+    {
+      "bundleID": "com.anthropic.claudefordesktop",
+      "name": "Claude",
+      "runtime": "electron",
+      "source": "Vendor",
+      "installed": "2.42304.0",
+      "latest": "2.42304.0",
+      "hasUpdate": false,
+      "icon": "/demo/icons/com.anthropic.claudefordesktop.png"
+    },
+    {
+      "bundleID": "com.microsoft.VSCode",
+      "name": "Code",
+      "runtime": "electron",
+      "source": "Vendor",
+      "installed": "1.140.0",
+      "latest": "1.142.0",
+      "hasUpdate": true,
+      "icon": "/demo/icons/com.microsoft.VSCode.png"
+    },
+    {
+      "bundleID": "com.todesktop.230313mzl4w4u92",
+      "name": "Cursor",
+      "runtime": "electron",
+      "source": "Vendor",
+      "installed": "3.21.18",
+      "latest": "3.25.9",
+      "hasUpdate": true,
+      "icon": "/demo/icons/com.todesktop.230313mzl4w4u92.png"
+    },
+    {
+      "bundleID": "com.mitchellh.ghostty",
+      "name": "Ghostty",
+      "runtime": "native",
+      "source": "Sparkle",
+      "installed": "1.3.1",
+      "latest": "1.3.1",
+      "hasUpdate": false,
+      "icon": "/demo/icons/com.mitchellh.ghostty.png"
+    },
+    {
+      "bundleID": "com.electron.goose",
+      "name": "Goose",
+      "runtime": "electron",
+      "source": "GitHub",
+      "installed": "1.51.0",
+      "latest": "1.55.0",
+      "hasUpdate": true,
+      "icon": "/demo/icons/com.electron.goose.png"
+    },
+    {
+      "bundleID": "com.pais.handy",
+      "name": "Handy",
+      "runtime": "tauri",
+      "source": "GitHub",
+      "installed": "0.9.7",
+      "latest": "0.9.8",
+      "hasUpdate": true,
+      "icon": "/demo/icons/com.pais.handy.png"
+    },
+    {
+      "bundleID": "com.colliderli.iina",
+      "name": "IINA",
+      "runtime": "native",
+      "source": "Sparkle",
+      "installed": "1.5.0",
+      "latest": "1.5.0",
+      "hasUpdate": false,
+      "icon": "/demo/icons/com.colliderli.iina.png"
+    },
+    {
+      "bundleID": "jan.ai.app",
+      "name": "Jan",
+      "runtime": "tauri",
+      "source": "GitHub",
+      "installed": "0.8.5",
+      "latest": "0.8.6",
+      "hasUpdate": true,
+      "icon": "/demo/icons/jan.ai.app.png"
+    },
+    {
+      "bundleID": "org.keepassxc.keepassxc",
+      "name": "KeePassXC",
+      "runtime": "qt",
+      "source": "GitHub",
+      "installed": "2.7.12",
+      "latest": "2.7.12",
+      "hasUpdate": false,
+      "icon": "/demo/icons/org.keepassxc.keepassxc.png"
+    },
+    {
+      "bundleID": "dev.kiro.desktop",
+      "name": "Kiro",
+      "runtime": "electron",
+      "source": "Vendor",
+      "installed": "1.1.14",
+      "latest": "1.3.11",
+      "hasUpdate": true,
+      "icon": "/demo/icons/dev.kiro.desktop.png"
+    },
+    {
+      "bundleID": "org.localsend.localsendApp",
+      "name": "LocalSend",
+      "runtime": "flutter",
+      "source": "App Store",
+      "installed": "1.18.2",
+      "latest": "1.18.2",
+      "hasUpdate": false,
+      "icon": "/demo/icons/org.localsend.localsendApp.png"
+    },
+    {
+      "bundleID": "org.p0deje.Maccy",
+      "name": "Maccy",
+      "runtime": "native",
+      "source": "Sparkle",
+      "installed": "2.7.1",
+      "latest": "2.7.1",
+      "hasUpdate": false,
+      "icon": "/demo/icons/org.p0deje.Maccy.png"
+    },
+    {
+      "bundleID": "app.cyan.markedit",
+      "name": "MarkEdit",
+      "runtime": "native",
+      "source": "GitHub",
+      "installed": "1.36.0",
+      "latest": "1.37.0",
+      "hasUpdate": true,
+      "icon": "/demo/icons/app.cyan.markedit.png"
+    },
+    {
+      "bundleID": "ai.opencode.desktop",
+      "name": "OpenCode",
+      "runtime": "electron",
+      "source": "GitHub",
+      "installed": "1.18.35",
+      "latest": "1.19.3",
+      "hasUpdate": true,
+      "icon": "/demo/icons/ai.opencode.desktop.png"
+    },
+    {
+      "bundleID": "com.raycast.macos",
+      "name": "Raycast",
+      "runtime": "native",
+      "source": "Vendor",
+      "installed": "2.4.1.0",
+      "latest": "2.8.2.0",
+      "hasUpdate": true,
+      "icon": "/demo/icons/com.raycast.macos.png"
+    },
+    {
+      "bundleID": "com.knollsoft.Rectangle",
+      "name": "Rectangle",
+      "runtime": "native",
+      "source": "Sparkle",
+      "installed": "2.0.3",
+      "latest": "2.0.3",
+      "hasUpdate": false,
+      "icon": "/demo/icons/com.knollsoft.Rectangle.png"
+    },
+    {
+      "bundleID": "com.carriez.rustdesk",
+      "name": "RustDesk",
+      "runtime": "flutter",
+      "source": "GitHub",
+      "installed": "1.4.9",
+      "latest": "1.5.0",
+      "hasUpdate": true,
+      "icon": "/demo/icons/com.carriez.rustdesk.png"
+    },
+    {
+      "bundleID": "com.utmapp.UTM",
+      "name": "UTM",
+      "runtime": "native",
+      "source": "GitHub",
+      "installed": "5.0.5",
+      "latest": "5.0.8",
+      "hasUpdate": true,
+      "icon": "/demo/icons/com.utmapp.UTM.png"
+    }
+  ],
+  "homebrewUpdates": 18,
+  "otherToolUpdates": 10
+}

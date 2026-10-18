@@ -1,0 +1,740 @@
+/* The popover demo (PopoverDemo.tsx). Sizes are the app's own points, one CSS
+   pixel each: a 370pt popover, 44pt rows, 30pt icons, 13pt body text and 10pt
+   captions. Colours are macOS's system colours for each appearance. */
+
+.pd-desktop {
+  --pd-text: rgb(0 0 0 / 0.85);
+  --pd-secondary: rgb(0 0 0 / 0.5);
+  --pd-tertiary: rgb(0 0 0 / 0.26);
+  --pd-separator: rgb(0 0 0 / 0.1);
+  --pd-fill: rgb(0 0 0 / 0.05);
+  --pd-accent: #007aff;
+  --pd-green: #34c759;
+  --pd-tint: rgb(246 246 246 / 0.7);
+  --pd-bubble-tint: rgb(255 255 255 / 0.4);
+  --pd-rim: rgb(255 255 255 / 0.55);
+  --pd-menubar: rgb(255 255 255 / 0.32);
+  --pd-menubar-text: rgb(0 0 0 / 0.85);
+
+  position: relative;
+  height: 680px;
+  margin: 0 auto;
+  max-width: 64rem;
+  border-radius: 14px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", var(--sans);
+  font-size: 13px;
+  line-height: 1.25;
+  color: var(--pd-text);
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  box-shadow: var(--shadow);
+  /* A wallpaper with edges in it: glass over a smooth gradient has nothing to bend. */
+  background:
+    radial-gradient(circle at 78% 18%, #ffd36e 0 9%, transparent 9.2%),
+    radial-gradient(circle at 92% 62%, #ff7a59 0 15%, transparent 15.2%),
+    radial-gradient(circle at 66% 88%, #5b8cff 0 21%, transparent 21.2%),
+    radial-gradient(ellipse at 20% 30%, #9ad5ff 0, transparent 55%),
+    radial-gradient(ellipse at 40% 100%, #7a5cff 0, transparent 60%),
+    linear-gradient(160deg, #c9e6ff 0%, #8ab8ff 45%, #6d6af0 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .pd-desktop {
+    --pd-text: rgb(255 255 255 / 0.88);
+    --pd-secondary: rgb(255 255 255 / 0.55);
+    --pd-tertiary: rgb(255 255 255 / 0.25);
+    --pd-separator: rgb(255 255 255 / 0.1);
+    --pd-fill: rgb(255 255 255 / 0.08);
+    --pd-accent: #0a84ff;
+    --pd-green: #30d158;
+    --pd-tint: rgb(36 36 38 / 0.72);
+    --pd-bubble-tint: rgb(60 60 64 / 0.36);
+    --pd-rim: rgb(255 255 255 / 0.16);
+    --pd-menubar: rgb(0 0 0 / 0.28);
+    --pd-menubar-text: rgb(255 255 255 / 0.92);
+    background:
+      radial-gradient(circle at 78% 18%, #e0a43a 0 9%, transparent 9.2%),
+      radial-gradient(circle at 92% 62%, #c2432b 0 15%, transparent 15.2%),
+      radial-gradient(circle at 66% 88%, #2747a8 0 21%, transparent 21.2%),
+      radial-gradient(ellipse at 20% 30%, #1f4f7a 0, transparent 55%),
+      radial-gradient(ellipse at 40% 100%, #3a1f8a 0, transparent 60%),
+      linear-gradient(160deg, #0d1b33 0%, #172c5c 45%, #241a52 100%);
+  }
+}
+
+/* ── Menu bar ─────────────────────────────────────────────────────────── */
+
+.pd-menubar {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+  color: var(--pd-menubar-text);
+  background: var(--pd-menubar);
+  backdrop-filter: blur(20px) saturate(1.6);
+}
+
+.pd-menubar svg {
+  fill: currentColor;
+}
+
+.pd-menubar-spacer {
+  flex: 1;
+}
+
+.pd-menubar-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.pd-menubar-item-open {
+  background: rgb(127 127 127 / 0.28);
+}
+
+/* The app's badge: a filled circle with the count knocked out of it. */
+.pd-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 3px;
+  border-radius: 8px;
+  background: var(--pd-menubar-text);
+  color: #6a7fd0;
+  font-size: 9px;
+  font-weight: 600;
+  font-stretch: condensed;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Panel ────────────────────────────────────────────────────────────── */
+
+.pd-panel {
+  position: absolute;
+  top: 32px;
+  right: 24px;
+  width: 370px;
+  border-radius: 18px;
+  box-shadow:
+    0 0 0 0.5px rgb(0 0 0 / 0.18),
+    inset 0 0 0 0.5px var(--pd-rim),
+    0 18px 50px rgb(0 0 0 / 0.28);
+}
+
+/* The library's layers (it inserts .lg-inner and .lg-clone); its own stylesheet
+   holds many components this page does not use, so only these rules are here. */
+.pd-panel > .lg-inner,
+.pd-bubble > .lg-inner {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  background: var(--pd-tint);
+}
+
+.pd-bubble > .lg-inner {
+  background: var(--pd-bubble-tint);
+}
+
+.pd-panel > .lg-clone,
+.pd-bubble > .lg-clone {
+  display: none;
+}
+
+.pd-panel > svg,
+.pd-bubble > svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* Until the glass loads, and wherever script does not run, the panel is the
+   app's material without the bending. */
+.pd-panel:not(:has(> .lg-inner))::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--pd-tint);
+  backdrop-filter: blur(24px) saturate(1.8);
+}
+
+.pd-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pd-content > * + * {
+  border-top: 1px solid var(--pd-separator);
+}
+
+.pd-content > .pd-list,
+.pd-content > .pd-empty {
+  border-top: 0;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────── */
+
+.pd-header {
+  padding: 10px 12px 5px;
+}
+
+.pd-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.pd-title {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  padding-top: 2px;
+}
+
+.pd-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.pd-self {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 10px;
+  color: var(--pd-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.pd-header-tools {
+  display: flex;
+  gap: 8px;
+  color: var(--pd-text);
+  margin-top: 3px;
+}
+
+.pd-icon-button,
+.pd-icon-static {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+.pd-icon-button {
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pd-icon-button:hover:not(:disabled) {
+  background: var(--pd-fill);
+}
+
+.pd-icon-button:active:not(:disabled) {
+  opacity: 0.6;
+}
+
+.pd-status-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.pd-status {
+  flex: 1;
+  min-width: 0;
+  font-size: 11.5px;
+  color: var(--pd-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 2px;
+}
+
+.pd-button-placeholder {
+  height: 20px;
+}
+
+/* A small bordered-prominent button. */
+.pd-button {
+  flex: none;
+  height: 20px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--pd-accent);
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: inset 0 0.5px 0 rgb(255 255 255 / 0.25), 0 0.5px 1px rgb(0 0 0 / 0.2);
+}
+
+.pd-button:hover {
+  filter: brightness(1.08);
+}
+
+.pd-button:active {
+  filter: brightness(0.85);
+}
+
+.pd-button:focus-visible,
+.pd-icon-button:focus-visible,
+.pd-mark:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--pd-accent) 50%, transparent);
+  outline-offset: 1px;
+}
+
+.pd-row-button {
+  min-width: 64px;
+}
+
+/* ── Search ───────────────────────────────────────────────────────────── */
+
+.pd-search {
+  position: relative;
+  margin: 8px 12px;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--pd-fill);
+  box-shadow: inset 0 0 0 0.5px var(--pd-separator);
+  color: var(--pd-secondary);
+}
+
+.pd-search svg {
+  position: absolute;
+  left: 8px;
+  pointer-events: none;
+}
+
+.pd-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 10px 0 27px;
+  border: 0;
+  border-radius: inherit;
+  background: none;
+  color: var(--pd-text);
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.pd-search input::placeholder {
+  color: var(--pd-secondary);
+}
+
+.pd-search:focus-within {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--pd-accent) 45%, transparent);
+}
+
+.pd-search input::-webkit-search-cancel-button {
+  filter: grayscale(1);
+}
+
+/* ── Rows ─────────────────────────────────────────────────────────────── */
+
+.pd-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 380px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.pd-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 7px 12px;
+  box-sizing: border-box;
+}
+
+.pd-row + .pd-row {
+  border-top: 1px solid var(--pd-separator);
+}
+
+.pd-icon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+}
+
+.pd-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.pd-name-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.pd-app-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pd-mark {
+  flex: none;
+  display: inline-flex;
+  padding: 2px;
+  margin: -2px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.pd-mark:hover,
+.pd-mark-open {
+  background: var(--pd-fill);
+}
+
+.pd-runtime {
+  display: block;
+}
+
+.pd-runtime-electron { fill: #30b0c7; }
+.pd-runtime-tauri { fill: #ff9500; }
+.pd-runtime-flutter { fill: #32ade6; }
+.pd-runtime-qt { fill: #34c759; }
+.pd-runtime-native { fill: #8e8e93; }
+
+@media (prefers-color-scheme: dark) {
+  .pd-runtime-electron { fill: #40c8e0; }
+  .pd-runtime-tauri { fill: #ff9f0a; }
+  .pd-runtime-flutter { fill: #64d2ff; }
+  .pd-runtime-qt { fill: #30d158; }
+  .pd-runtime-native { fill: #98989d; }
+}
+
+.pd-version-line {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: var(--pd-text);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.pd-version-new {
+  color: var(--pd-accent);
+}
+
+.pd-action {
+  flex: none;
+  min-width: 64px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pd-current {
+  color: var(--pd-secondary);
+}
+
+.pd-stage,
+.pd-progress {
+  min-width: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.pd-stage-label,
+.pd-percent {
+  font-size: 10px;
+  color: var(--pd-secondary);
+  white-space: nowrap;
+}
+
+.pd-percent {
+  width: 32px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.pd-bar {
+  width: 50px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--pd-fill);
+  box-shadow: inset 0 0 0 0.5px var(--pd-separator);
+  overflow: hidden;
+}
+
+.pd-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--pd-accent);
+  transform-origin: left;
+}
+
+.pd-done {
+  color: var(--pd-green);
+}
+
+/* AppKit's small spinner. */
+.pd-spinner {
+  position: relative;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+.pd-spinner i {
+  position: absolute;
+  left: 6.25px;
+  top: 0;
+  width: 1.5px;
+  height: 4px;
+  border-radius: 1px;
+  background: var(--pd-secondary);
+  transform-origin: 0.75px 7px;
+  animation: pd-spoke 1s linear infinite;
+}
+
+@keyframes pd-spoke {
+  from { opacity: 1; }
+  to { opacity: 0.15; }
+}
+
+/* ── Empty search ─────────────────────────────────────────────────────── */
+
+.pd-empty {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 24px;
+  text-align: center;
+  color: var(--pd-secondary);
+}
+
+.pd-empty p {
+  margin: 0;
+}
+
+.pd-empty-title {
+  margin-top: 6px !important;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--pd-text);
+  overflow-wrap: anywhere;
+}
+
+.pd-empty-hint {
+  font-size: 13px;
+}
+
+/* ── Command-line rows ────────────────────────────────────────────────── */
+
+.pd-cli:empty {
+  display: none;
+}
+
+.pd-tool {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.pd-tool + .pd-tool {
+  border-top: 1px solid var(--pd-separator);
+}
+
+.pd-tool-icon {
+  width: 18px;
+  display: inline-flex;
+  justify-content: center;
+  color: var(--pd-secondary);
+}
+
+.pd-tool-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  white-space: nowrap;
+}
+
+.pd-tool-title {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.pd-tool-status {
+  font-size: 10px;
+  color: var(--pd-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────── */
+
+.pd-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+}
+
+.pd-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pd-checkbox input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pd-checkbox-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pd-fill);
+  box-shadow: inset 0 0 0 0.5px var(--pd-tertiary);
+  color: transparent;
+}
+
+.pd-checkbox input:checked + .pd-checkbox-box {
+  background: var(--pd-accent);
+  box-shadow: none;
+  color: #fff;
+}
+
+.pd-checkbox input:focus-visible + .pd-checkbox-box {
+  outline: 3px solid color-mix(in srgb, var(--pd-accent) 50%, transparent);
+  outline-offset: 1px;
+}
+
+.pd-footer-tools {
+  display: inline-flex;
+  gap: 10px;
+  color: var(--pd-text);
+}
+
+/* ── Runtime card ─────────────────────────────────────────────────────── */
+
+.pd-bubble {
+  position: absolute;
+  z-index: 2;
+  width: 260px;
+  transform: translateX(-24px);
+  border-radius: 14px;
+  box-shadow:
+    inset 0 0 0 0.5px var(--pd-rim),
+    0 10px 30px rgb(0 0 0 / 0.25);
+  animation: pd-pop 0.18s ease-out;
+}
+
+@keyframes pd-pop {
+  from { opacity: 0; transform: translateX(-24px) scale(0.96); }
+}
+
+.pd-bubble-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+}
+
+.pd-bubble-body svg {
+  flex: none;
+}
+
+.pd-bubble-body p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.pd-bubble-title {
+  font-weight: 700;
+  margin-bottom: 2px !important;
+}
+
+.pd-bubble-text {
+  color: var(--pd-text);
+}
+
+/* ── Narrow screens ───────────────────────────────────────────────────── */
+
+@media (max-width: 30rem) {
+  .pd-desktop {
+    height: auto;
+    padding: 32px 8px 12px;
+    border-radius: 12px;
+  }
+
+  .pd-panel {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: auto;
+    max-width: 370px;
+    margin: 0 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-bubble {
+    animation: none;
+  }
+
+  .pd-spinner i {
+    animation-duration: 3s;
+  }
+}

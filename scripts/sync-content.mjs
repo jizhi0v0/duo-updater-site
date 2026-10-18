@@ -15,12 +15,13 @@ import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { syncDemo } from "./sync-demo.mjs";
+
 const here = dirname(fileURLToPath(import.meta.url));
 const siteRoot = resolve(here, "..");
 const appRepo = resolve(process.env.APP_REPO ?? join(siteRoot, "..", "duo-updater"));
 
 const SCREENSHOTS = [
-  "menu-bar.png",
   "changelog.png",
   "cli.png",
   "settings.png",
@@ -212,3 +213,5 @@ await writeFile(
     `</svg>\n`,
 );
 console.log(`→ ${SVG_ICON}`);
+
+await syncDemo({ appRepo, siteRoot, selfVersion: released });
