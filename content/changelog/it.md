@@ -2,6 +2,46 @@
 
 Questa è la traduzione di `CHANGELOG.md`. In caso di differenze fa fede la versione inglese. Le versioni non elencate qui vengono mostrate automaticamente in inglese.
 
+## 0.5.12
+
+**Sono supportate tre app in più.** Harp, TaskExplorer e Lapce ottengono il controllo degli aggiornamenti e gli aggiornamenti con un clic. Biome installato con il suo script ufficiale si aggiunge ad «Altri strumenti» e si aggiorna anch’esso con un clic, e le note di rilascio dell’app Claude sono di nuovo visibili.
+
+**Ogni clic su Homebrew e sugli strumenti da riga di comando viene accolto.** Un clic mentre è in corso un altro aggiornamento ora aspetta il suo turno come «In coda», con «Annulla», invece di lasciare il pulsante disattivato finché il primo non finisce. Le righe di Homebrew e di «Altri strumenti» nella barra dei menu offrono «Annulla» per qualsiasi aggiornamento mostrino, anche per uno avviato dal banco di lavoro.
+
+**Gli strumenti che richiedono la password di amministratore la chiedono al clic.** Helm e Starship installati in una cartella di sistema mostrano subito il pannello della password invece di aspettare il proprio turno; «Aggiorna tutto» ora li include, con un pannello per ciascuno, e un’etichetta «sudo» li contraddistingue. DuoUpdater non si blocca più mentre quel pannello è aperto.
+
+**«Aggiorna tutto» resta disponibile mentre si aggiornano singole app.** Prima spariva finché l’aggiornamento di quell’app non finiva; ora aggiorna le altre.
+
+**DuoUpdater avvisa prima che Homebrew metta una build stabile al posto della tua nightly o beta.** Se hai sostituito un’app di Homebrew con la sua versione nightly o beta, la riga ora segnala che l’aggiornamento la riporta alla versione stabile, come fa l’aggiornamento di Homebrew stesso.
+
+**Il banco di lavoro mostra chi ha avviato uno strumento da riga di comando in esecuzione.** Ogni processo indica quale app o sessione lo ha avviato, e un clic sul suo pid mostra la riga di comando, la catena dei processi e il comando per fermarlo.
+
+**Correzioni.** All’avvio la barra dei menu mostra «Controllo…» finché non termina il primo controllo, invece di «È tutto aggiornato». La casella «Mostra tutto» è visibile sul vetro del menu, e le righe di Homebrew e di «Altri strumenti» sono allineate alle app sopra. Un doppio clic su «Aggiorna» o «Annulla» non annulla più ciò che ha fatto il primo clic. Le app create con NSH hanno il proprio badge di tecnologia.
+
+**Dietro le quinte.** Gli aggiornamenti eseguiti come amministratore scrivono solo in una cartella propria, e Helm non viene mai eseguito come amministratore da un file che il tuo account potrebbe modificare. L’ultima riga di output di un comando non lampeggia più quando un aggiornamento va avanti.
+
+## 0.5.11
+
+**Puoi annullare un aggiornamento, o tutti con «Annulla tutto».** La maggior parte degli aggiornamenti si può annullare finché non inizia la sostituzione dell’app stessa, una formula Homebrew mentre brew la scarica, e un download annullato che riprovi entro pochi minuti riprende da dove si era fermato; gli aggiornamenti dei cask Homebrew e dell’App Store si possono annullare solo prima che inizino.
+
+**Uscire non interrompe più un aggiornamento.** «Esci» attende gli aggiornamenti in corso e offre «Esci al termine»; se un aggiornamento viene comunque interrotto, la sua riga offre «Ripristina», anche per gli aggiornamenti Homebrew e App Store con i backup disattivati.
+
+**Sono supportate quattro app in più.** Obelus (con i suoi strumenti da riga di comando `obg` e `ob`), PennyBar, Git Switch e Kiln ottengono il controllo degli aggiornamenti e gli aggiornamenti con un clic, e ora anche Secretive si aggiorna con un clic, riavviando il suo agente SSH con la nuova versione; l’aggiornamento con un clic dell’app Obelus richiede «Consenti aggiornamenti con un clic per le app senza firma dello sviluppatore».
+
+**Le app che firmano i propri aggiornamenti con una chiave propria si aggiornano con un clic.** Le app Sparkle senza Team ID Apple, come Lokii, venivano rifiutate, e le app il cui metodo di aggiornamento richiede un Team ID non mostrano più un pulsante di aggiornamento destinato a fallire.
+
+**DuoUpdater rifiuta più aggiornamenti che non dovrebbero essere installati.** Ora vengono rifiutati un download più vecchio della build che hai, un aggiornamento che elimina la chiave di firma dell’app e un feed di aggiornamento che non supera un controllo della firma richiesto dal suo sviluppatore.
+
+**Riapri riapre le app lente a chiudersi,** come ChatGPT, invece di lasciarle chiuse. Se qualcosa rimette una versione più vecchia subito dopo un riavvio, la riga lo segnala e propone di nuovo l’aggiornamento.
+
+**Più build beta e note di rilascio.** AirBuild e RuntimeViewer seguono il proprio interruttore beta, le copie di RuntimeViewer troppo vecchie per aggiornarsi da sole ora si possono aggiornare, Tamio e TrellisWM mostrano note di rilascio vere e proprie, Mayoi mostra tutta la sua cronologia, e le note di rilascio di iTerm2 e Longbridge sono tornate.
+
+**Correzioni.** BetterTouchTool si aggiorna di nuovo con un clic mentre il suo watchdog è attivo. Il controllo degli aggiornamenti di Cork funziona di nuovo in modo affidabile, e così gli aggiornamenti con un clic di WorkBuddy e Yomado. A uno Xcode dell’App Store ora vengono proposte le versioni intermedie come 27.0.1 o 27.1.1, che prima risultavano aggiornate. Gli aggiornamenti con un clic di Memoh usano solo le build datate dello sviluppatore, così una copia più vecchia che esegue un proprio server non diventa un client cloud. La riga dell’aggiornamento mostra il numero di build su entrambi i lati o su nessuno, e i pulsanti dicono «Aggiorna 1.53.0» senza ripetere la build. Il codice nelle note di rilascio non mostra più backtick vaganti dove va a capo. La funzione ora si chiama ovunque «Ripristina».
+
+**Il badge di tecnologia dice cosa include un’app,** per esempio «Include Qt Widgets e CEF.»
+
+**Riga di comando.** Ctrl-C durante `duo install` completa il passaggio in corso invece di fermarsi a metà della sostituzione di un’app, e uno strumento che si sta ancora preparando si ferma prima di eseguire il suo aggiornamento.
+
 ## 0.5.10
 
 **Surge e TablePlus non propongono più un aggiornamento che la tua licenza non può aprire.** Entrambe le app si rifiutano di avviare una versione uscita dopo la fine dei tuoi aggiornamenti; quella versione ora mostra un lucchetto al posto del pulsante di aggiornamento, e il lucchetto indica fino a quando copre la tua licenza e di rinnovarla nell’app.

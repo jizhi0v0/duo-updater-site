@@ -2,6 +2,46 @@
 
 Ceci est la traduction de `CHANGELOG.md`. La version anglaise fait autorité. Les versions non énumérées ici reviennent automatiquement à l’anglais.
 
+## 0.5.12
+
+**Trois apps de plus sont prises en charge.** Harp, TaskExplorer et Lapce bénéficient de la vérification des mises à jour et des mises à jour en un clic. Biome installé avec son script officiel rejoint « Autres outils » et se met lui aussi à jour en un clic, et les notes de version de l’app Claude s’affichent de nouveau.
+
+**Chaque clic sur Homebrew et les outils en ligne de commande est pris en compte.** Un clic pendant qu’une autre mise à jour tourne attend désormais son tour « En attente », avec « Annuler », au lieu que le bouton reste grisé jusqu’à la fin de la première. Les lignes Homebrew et « Autres outils » de la barre des menus proposent « Annuler » pour toute mise à jour qu’elles affichent, y compris une mise à jour lancée depuis l’atelier.
+
+**Les outils qui exigent un mot de passe administrateur le demandent dès le clic.** Helm et Starship installés dans un dossier système affichent la fenêtre de mot de passe tout de suite plutôt qu’à leur tour ; « Tout mettre à jour » les inclut désormais, avec une fenêtre pour chacun, et une étiquette « sudo » les signale. DuoUpdater ne se fige plus tant que cette fenêtre est ouverte.
+
+**« Tout mettre à jour » reste disponible pendant la mise à jour d’apps isolées.** Il disparaissait jusqu’à la fin de la mise à jour de l’app ; il met maintenant à jour les autres.
+
+**DuoUpdater prévient avant que Homebrew remplace votre nightly ou bêta par la version stable.** Si vous avez remplacé une app Homebrew par sa version nightly ou bêta, la ligne indique désormais que la mise à jour la fait repasser en version stable, comme le fait la mise à niveau de Homebrew elle-même.
+
+**L’atelier indique qui a lancé un outil en ligne de commande en cours d’exécution.** Chaque processus indique l’app ou la session qui l’a lancé, et un clic sur son pid affiche la ligne de commande, la chaîne de processus et la commande pour l’arrêter.
+
+**Corrections.** Au lancement, la barre des menus affiche « Vérification… » jusqu’à la fin de la première vérification, au lieu de « Tout est à jour ». La case « Tout afficher » est visible sur le verre du menu, et les lignes Homebrew et « Autres outils » s’alignent sur les apps au-dessus. Un double-clic sur « Mettre à jour » ou « Annuler » n’annule plus ce qu’a fait son premier clic. Les apps conçues avec NSH ont leur propre badge de technologie.
+
+**Sous le capot.** Les mises à jour exécutées en tant qu’administrateur n’écrivent que dans un dossier qui leur est propre, et Helm n’est jamais exécuté en tant qu’administrateur depuis un fichier que votre compte pourrait modifier. La dernière ligne affichée par une commande ne clignote plus quand une mise à jour passe à l’étape suivante.
+
+## 0.5.11
+
+**Vous pouvez annuler une mise à jour, ou toutes avec « Tout annuler ».** La plupart des mises à jour peuvent être annulées jusqu’au moment où l’app elle-même est remplacée, une formule Homebrew pendant que brew la télécharge, et un téléchargement annulé que vous relancez dans les minutes qui suivent reprend là où il s’était arrêté ; les mises à jour de casks Homebrew et de l’App Store ne peuvent être annulées qu’avant de commencer.
+
+**Quitter n’interrompt plus une mise à jour.** « Quitter » attend les mises à jour en cours et propose « Quitter une fois terminé » ; si une mise à jour est tout de même interrompue, sa ligne propose « Restaurer », même pour les mises à jour Homebrew et App Store quand les sauvegardes sont désactivées.
+
+**Quatre apps de plus sont prises en charge.** Obelus (avec ses outils en ligne de commande `obg` et `ob`), PennyBar, Git Switch et Kiln bénéficient de la vérification des mises à jour et des mises à jour en un clic, et Secretive se met désormais à jour en un clic lui aussi, en redémarrant son agent SSH sur la nouvelle version ; la mise à jour en un clic de l’app Obelus nécessite « Autoriser les mises à jour en un clic des apps sans signature de développeur ».
+
+**Les apps qui signent leurs mises à jour avec leur propre clé se mettent à jour en un clic.** Les apps Sparkle sans Team ID Apple, comme Lokii, étaient refusées, et les apps dont la méthode de mise à jour exige un Team ID n’affichent plus un bouton de mise à jour voué à l’échec.
+
+**DuoUpdater refuse davantage de mises à jour qui ne devraient pas s’installer.** Un téléchargement plus ancien que la version installée, une mise à jour qui abandonne la clé de signature de l’app et un flux de mises à jour qui échoue à une vérification de signature exigée par son développeur sont désormais refusés.
+
+**Relancer rouvre les apps lentes à quitter,** comme ChatGPT, au lieu de les laisser fermées. Si quelque chose remet une version plus ancienne juste après un redémarrage, la ligne le signale et propose de nouveau la mise à jour.
+
+**Plus de versions bêta et de notes de version.** AirBuild et RuntimeViewer suivent leur propre option bêta, les copies de RuntimeViewer trop anciennes pour se mettre à jour elles-mêmes peuvent être mises à jour, Tamio et TrellisWM affichent de vraies notes de version, Mayoi affiche tout son historique, et les notes de version d’iTerm2 et de Longbridge sont de retour.
+
+**Corrections.** BetterTouchTool se met de nouveau à jour en un clic pendant que son chien de garde tourne. La vérification des mises à jour de Cork fonctionne de nouveau de façon fiable, tout comme les mises à jour en un clic de WorkBuddy et Yomado. Un Xcode de l’App Store se voit désormais proposer les versions intermédiaires comme 27.0.1 ou 27.1.1, qui apparaissaient auparavant comme à jour. Les mises à jour en un clic de Memoh ne prennent que les builds datés de l’éditeur, pour qu’une ancienne copie qui fait tourner son propre serveur ne devienne pas un client cloud. La ligne de mise à jour affiche un numéro de build des deux côtés ou d’aucun, et les boutons indiquent « Mettre à jour 1.53.0 » sans répéter le build. Le code dans les notes de version n’affiche plus d’accents graves parasites aux retours à la ligne. « Revenir en arrière » s’appelle désormais « Restaurer » partout.
+
+**Le badge de technologie indique ce qu’une app contient,** par exemple « Contient Qt Widgets et CEF. »
+
+**Ligne de commande.** Ctrl-C pendant `duo install` termine l’étape en cours au lieu de s’arrêter au milieu du remplacement d’une app, et un outil encore en préparation s’arrête avant de lancer sa mise à jour.
+
 ## 0.5.10
 
 **Surge et TablePlus ne proposent plus une mise à jour que votre licence ne peut pas ouvrir.** Les deux apps refusent de lancer une version publiée après la fin de vos mises à jour ; cette version affiche désormais un cadenas au lieu d’un bouton de mise à jour, et le cadenas indique jusqu’à quand votre licence vous couvre et qu’il faut la renouveler dans l’app.

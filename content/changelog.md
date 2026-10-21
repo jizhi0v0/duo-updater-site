@@ -13,11 +13,51 @@ release note is debugging our code:
   call sites there were, what a reviewer caught.
 - No numbers from a developer's machine, no file or symbol names, no issue numbers.
 - Changes a user cannot perceive (refactors, internal hardening, most performance
-  work) go in a single closing "Under the hood:" line, or nowhere. A speed-up
-  belongs on its own only if someone would actually feel it.
+  work) go in a single closing paragraph that starts `**Under the hood.**`, or
+  nowhere. A speed-up belongs on its own only if someone would actually feel it.
 - Ordered by how much the reader cares, not by when it was merged.
 
 Versions before 0.3.80 are the old long-form style; leave them as shipped.
+
+## 0.5.12
+
+**Three more apps are supported.** Harp, TaskExplorer and Lapce get update checks and one-click updates. Biome installed with its official script joins Other tools and updates in one click too, and release notes for the Claude app show again.
+
+**Every Homebrew and command-line tool click is taken.** A click while another update runs now waits its turn as Queued, with a Cancel, instead of the button staying greyed out until the first one finishes. The menu-bar rows for Homebrew and Other tools offer a Cancel for any update they show, including one started from the workbench.
+
+**Tools that need an administrator password ask at the click.** Helm and Starship in a system folder raise the password panel right away instead of when their turn comes, Update All now includes them with one panel each, and a "sudo" label marks them. DuoUpdater no longer freezes while that panel is up.
+
+**Update All stays available while single apps update.** It used to disappear until that app's update ended; now it updates the rest.
+
+**DuoUpdater says so before Homebrew puts a stable build over your nightly or beta.** If you replaced a Homebrew app with its nightly or beta, the row now marks that updating switches it back to stable, as Homebrew's own upgrade does.
+
+**The workbench shows who started a running command-line tool.** Each process says which app or session started it, and clicking its pid shows the command line, the process chain and the command to stop it.
+
+**Fixes.** At launch the menu bar says Checking… until the first check is done, instead of "Everything is up to date". The Show all checkbox is visible on the menu's glass, and the Homebrew and Other tools rows line up with the apps above them. A double-click on Update or Cancel no longer undoes what its first click did. Apps built with NSH get their own runtime badge.
+
+**Under the hood.** Updates that run as administrator write only into a folder of their own, and Helm is never run as administrator from a file your account could change. A command's last output line no longer flashes as an update moves on.
+
+## 0.5.11
+
+**You can cancel an update, or all of them with Cancel All.** Most updates can be cancelled until the app itself is being replaced, a Homebrew formula while brew downloads it, and a cancelled download that you retry within a few minutes picks up where it stopped; Homebrew cask and App Store updates can be cancelled only before they start.
+
+**Quitting no longer cuts an update off.** Quit waits for updates in progress and offers Quit When Done; if an update is interrupted anyway, its row offers Restore, even for Homebrew and App Store updates with backups turned off.
+
+**Four more apps are supported.** Obelus (with its `obg` and `ob` command-line tools), PennyBar, Git Switch and Kiln get update checks and one-click updates, and Secretive now updates in one click too, restarting its SSH agent on the new version; one-click for the Obelus app needs "Allow one-click updates for apps without a developer signature".
+
+**Apps that sign their updates with their own key update in one click.** Sparkle apps without an Apple Team ID, such as Lokii, used to be refused, and apps whose route needs a Team ID no longer show an Update button that could only fail.
+
+**DuoUpdater refuses more updates that shouldn't install.** A download older than the build you have, an update that drops the app's signing key, and an update feed that fails a signature check its developer requires are now refused.
+
+**Relaunch reopens apps that are slow to quit,** such as ChatGPT, instead of leaving them closed. If something puts an older version back right after a restart, the row says so and offers the update again.
+
+**More beta builds and release notes.** AirBuild and RuntimeViewer follow their own beta switch, RuntimeViewer copies too old to update themselves can be updated, Tamio and TrellisWM show proper release notes, Mayoi shows its full history, and iTerm2 and Longbridge release notes are back.
+
+**Fixes.** BetterTouchTool updates in one click again while its watchdog runs. Cork's update checks work reliably again, and so do one-click updates for WorkBuddy and Yomado. An App Store Xcode is now offered point releases like 27.0.1 or 27.1.1, which used to show as up to date. One-click updates for Memoh only take the vendor's own dated builds, so an older copy that runs its own server isn't turned into a cloud client. The update line shows a build number on both sides or neither, and buttons read "Update 1.53.0" without repeating the build. Code in release notes no longer shows stray backticks where it wraps. "Roll back" is now called Restore everywhere.
+
+**The runtime badge says what an app ships,** for example "Ships Qt Widgets and CEF."
+
+**Command line.** Ctrl-C during `duo install` finishes the step in progress instead of stopping halfway through replacing an app, and a tool that is still preparing stops before it runs its update.
 
 ## 0.5.10
 
