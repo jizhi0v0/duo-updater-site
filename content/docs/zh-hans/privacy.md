@@ -10,7 +10,7 @@
 
 **CleanShot X。** 如果安装了它，会从它的偏好设置中读取 `activationKey`，用来请求 CleanShot 自己的更新程序所使用的个性化 appcast。没有这个密钥，CleanShot 的订阅源会报告试用渠道的版本，届时你收到的更新提示会是你根本装不了的。这个密钥只会发送给 `legit.maketheweb.io`，绝不会写入日志，也不会被写入 HTTP 磁盘缓存。
 
-**TablePlus。** 会读取它的 `IsReceiveBetaBuild` 偏好设置，好让检测运行在应用自己设置的那个渠道上。
+**TablePlus。** 会读取它的 `IsReceiveBetaBuild` 偏好设置，好让检测运行在应用自己设置的那个渠道上。如果存在许可证文件（`.licensemac`）——只检查它是否存在——会读取 TablePlus URL 缓存（`Cache.db`）的一份临时副本，从中找到缓存的 `licenses/devices` 响应，并且只取出其中的“更新截止日期”，用来排除许可证已不再覆盖的版本。这份响应里还有一个设备 ID，不会被使用，也不会被保存。在那里读到的任何内容都不会离开这台 Mac。
 
 **GitHub。** 为了把 API 请求限制从每小时 60 次提高到 5,000 次，会从 `GITHUB_TOKEN` / `GH_TOKEN` 中取一个令牌，取不到就改用 `gh auth token`。它只会发送给 `api.github.com`，一旦重定向离开这个域名，令牌就会被剥离。
 

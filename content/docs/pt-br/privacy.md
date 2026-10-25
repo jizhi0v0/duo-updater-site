@@ -38,6 +38,12 @@ num log, e fica excluída do cache de disco do HTTP.
 
 **TablePlus.** Sua preferência `IsReceiveBetaBuild` é lida, para que a
 detecção rode no mesmo canal em que o próprio app está configurado.
+Se houver um arquivo de licença (`.licensemac`) — só se verifica se ele
+existe —, uma cópia temporária do cache de URLs do TablePlus (`Cache.db`) é
+lida em busca da resposta `licenses/devices` em cache, e dela só se aproveita a
+data "atualizações disponíveis até", para deixar de fora as versões que a
+licença não cobre mais. A resposta também traz um identificador do
+dispositivo, que não é usado nem guardado. Nada do que é lido ali sai do Mac.
 
 **GitHub.** Para elevar o limite da API de 60 requisições por hora para
 5.000, um token é obtido de `GITHUB_TOKEN` / `GH_TOKEN` ou, na falta desses,

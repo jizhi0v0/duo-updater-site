@@ -10,7 +10,7 @@ Açıkça belirtilmesi gereken dört şey var, çünkü bunlar kendi konteynerim
 
 **CleanShot X.** Yüklüyse, tercihlerinden `activationKey` değeri okunur ve CleanShot'ın kendi güncelleyicisinin kullandığı kişiselleştirilmiş appcast'i istemek için kullanılır. Bu anahtar olmadan CleanShot'ın akışı deneme kanalını bildirir ve size yükleyemeyeceğiniz güncellemeler haber verilirdi. Anahtar yalnızca `legit.maketheweb.io`'ya gönderilir, hiçbir zaman bir günlüğe yazılmaz ve HTTP disk önbelleğinin dışında tutulur.
 
-**TablePlus.** `IsReceiveBetaBuild` tercihi okunur; böylece saptama, uygulamanın kendisinin ayarlı olduğu kanalla aynı kanalda çalışır.
+**TablePlus.** `IsReceiveBetaBuild` tercihi okunur; böylece saptama, uygulamanın kendisinin ayarlı olduğu kanalla aynı kanalda çalışır. Bir lisans dosyası (`.licensemac`) varsa — yalnızca var olup olmadığına bakılır — TablePlus'ın URL önbelleğinin (`Cache.db`) geçici bir kopyasından önbelleğe alınmış `licenses/devices` yanıtı okunur ve bundan yalnızca güncellemelerin sunulacağı son tarih alınır; böylece lisansın artık kapsamadığı derlemeler dışarıda bırakılır. Yanıtta bir cihaz kimliği de bulunur; bu kimlik ne kullanılır ne saklanır. Orada okunan hiçbir şey Mac'inizden çıkmaz.
 
 **GitHub.** API hız sınırını saatte 60 istekten 5.000'e çıkarmak için `GITHUB_TOKEN` / `GH_TOKEN` değişkeninden, o da yoksa `gh auth token`'dan bir token alınır. Yalnızca `api.github.com`'a gönderilir ve bu adresten çıkan her yönlendirmeden (redirect) ayıklanır.
 

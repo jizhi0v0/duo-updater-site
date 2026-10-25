@@ -10,7 +10,7 @@
 
 **CleanShot X。** 如果你裝了它，DuoUpdater 會從它的偏好設定裡讀出 `activationKey`，用來請求 CleanShot 自己更新程式所使用的個人化 appcast。沒有這把金鑰，CleanShot 的 feed 會回報試用版通道，你會被告知一些其實裝不上的更新。這把金鑰只會送到 `legit.maketheweb.io`，絕不會寫進日誌，也不會被收進 HTTP 磁碟快取。
 
-**TablePlus。** 會讀取它的 `IsReceiveBetaBuild` 偏好設定，讓偵測結果和 App 本身設定的通道一致。
+**TablePlus。** 會讀取它的 `IsReceiveBetaBuild` 偏好設定，讓偵測結果和 App 本身設定的通道一致。如果有授權檔（`.licensemac`）——只檢查它是否存在——會讀取 TablePlus URL 快取（`Cache.db`）的一份暫存副本，從中找出快取的 `licenses/devices` 回應，而且只取出其中的「可更新至」日期，用來排除授權已不再涵蓋的版本。這份回應裡還有一個裝置 ID，不會被使用，也不會被保留。在那裡讀到的任何內容都不會離開這台 Mac。
 
 **GitHub。** 為了把 API 速率限制從一小時 60 次提高到 5,000 次，會從 `GITHUB_TOKEN` / `GH_TOKEN` 取得權杖，取不到的話則改用 `gh auth token`。這把權杖只會送往 `api.github.com`，一旦重新導向離開這個主機，就會被拔除。
 

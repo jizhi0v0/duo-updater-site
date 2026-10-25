@@ -10,7 +10,7 @@ Vier Dinge verdienen es, ausdrücklich genannt zu werden, weil sie außerhalb un
 
 **CleanShot X.** Ist es installiert, wird sein `activationKey` aus seinen Einstellungen gelesen und genutzt, um den personalisierten Appcast anzufragen, den CleanShots eigener Updater verwendet. Ohne den Schlüssel meldet CleanShots Feed den Testkanal, und dir würden Updates angezeigt, die du nicht installieren kannst. Der Schlüssel wird ausschließlich an `legit.maketheweb.io` gesendet, nie in ein Log geschrieben und vom HTTP-Festplatten-Cache ausgenommen.
 
-**TablePlus.** Dessen `IsReceiveBetaBuild`-Einstellung wird gelesen, damit die Prüfung auf demselben Kanal läuft, auf den die App selbst eingestellt ist.
+**TablePlus.** Dessen `IsReceiveBetaBuild`-Einstellung wird gelesen, damit die Prüfung auf demselben Kanal läuft, auf den die App selbst eingestellt ist. Liegt eine Lizenzdatei (`.licensemac`) vor — geprüft wird nur, ob es sie gibt —, wird eine temporäre Kopie des URL-Caches von TablePlus (`Cache.db`) nach der zwischengespeicherten `licenses/devices`-Antwort gelesen, und daraus wird nur das Datum „Updates verfügbar bis“ übernommen, um Builds auszulassen, die die Lizenz nicht mehr abdeckt. Die Antwort enthält auch eine Geräte-ID, die weder verwendet noch gespeichert wird. Nichts davon verlässt den Mac.
 
 **GitHub.** Um das API-Ratenlimit von 60 Anfragen pro Stunde auf 5.000 anzuheben, wird ein Token aus `GITHUB_TOKEN` / `GH_TOKEN` entnommen, ersatzweise aus `gh auth token`. Es wird ausschließlich an `api.github.com` gesendet und aus jeder Weiterleitung entfernt, die diesen Host verlässt.
 

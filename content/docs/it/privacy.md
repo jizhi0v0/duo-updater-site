@@ -39,6 +39,13 @@ non viene mai scritta in un log ed è esclusa dalla cache su disco HTTP.
 
 **TablePlus.** Viene letta la sua preferenza `IsReceiveBetaBuild`, così il
 rilevamento viene eseguito sullo stesso canale su cui è impostata l'app.
+Se è presente un file di licenza (`.licensemac`) — se ne controlla solo
+l'esistenza — viene letta una copia temporanea della cache degli URL di
+TablePlus (`Cache.db`) per trovarvi la risposta `licenses/devices` in cache, e
+da essa si prende solo la data "aggiornamenti disponibili fino al", per
+escludere le build che la licenza non copre più. La risposta contiene anche un
+identificativo del dispositivo, che non viene usato né conservato. Nulla di
+ciò che vi si legge lascia il Mac.
 
 **GitHub.** Per alzare il limite di richieste API da 60 all'ora a 5.000, un
 token viene preso da `GITHUB_TOKEN` / `GH_TOKEN`, o in mancanza da `gh auth
