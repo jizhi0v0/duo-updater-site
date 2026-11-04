@@ -1,3 +1,5 @@
+import { cacheLife } from "next/cache";
+
 export const REPO = "jizhi0v0/duo-updater";
 export const RELEASES_URL = `https://github.com/${REPO}/releases`;
 export const LATEST_RELEASE_URL = `${RELEASES_URL}/latest`;
@@ -18,6 +20,9 @@ const FALLBACK: LatestRelease = {
 };
 
 export async function fetchLatestRelease(): Promise<LatestRelease> {
+  "use cache";
+  cacheLife("hours");
+
   try {
     const response = await fetch(
       `https://api.github.com/repos/${REPO}/releases/latest`,
