@@ -19,6 +19,60 @@ release note is debugging our code:
 
 Versions before 0.3.80 are the old long-form style; leave them as shipped.
 
+## 0.5.24-beta.7
+
+**TextMate, VimR, Maestro, muCommander and Shotcut now have update checks, one-click updates and release notes.** Supported beta, snapshot and release-candidate tracks follow each app’s channel selection or installed release.
+
+**Running apps stay open while automatic updates download and verify.** Allowed apps quit only when the update is ready to apply, then reopen in the background; if you return to the Mac, the update waits.
+
+**Recoverable backups are easier to find and manage.** Backup cleanup lists saved copies separately, including pending copies, and marks protected restore points and missing files.
+
+**Homebrew handles unversioned casks and missing apps more clearly.** Third-party casks without a comparable version can check other sources when allowed, while apps missing from their registered location are shown and skipped during Brew upgrades.
+
+**Release notes include distinct builds of the same version.** Updates that share a version number but have their own notes are no longer collapsed into one entry.
+
+**Longbridge Preview updates can install again.** Download links with a build identifier are now recognized.
+
+## 0.5.24-beta.6
+
+**Automatic updates now respect your backup setting.** Turning off backups prevents automatic updates from creating a saved backup of the previous app version. Existing backups are kept.
+
+**Automatic Updates settings stay responsive with large app libraries.** Opening the page and turning on backups no longer lay out every app row at once.
+
+## 0.5.24-beta.5
+
+**Homebrew updates are detected more reliably.** Apps such as Karabiner-Elements are now matched through their installer receipts, and apps such as WezTerm no longer keep offering the version Homebrew already installed.
+
+**Choose how long automatic updates wait before quitting an allowed running app.** The wait can be 15, 30 or 60 minutes, and frequent new releases no longer restart it. Settings also warns when automatic updates are on without backups and offers a button to enable them.
+
+**See where updates come from and what holds them back.** The app list in the main window shows each app’s update source. In Events, click an outcome summary to filter the list, and inspect the processes blocking an update.
+
+## 0.5.24-beta.4
+
+**Choose which running apps may update while you are away.** The new Automatic Updates settings page lets you allow individual apps to quit, update and reopen when idle, keep updates limited to closed apps, or exclude an app; a setup guide helps you choose in bulk.
+
+**Automatic-update events are easier to follow.** Entries are grouped by day, repeated deferrals are combined, and clearer diagnostics explain what is holding an update back.
+
+## 0.5.24-beta.3
+
+**Choose how Homebrew apps check other sources.** Set a default in Settings or choose Homebrew Only for an individual app. Updates signed by a different developer are skipped when that difference can be detected.
+
+**Beta and Setapp settings are easier to read.** Their controls now follow the layout used throughout Settings.
+
+## 0.5.24-beta.2
+
+**Homebrew apps check their original source first.** If Homebrew reports no update, you can opt in to checking other sources from the app’s menu.
+
+**Homebrew updates are easier to manage.** Official casks installed in subfolders no longer appear twice, and Upgrade All hides when all available updates are running or queued.
+
+**Automatic updates are less likely to be deferred incorrectly.** In Events, you can see why an update was deferred and preview a report with identifying details removed before saving it.
+
+## 0.5.24-beta.1
+
+**Try automatic updates for closed apps in this Beta.** Enable the option in Settings to install eligible updates after scheduled checks, with a backup before each update. Running apps, installers, and updates requiring authorization are skipped. App data is not backed up.
+
+**Help improve the Beta by reporting problems.** Open a GitHub issue from Settings → Updates and include the relevant Events entries.
+
 ## 0.5.23
 
 **Choose Beta updates in Settings and help test upcoming releases.** You can also open a GitHub issue from the Updates pane to report a problem.

@@ -2,6 +2,60 @@
 
 Questa è la traduzione di `CHANGELOG.md`. In caso di differenze fa fede la versione inglese. Le versioni non elencate qui vengono mostrate automaticamente in inglese.
 
+## 0.5.24-beta.7
+
+**TextMate, VimR, Maestro, muCommander e Shotcut ora offrono controllo degli aggiornamenti, aggiornamenti con un clic e note di rilascio.** I canali beta, snapshot e RC supportati seguono la scelta di ciascuna app o la versione installata.
+
+**Le app aperte restano in esecuzione durante il download e la verifica degli aggiornamenti automatici.** Le app autorizzate si chiudono solo quando l’aggiornamento è pronto per essere installato, poi si riaprono in background; se torni al Mac, l’aggiornamento attende.
+
+**È più facile trovare e gestire i backup recuperabili.** La pulizia dei backup elenca separatamente le copie salvate, incluse quelle in sospeso, e segnala i punti di ripristino protetti e i file mancanti.
+
+**Homebrew gestisce più chiaramente i cask senza versione e le app mancanti.** I cask di terze parti senza una versione confrontabile possono consultare altre fonti se autorizzati; le app assenti dal percorso registrato vengono mostrate e saltate durante gli aggiornamenti Brew.
+
+**Le note di rilascio includono build distinte della stessa versione.** Le build con lo stesso numero di versione ma note proprie non vengono più riunite in un’unica voce.
+
+**Longbridge Preview può di nuovo essere aggiornato.** Ora vengono riconosciuti i link di download con un identificativo della build.
+
+## 0.5.24-beta.6
+
+**Gli aggiornamenti automatici ora rispettano le impostazioni di backup.** Disattivando i backup, gli aggiornamenti automatici non conserveranno più la versione precedente dell’app. I backup esistenti vengono mantenuti.
+
+**Le impostazioni degli aggiornamenti automatici restano reattive anche con molte app.** Aprire la pagina o attivare i backup non richiede più di disporre tutte le righe contemporaneamente.
+
+## 0.5.24-beta.5
+
+**Gli aggiornamenti Homebrew vengono rilevati con maggiore affidabilità.** App come Karabiner-Elements vengono ora associate tramite le ricevute di installazione, e app come WezTerm non propongono più ripetutamente la versione già installata da Homebrew.
+
+**Scegli quanto attendere prima di chiudere un’app in esecuzione autorizzata per aggiornarla automaticamente.** Puoi scegliere 15, 30 o 60 minuti; le nuove versioni frequenti non azzerano più l’attesa. Le impostazioni avvisano anche quando gli aggiornamenti automatici sono attivi senza backup e offrono un pulsante per abilitarli.
+
+**Scopri da dove arrivano gli aggiornamenti e cosa li blocca.** L’elenco delle app nella finestra principale mostra la fonte degli aggiornamenti di ogni app. In Eventi, fai clic su un riepilogo degli esiti per filtrare l’elenco e consulta i processi che bloccano un aggiornamento.
+
+## 0.5.24-beta.4
+
+**Scegli quali app aperte possono aggiornarsi mentre sei assente.** La nuova pagina delle impostazioni degli aggiornamenti automatici consente a ogni app di chiudersi, aggiornarsi e riaprirsi quando è inattiva, di aggiornarsi solo da chiusa o di essere esclusa; una guida facilita la selezione di più app.
+
+**Gli eventi degli aggiornamenti automatici sono più facili da seguire.** Le voci sono raggruppate per giorno, i rinvii ripetuti sono riuniti e la diagnostica spiega più chiaramente cosa impedisce un aggiornamento.
+
+## 0.5.24-beta.3
+
+**Scegli come le app Homebrew controllano altre fonti.** Imposta il comportamento predefinito nelle impostazioni oppure scegli solo Homebrew per una singola app. Gli aggiornamenti firmati da uno sviluppatore diverso vengono ignorati quando è possibile rilevare la differenza.
+
+**Le impostazioni Beta e Setapp sono più chiare.** I controlli ora seguono la disposizione delle altre impostazioni.
+
+## 0.5.24-beta.2
+
+**Le app installate tramite Homebrew controllano prima la fonte originale.** Se Homebrew segnala che non ci sono aggiornamenti, puoi attivare il controllo di altre fonti dal menu dell’app.
+
+**È più facile gestire gli aggiornamenti di Homebrew.** I cask ufficiali installati in sottocartelle non compaiono più due volte e l’opzione per aggiornare tutto si nasconde quando tutti gli aggiornamenti disponibili sono in corso o in coda.
+
+**Gli aggiornamenti automatici vengono rinviati per errore meno spesso.** In Eventi puoi vedere il motivo del rinvio e visualizzare un’anteprima del rapporto privo di dati identificativi prima di salvarlo.
+
+## 0.5.24-beta.1
+
+**Prova gli aggiornamenti automatici delle app chiuse in questa Beta.** Abilita l’opzione nelle impostazioni per installare gli aggiornamenti idonei dopo i controlli programmati, con un backup prima di ogni aggiornamento. Le app aperte, i programmi di installazione e gli aggiornamenti che richiedono autorizzazione vengono ignorati. I dati delle app non vengono salvati.
+
+**Aiuta a migliorare la Beta segnalando i problemi.** Apri una issue su GitHub da Impostazioni → Aggiornamenti e includi gli eventi pertinenti.
+
 ## 0.5.23
 
 **Scegli gli aggiornamenti Beta nelle impostazioni e aiuta a provare le prossime versioni.** Puoi anche aprire una segnalazione su GitHub dal pannello Aggiornamenti per comunicare un problema.

@@ -2,6 +2,60 @@
 
 Esta é a tradução para o português do Brasil do arquivo CHANGELOG.md. A versão em inglês prevalece em caso de divergência. Os números de versão que não aparecem aqui são mostrados automaticamente em inglês na janela Novidades.
 
+## 0.5.24-beta.7
+
+**TextMate, VimR, Maestro, muCommander e Shotcut agora têm verificação de atualizações, atualização com um clique e notas de versão.** Os canais beta, snapshot e RC compatíveis seguem a escolha de cada app ou a versão instalada.
+
+**Apps abertos continuam funcionando durante o download e a verificação das atualizações automáticas.** Os apps autorizados só são encerrados quando a atualização está pronta para instalar e depois reabrem em segundo plano; se você voltar ao Mac, a atualização aguarda.
+
+**Ficou mais fácil encontrar e gerenciar backups recuperáveis.** A limpeza de backups lista cada cópia salva separadamente, incluindo as pendentes, e indica pontos de restauração protegidos e arquivos ausentes.
+
+**O Homebrew lida com mais clareza com casks sem versão e apps ausentes.** Casks de terceiros sem uma versão comparável podem consultar outras fontes quando permitido; apps ausentes do local registrado são exibidos e ignorados nas atualizações pelo Brew.
+
+**As notas de versão incluem compilações distintas da mesma versão.** Compilações com o mesmo número de versão, mas com notas próprias, não são mais agrupadas em uma única entrada.
+
+**O Longbridge Preview pode ser atualizado novamente.** Links de download com um identificador de compilação agora são reconhecidos.
+
+## 0.5.24-beta.6
+
+**As atualizações automáticas agora respeitam sua configuração de backup.** Com os backups desativados, as atualizações automáticas não salvam mais a versão anterior do app. Os backups existentes são mantidos.
+
+**As configurações de atualizações automáticas continuam ágeis mesmo com muitos apps.** Abrir a página e ativar os backups não exige mais organizar todas as linhas de apps de uma só vez.
+
+## 0.5.24-beta.5
+
+**As atualizações do Homebrew são detectadas com mais confiabilidade.** Apps como Karabiner-Elements agora são identificados pelos recibos de instalação, e apps como WezTerm deixam de oferecer repetidamente a versão que o Homebrew já instalou.
+
+**Escolha quanto esperar antes de encerrar um app em execução autorizado para atualizá-lo automaticamente.** A espera pode ser de 15, 30 ou 60 minutos; novas versões frequentes não a reiniciam mais. Os Ajustes também avisam quando as atualizações automáticas estão ativas sem backups e oferecem um botão para ativá-los.
+
+**Veja de onde vêm as atualizações e o que as impede.** A lista de apps na janela principal mostra a fonte de atualização de cada app. Em Eventos, clique em um resumo de resultados para filtrar a lista e veja os processos que bloqueiam uma atualização.
+
+## 0.5.24-beta.4
+
+**Escolha quais apps abertos podem ser atualizados enquanto você está ausente.** A nova página de ajustes de atualizações automáticas permite que cada app seja fechado, atualizado e reaberto quando estiver ocioso, limitar as atualizações a apps fechados ou excluir um app; um assistente facilita a seleção em grupo.
+
+**Os eventos de atualização automática ficaram mais fáceis de acompanhar.** As entradas são agrupadas por dia, os adiamentos repetidos são combinados e os diagnósticos explicam com mais clareza o que impede uma atualização.
+
+## 0.5.24-beta.3
+
+**Escolha como os apps do Homebrew consultam outras fontes.** Defina o comportamento padrão nos Ajustes ou escolha usar apenas o Homebrew para um app. Atualizações assinadas por outro desenvolvedor são ignoradas quando essa diferença pode ser detectada.
+
+**Os ajustes de Beta e Setapp estão mais claros.** Seus controles agora seguem o layout dos demais ajustes.
+
+## 0.5.24-beta.2
+
+**Os apps instalados pelo Homebrew consultam primeiro a fonte original.** Se o Homebrew informar que não há atualização, você pode ativar a consulta a outras fontes no menu do app.
+
+**Ficou mais fácil gerenciar as atualizações do Homebrew.** Casks oficiais instalados em subpastas não aparecem mais em duplicidade, e a opção de atualizar tudo fica oculta quando todas as atualizações disponíveis estão em andamento ou na fila.
+
+**As atualizações automáticas são adiadas por engano com menos frequência.** Em Eventos, você pode consultar o motivo do adiamento e visualizar um relatório sem dados de identificação antes de salvá-lo.
+
+## 0.5.24-beta.1
+
+**Experimente atualizações automáticas de apps fechados nesta Beta.** Ative a opção nos ajustes para instalar atualizações compatíveis após as verificações agendadas, com um backup antes de cada atualização. Apps abertos, instaladores e atualizações que exigem autorização são ignorados. Os dados dos apps não são incluídos no backup.
+
+**Ajude a melhorar a Beta relatando problemas.** Abra uma issue no GitHub em Ajustes → Atualizações e inclua os eventos relacionados.
+
 ## 0.5.23
 
 **Escolha as atualizações Beta nos Ajustes e ajude a testar as próximas versões.** Você também pode abrir uma issue no GitHub pelo painel Atualizações para relatar um problema.

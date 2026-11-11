@@ -2,6 +2,60 @@
 
 Bu, `CHANGELOG.md` dosyasının Türkçe çevirisidir. Geçerli olan İngilizce sürümdür; burada yer almayan eski sürümler otomatik olarak İngilizce gösterilir.
 
+## 0.5.24-beta.7
+
+**TextMate, VimR, Maestro, muCommander ve Shotcut artık güncelleme denetimi, tek tıkla güncelleme ve sürüm notları sunuyor.** Desteklenen beta, snapshot ve RC kanalları, uygulamanın kanal seçimini veya yüklü sürümü izler.
+
+**Otomatik güncellemeler indirilip doğrulanırken çalışan uygulamalar açık kalır.** İzin verilen uygulamalar yalnızca güncelleme kurulmaya hazır olduğunda kapatılır ve ardından arka planda yeniden açılır; Mac’e dönerseniz güncelleme bekler.
+
+**Kurtarılabilir yedekleri bulmak ve yönetmek kolaylaştı.** Yedek temizleme, bekleyenler dahil kayıtlı kopyaları ayrı ayrı listeler ve korunan geri yükleme noktalarını ve eksik dosyaları belirtir.
+
+**Homebrew, sürümsüz cask’leri ve eksik uygulamaları daha anlaşılır biçimde ele alır.** Karşılaştırılabilir sürümü olmayan üçüncü taraf cask’ler izin verildiğinde diğer kaynakları denetleyebilir; kayıtlı konumunda bulunmayan uygulamalar gösterilir ve Brew güncellemelerinde atlanır.
+
+**Sürüm notları aynı sürümün farklı derlemelerini içerir.** Sürüm numarası aynı olsa da kendi notları olan derlemeler artık tek bir kayıtta birleştirilmez.
+
+**Longbridge Preview yeniden güncellenebiliyor.** Derleme kimliği içeren indirme bağlantıları artık tanınıyor.
+
+## 0.5.24-beta.6
+
+**Otomatik güncellemeler artık yedekleme ayarınıza uyuyor.** Yedeklemeler kapatıldığında otomatik güncellemeler uygulamanın önceki sürümünü artık kaydetmez. Mevcut yedekler korunur.
+
+**Otomatik güncelleme ayarları, çok sayıda uygulama olsa da hızlı yanıt veriyor.** Sayfayı açmak ve yedeklemeyi etkinleştirmek artık tüm uygulama satırlarının aynı anda yerleştirilmesini gerektirmiyor.
+
+## 0.5.24-beta.5
+
+**Homebrew güncellemeleri daha güvenilir algılanıyor.** Karabiner-Elements gibi uygulamalar artık kurulum makbuzlarıyla eşleştiriliyor; WezTerm gibi uygulamalar Homebrew’un zaten yüklediği sürümü tekrar tekrar önermiyor.
+
+**Otomatik güncelleme için izin verdiğiniz çalışan bir uygulamayı kapatmadan önce ne kadar bekleneceğini seçin.** 15, 30 veya 60 dakika seçebilirsiniz; sık çıkan yeni sürümler beklemeyi artık sıfırlamaz. Yedekleme kapalıyken otomatik güncellemeler açıksa Ayarlar uyarı gösterir ve yedeklemeyi açmak için bir düğme sunar.
+
+**Güncellemelerin kaynağını ve neyin engel olduğunu görün.** Ana penceredeki uygulama listesi her uygulamanın güncelleme kaynağını gösterir. Olaylar’da sonuç özetine tıklayarak listeyi filtreleyebilir ve güncellemeyi engelleyen süreçleri inceleyebilirsiniz.
+
+## 0.5.24-beta.4
+
+**Siz uzaktayken hangi açık uygulamaların güncellenebileceğini seçin.** Yeni otomatik güncelleme ayarları sayfasında her uygulamanın boştayken kapanıp güncellenerek yeniden açılmasına izin verebilir, güncellemeleri yalnızca kapalı uygulamalarla sınırlayabilir veya bir uygulamayı hariç tutabilirsiniz; kurulum rehberi toplu seçim yapmanızı kolaylaştırır.
+
+**Otomatik güncelleme olaylarını takip etmek daha kolay.** Kayıtlar güne göre gruplanır, tekrarlanan ertelemeler birleştirilir ve tanılama bilgileri güncellemeyi neyin engellediğini daha açık anlatır.
+
+## 0.5.24-beta.3
+
+**Homebrew uygulamalarının diğer kaynakları nasıl kontrol edeceğini seçin.** Ayarlar’dan varsayılan davranışı belirleyin veya tek bir uygulama için yalnızca Homebrew’u seçin. Farklı bir geliştirici tarafından imzalanan güncellemeler, bu fark algılanabildiğinde atlanır.
+
+**Beta ve Setapp ayarları daha okunaklı.** Denetimleri artık diğer ayarlarla aynı düzeni kullanıyor.
+
+## 0.5.24-beta.2
+
+**Homebrew ile yüklenen uygulamalar önce özgün kaynaklarını kontrol eder.** Homebrew güncelleme olmadığını bildirirse uygulamanın menüsünden diğer kaynakların kontrol edilmesini açabilirsiniz.
+
+**Homebrew güncellemelerini yönetmek daha kolay.** Alt klasörlere kurulan resmî cask’ler artık iki kez görünmüyor ve tüm güncellemeler sürerken veya sıradayken toplu güncelleme seçeneği gizleniyor.
+
+**Otomatik güncellemeler yanlışlıkla daha seyrek erteleniyor.** Olaylar bölümünde erteleme nedenini görebilir ve tanımlayıcı bilgilerden arındırılmış raporu kaydetmeden önce önizleyebilirsiniz.
+
+## 0.5.24-beta.1
+
+**Bu Beta sürümünde kapalı uygulamalar için otomatik güncellemeleri deneyin.** Zamanlanmış kontrollerden sonra uygun güncellemeleri her güncelleme öncesinde yedek alarak yüklemek için Ayarlar’dan seçeneği etkinleştirin. Çalışan uygulamalar, yükleyiciler ve yetkilendirme gerektiren güncellemeler atlanır. Uygulama verileri yedeklenmez.
+
+**Sorunları bildirerek Beta’yı iyileştirmeye yardımcı olun.** Ayarlar → Güncellemeler bölümünden bir GitHub issue açın ve ilgili olay kayıtlarını ekleyin.
+
 ## 0.5.23
 
 **Ayarlardan Beta güncellemelerini seçerek gelecek sürümlerin test edilmesine yardımcı olun.** Sorun bildirmek için Güncellemeler panelinden GitHub’da bir issue da açabilirsiniz.

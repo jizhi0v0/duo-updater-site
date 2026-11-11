@@ -2,6 +2,60 @@
 
 Ceci est la traduction de `CHANGELOG.md`. La version anglaise fait autorité. Les versions non énumérées ici reviennent automatiquement à l’anglais.
 
+## 0.5.24-beta.7
+
+**TextMate, VimR, Maestro, muCommander et Shotcut disposent désormais de la recherche de mises à jour, de la mise à jour en un clic et des notes de version.** Les canaux bêta, snapshot et RC pris en charge suivent le choix de chaque app ou la version installée.
+
+**Les apps restent ouvertes pendant le téléchargement et la vérification des mises à jour automatiques.** Les apps autorisées ne quittent que lorsque la mise à jour est prête à être installée, puis se rouvrent en arrière-plan ; si vous revenez au Mac, la mise à jour attend.
+
+**Les sauvegardes récupérables sont plus faciles à trouver et à gérer.** Le nettoyage affiche chaque copie enregistrée séparément, y compris les copies en attente, et signale les points de restauration protégés et les fichiers manquants.
+
+**Homebrew gère plus clairement les casks sans version et les apps absentes.** Les casks tiers sans version comparable peuvent consulter d’autres sources si vous l’autorisez ; les apps absentes de leur emplacement enregistré sont affichées et ignorées lors des mises à jour Brew.
+
+**Les notes de version présentent les différentes compilations d’une même version.** Les compilations portant le même numéro mais ayant leurs propres notes ne sont plus regroupées en une seule entrée.
+
+**Longbridge Preview peut à nouveau être mis à jour.** Les liens de téléchargement contenant un identifiant de compilation sont désormais reconnus.
+
+## 0.5.24-beta.6
+
+**Les mises à jour automatiques respectent désormais votre réglage de sauvegarde.** Lorsque les sauvegardes sont désactivées, les mises à jour automatiques ne conservent plus la version précédente de l’app. Les sauvegardes existantes sont conservées.
+
+**Les réglages des mises à jour automatiques restent réactifs, même avec de nombreuses apps.** L’ouverture de la page et l’activation des sauvegardes ne déclenchent plus la mise en page de toutes les lignes à la fois.
+
+## 0.5.24-beta.5
+
+**Les mises à jour Homebrew sont détectées plus sûrement.** Les apps comme Karabiner-Elements sont désormais identifiées grâce à leurs reçus d’installation, et les apps comme WezTerm ne proposent plus sans cesse la version déjà installée par Homebrew.
+
+**Choisissez le délai avant de quitter une app en cours d’exécution autorisée pour une mise à jour automatique.** Le délai peut être de 15, 30 ou 60 minutes ; les nouvelles versions fréquentes ne le réinitialisent plus. Les réglages signalent aussi les mises à jour automatiques activées sans sauvegardes et proposent un bouton pour activer celles-ci.
+
+**Voyez d’où viennent les mises à jour et ce qui les bloque.** La liste des apps de la fenêtre principale affiche leur source de mise à jour. Dans Événements, cliquez sur un résumé des résultats pour filtrer la liste et consultez les processus qui bloquent une mise à jour.
+
+## 0.5.24-beta.4
+
+**Choisissez quelles apps ouvertes peuvent se mettre à jour pendant votre absence.** La nouvelle page de réglages des mises à jour automatiques permet, pour chaque app, sa fermeture, sa mise à jour et sa réouverture au repos, les mises à jour uniquement une fois fermée, ou son exclusion ; un assistant facilite la sélection de plusieurs apps.
+
+**Les événements des mises à jour automatiques sont plus lisibles.** Les entrées sont regroupées par jour, les reports répétés sont réunis et les diagnostics expliquent plus clairement ce qui retarde une mise à jour.
+
+## 0.5.24-beta.3
+
+**Choisissez comment les apps Homebrew consultent d’autres sources.** Définissez le comportement par défaut dans les réglages ou choisissez Homebrew uniquement pour une app. Les mises à jour signées par un autre développeur sont ignorées lorsque cette différence peut être détectée.
+
+**Les réglages Beta et Setapp sont plus lisibles.** Leurs commandes suivent désormais la présentation du reste des réglages.
+
+## 0.5.24-beta.2
+
+**Les apps installées via Homebrew consultent d’abord leur source d’origine.** Si Homebrew signale qu’aucune mise à jour n’est disponible, vous pouvez activer la recherche auprès d’autres sources dans le menu de l’app.
+
+**Les mises à jour Homebrew sont plus faciles à gérer.** Les casks officiels installés dans des sous-dossiers ne s’affichent plus en double, et l’option de mise à jour groupée disparaît quand toutes les mises à jour disponibles sont en cours ou en attente.
+
+**Les mises à jour automatiques sont moins souvent reportées par erreur.** Dans Événements, vous pouvez voir le motif du report et prévisualiser un rapport sans données d’identification avant de l’enregistrer.
+
+## 0.5.24-beta.1
+
+**Essayez les mises à jour automatiques des apps fermées dans cette Beta.** Activez l’option dans les réglages pour installer les mises à jour éligibles après les vérifications planifiées, avec une sauvegarde préalable. Les apps ouvertes, les programmes d’installation et les mises à jour nécessitant une autorisation sont ignorés. Les données des apps ne sont pas sauvegardées.
+
+**Aidez à améliorer la Beta en signalant les problèmes.** Ouvrez une issue GitHub depuis Réglages → Mises à jour et joignez les événements correspondants.
+
 ## 0.5.23
 
 **Choisissez les mises à jour Beta dans les réglages pour tester les prochaines versions.** Vous pouvez aussi ouvrir un ticket GitHub depuis le panneau Mises à jour pour signaler un problème.

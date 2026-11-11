@@ -2,6 +2,60 @@
 
 Dies ist eine deutsche Übersetzung von `CHANGELOG.md`. Die englische Fassung ist maßgeblich; frühere Versionen, die hier nicht aufgeführt sind, fallen automatisch auf Englisch zurück.
 
+## 0.5.24-beta.7
+
+**TextMate, VimR, Maestro, muCommander und Shotcut erhalten Update-Prüfungen, Ein-Klick-Updates und Versionshinweise.** Unterstützte Beta-, Snapshot- und RC-Kanäle folgen der Kanalwahl der jeweiligen App oder der installierten Version.
+
+**Laufende Apps bleiben während Download und Prüfung automatischer Updates geöffnet.** Freigegebene Apps werden erst beendet, wenn das Update bereit zur Installation ist, und danach im Hintergrund erneut geöffnet; kehrst du zum Mac zurück, wartet das Update.
+
+**Wiederherstellbare Backups lassen sich leichter finden und verwalten.** Die Backup-Bereinigung listet gespeicherte Kopien einzeln auf, auch ausstehende, und kennzeichnet geschützte Wiederherstellungspunkte und fehlende Dateien.
+
+**Homebrew behandelt Casks ohne Versionsnummer und fehlende Apps verständlicher.** Drittanbieter-Casks ohne vergleichbare Version dürfen bei entsprechender Freigabe andere Quellen prüfen; Apps, die am registrierten Ort fehlen, werden angezeigt und bei Brew-Updates übersprungen.
+
+**Versionshinweise enthalten unterschiedliche Builds derselben Version.** Builds mit gleicher Versionsnummer, aber eigenen Hinweisen werden nicht mehr zu einem Eintrag zusammengefasst.
+
+**Longbridge Preview lässt sich wieder aktualisieren.** Download-Links mit einer Build-Kennung werden jetzt erkannt.
+
+## 0.5.24-beta.6
+
+**Automatische Updates berücksichtigen jetzt deine Backup-Einstellung.** Wenn Backups deaktiviert sind, speichern automatische Updates keine Sicherung der vorherigen App-Version mehr. Vorhandene Backups bleiben erhalten.
+
+**Die Einstellungen für automatische Updates reagieren auch bei vielen Apps flüssig.** Beim Öffnen der Seite und Aktivieren von Backups werden nicht mehr alle App-Zeilen gleichzeitig aufgebaut.
+
+## 0.5.24-beta.5
+
+**Homebrew-Updates werden zuverlässiger erkannt.** Apps wie Karabiner-Elements werden jetzt über ihre Installationsbelege zugeordnet. Apps wie WezTerm bieten nicht mehr wiederholt die bereits von Homebrew installierte Version an.
+
+**Wählen Sie die Wartezeit vor dem Beenden einer freigegebenen laufenden App für automatische Updates.** Möglich sind 15, 30 oder 60 Minuten; häufige neue Versionen setzen die Wartezeit nicht mehr zurück. Sind automatische Updates ohne Backups aktiv, zeigen die Einstellungen eine Warnung und eine Schaltfläche zum Einschalten der Backups.
+
+**Sehen Sie, woher Updates kommen und was sie aufhält.** Die App-Liste im Hauptfenster zeigt die Update-Quelle jeder App. Klicken Sie in Ereignisse auf eine Ergebnisübersicht, um die Liste zu filtern, und prüfen Sie die Prozesse, die ein Update blockieren.
+
+## 0.5.24-beta.4
+
+**Bestimme, welche laufenden Apps während deiner Abwesenheit aktualisiert werden dürfen.** Auf der neuen Einstellungsseite für automatische Updates kannst du einzelnen Apps erlauben, bei Inaktivität beendet, aktualisiert und wieder geöffnet zu werden, Updates auf geschlossene Apps beschränken oder eine App ausschließen; ein Assistent hilft bei der Auswahl mehrerer Apps.
+
+**Ereignisse automatischer Updates sind übersichtlicher.** Einträge werden nach Tagen gruppiert, wiederholte Verschiebungen zusammengefasst und die Gründe für ausstehende Updates verständlicher erklärt.
+
+## 0.5.24-beta.3
+
+**Wählen Sie, wie Homebrew-Apps andere Quellen prüfen.** Legen Sie in den Einstellungen einen Standard fest oder wählen Sie für einzelne Apps nur Homebrew. Updates mit einer anderen Entwicklersignatur werden übersprungen, wenn der Unterschied erkannt werden kann.
+
+**Beta- und Setapp-Einstellungen sind übersichtlicher.** Ihre Bedienelemente folgen jetzt dem Layout der übrigen Einstellungen.
+
+## 0.5.24-beta.2
+
+**Homebrew-Apps prüfen zuerst ihre ursprüngliche Quelle.** Meldet Homebrew kein Update, kannst du im Menü der App die Prüfung anderer Quellen aktivieren.
+
+**Homebrew-Updates lassen sich leichter verwalten.** In Unterordnern installierte offizielle Casks erscheinen nicht mehr doppelt, und „Alle aktualisieren“ wird ausgeblendet, wenn alle verfügbaren Updates laufen oder in der Warteschlange stehen.
+
+**Automatische Updates werden seltener irrtümlich zurückgestellt.** Unter „Ereignisse“ siehst du den Grund und kannst vor dem Speichern eine Vorschau des Berichts ohne identifizierende Angaben ansehen.
+
+## 0.5.24-beta.1
+
+**Teste in dieser Beta automatische Updates für geschlossene Apps.** Aktiviere die Option in den Einstellungen, um geeignete Updates nach geplanten Prüfungen mit vorheriger Sicherung zu installieren. Laufende Apps, Installationsprogramme und Updates mit Autorisierungsbedarf werden übersprungen. App-Daten werden nicht gesichert.
+
+**Hilf mit Fehlerberichten, die Beta zu verbessern.** Öffne unter Einstellungen → Updates ein GitHub-Issue und füge die entsprechenden Ereigniseinträge bei.
+
 ## 0.5.23
 
 **Wähle Beta-Updates in den Einstellungen und teste kommende Versionen mit.** Im Bereich Updates kannst du auch ein GitHub-Issue öffnen, um ein Problem zu melden.
