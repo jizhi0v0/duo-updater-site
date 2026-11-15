@@ -59,14 +59,33 @@ if (!existsSync(join(appRepo, "CHANGELOG.md"))) {
   process.exit(1);
 }
 
-/** Numeric-segment compare; -1, 0 or 1 for a < b, a == b, a > b. */
+/** Release-version compare; prereleases sort before their final release. */
 function compareVersions(a, b) {
-  const pa = a.split(".").map(Number);
-  const pb = b.split(".").map(Number);
+  const [coreA, preA] = a.split("-", 2);
+  const [coreB, preB] = b.split("-", 2);
+  const pa = coreA.split(".").map(Number);
+  const pb = coreB.split(".").map(Number);
   for (let i = 0; i < Math.max(pa.length, pb.length); i += 1) {
     const x = pa[i] ?? 0;
     const y = pb[i] ?? 0;
     if (x !== y) return x < y ? -1 : 1;
+  }
+  if (preA === preB) return 0;
+  if (preA === undefined) return 1;
+  if (preB === undefined) return -1;
+  const qa = preA.split(".");
+  const qb = preB.split(".");
+  for (let i = 0; i < Math.max(qa.length, qb.length); i += 1) {
+    const x = qa[i];
+    const y = qb[i];
+    if (x === y) continue;
+    if (x === undefined) return -1;
+    if (y === undefined) return 1;
+    const numericX = /^\d+$/.test(x);
+    const numericY = /^\d+$/.test(y);
+    if (numericX && numericY) return Number(x) < Number(y) ? -1 : 1;
+    if (numericX !== numericY) return numericX ? -1 : 1;
+    return x < y ? -1 : 1;
   }
   return 0;
 }
