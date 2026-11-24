@@ -101,16 +101,21 @@ function compareVersions(a, b) {
 // "has a tag": the first 21 sections predate the public repository and have no
 // tag, and dropping those would throw away most of the history.
 function latestReleasedVersion() {
-  const out = execFileSync("git", ["-C", appRepo, "tag", "--sort=-v:refname"], {
+  const out = execFileSync("git", ["-C", appRepo, "tag", "--list"], {
     encoding: "utf8",
   });
-  const newest = out.split("\n").map((l) => l.trim()).filter(Boolean)[0];
+  const versions = out.split("\n")
+    .map((tag) => tag.trim().replace(/^v/, ""))
+    .filter((version) => /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(version));
+  // Git's version sort can put a beta ahead of the final release of the same version.
+  const newest = versions.reduce((latest, version) =>
+    latest === null || compareVersions(version, latest) > 0 ? version : latest, null);
   if (!newest) {
-    console.error(`✗ no tags in ${appRepo} — cannot tell which versions shipped.`);
+    console.error(`✗ no release version tags in ${appRepo} — cannot tell which versions shipped.`);
     console.error("  Run `git fetch --tags` there, then try again.");
     process.exit(1);
   }
-  return newest.replace(/^v/, "");
+  return newest;
 }
 
 const released = latestReleasedVersion();
